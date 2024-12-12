@@ -1,15 +1,13 @@
 id: nntp
 info:
-  name: INN nntpd
+  name: Diablo nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
     hostname: $1
-    product: inn
+    operating_system: Unix
     rarity: 0
-    vendor: isc
-    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -21,4 +19,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 ([-\w_.]+) InterNetNews (?:NNRP )?server INN ([\d.]+) .* ready\r\n
+    - '^502 ([-\w_.]+): Transfer permission denied to [\d.]+ - [-\w_.@]+ \(DIABLO ([-\w_.]+)\)\r\n'
