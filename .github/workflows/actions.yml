@@ -33,6 +33,11 @@ jobs:
         rm -rf nucleihub-linux-amd64-0.0.3.tgz
         mv nucleihub /usr/local/bin/nucleihub
 
+        wget -P nuclei https://github.com/projectdiscovery/nuclei/releases/download/v3.3.7/nuclei_3.3.7_linux_amd64.zip
+        unzip nuclei/nuclei_3.3.7_linux_amd64.zip -d nuclei
+        mv nuclei/nuclei /usr/local/bin/nuclei
+        rm -rf nuclei
+
     - name: Running nucleihub
       run: |
         # Step 1
