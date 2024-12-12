@@ -1,49 +1,59 @@
-id: wordpress-ad-inserter
+id: ad-inserter-6c2c67ba3626d8dc159dbf9853b31ff2
 
 info:
-  name: Ad Inserter – Ad Manager & AdSense Ads Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Ad Inserter <= 1.5.5 - Cross-Site Request Forgery to Cross-Site Scripting
+  author: topscoder
+  severity: medium
+  description: >
+    The Ad Inserter plugin for WordPress is vulnerable to Cross-Site Scripting via the 'ai-active-tab' parameter in versions up to, and including, 1.5.5 due to insufficient input sanitization and output escaping and missing nonce validation. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that execute in a victim's browser.
   reference:
-    - https://wordpress.org/plugins/ad-inserter/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/427c29e6-9bbe-4094-a2a2-46945525f5b3?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 4.8
+    cve-id: 
   metadata:
-    plugin_namespace: ad-inserter
-    wpscan: https://wpscan.com/plugin/ad-inserter
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/ad-inserter/"
+    google-query: inurl:"/wp-content/plugins/ad-inserter/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,ad-inserter,medium
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/ad-inserter/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/ad-inserter.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "ad-inserter"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100de3acf92adc6f22c6b3ad9053661bb6f7338c3cb05536f0c1a3036acab55b665022043f741383efb27b32c087dcc87aacf291802649c5a3e0f1d1cd7df1318e34e02:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 1.5.5')

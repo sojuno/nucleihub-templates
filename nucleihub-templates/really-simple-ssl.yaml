@@ -1,49 +1,59 @@
-id: wordpress-really-simple-ssl
+id: really-simple-ssl-c73bd8c9a627e75837f6286acdbfec47
 
 info:
-  name: Really Simple Security – Simple and Performant Security (formerly Really Simple SSL) Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Really Simple Security (Free, Pro, and Pro Multisite) 9.0.0 - 9.1.1.1 - Authentication Bypass
+  author: topscoder
+  severity: critical
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/really-simple-ssl/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7d5d05ad-1a7a-43d2-bbbf-597e975446be?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: really-simple-ssl
-    wpscan: https://wpscan.com/plugin/really-simple-ssl
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/really-simple-ssl/"
+    google-query: inurl:"/wp-content/plugins/really-simple-ssl/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,really-simple-ssl,critical
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/really-simple-ssl/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/really-simple-ssl.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "really-simple-ssl"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022044beb0d6d555c0a4404b9cf39ce655e805264f013b57e362b18502fa315d63c0022100df6111d3db802f8b6b3796dd4f77ac7d86e5260d896ff47817791f2c46b933f9:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '>= 9.0.0', '<= 9.1.1.1')

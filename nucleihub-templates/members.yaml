@@ -1,49 +1,59 @@
-id: wordpress-members
+id: members-a789065d31fabb3e984801d0a0765826
 
 info:
-  name: Members – Membership & User Role Editor Plugin Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Members <= 3.2.10 - Unauthenticated Content Restriction Bypass to Sensitive Information Exposure
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/members/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0f6ad375-da04-4b56-8077-e26c148e7527?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: members
-    wpscan: https://wpscan.com/plugin/members
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/members/"
+    google-query: inurl:"/wp-content/plugins/members/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,members,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/members/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/members.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "members"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a0046304402202c389a9ff0ab647119fda57e6437659caef7274ea777fd1d2ae289b82e8c50c702206e618a705870fa39b269b4c0f87bda672424f075a1e9af1b5639f15e3ab20987:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 3.2.10')

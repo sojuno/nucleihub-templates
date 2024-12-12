@@ -1,49 +1,59 @@
-id: wordpress-under-construction-page
+id: under-construction-page-10539fb27ef266dd333b503072d15a65
 
 info:
-  name: Under Construction Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Under Construction <= 3.85 - Authenticated Stored Cross-Site Scripting
+  author: topscoder
+  severity: low
+  description: >
+    The Under Construction plugin for WordPress is vulnerable to Cross-Site Scripting in versions up to, and including, 3.85, that make it possible for attackers with administrative privileges to inject arbitrary web scripts via the social and connect icon fields.
   reference:
-    - https://wordpress.org/plugins/under-construction-page/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d5df75f8-1250-4b79-a796-9146d3037bec?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 5.5
+    cve-id: 
   metadata:
-    plugin_namespace: under-construction-page
-    wpscan: https://wpscan.com/plugin/under-construction-page
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/under-construction-page/"
+    google-query: inurl:"/wp-content/plugins/under-construction-page/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,under-construction-page,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/under-construction-page/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/under-construction-page.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "under-construction-page"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a0046304402206a7aab06fd3a0962d98db64c8e219dd5c5faccc122ce83472614a668d37d36fb022013e1993f3171364ec73a5e5cc46dc2aaa2c87c626244d968da40e345f8b4e4d6:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 3.85')

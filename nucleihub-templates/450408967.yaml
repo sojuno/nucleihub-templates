@@ -1,12 +1,13 @@
 id: telnet
 info:
-  name: WhatRoute telnetd
+  name: Kyocera Mita KM-1530 printer telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    operating_system: Mac OS
+    device_type: printer
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +18,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - ^\xff\xfb\x03\xff\xfb\x01\r\nWelcome to the WhatRoute TELNET Server\.\r\n
+    - ^220 SB06D2F0 FTP server \(INTERFACE version ([\w._-]+)\) ready\.\n

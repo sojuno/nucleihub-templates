@@ -1,50 +1,59 @@
-id: wordpress-easy-fancybox
+id: easy-fancybox-f57a9bb09c6115f6da291aba1defee73
 
 info:
-  name: Easy FancyBox Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Multiple Plugins <= (Various Versions) - Authenticated (Contributor+) Stored DOM-Based Cross-Site Scripting via FancyBox JavaScript Library
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/easy-fancybox/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d99d4b9a-aa09-434d-91a8-7afaa0e8b5db?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    max-request: 1
-    plugin_namespace: easy-fancybox
-    wpscan: https://wpscan.com/plugin/easy-fancybox
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/easy-fancybox/"
+    google-query: inurl:"/wp-content/plugins/easy-fancybox/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,easy-fancybox,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/easy-fancybox/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/easy-fancybox.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "easy-fancybox"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a0047304502202173e542c2a8571d03d9baefb4f5679a0b68c5d7881f8ec5e8253ee6d041f7df022100878b3c1d335814f9183863b6e1b4c70c4b6fdd4a43a5f4bbd76b8af21dda0871:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 2.3.3')

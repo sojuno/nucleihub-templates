@@ -1,12 +1,11 @@
 id: pop3-proxy
 info:
-  name: JanaServer pop3 proxy
+  name: ISafe pop3 proxy
   author: nmap,cn-kali-team
   tags: detect,tech,pop3-proxy,service
   severity: info
   metadata:
     hostname: $1
-    operating_system: Windows
     rarity: 0
 tcp:
 - name: 'null'
@@ -18,4 +17,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^\+OK Jana-Server POP3 ready <[\w.]+@([-\w_.]+)>\r\n
+    - ^\+OK <[\d.]+@([-\w_.]+)> \[ISafe POP3 Proxy\] \r\n

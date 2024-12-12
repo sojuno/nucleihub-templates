@@ -1,13 +1,13 @@
 id: rtsp
 info:
-  name: Apple AirTunes rtspd
+  name: Helix DNA Server
   author: nmap,cn-kali-team
   tags: detect,tech,rtsp,service
   severity: info
   metadata:
     fallback:
     - get-request
-    info: bandwidth maxed out
+    operating_system: Windows
     rarity: 5
     version: $1
 tcp:
@@ -21,4 +21,4 @@ tcp:
   - name: rtsp
     type: regex
     regex:
-    - '^RTSP/1\.0 453 Not Enough Bandwidth\r\nServer: AirTunes/([\w._-]+)\r\n\r\n'
+    - '(?i)^RTSP/1\.0 200 OK\r\n(?:[^\r\n]+\r\n)*?Server: Helix [\w ]*Server Version ([\d.]+) \(win32\)\r\n'

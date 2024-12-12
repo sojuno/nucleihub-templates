@@ -1,11 +1,13 @@
 id: pop3
 info:
-  name: Solid pop3d
+  name: MailMax PopMax pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
+    operating_system: Windows
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -16,4 +18,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK Solid POP3 server ready\r\n
+    - ^\+OK [-\w_.]+ PopMax version ([\d. ]+) POP3 Mail Server Ready, Willing, and Waiting\r\n

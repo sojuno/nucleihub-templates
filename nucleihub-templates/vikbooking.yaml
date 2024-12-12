@@ -1,14 +1,15 @@
-id: vikbooking
+id: vikbooking-dad61029b2e4a3dbd5090c75f2489ff8
 
 info:
   name: >
-    VikBooking Hotel Booking Engine & PMS <= 1.5.12 - Cross-Site Request Forgery in admin_widgets_welcome function
+    VikBooking Hotel Booking Engine & PMS <= 1.6.1 - Cross-Site Request Forgery in multiple functions in admin/controller.php
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/035d5f4a-1145-48e0-8388-e319088ebd52?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2b670550-cf04-4db1-95e7-0330b5793c58?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.12')
+          - compare_versions(version, '<= 1.6.1')

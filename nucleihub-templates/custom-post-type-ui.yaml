@@ -1,49 +1,59 @@
-id: wordpress-custom-post-type-ui
+id: custom-post-type-ui-100bcd03647b833565250d202db82593
 
 info:
-  name: Custom Post Type UI Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Custom Post Type UI <= 1.7.3 - Cross-Site Request Forgery to Stored Cross-Site Scripting
+  author: topscoder
+  severity: high
+  description: >
+    The Custom Post Type UI plugin for WordPress is vulnerable to Cross-Site Request forgery in versions up to, and including 1.7.3, due missing nonce validation on the import functionality that makes it possible for attackers to trick site administrators into performing unwanted actions such as importing new post types containing malicious web scripts.
   reference:
-    - https://wordpress.org/plugins/custom-post-type-ui/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/08115f30-f38b-4c13-803e-5de873f83a17?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
+    cvss-score: 8.8
+    cve-id: 
   metadata:
-    plugin_namespace: custom-post-type-ui
-    wpscan: https://wpscan.com/plugin/custom-post-type-ui
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/custom-post-type-ui/"
+    google-query: inurl:"/wp-content/plugins/custom-post-type-ui/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,custom-post-type-ui,high
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/custom-post-type-ui/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/custom-post-type-ui.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "custom-post-type-ui"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a004730450220596d082a57d1ffc16d58cd18c26e1c40029ce315fc001e202dfa2fe302bdf2a0022100e8b25fe17fe95f87ca69d81786782cf56c4256e71cdba5338496a822773591a5:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '< 1.7.4')

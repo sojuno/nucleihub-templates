@@ -1,49 +1,59 @@
-id: wordpress-jetpack
+id: jetpack-591940a6fa897c980e9ad0e6c43f4c11
 
 info:
-  name: Jetpack – WP Security, Backup, Speed, & Growth Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Jetpack < 13.9.1 - Missing Authorization to Authenticated (Subscriber+) Sensitive Information Disclosure
+  author: topscoder
+  severity: low
+  description: >
+    The Jetpack – WP Security, Backup, Speed, & Growth plugin for WordPress is vulnerable to unauthorized access of data due to missing capability checks in the Contact_Form_Endpoint class in various versions version up to, but not including, 13.9.1. This makes it possible for authenticated attackers, with subscriber-level access and above, to read all Jetpack form submissions on the site.
   reference:
-    - https://wordpress.org/plugins/jetpack/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/411ca76a-6cab-4829-8e8b-5c54697cf8ee?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
+    cvss-score: 4.3
+    cve-id: 
   metadata:
-    plugin_namespace: jetpack
-    wpscan: https://wpscan.com/plugin/jetpack
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/jetpack/"
+    google-query: inurl:"/wp-content/plugins/jetpack/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,jetpack,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/jetpack/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/jetpack.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "jetpack"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a0047304502210089e6ebced9ac86789db9ad7210d6f76777cff6829aee5a216e55923bb5366c3302206df11900235ab4a9a222afb13a02136e21b54f3b3c16fb091f3dbbc9c13b6792:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '>= 9.9', '<= 9.9.2')

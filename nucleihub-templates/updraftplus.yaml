@@ -1,49 +1,59 @@
-id: wordpress-updraftplus
+id: updraftplus-cde49803053b2da4e3ce6442d641823f
 
 info:
-  name: UpdraftPlus' WP Backup & Migration Plugin Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    UpdraftPlus < 1.16.59 - Authenticated (Admin+) Local File Inclusion
+  author: topscoder
+  severity: low
+  description: >
+    The UpdraftPlus plugin for WordPress is vulnerable to Local File Inclusion in versions up to, and including, 1.16.56 via the updraft_service settings. This makes it possible for authenticated attackers, with administrator-level permissions and above, to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.
   reference:
-    - https://wordpress.org/plugins/updraftplus/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/40d80e47-3411-4e70-8a20-2e698daad6e7?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+    cvss-score: 7.2
+    cve-id: 
   metadata:
-    plugin_namespace: updraftplus
-    wpscan: https://wpscan.com/plugin/updraftplus
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/updraftplus/"
+    google-query: inurl:"/wp-content/plugins/updraftplus/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,updraftplus,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/updraftplus/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/updraftplus.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "updraftplus"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4b0a0048304602210083a21bd895aff9b8008ac1f870a446855fcdccf995722211e56a49f2f76904a202210094e5affe68caf128aedb6934daeaa7f6fc2976ea8d37b0cdea069c864a9ff2ab:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 1.16.56')

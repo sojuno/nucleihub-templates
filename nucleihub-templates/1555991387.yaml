@@ -1,10 +1,11 @@
 id: nntp
 info:
-  name: Freenet Message System nntpd
+  name: Lyris ListManager nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
+    hostname: $1
     rarity: 0
 tcp:
 - name: 'null'
@@ -16,4 +17,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 Service available, posting allowed\r\n
+    - ^200 ([-\w.]+) Lyris ListManager NNTP Service ready \(posting ok\)\.\r\n

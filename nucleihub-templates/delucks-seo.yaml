@@ -1,4 +1,4 @@
-id: delucks-seo
+id: delucks-seo-343e19f490be406aaa1cba37f8e94e4d
 
 info:
   name: >
@@ -8,6 +8,7 @@ info:
   description: >
     
   reference:
+    - https://github.com/topscoder/nuclei-wordfence-cve
     - https://www.wordfence.com/threat-intel/vulnerabilities/id/aaa2f738-4764-467c-9544-889ca8ba73d1?source=api-scan
   classification:
     cvss-metrics: 

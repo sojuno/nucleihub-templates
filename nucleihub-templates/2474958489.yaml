@@ -1,13 +1,17 @@
 id: telnet
 info:
-  name: MultiTech MultiVoIP telnetd
+  name: Cisco 2621 router telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: VoIP adapter
+    device_type: router
+    info: 'Banner: $1'
+    operating_system: IOS
+    product: telnet
     rarity: 0
-    version: $1
+    vendor: cisco
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +22,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - (?i)^\xff\xfb\x03\xff\xfb\x01\n\r\n\r +Copyright \(C\) \d+ MultiTech Software Systems Inc\.,\n\r.*MultiVoIP Version ([\d.]+)\n\r
+    - '^\xff\xfb\x01\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f\r\n\r\nWelcome on (.*)\r\n\r\n\r\nUsername: '

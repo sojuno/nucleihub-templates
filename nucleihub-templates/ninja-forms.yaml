@@ -1,49 +1,61 @@
-id: wordpress-ninja-forms
+id: ninja-forms-abc8b534e8c0ad9e5bb0c6ca53c0dd7e
 
 info:
-  name: Ninja Forms – The Contact Form Builder That Grows With You Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Ninja Forms Contact Form – The Drag and Drop Form Builder for WordPress <= 3.6.9 - Cross-Site Request Forgery to Field Import and PHP Object Injection
+  author: topscoder
+  severity: medium
+  description: >
+    The Ninja Forms Contact Form – The Drag and Drop Form Builder for WordPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including 3.6.9, due to missing nonce validation on the import_fields_listener() function that makes it possible for unauthenticated attackers to import new form fields granted that can trick an attacker into performing an action such as clicking on a link.
+    
+    This CSRF vulnerability can also be exploited to achieve PHP Object Injection due to the use of unserialize() on the user supplied file contents.
   reference:
-    - https://wordpress.org/plugins/ninja-forms/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/488970f0-3120-4f4a-9915-2ae1708bd86a?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
+    cvss-score: 8.8
+    cve-id: 
   metadata:
-    plugin_namespace: ninja-forms
-    wpscan: https://wpscan.com/plugin/ninja-forms
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/ninja-forms/"
+    google-query: inurl:"/wp-content/plugins/ninja-forms/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,ninja-forms,medium
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/ninja-forms/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/ninja-forms.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "ninja-forms"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4b0a00483046022100a9ba8bae2eb2ed1330352e8e6f427cfadd7560663445b5bab7acfc06e47f335702210093fadb21c2eca1aa8c594f7f2d928433202747c7564378fe8824cf6922ad35a3:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 3.6.9')

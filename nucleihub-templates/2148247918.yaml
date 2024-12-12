@@ -1,11 +1,11 @@
 id: http
 info:
-  name: Cisco Wireless LAN Controller httpd
+  name: Mitel SIP DEC VoIP phone http config
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: remote management
+    device_type: VoIP phone
     fallback:
     - get-request
     rarity: 5
@@ -20,4 +20,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 400 Bad Request\r\nDate: .*\r\nContent-Length: 0\r\n\r\n400 Bad Request\r\n'
+    - '^HTTP/1\.1 505 HTTP Version Not Supported\r\nContent-Type: text/html\r\nContent-Length: 166\r\n\r\n<html><head><title>505 HTTP Version Not Supported</title></head><body><h1>HTTP Version Not Supported</h1><p>HTTP versions 1\.0 and 1\.1 are supported\.</p></body></html>'

@@ -1,49 +1,59 @@
-id: wordpress-woocommerce
+id: woocommerce-0aee4d89ea2aaff43e33dc92a822f1bf
 
 info:
-  name: WooCommerce Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    WooCommerce < 8.4.0 - Reflected Cross-Site Scripting
+  author: topscoder
+  severity: medium
+  description: >
+    The WooCommerce plugin for WordPress is vulnerable to Reflected Cross-Site Scripting in all versions before 8.4.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. IMPORTANT: There was a miscommunication and error in this vulnerability record where we initially reported version 8.5.0 as patched, while 8.4.0 was still vulnerable. This issue was patched in version 8.4.0 and only affects versions up to 8.3.0. Please rest assured knowing you can update the plugin to version 8.4.0 and this issue will be patched.
   reference:
-    - https://wordpress.org/plugins/woocommerce/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/43810a17-89b4-44f5-887e-1ad0989ea5b4?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 6.1
+    cve-id: 
   metadata:
-    plugin_namespace: woocommerce
-    wpscan: https://wpscan.com/plugin/woocommerce
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/woocommerce/"
+    google-query: inurl:"/wp-content/plugins/woocommerce/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,woocommerce,medium
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/woocommerce/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/woocommerce.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "woocommerce"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a0046304402204b44e03247890de49f1f7eb87c77c8ea24396c38ffb5da6843821e17dd1a3ee002200b2444457e9eef2000fa0e2136072566cde2ee19518d9fe0e731a17bde2629a4:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '< 8.4.0')

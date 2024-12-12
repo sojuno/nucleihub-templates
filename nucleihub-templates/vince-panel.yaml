@@ -1,0 +1,28 @@
+id: vince-panel
+
+info:
+  name: Vince Login Panel - Detect
+  author: righettod
+  severity: info
+  description: |
+    Vince products was detected.
+  reference:
+    - https://github.com/vinceanalytics/vince
+    - https://www.vinceanalytics.com/
+  metadata:
+    max-request: 1
+    verified: true
+  tags: panel,vince,login
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/login"
+
+    matchers:
+      - type: dsl
+        dsl:
+          - 'status_code == 200'
+          - 'contains_any(to_lower(body), "vince - high performance", "vince · open source web", "Welcome to Vince")'
+        condition: and
+# digest: 4b0a0048304602210084382a08e794152617211668012684419f297464a67d05c51bcda32c813a95a00221008466564cdd05c5617ca6edd057c86eaf8a0d02ed28cf2c409782e8595a88aa40:922c64590222798bb761d5b6d8e72950
