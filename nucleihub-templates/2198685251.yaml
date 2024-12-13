@@ -1,6 +1,6 @@
 id: rtsp
 info:
-  name: Darwin Streaming Server
+  name: RealMedia EncoderServer
   author: nmap,cn-kali-team
   tags: detect,tech,rtsp,service
   severity: info
@@ -21,4 +21,4 @@ tcp:
   - name: rtsp
     type: regex
     regex:
-    - '^RTSP/1\.0 \d\d\d .*\r\nServer: DSS/([\d.]+) \(Build/[\d.]+; Platform/Win32'
+    - '(?i)^RTSP/1\.0 200 OK\r\n(?:[^\r\n]+\r\n)*?Server: RealMedia EncoderServer Version (\d[-.\w]+) \(win32\)\r\n'

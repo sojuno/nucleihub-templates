@@ -1,14 +1,15 @@
 id: pop3
 info:
-  name: SCO pop3d
+  name: Zimbra pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
     hostname: $1
-    operating_system: SCO UNIX
+    product: zimbra_collaboration_suite
     rarity: 0
-    version: $2
+    vendor: zimbra
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +20,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK ([-\w_.]+) POP3 ([-\w_.()]+) w/IMAP client at
+    - ^\+OK ([\w._-]+) (?:POP3 Service )?Zimbra POP3 server ready\r\n

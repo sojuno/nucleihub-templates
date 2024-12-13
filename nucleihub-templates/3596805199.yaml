@@ -1,21 +1,23 @@
 id: smtp
 info:
-  name: Messaging Architects M+ Extreme Email Engine smtpd
+  name: Sendmail
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    hostname: $1
-    rarity: 0
-    version: $2
+    product: sendmail
+    rarity: 8
+    vendor: sendmail
+    verified: true
 tcp:
-- name: 'null'
+- name: hello
   inputs:
-  - data: ''
+  - data: EHLO\r\n
   host:
   - '{{Hostname}}'
+  port: 25,587,3025
   extractors:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([\w._-]+) M\+ Extreme Email Engine ESMTP ready ([\w._-]+)\r\n
+    - ^220  ESMTP\r\n501 5\.0\.0 EHLO requires domain address\r\n
