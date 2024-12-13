@@ -29,8 +29,6 @@ http:
         GET /admin/index.php?page=home HTTP/1.1
         Host: {{Hostname}}
 
-    cookie-reuse: true
-
     matchers-condition: and
     matchers:
       - type: word
@@ -49,5 +47,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a00473045022100edaf92edaa54da048585bc0ba8c28379737ecfd51737d6c822b583062d52f67402206bfc32f0251696197494774368b535e8862f832b4df516669ef20b5d912cb413:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204f60c60fee714d5be0096d65af152cab016b367ad488dff777d16a8e4a5a8552022100b541c03622534bd25bddfdad08e2a701475f826ab20ce07bc624f5ca4e537d72:922c64590222798bb761d5b6d8e72950
