@@ -1,12 +1,16 @@
 id: ftp
 info:
-  name: Personal FTPd Professional
+  name: vsftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    operating_system: Windows
+    operating_system: Unix
+    product: vsftpd
     rarity: 0
+    vendor: vsftpd
+    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +21,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 Personal FTP Professional Server ready\r\n
+    - ^220 \(vsFTPd ([-.\w]+)\)\r\n$

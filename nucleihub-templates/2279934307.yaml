@@ -1,18 +1,15 @@
 id: sip
 info:
-  name: Asterisk
+  name: SpeedTouch $1 SIP
   author: nmap,cn-kali-team
   tags: detect,tech,sip,service
   severity: info
   metadata:
-    device_type: PBX
+    device_type: broadband router
     fallback:
     - get-request
-    product: asterisk
+    info: serial $2
     rarity: 5
-    vendor: digium
-    verified: true
-    version: $1
 tcp:
 - name: sipoptions
   inputs:
@@ -24,4 +21,4 @@ tcp:
   - name: sip
     type: regex
     regex:
-    - '(?i)^SIP/2\.0 404 Not Found\r\n(?:[^\r\n]+\r\n)*?Server: Asterisk PBX ([\w._~+-]+)\r\n(?:[^\r\n]+\r\n)*?Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, INFO\r\n'
+    - '(?i)^SIP/2\.0 500 Server Internal Error\r\n(?:[^\r\n]+\r\n)*?User-Agent: SpeedTouch (\w+)\r\nX-Serialnumber: (\w+)\r\n'

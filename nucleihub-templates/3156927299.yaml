@@ -1,12 +1,18 @@
 id: pop3
 info:
-  name: WinRoute Pro pop3
+  name: Cyrus pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
+    hostname: $1
+    info: Mac OS X $3
+    operating_system: Mac OS X
+    product: cyrus_imap_server
     rarity: 0
-    version: $1
+    vendor: cmu
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +23,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK WinRoute Pro ([\d.]+) POP3 server ready <[-\w_.]+@unspecified.host>\r\n
+    - ^\+OK ([-.\w]+) Cyrus POP3 v(\d[-.\w]+)-OS X ([\d.]+) server ready <

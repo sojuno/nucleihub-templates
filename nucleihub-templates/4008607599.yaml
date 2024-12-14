@@ -1,13 +1,13 @@
 id: rtsp
 info:
-  name: iCanSystem rtspd
+  name: Darwin Streaming Server
   author: nmap,cn-kali-team
   tags: detect,tech,rtsp,service
   severity: info
   metadata:
-    device_type: webcam
     fallback:
     - get-request
+    operating_system: Solaris
     rarity: 5
     version: $1
 tcp:
@@ -21,4 +21,4 @@ tcp:
   - name: rtsp
     type: regex
     regex:
-    - '^RTSP/1\.0 200 OK\r\nServer: iCanSystem/([\w._-]+)\r\nCseq: \r\nPublic: DESCRIBE, SETUP, PLAY, PAUSE, TEARDOWN, OPTIONS\r\n\r\n$'
+    - '^RTSP/1\.0 \d\d\d .*\r\nServer: DSS/([\d.]+) \(Build/[\d.]+; Platform/Solaris'
