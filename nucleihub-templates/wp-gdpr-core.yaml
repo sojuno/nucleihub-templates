@@ -1,19 +1,17 @@
-id: wp-gdpr-core-788efcc3c5df62fd19904acc5db22c35
+id: wp-gdpr-core-79d82c4c9769a0c6154c9dfb0438a102
 
 info:
-  name: >
-    WP GDPR <= 2.1.1 - Unauthenticated Stored Cross-Site Scripting
+  name: "WP GDPR <= 2.1.1 - Missing Authorization Checks"
   author: topscoder
   severity: high
-  description: >
-    
+  description: "The WP GDPR plugin for WordPress is vulnerable to authorization bypass due to a missing capability check in versions up to, and including, 2.1.1. This makes it possible for unauthenticated attackers to delete any comment and modify the plugin’s settings."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ee3fdeb2-9e2a-4fe7-aa74-aaf60a74c060?source=api-scan
+    - https://blog.nintechnet.com/unauthenticated-stored-xss-and-content-spoofing-vulnerabilities-in-wordpress-wp-gdpr-plugin-unpatched/
+    - https://www.acunetix.com/vulnerabilities/web/wordpress-plugin-wp-gdpr-multiple-vulnerabilities-2-1-1/
   classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L
+    cvss-score: 7.3
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/wp-gdpr-core/"
     google-query: inurl:"/wp-content/plugins/wp-gdpr-core/"

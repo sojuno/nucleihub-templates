@@ -5,11 +5,12 @@ info:
   tags: detect,tech,vnc,service
   severity: info
   metadata:
-    info: protocol 4.1
+    info: protocol 5.0
     product: realvnc
     rarity: 0
     vendor: realvnc
     verified: true
+    version: 5.3 or later
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +21,4 @@ tcp:
   - name: vnc
     type: regex
     regex:
-    - ^RFB 004\.001\n
+    - ^RFB 005\.000\n
