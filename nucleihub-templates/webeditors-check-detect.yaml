@@ -11,9 +11,8 @@ info:
     cpe: cpe:2.3:a:ckeditor:ckeditor:*:*:*:*:drupal:*:*:*
   metadata:
     max-request: 17
-    vendor: ckeditor
     product: ckeditor
-    shodan-query: cpe:"cpe:2.3:a:ckeditor:ckeditor"
+    vendor: ckeditor
   tags: panel,webeditors,ckeditor
 
 http:
@@ -53,4 +52,4 @@ http:
           - "Replace Textareas by Class Name"
           - "CKEditor - The text editor for the Internet"
         condition: or
-# digest: 490a0046304402207dad0af4b83a33ddeddf396fd11a5200cea7f58c3130fc2664f5538657c1fbaf02200ff640f9b411a8cb4c049e44779007fccde327aa905af3ac0883d80ca39293d4:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ba9478ab64d99c8a3de1a3665564623da813f15f01453cbd505867fac70ebc6e022100c77eefeee3aadf4f19442018f722fe04dcd7e763371b3bfad9da05268c01e255:922c64590222798bb761d5b6d8e72950

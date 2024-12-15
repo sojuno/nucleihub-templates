@@ -1,18 +1,14 @@
 id: pop3
 info:
-  name: Cyrus pop3d
+  name: Dovecot pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
-    info: Mac OS X $3
-    operating_system: Mac OS X
-    product: cyrus_imap_server
+    product: dovecot
     rarity: 0
-    vendor: cmu
+    vendor: dovecot
     verified: true
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -23,4 +19,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK ([-.\w]+) Cyrus POP3 v(\d[-.\w]+)-OS X ([\d.]+) server ready <
+    - ^\+OK Dovecot ready -

@@ -1,12 +1,15 @@
 id: telnet
 info:
-  name: Enterasys RoamAbout WAP router telnetd
+  name: BusyBox telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: router
+    hostname: $1
+    product: busybox
     rarity: 0
+    vendor: busybox
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +20,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - (?i)^\xff\xfb\x01\x1b\[m\x1b\[m\x1b\[m\x1b\[m\x1b\[m\x1b\[16;35H\x1b\[1;1H\x1b\[2J\x1b\[16;35H\x1b\[1;1HLogin Screen\x1b\[8;5HCopyright \(c\) \d+-\d+ Enterasys Networks, Inc\.  All rights reserved\x1b.*RoamAbout R2\x1b
+    - '^\xff\xfd\x01\xff\xfd\x1f\xff\xfd!\xff\xfb\x01\xff\xfb\x03([\w._-]+) login: '

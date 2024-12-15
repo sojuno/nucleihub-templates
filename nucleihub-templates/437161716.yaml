@@ -1,14 +1,13 @@
 id: ftp-proxy
 info:
-  name: WinProxy FTP proxy
+  name: McAfee Web Gateway ftp proxy
   author: nmap,cn-kali-team
   tags: detect,tech,ftp-proxy,service
   severity: info
   metadata:
-    operating_system: Windows
-    product: winproxy
+    product: web_gateway
     rarity: 0
-    vendor: bluecoat
+    vendor: mcafee
     verified: true
     version: $1
 tcp:
@@ -21,4 +20,4 @@ tcp:
   - name: ftp-proxy
     type: regex
     regex:
-    - ^220 WinProxy \(Version ([^)]+)\) ready\.\r\n
+    - ^220 McAfee Web Gateway ([\d.]+ (?:- )?build:? \d+)\r\n

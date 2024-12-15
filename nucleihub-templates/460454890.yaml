@@ -1,13 +1,15 @@
 id: pop3-proxy
 info:
-  name: Avast! anti-virus pop3 proxy
+  name: WinProxy pop3 proxy
   author: nmap,cn-kali-team
   tags: detect,tech,pop3-proxy,service
   severity: info
   metadata:
-    info: cannot connect to $1
     operating_system: Windows
+    product: winproxy
     rarity: 0
+    vendor: bluecoat
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +20,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^-ERR Cannot connect to POP server ([\w._-]+) \([^)]*\), connect error \d+\r\n
+    - ^\+OK WinProxy POP3 Proxy Ready\r\n
