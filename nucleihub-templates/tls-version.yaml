@@ -9,7 +9,7 @@ info:
     It is important to detect the TLS version in order to ensure secure communication between two computers or servers.
   metadata:
     max-request: 4
-  tags: ssl
+  tags: ssl,tls
 ssl:
   - address: "{{Host}}:{{Port}}"
     min_version: tls10
@@ -46,5 +46,4 @@ ssl:
       - type: json
         json:
           - ".tls_version"
-
-# digest: 490a0046304402202fd22a3f84b4e85d21b1fad6373748746b6212d507627d2337cef801d93ef4d8022028d32e5ae9e99e18bbec9c4a453fc297d1dd98e5423c89d87281ef439c1ba042:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100832f74231f759dfc5c232ad97ed22263539daff6505eded1fdd6fe85effd2a1b0220569d21004cae9bd84048d156235246d78f83cea76019d3168ac483f765b37cc0:922c64590222798bb761d5b6d8e72950

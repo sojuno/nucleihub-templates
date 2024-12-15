@@ -10,11 +10,15 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:zohocorp:manageengine_network_configuration_manager:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
-    product: manageengine_network_configuration_manager
-    shodan-query: http.title:"Network Configuration Manager"
-    vendor: zohocorp
     verified: true
+    max-request: 1
+    vendor: zohocorp
+    product: manageengine_network_configuration_manager
+    shodan-query:
+      - http.title:"Network Configuration Manager"
+      - http.title:"network configuration manager"
+    fofa-query: title="network configuration manager"
+    google-query: intitle:"network configuration manager"
   tags: panel,zoho,manageengine,zohocorp
 
 http:
@@ -34,4 +38,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502200712515e205640a10e0e8a3fb6f5600f5627d1a3cd18e2ae2f052b6c7e56cd9c022100f58dddc1bc9b9952e458dc506f267f0a9f165be7f2a2b392202085077122c868:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201dfca663299c3785046c326c0e994e7213448508fad377db5d7f4c9229a398e202203905c50edd4e986829398e6eaad7edc5bc9599585282afb84bb51694b7641485:922c64590222798bb761d5b6d8e72950

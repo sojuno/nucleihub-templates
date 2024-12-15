@@ -7,11 +7,15 @@ info:
   classification:
     cpe: cpe:2.3:a:fusionauth:fusionauth:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 2
-    product: fusionauth
-    shodan-query: title:"FusionAuth"
-    vendor: fusionauth
     verified: true
+    max-request: 2
+    vendor: fusionauth
+    product: fusionauth
+    shodan-query:
+      - title:"FusionAuth"
+      - http.title:"fusionauth"
+    fofa-query: title="fusionauth"
+    google-query: intitle:"fusionauth"
   tags: panel,fusionauth,detect,login
 
 http:
@@ -43,4 +47,4 @@ http:
         group: 1
         regex:
           - 'FusionAuth\.Version = "([0-9.]+)";'
-# digest: 490a0046304402201b652b5b5d98f5ed5405ac9e2288d0993b87da9475730237e8a1793a994f648a02200c2f7e1a73e6d60533817429ed03bdad16e698f993d44669f4ad57da42c7d11e:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220733595e3fac184f8d7aaea76cd23e985932af6c5971da8ee6f324a83e6f7bff2022035fd70f96b2d281d74debfcbfff0704d3560a628b39dc5478a5af31f8f4fe753:922c64590222798bb761d5b6d8e72950
