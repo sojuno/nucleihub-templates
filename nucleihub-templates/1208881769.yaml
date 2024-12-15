@@ -1,13 +1,18 @@
 id: pop3
 info:
-  name: eXtremail pop3d
+  name: Cyrus pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $3
+    hostname: $1
+    info: OS X Server $3
+    operating_system: Mac OS X
+    product: cyrus_imap_server
     rarity: 0
-    version: $1 rel$2
+    vendor: cmu
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +23,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK eXtremail V(\d[-.\w]+) release (\d+) POP3 server ready <[\d.]+@([-\w_.]+)>\r\n
+    - ^\+OK ([\w._-]+) Cyrus POP3 v([\w._-]+)-OS X Server ([\w._-]+):\t9L1 server ready <[\d.]+@[\w._-]+>\r\n$
