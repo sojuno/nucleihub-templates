@@ -5,7 +5,6 @@ info:
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    operating_system: Unix
     product: proftpd
     rarity: 0
     vendor: proftpd
@@ -20,4 +19,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 ProFTP Ready\r\n
+    - '^ - error: no valid servers configured\n - Fatal: error processing configuration file ''/etc/proftpd/proftpd\.conf''\n$'

@@ -1,15 +1,14 @@
-id: filester-7ed5af5d850e2fce85818f9085ee2f60
+id: filester
 
 info:
   name: >
-    File Manager Pro – Filester <= 1.8.5 - Authenticated (Administrator+) Local JavaScript File Inclusion
+    File Manager Pro – Filester <=  1.8 - Authenticated (Admin+) Arbitrary File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7d947023-60d3-4bd8-b45d-e1663326d6c1?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/99b2e3c3-b5e5-4648-81c8-da2f42ceec66?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.8.5')
+          - compare_versions(version, '<= 1.8')

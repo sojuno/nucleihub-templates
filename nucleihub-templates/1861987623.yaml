@@ -1,15 +1,12 @@
 id: imap
 info:
-  name: Microsoft Exchange imapd
+  name: Worldmail imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
     operating_system: Windows
-    product: exchange_server
     rarity: 0
-    vendor: microsoft
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -21,4 +18,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - '^\* OK Microsoft Exchange IMAP4rev1 server version ([-.\w]+) '
+    - ^\* OK IMAP4 server ready \(Worldmail ([\d.]+)\)\r\n
