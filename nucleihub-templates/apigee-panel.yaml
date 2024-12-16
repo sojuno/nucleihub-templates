@@ -9,9 +9,9 @@ info:
   reference:
     - https://cloud.google.com/apigee?hl=en
   metadata:
-    verified: true
     max-request: 1
     shodan-query: http.favicon.hash:"-839356603"
+    verified: true
   tags: panel,apigee,login
 
 http:
@@ -32,4 +32,4 @@ http:
         group: 1
         regex:
           - 'Version:?\s+([0-9.]+)'
-# digest: 4b0a00483046022100f9a7d6b976c5d8c1c06f6ca707af22d0edca2add9c7cb5de1ac0a6cedc8a7bb40221009c42cf655612e4b5676b1865f222486244a2e8cb784460e4d712d2308bd302f1:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022024de85a2064b59024b17d948274dc76df5c6bd4686e677536a0d2fecf1a4caeb022100de0d18e50fc7b9dd92022639756256b0c98e3a3db454035d1565be64993edccd:922c64590222798bb761d5b6d8e72950

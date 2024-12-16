@@ -1,13 +1,13 @@
 id: pop3
 info:
-  name: cppop pop3d
+  name: Winmail pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
     hostname: $1
+    operating_system: Windows
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +18,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 ([-\w_.]+) \[cppop (\d[^]]+)\] at \[
+    - ^\+OK ([\w._-]+) Winmail Mail Server POP3 ready\r\n
