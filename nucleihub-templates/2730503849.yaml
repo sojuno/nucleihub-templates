@@ -1,13 +1,14 @@
 id: tftp
 info:
-  name: Cisco tftpd
+  name: TFTP Server SP
   author: nmap,cn-kali-team
   tags: detect,tech,tftp,service
   severity: info
   metadata:
-    product: tftp_server
+    operating_system: Windows
+    product: tftp_server_sp
     rarity: 5
-    vendor: cisco
+    vendor: tftp
     verified: true
 tcp:
 - name: dnsstatus-request
@@ -20,4 +21,4 @@ tcp:
   - name: tftp
     type: regex
     regex:
-    - ^\0\x05\0\0Invalid TFTP Opcode
+    - ^\0\x05\0\x05Unknown transfer ID\0

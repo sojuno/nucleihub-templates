@@ -1,12 +1,14 @@
 id: irc
 info:
-  name: IRCnet ircd
+  name: Hybrid ircd
   author: nmap,cn-kali-team
   tags: detect,tech,irc,service
   severity: info
   metadata:
-    hostname: $1
+    product: ircd-hybrid
     rarity: 0
+    vendor: ircd-hybrid
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +19,4 @@ tcp:
   - name: irc
     type: regex
     regex:
-    - ^:([\w._-]+) 020 \* :Please wait while we process your connection\.\r\n
+    - ^ERROR :Trying to reconnect too fast\.\r\n
