@@ -1,19 +1,19 @@
 id: sip
 info:
-  name: M5T SIP Client Engine
+  name: RingCentral Softphone
   author: nmap,cn-kali-team
   tags: detect,tech,sip,service
   severity: info
   metadata:
-    device_type: VoIP adapter
     fallback:
     - get-request
-    info: Patton $1
-    product: m5t_sip_client_engine
+    info: 'arch: $3-bit; OS Version $4'
+    operating_system: $2
+    product: softphone
     rarity: 5
-    vendor: media5corp
+    vendor: ringcentral
     verified: true
-    version: $2
+    version: $1
 tcp:
 - name: sipoptions
   inputs:
@@ -25,4 +25,4 @@ tcp:
   - name: sip
     type: regex
     regex:
-    - '(?i)^SIP/2\.0 200 OK\r\nAccept: application/sdp, application/dtmf-relay, application/QSIG, application/broadsoft\r\n(?:[^\r\n]+\r\n)*?Server: Patton (\w+) [^\r\n]+ M5T SIP Stack/([\w._-]+)\r\n'
+    - '(?i)^SIP/2\.0 200 OK\r\n(?:[^\r\n]+\r\n)*?User-Agent: Softphone/([\d.]+) \(RingCentral(?: \(\d+\))?; (Windows \w+) \((\d\d) bits\)/([\d.]+); revision: \d+\)\r\n'

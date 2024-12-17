@@ -1,16 +1,11 @@
 id: http
 info:
-  name: Embedthis-Appweb
+  name: Remote Potato media player
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: printer
-    info: Sharp Open System Architecture
-    product: appweb
     rarity: 0
-    vendor: mbedthis
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -22,4 +17,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.0 503 Service Unavailable\r\nDate: .* GMT\r\nServer: Embedthis-Appweb/([\w._-]+)\r\n'
+    - '^HTTP/1\.1 405 Method Not Allowed\r\nServer: remote-potato-v([\w._-]+)\r\n'
