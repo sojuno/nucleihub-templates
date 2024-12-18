@@ -1,15 +1,16 @@
 id: pop3
 info:
-  name: CommuniGate Pro pop3d
+  name: Microsoft Exchange pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
-    product: communigate_pro
+    info: Dutch
+    product: exchange_server
     rarity: 0
-    vendor: stalker
+    vendor: microsoft
     verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +21,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 Server OK <[\d.]+@([-\w_.]+)>\r\n
+    - ^\+OK Microsoft Exchange POP3-server versie ([\d.]+) is gereed\.\r\n
