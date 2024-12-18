@@ -9,9 +9,9 @@ info:
   reference:
     - https://www.sonatype.com/products/sonatype-nexus-repository
   metadata:
+    verified: true
     max-request: 1
     shodan-query: http.title:"Sonatype Nexus Repository"
-    verified: true
   tags: panel,nexus,login,detect
 
 http:
@@ -32,4 +32,4 @@ http:
         group: 1
         regex:
           - '_v=([0-9\.\-]+)'
-# digest: 4b0a00483046022100a9eb45d4b2e22e54a6f0c77dda0e0e0d3a89710a37cbee63417a59cdd6205687022100e3c9d6978593a98d8fd432fbc26f4b86045ef43f0636ad65c20753f9b5fe7713:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100e0795139d4e675ee4dbc05b044d4f043d8b37311c981639ce1d3a08905351e1f02202b1d19b1cc113886ec0a2375d5aaee5b8f83106e5c056c02be8c54f0c9604dce:922c64590222798bb761d5b6d8e72950

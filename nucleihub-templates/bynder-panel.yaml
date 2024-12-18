@@ -9,9 +9,9 @@ info:
   reference:
     - https://www.bynder.com/en/
   metadata:
+    verified: true
     max-request: 1
     shodan-query: http.favicon.hash:1017650009
-    verified: true
   tags: panel,bynder,login,detect
 
 http:
@@ -32,4 +32,4 @@ http:
         group: 1
         regex:
           - 'http-equiv="version"\s+content="([0-9\.]+)"'
-# digest: 4b0a00483046022100b5cc6f8bf28e8c01adecf1b54e1b5edb9810b58c6ccda55c5f6e3fe6fac3ac76022100e19df4227b127b06f178bd511254477e09fab706884b929bbf708c197f075c66:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100cfb859246f67f578e42ec3bb454791d567cce0f23c09b1ec648a37399015f5d7022100a2cec06ea50f09421709f2480962372f9de2838bd89997197b351960f6ab75df:922c64590222798bb761d5b6d8e72950

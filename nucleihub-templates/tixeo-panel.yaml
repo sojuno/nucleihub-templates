@@ -10,10 +10,9 @@ info:
     - https://www.tixeo.com/en/
   metadata:
     verified: true
-    max-request: 1
-    shodan-query: http.title:"tixeo"
+    max-request: 3
+    shodan-query: "http.title:\"tixeo\""
   tags: panel,tixeo,login,detect
-
 http:
   - method: GET
     path:
@@ -36,4 +35,4 @@ http:
         group: 1
         regex:
           - '"applicationVersion"\s*:\s*"([0-9.]+)"'
-# digest: 4a0a0047304502207ab83c4a0b6187c4f2be204e3c263e15be7ba3dbbf8b7594ac6aa32140abc143022100d6671e94006b3b069262cd413a26ecec8785b2c8a744fb3ef3f5af00377a7921:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022079efa7937bcbd1ce7ad7f7568fd9fa29922070ece41d3c574e534c8aa865dbff022100e5b0536c603d1e79a8b9b1d4c56a9d25ca62b9277b17b357db4ed4e0fd935f95:922c64590222798bb761d5b6d8e72950
