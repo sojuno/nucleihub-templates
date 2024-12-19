@@ -1,16 +1,12 @@
 id: http
 info:
-  name: Allegro RomPager
+  name: Alcatel/Thomson SpeedTouch ADSL http config
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: remote management
-    info: Dell DRAC config
-    product: rompager
+    device_type: broadband router
     rarity: 0
-    vendor: allegro
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -22,4 +18,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 200 OK\r\nContent-Type: text/html\r\nCache-Control: no-cache\r\nExpires: Thu, 26 Oct 1995 00:00:00 GMT\r\nTransfer-Encoding: chunked\r\nServer: Allegro-Software-RomPager/([\d.]+)\r\n\r\n'
+    - '^HTTP/1\.0 400 Bad Request\r\nServer: Speed Touch WebServer/([\d.]+)\r\n'

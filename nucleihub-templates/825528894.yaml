@@ -1,25 +1,22 @@
 id: smtp
 info:
-  name: MDaemon smtpd
+  name: Microsoft ESMTP
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    info: 'timezone: $2'
-    product: mdaemon
-    rarity: 8
-    vendor: alt-n
-    verified: true
+    operating_system: Windows
+    rarity: 0
+    version: $2
 tcp:
-- name: hello
+- name: 'null'
   inputs:
-  - data: EHLO\r\n
+  - data: ''
   host:
   - '{{Hostname}}'
-  port: 25,587,3025
   extractors:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([\w.-]+) ESMTP \w\w\w, \d\d \w\w\w \d\d\d\d [\d:]{8} ([-+]?\d\d\d\d)\r\n550 Invalid or missing command argument\(s\)\r\n
+    - '^220 \[?([-.+\w]+)\]? Microsoft ESMTP MAIL Service, Version: ([-\w.]+) ready'
