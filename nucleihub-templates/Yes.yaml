@@ -1,4 +1,4 @@
-id: Yes-059f1c0288ee3dfe1136ff4836457838
+id: Yes
 
 info:
   name: "WordPress Core < 6.0.3 - Cross-Site Request Forgery via wp-trackback.php"

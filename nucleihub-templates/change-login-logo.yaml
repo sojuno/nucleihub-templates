@@ -1,4 +1,4 @@
-id: change-login-logo-27b5ffed959ca3cd0e63a97f9ed3719e
+id: change-login-logo
 
 info:
   name: "Change WordPress Login Logo <= 1.1.4 - Stored Cross-Site Scripting"
