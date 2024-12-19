@@ -1,14 +1,14 @@
 id: pop3-proxy
 info:
-  name: Symantec PGP Universal Server pop3 proxy
+  name: Trend Micro IMSS virus scanning POP3 proxy
   author: nmap,cn-kali-team
   tags: detect,tech,pop3-proxy,service
   severity: info
   metadata:
-    product: pgp_universal_server
+    hostname: $2
+    operating_system: Windows
     rarity: 0
-    vendor: symantec
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +19,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^-ERR PGP Universal no pop3 service here\r\n
+    - ^\+OK TrendMicro IMSS (\d[-.\w ]+) POP3 Proxy at ([-.\w]+)\r\n
