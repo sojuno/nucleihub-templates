@@ -1,17 +1,12 @@
 id: domain
 info:
-  name: Microsoft DNS
+  name: ArubaOS 3.3 named
   author: nmap,cn-kali-team
   tags: detect,tech,domain,service
   severity: info
   metadata:
-    info: Windows Server 2008 SP2
-    operating_system: Windows
-    product: dns
+    operating_system: ArubaOS
     rarity: 1
-    vendor: microsoft
-    verified: true
-    version: $1
 tcp:
 - name: dnsversion-bind-req
   inputs:
@@ -23,4 +18,4 @@ tcp:
   - name: domain
     type: regex
     regex:
-    - (?i)\x07version\x04bind\0\0\x10\0\x03\xc0\x0c\0\x10\0[\x01\x03].{7}Microsoft DNS (6\.0\.6002.+)
+    - ^\0\x06\x81\x80\0\x01\0\x01\0\0\0\0\x07version\x04bind\0\0\x10\0\x03\xc0\x0c\0\x01\0\x01\0\0\0\x05\0\x04\xa3\xc0\x08\x06$

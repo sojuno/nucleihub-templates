@@ -1,13 +1,18 @@
 id: pop3
 info:
-  name: eXtremail pop3d
+  name: Cyrus pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $4
+    hostname: $1
+    info: Debian
+    operating_system: Linux
+    product: cyrus_imap_server
     rarity: 0
-    version: $1 rel$2 rev$3
+    vendor: cmu
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +23,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK eXtremail V(\d[-.\w]+) release (\d+) rev(\d+) POP3 server ready <[\d.]+@([-\w_.]+)>\r\n
+    - ^\+OK ([-\w_.]+) Cyrus POP3 v(\S+?)[-_]?Debian\S+ server ready
