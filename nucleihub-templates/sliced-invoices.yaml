@@ -1,4 +1,4 @@
-id: sliced-invoices-067fad83f5a3a856394b6a6971dbec36
+id: sliced-invoices
 
 info:
   name: "Sliced Invoices <= 3.8.2 - Reflected Cross-Site Scripting"
