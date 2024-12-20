@@ -1,12 +1,11 @@
 id: ftp
 info:
-  name: IBM FTPSERVE
+  name: AlterVista ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    hostname: $3
-    operating_system: z/VM $1.$2
+    info: Based on Pure-ftpd
     rarity: 0
 tcp:
 - name: 'null'
@@ -18,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220-FTPSERVE IBM VM Level (\d)(\d+) at ([\w._-]+), [^\r\n]*\r\n220 Connection will close if idle for more than 5 minutes\.\r\n
+    - ^220--- AlterVista FTP, based on Pure-FTPd --\r\n
