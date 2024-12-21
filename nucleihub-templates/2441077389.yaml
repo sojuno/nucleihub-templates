@@ -1,12 +1,12 @@
 id: telnet
 info:
-  name: Cisco ASR 9010 router telnetd
+  name: F5 BIG-IP load balancer telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: router
-    operating_system: IOS XR
+    device_type: load balancer
+    info: telnet disabled
     rarity: 0
 tcp:
 - name: 'null'
@@ -18,4 +18,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - ^\xff\xfd\x18\xff\xfd \xff\xfd#\xff\xfd'\xff\xfd\$\xff\xfd!
+    - ^Telnet server disabled\r\n$
