@@ -1,16 +1,14 @@
 id: http
 info:
-  name: Catwalk
+  name: Huawei HG8245T modem http config
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: printer
+    device_type: broadband router
     fallback:
     - get-request
-    info: Canon imageRUNNER C5000-series printer http config
     rarity: 5
-    version: $1
 tcp:
 - name: sipoptions
   inputs:
@@ -22,4 +20,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 500 Internal Server Error\r\nServer: Catwalk/([\d.]+)\r\n'
+    - '^HTTP/1\.1 501 Unimplimented\r\nConnection: close\r\nContent-Length: 0\r\n\r\n'

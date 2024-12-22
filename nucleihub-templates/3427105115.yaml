@@ -1,23 +1,22 @@
 id: smtp
 info:
-  name: Postfix smtpd
+  name: Rustock smtp backdoor
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    hostname: $1
-    product: postfix
-    rarity: 0
-    vendor: postfix
-    verified: true
+    info: '**BACKDOOR**'
+    operating_system: Windows
+    rarity: 8
 tcp:
-- name: 'null'
+- name: hello
   inputs:
-  - data: ''
+  - data: EHLO\r\n
   host:
   - '{{Hostname}}'
+  port: 25,587,3025
   extractors:
   - name: smtp
     type: regex
     regex:
-    - ^(?:220-.*\r\n)?220 ([\w._-]+) ESMTP Postfix
+    - ^220 ESMTP service ready\r\n250\x20ok\r\n

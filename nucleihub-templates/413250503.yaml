@@ -1,14 +1,13 @@
 id: ftp
 info:
-  name: MacOS X Server ftpd
+  name: Novonyx ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    hostname: $1
-    info: MacOS X Server $2
-    operating_system: Mac OS X Server
+    operating_system: NetWare
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - '(?i)220 ([-\w_.]+) FTP server \(Version:  Mac OS X Server ([\d.]+) - \+GSSAPI\) ready\.\r\n'
+    - ^220-  Novonyx FTP Server for NetWare, v([\d.]+) \(

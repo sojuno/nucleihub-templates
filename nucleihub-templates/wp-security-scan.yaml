@@ -1,4 +1,4 @@
-id: wp-security-scan-9746554126dd597ce674ab6a6d2b1922
+id: wp-security-scan
 
 info:
   name: "Acunetix WP Security <= 4.0.4 - Cross-Site Request Forgery"
