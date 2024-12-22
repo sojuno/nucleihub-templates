@@ -1,13 +1,13 @@
 id: ftp
 info:
-  name: Citizen CLP-$1 label printer ftpd
+  name: CAB MACH 4 label printer ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
     device_type: printer
+    info: $1 dpi
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 [\w._-]+Citizen_CLP([\w._-]+) FTP server \(InterCon version ([\w._-]+)\) ready\.\n
+    - ^220 cab Mach4/(\d+) FTP Server ready\.\r\n
