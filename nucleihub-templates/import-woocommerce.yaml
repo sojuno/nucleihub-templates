@@ -1,4 +1,4 @@
-id: import-woocommerce-095fc39d2fec00ef5f77d197f7a50ae0
+id: import-woocommerce
 
 info:
   name: "Import WooCommerce < 1.1 - Reflected Cross-Site Scripting"
