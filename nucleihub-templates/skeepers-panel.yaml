@@ -11,7 +11,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-    shodan-query: "http.title:\"Skeepers\""
+    shodan-query: http.title:"Skeepers"
   tags: panel,skeepers,login,detect
 
 http:
@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - 'Version\s+([0-9\.]+)\s+-'
-# digest: 4a0a0047304502200ca76db0da6d74347c070b125f56df8b4f77883d31f40613e98b60d135392fec022100dcb459ada989ec123d684c569446608375e0ec861b12f5e948c86425d3f16163:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210091933c50f75d8a3e22ea8d321f9c4c0aa96b12b9c0258bd2e562b3fba3e4038a022054b0cda0dc680d352caa16af5aef2ff26fb4c334e2f155883d4e0e5bd1780586:922c64590222798bb761d5b6d8e72950
