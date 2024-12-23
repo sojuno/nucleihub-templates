@@ -1,13 +1,16 @@
 id: smtp
 info:
-  name: Cisco IronPort C160 firewall smtpd
+  name: Kerio Connect smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    operating_system: AsyncOS
+    product: connect
     rarity: 0
+    vendor: kerio
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^554 ([\w._-]+)\r\n$
+    - ^220 ([\w._-]+) Kerio Connect ([\w._ -]+) ESMTP ready\r\n

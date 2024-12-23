@@ -1,0 +1,41 @@
+id: cleo-detect
+
+info:
+  name: Cleo Technology - Detect
+  author: rxerium
+  severity: info
+  description: |
+    This template detects Cleo technologies, including VLTrader, Harmony, and LexiCom, by inspecting response headers.It also extracts version information for each identified technology.
+  reference:
+    - https://www.cleo.com
+  metadata:
+    max-request: 1
+    verified: true
+    shodan-query: 'Server: Cleo'
+  tags: tech,detect,cleo
+
+http:
+  - method: GET
+    path:
+      - '{{BaseURL}}'
+
+    host-redirects: true
+    max-redirects: 2
+
+    matchers:
+      - type: word
+        part: server
+        words:
+          - "Cleo VLTrader"
+          - "Cleo Harmony"
+          - "Cleo LexiCom"
+        condition: or
+
+    extractors:
+      - type: regex
+        part: server
+        regex:
+          - "Cleo VLTrader/([0-9.]+)"
+          - "Cleo Harmony/([0-9.]+)"
+          - "Cleo LexiCom/([0-9.]+)"
+# digest: 4a0a0047304502201a558bad667158bad9a9acdc156bbb98695c94fe97cd15218f6e005e04ce5ba4022100e7f86aaf2f17e0adaf9821a9269ef6e38ff79cbd13b7caa35893bc5b5f98b447:922c64590222798bb761d5b6d8e72950

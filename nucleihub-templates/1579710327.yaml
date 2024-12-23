@@ -1,11 +1,15 @@
 id: pop3
 info:
-  name: Hotmail Popper hotmail to pop3 gateway
+  name: Dovecot pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
+    hostname: $1
+    product: dovecot
     rarity: 0
+    vendor: dovecot
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -16,4 +20,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK Ready when you are <200\d+\.
+    - ^\+OK Dovecot POP3 at ([\w._-]+) ready\.\r\n
