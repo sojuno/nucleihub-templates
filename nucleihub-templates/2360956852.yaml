@@ -1,11 +1,12 @@
 id: smtp
 info:
-  name: Messaging Architects M+ Extreme Email Engine smtpd
+  name: Microsoft SMTP
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
+    operating_system: Windows
     rarity: 0
     version: $2
 tcp:
@@ -18,4 +19,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([\w._-]+) M\+ Extreme Email Engine ESMTP ready ([\w._-]+)\r\n
+    - '^220-([-.+\w]+) Microsoft SMTP MAIL ready at.*Version: ([-\w.]+)\r\n'
