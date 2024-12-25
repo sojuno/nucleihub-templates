@@ -1,16 +1,13 @@
 id: telnet
 info:
-  name: Netkit-telnetd
+  name: RemoteX telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    info: Linux $1
-    operating_system: Linux
-    product: netkit
+    device_type: game console
     rarity: 0
-    vendor: netkit
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +18,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '^Linux ([\w._-]+) \[INSTALL: [\d-]+\]\nLASTPATCH: [\d:-]+\n'
+    - ^\xff\xfb\x01\xff\xfb\x03RemoteX Telnet Server V([\d.]+)\n\r\n\rc:\\>
