@@ -4,9 +4,8 @@ info:
   author: pussycat0x
   severity: medium
   description: Searches for sensitive keys file,logs,debugbar,app.
-  reference:
-    - https://www.exploit-db.com/ghdb/6304
-  tags: expose,listing,config,logs,storage
+  reference: https://www.exploit-db.com/ghdb/6304
+  tags: expose,listing,config,logs
 requests:
   - method: GET
     path:
