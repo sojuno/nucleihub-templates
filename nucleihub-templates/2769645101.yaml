@@ -1,12 +1,14 @@
 id: irc
 info:
-  name: IRCXPRO admin ircd
+  name: Hybrid ircd
   author: nmap,cn-kali-team
   tags: detect,tech,irc,service
   severity: info
   metadata:
+    product: ircd-hybrid
     rarity: 0
-    version: $1
+    vendor: ircd-hybrid
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +19,4 @@ tcp:
   - name: irc
     type: regex
     regex:
-    - ^IRCXPRO ([\w._-]+)\r\nAUTHREQUEST :Authentication Required\r\n
+    - ^ERROR :Your host is trying to \(re\)connect too fast -- throttled\.\r\n
