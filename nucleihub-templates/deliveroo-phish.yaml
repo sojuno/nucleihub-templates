@@ -33,4 +33,4 @@ http:
         dsl:
           - '!contains(host,"deliveroo.com")'
           - '!contains(host,"deliveroo.co.uk")'
-# digest: 490a00463044022076417a05149f4ecfbb35d7aac29d6c26d4b7df5a4bc798726fa7ace93ffd62ef022019065f3b87b7d0a602946ee08bfbee4b09ed9887ad273dd34c9423b8e60ff265:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100efb093b619e7ad1c0cd212def6d5ce63a88b2c207bdc98bbe6fb1b7cdbdfd63b022100aab9c99e7ff0060aced1c3c5df62cbb29ae41faa17b0ebd773e7fd46eb7e7400:922c64590222798bb761d5b6d8e72950
