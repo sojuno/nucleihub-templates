@@ -1,12 +1,12 @@
 id: ftp
 info:
-  name: MikroTik router ftpd
+  name: Speedport WAP ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    device_type: router
-    hostname: $1
+    device_type: WAP
+    info: 'model: W$1'
     rarity: 0
     version: $2
 tcp:
@@ -19,4 +19,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 (.+) FTP server \(MikroTik ([\w._-]+)\) ready\r\n
+    - ^220 Speedport W (\w+) FTP Server v([\d.]+) ready\r\n
