@@ -1,13 +1,16 @@
 id: ssh
 info:
-  name: Netpilot config access
+  name: ConfD sshd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    info: protocol 2.0
+    info: protocol $1
+    product: confd
     rarity: 0
-    version: $1
+    vendor: tail-f
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +21,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-2\.0-(\d{8,12})\r?\n
+    - ^SSH-([\d.]+)-ConfD-([\w._-]+)\r\n

@@ -1,15 +1,18 @@
 id: pop3
 info:
-  name: MailEnable pop3d
+  name: Cyrus pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    operating_system: Windows
-    product: mailenable
+    hostname: $1
+    info: Debian
+    operating_system: Linux
+    product: cyrus_imap_server
     rarity: 0
-    vendor: mailenable
+    vendor: cmu
     verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +23,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 Mail server\r\n
+    - ^\+OK ([-\w_.]+) Cyrus POP3 v(\S+?)[-_]?Debian\S+ server ready
