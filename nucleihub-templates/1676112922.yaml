@@ -1,15 +1,17 @@
 id: nntp
 info:
-  name: Kerio Connect nntpd
+  name: Lotus Domino nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    product: connect
+    info: posting denied
+    operating_system: $1
+    product: lotus_domino
     rarity: 0
-    vendor: kerio
+    vendor: ibm
     verified: true
-    version: $1
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +22,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 Kerio Connect ([\w._-]+) NNTP server ready\r\n
+    - ^200 Lotus Domino NNTP Server for ([-./\w]+) \(Release (\d[-.\w]+), .*\) - Not OK to post\r\n$

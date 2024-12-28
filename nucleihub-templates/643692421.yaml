@@ -1,18 +1,13 @@
 id: ftp
 info:
-  name: WU-FTPD
+  name: HP Tandem NonStop ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
     hostname: $1
-    info: revision $2
-    operating_system: Unix
-    product: wu_ftpd
     rarity: 0
-    vendor: redhat
-    verified: true
-    version: $3
+    version: $2 $3
 tcp:
 - name: 'null'
   inputs:
@@ -23,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 ([-.\w]+) FTP server \(Revision ([\d.]+) Version wuftpd-([-.+\w()]+) [^)]*\) ready\.\r\n$
+    - ^220 ([\w._-]+) FTP SERVER T9552G07 \(Version ([\w._-]+) TANDEM ([\w._-]+)\) ready\.\r\n

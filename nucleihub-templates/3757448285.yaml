@@ -1,14 +1,14 @@
 id: ftp
 info:
-  name: WU-FTPD or MIT Kerberos ftpd
+  name: Stupid-FTPd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    hostname: $1
-    operating_system: Unix
+    product: stupid-ftpd
     rarity: 0
-    version: $2
+    vendor: cinek
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +19,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 ([-.\w]+) FTP server \(Version ([-.+\w()]+)\) ready\.\r\n$
+    - ^220 Welcome to Stupid-FTPd server\.\r\n
