@@ -1,6 +1,6 @@
 id: rtsp
 info:
-  name: Hikvision 7513 POE IP camera rtspd
+  name: Lorex IP camera rtspd
   author: nmap,cn-kali-team
   tags: detect,tech,rtsp,service
   severity: info
@@ -8,6 +8,7 @@ info:
     device_type: webcam
     fallback:
     - get-request
+    hostname: $1
     rarity: 5
 tcp:
 - name: sipoptions
@@ -20,4 +21,4 @@ tcp:
   - name: rtsp
     type: regex
     regex:
-    - '^RTSP/1\.0 200 OK\r\nCSeq: 42 OPTIONS\r\nPublic: OPTIONS, DESCRIBE, PLAY, PAUSE, SETUP, TEARDOWN, SET_PARAMETER, GET_PARAMETER\r\nDate: .*\r\n\r\n'
+    - '^RTSP/1\.0 401 Unauthorized\r\nCSeq: 42\r\nWWW-Authenticate: Digest realm="Login to ([\w._-]+)", nonce="[a-f\d]{32}"\r\n\r\n'

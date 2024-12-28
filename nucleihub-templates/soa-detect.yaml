@@ -9,8 +9,8 @@ info:
   reference:
     - https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/
   metadata:
-    verified: true
     max-request: 1
+    verified: true
   tags: dns,soa
 
 dns:
@@ -81,4 +81,4 @@ dns:
         name: "edge-cast"
         words:
           - "edgecastdns.net"
-# digest: 490a00463044022057df277504bedc53c023b57c620d15491a98e892823f5722feca5b8b7e4c34a30220708dc590335a74381fede00177a4e7fa7f73e6d3b568861a6c12477891b20464:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022052cc795314a697081c68e82277bf2be22ff53410f9a9a69af759ecefcd5b235b022100f94a899ec64709bb1f7d4e648dc091ee40029b754e4cc451882f0ccb68ff4921:922c64590222798bb761d5b6d8e72950
