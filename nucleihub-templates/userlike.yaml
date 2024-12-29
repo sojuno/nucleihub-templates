@@ -1,4 +1,4 @@
-id: userlike-01fc931d968e011104cafe56f40ecb5b
+id: userlike
 
 info:
   name: "Userlike <= 2.2 - Authenticated (Administrator+) Stored Cross-Site Scripting"

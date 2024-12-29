@@ -1,4 +1,4 @@
-id: widget-settings-importexport-32f2ca109720ed021d4d0dfc35019974
+id: widget-settings-importexport
 
 info:
   name: "Widget Settings Importer/Exporter Plugin <= 1.5.3 - Unauthorized Widget Import to Stored Cross-Site Scripting"

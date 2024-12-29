@@ -1,4 +1,4 @@
-id: everest-backup-1e67fed7796a324bd7d5d165c6768edc
+id: everest-backup
 
 info:
   name: "Everest Backup <= 1.0.7 - Missing Authorization Checks on Backup Exports"
