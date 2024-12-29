@@ -1,14 +1,12 @@
 id: ftp
 info:
-  name: Wing FTP Server
+  name: DrayTek Vigor ADSL router ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    product: wing_ftp_server
+    device_type: broadband router
     rarity: 0
-    vendor: wingftp
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -20,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 Wing FTP Server ([\w._-]+) ready\.\.\.\r\n
+    - ^220 FTP version ([\w.]+)\r\n331 Enter PASS command\r\n$
