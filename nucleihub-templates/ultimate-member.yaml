@@ -1,19 +1,20 @@
-id: ultimate-member-8c2a41344319b591e855e7f5f392ef15
+id: ultimate-member-752778a0c76ce15732044beb8f04bb43
 
 info:
-  name: >
-    Ultimate Member – User Profile, User Registration, Login & Membership Plugin <= 2.0.45 - Arbitrary File Deletion/Read
+  name: "Ultimate Member <= 1.3.64 - Local File Inclusion"
   author: topscoder
   severity: critical
-  description: >
-    The Ultimate Member – User Profile, User Registration, Login & Membership Plugin plugin for WordPress is vulnerable to arbitrary file deletion and reading when the file upload functionality is enabled for the user profile and registration forms in versions up to, and including 2.0.45. This is due to the fact that the plugin did not perform sufficient file path validation or restrict the files that users had access to when performing a file download or deletion. This makes it possible for low-level privileged attackers to delete arbitrary files such as the wp-config.php file and ultimately achieve remote code execution.
+  description: "The Ultimate Member plugin for WordPress is vulnerable to Local File Inclusion in versions up to, and including, 1.3.64 via the 'page' parameter. This allows unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/618f644b-a92c-4f7f-aaea-c03ee7d6e0f9?source=api-prod
+    - https://sumofpwn.nl/advisory/2016/ultimate_member_local_file_inclusion_vulnerability.html
+    - https://wordpress.org/plugins/ultimate-member/changelog/
+    - https://www.acunetix.com/vulnerabilities/web/wordpress-plugin-ultimate-member-user-profile-membership-local-file-inclusion-1-3-64/
+    - https://wpscan.com/vulnerability/3ccc5483-2dd9-4925-95dd-3faa5cfdb951
+    - https://patchstack.com/database/vulnerability/ultimate-member/wordpress-ultimate-member-plugin-1-3-64-local-file-inclusion
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:L
-    cvss-score: 9.4
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H
+    cvss-score: 9.1
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/ultimate-member/"
     google-query: inurl:"/wp-content/plugins/ultimate-member/"
@@ -56,4 +57,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.45')
+          - compare_versions(version, '< 1.3.65')
