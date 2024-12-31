@@ -1,13 +1,11 @@
 id: pop3
 info:
-  name: WebEasyMail pop3d
+  name: WebSTAR pop3 server
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    operating_system: Windows
     rarity: 0
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +16,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 on WebEasyMail \[([\d.]+)\] ready\.  http://www\.51webmail\.com\r\n
+    - ^\+OK POP3 server ready <\w{11}>\r\n$
