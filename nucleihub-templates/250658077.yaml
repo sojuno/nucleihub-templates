@@ -1,15 +1,12 @@
 id: printer
 info:
-  name: Cirrato lpd
+  name: print server
   author: nmap,cn-kali-team
   tags: detect,tech,printer,service
   severity: info
   metadata:
-    info: with PayEx support
-    product: cirrato
+    device_type: print server
     rarity: 6
-    vendor: cirrato
-    verified: true
 tcp:
 - name: lpdstring
   inputs:
@@ -21,4 +18,4 @@ tcp:
   - name: printer
     type: regex
     regex:
-    - ^Cirrato printing service \(with PayEx support\)\0
+    - ^Printer default not found \([\w_]+\)\.\n
