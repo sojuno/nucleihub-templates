@@ -1,14 +1,15 @@
 id: ssh
 info:
-  name: DesktopAuthority OpenSSH
+  name: libssh
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    info: DesktopAuthority $3; protocol $1
-    operating_system: Windows
+    info: protocol $1
+    product: libssh
     rarity: 0
-    version: $2
+    vendor: libssh
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +20,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-OpenSSH_([\d.]+) in DesktopAuthority ([\d.]+)\r?\n
+    - ^SSH-([\d.]+)-libssh\n
