@@ -1,13 +1,15 @@
 id: pop3
 info:
-  name: GNU POP3
+  name: Mercury Mail Transport System pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $2
+    hostname: $1
+    product: mercury_mail_transport_system
     rarity: 0
-    version: $1
+    vendor: pmail
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +20,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 Welcome to GNU POP3 ([-\d.]+) <[\d.]+@([-\w_.]+)>\r\n
+    - ^\+OK <-?[\d.]+@([-\w_.]+)>, POP3 server ready\.\r\n

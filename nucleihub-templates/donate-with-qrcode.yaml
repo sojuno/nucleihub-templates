@@ -1,4 +1,4 @@
-id: donate-with-qrcode-323bdd3633cb652e67eb0962ced13eb5
+id: donate-with-qrcode
 
 info:
   name: "Donate With QRCode <= 1.4.5 - Cross-Site Request Forgery to Settings Update"

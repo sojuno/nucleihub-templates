@@ -1,15 +1,14 @@
 id: sieve
 info:
-  name: Citadel timsieved
+  name: Dovecot timsieved
   author: nmap,cn-kali-team
   tags: detect,tech,sieve,service
   severity: info
   metadata:
-    product: ux
+    product: dovecot
     rarity: 0
-    vendor: citadel
+    vendor: dovecot
     verified: true
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +19,4 @@ tcp:
   - name: sieve
     type: regex
     regex:
-    - ^\"IMPLEMENTATION\" \"CITADEL Sieve ([\d.]+)\"\r\n
+    - ^\"IMPLEMENTATION\" \"dovecot\"\r\n
