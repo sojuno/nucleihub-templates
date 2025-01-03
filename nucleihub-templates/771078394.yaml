@@ -1,11 +1,12 @@
 id: smtp
 info:
-  name: StrongMail smtpd
+  name: hMailServer
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
+    operating_system: Windows
     rarity: 0
     version: $2
 tcp:
@@ -18,4 +19,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - '^220 ([\w_.-]+) StrongMail SMTP Service Version: (\S+) ready'
+    - ^220 ([-\w_.]+) ESMTP hMailServer ([\w.-]+)\r\n
