@@ -1,15 +1,13 @@
 id: ssh
 info:
-  name: libwrap'd OpenSSH
+  name: Linksys WRT45G modified dropbear sshd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    info: Access denied
-    product: openssh
+    device_type: router
+    info: protocol 2.0
     rarity: 0
-    vendor: openbsd
-    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +18,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^Access to service sshd from [-\w_.]+@[-\w_.]+ has been denied\.\r\n
+    - ^SSH-2\.0-OpenSSH\r?\n

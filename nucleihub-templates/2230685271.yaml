@@ -1,13 +1,14 @@
 id: nntp
 info:
-  name: NNTPCache
+  name: Classic Hamster NNTPd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    hostname: $1
+    info: posting ok
+    operating_system: Windows
     rarity: 0
-    version: $2
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +19,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^20\d ([\w.-_]+) NNTPCache server V([\d.]+) \[see www\.nntpcache\.org\]
+    - '^200 NNTP-Server Classic Hamster (?:Vr\.|Version) \d[-.\w ]+ \(Build (\d[-.\w ]+)\) \(post ok\) says: Hi!\r\n'
