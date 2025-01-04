@@ -1,15 +1,15 @@
-id: wp-compress-image-optimizer-dfe5319f9b6193cb295b286c111e53b5
+id: wp-compress-image-optimizer-75ef117f5dba668df1d7e57cbd1ef8c2
 
 info:
   name: >
-    WP Compress – Image Optimizer <= 6.11.10 - Missing Authorization to Unauthenticated CDN Modification
+    WP Compress – Instant Performance & Speed Optimization <= 6.30.03 - Reflected Cross-Site Scripting via custom_server Parameter
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/88a46a24-6d46-44cc-ac01-70a1c329cb51?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/09c04863-a454-4f05-9403-aff39dbccd43?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-compress-image-optimizer/"
     google-query: inurl:"/wp-content/plugins/wp-compress-image-optimizer/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-compress-image-optimizer,high
+  tags: cve,wordpress,wp-plugin,wp-compress-image-optimizer,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 6.11.10')
+          - compare_versions(version, '<= 6.30.03')

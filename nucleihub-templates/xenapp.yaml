@@ -6,10 +6,8 @@ info:
   severity: info
   metadata:
     product: xenapp
-    shodan-query:
-    - html:"/citrix/xenapp"
-    vendor: citrix
-    verified: true
+    vendor: 00_unknown
+    verified: false
 http:
 - method: GET
   path:
@@ -17,5 +15,5 @@ http:
   matchers:
   - type: word
     words:
-    - /citrix/xenapp
+    - window.location="/citrix/xenapp"
     case-insensitive: true

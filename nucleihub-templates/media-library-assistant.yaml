@@ -1,15 +1,15 @@
-id: media-library-assistant-8803138ea266f17e77472b06b5cc08bb
+id: media-library-assistant-e36edfd5df0b81d97c5d95784116cffd
 
 info:
   name: >
-    Media Library Assistant <= 3.18 - Authenticated (Author+) Arbitrary File Upload via mla-inline-edit-upload-scripts AJAX Action
+    Media Library Assistant <= 3.23 - Reflected Cross-Site Scripting via smc_settings_tab, unattachfixit-action, and woofixit-action Parameters
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9a446fe7-c97a-436e-b494-b924e6518297?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/65f4e5e1-4c2e-4943-aa84-4caa61e14bc2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/media-library-assistant/"
     google-query: inurl:"/wp-content/plugins/media-library-assistant/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,media-library-assistant,low
+  tags: cve,wordpress,wp-plugin,media-library-assistant,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.18')
+          - compare_versions(version, '<= 3.23')

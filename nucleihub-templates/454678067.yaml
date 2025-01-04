@@ -1,11 +1,17 @@
 id: nntp
 info:
-  name: Freenet Message System nntpd
+  name: Cyrus nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
+    hostname: $1
+    info: posting ok
+    product: cyrus_imap_server
     rarity: 0
+    vendor: cmu
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -16,4 +22,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 Service available, posting allowed\r\n
+    - ^200 ([\w._-]+) Cyrus NNTP v([\w._-]+) server ready, posting allowed\r\n

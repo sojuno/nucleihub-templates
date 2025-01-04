@@ -1,12 +1,15 @@
 id: ssh
 info:
-  name: Xlight FTP Server sshd
+  name: OpenSSH
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    info: protocol $1
+    info: protocol $1; kerberos support
+    product: openssh
     rarity: 0
+    vendor: openbsd
+    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -18,4 +21,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-xlightftpd_release_([\w._-]+)\r\n
+    - ^SSH-([\d.]+)-OpenSSH_([\w._-]+-hpn) NCSA_GSSAPI_\d+ KRB5\r?\n
