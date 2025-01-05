@@ -10,12 +10,14 @@ info:
   classification:
     cpe: cpe:2.3:a:arcserve:udp:*:*:*:*:*:*:*:*
   metadata:
-    fofa-query: icon_hash="-1889244460"
-    max-request: 1
-    product: udp
-    shodan-query: http.favicon.hash:-1889244460
-    vendor: arcserve
     verified: true
+    max-request: 1
+    vendor: arcserve
+    product: udp
+    shodan-query:
+      - http.favicon.hash:-1889244460
+      - http.favicon.hash:"-1889244460"
+    fofa-query: icon_hash="-1889244460"
   tags: panel,login,arcserve,detect
 
 http:
@@ -35,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100f1e920029ab223d47552ebb51dbe68e974dd8b2d064b34d4c511819d6ef5d04d022100f04b08386868b3f6308d464cf43873c86fe31c3302d64bb19cd4967ccbcf9037:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206b69cb542da4a9e819d25c793016af52bf509b2225269af13421814ccbe66c59022023ca6753c89c56b13048e91cd2e834534b705a07d6509765310ebc591758216f:922c64590222798bb761d5b6d8e72950

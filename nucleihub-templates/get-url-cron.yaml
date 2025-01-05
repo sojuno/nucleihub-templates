@@ -1,4 +1,4 @@
-id: get-url-cron
+id: get-url-cron-430f85d960f2884d8bfd863968961c8f
 
 info:
   name: "Get URL Cron <= 1.4.7 - Cross-Site Request Forgery via geturlcron_action_handle"

@@ -10,11 +10,12 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:kanboard:kanboard:*:*:*:*:*:*:*:*
   metadata:
+    verified: true
     max-request: 1
+    vendor: kanboard
     product: kanboard
     shodan-query: http.favicon.hash:2056442365
-    vendor: kanboard
-    verified: true
+    fofa-query: icon_hash=2056442365
   tags: panel,kanboard
 
 http:
@@ -34,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022040ca55f8411b2941054adc91941ba81afec1af402230f9219cb236e4e14ee5c4022100f62ff5c574f59f6b42a89a04c2dce6eba870c2a7e02cb6d37606f390dfbb0dd7:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502200361601d0c23c5f333a8c2175c55ea80181be8447f64e706976275d42c9c29ef022100f2d164f84f6f383fbf255541dccfb28fc5444e097fa2eb21e97d76a86fd867fc:922c64590222798bb761d5b6d8e72950
