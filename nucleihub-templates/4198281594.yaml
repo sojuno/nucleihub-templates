@@ -1,13 +1,16 @@
 id: telnet
 info:
-  name: Nortel Passport 8010 router telnetd
+  name: Vyatta router telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
     device_type: router
+    operating_system: Linux
+    product: vyatta_vrouter_software
     rarity: 0
-    version: $1
+    vendor: brocade
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +21,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '^\xff\xfb\x01\r\n\r\*+\n\r\r\* Copyright \(c\) \d+ Nortel Networks, Inc\.  \*\n\r\r\* All Rights Reserved +\*\n\r\r\* Passport 8010 +\*\n\r\r\* Software Release ([\d.]+) '
+    - '^\xff\xfd\x01\xff\xfd\x1f\xff\xfb\x01\xff\xfb\x03\r\r\nWelcome to Vyatta\r\n\rvyatta login: '

