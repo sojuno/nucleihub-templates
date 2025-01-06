@@ -1,24 +1,20 @@
 id: smtp
 info:
-  name: Synametrics Xeams smtpd
+  name: OpenBSD spamd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    info: build $2
-    product: xeams
-    rarity: 0
-    vendor: synametrics
-    verified: true
-    version: $1
+    rarity: 8
 tcp:
-- name: 'null'
+- name: hello
   inputs:
-  - data: ''
+  - data: EHLO\r\n
   host:
   - '{{Hostname}}'
+  port: 25,587,3025
   extractors:
   - name: smtp
     type: regex
     regex:
-    - '^220 Xeams SMTP server;  - Xeams SMTP server; Version: ([\d.]+) - build: (\d+); \d\d?/\d\d?/\d\d \d\d?:\d\d [AP]M\r\n'
+    - ^220 $

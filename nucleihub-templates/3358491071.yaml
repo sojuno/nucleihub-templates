@@ -1,14 +1,14 @@
 id: pop3
 info:
-  name: Mercury Mail Transport System pop3d
+  name: MailEnable pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
-    product: mercury_mail_transport_system
+    operating_system: Windows
+    product: mailenable
     rarity: 0
-    vendor: pmail
+    vendor: mailenable
     verified: true
 tcp:
 - name: 'null'
@@ -20,4 +20,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK <-?[\d.]+@([-\w_.]+)>, POP3 server ready\.\r\n
+    - ^\+OK POP3 Mail server\r\n
