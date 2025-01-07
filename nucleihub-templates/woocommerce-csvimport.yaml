@@ -1,4 +1,4 @@
-id: woocommerce-csvimport-41d1150ab4099bc34c3459eedcd42035
+id: woocommerce-csvimport
 
 info:
   name: "Woocommerce CSV importer <= 3.3.6 - Arbitrary File Deletion"
