@@ -1,13 +1,12 @@
 id: telnet
 info:
-  name: DSLink 200 adsl modem telnetd
+  name: Conexant Access Runner adsl router telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
     device_type: router
     rarity: 0
-    version: Software version $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +17,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - ^\xff\xfb\x01\xff\xfd\x03\xff\xfb\x03\n\r +\*+\n\r +Welcome to DSLink 200 U/E\n\r +\*+\n\r\n\rGlobespanVirata Inc\., Software Release VIK-([\w.]+)\n\r
+    - ^\x1b\[0m\x1b\[2J\x1b\[01;28HCONEXANT SYSTEMS, INC\.\x1b\[02;19H ACCESS RUNNER ADSL CONSOLE PORT\x1b\[24;01H>>>\x1b\[24;01HLOGON PASSWORD>\x1b\[02;53H3\.\d+\x1b\[24;17H\x1b\[24;17H\x1b\[24;17H\x1b\[24;17H
