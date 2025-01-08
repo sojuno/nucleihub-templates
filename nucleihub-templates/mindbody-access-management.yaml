@@ -1,4 +1,4 @@
-id: mindbody-access-management-16bc2e33ae9cc3928f52c9188d9689cf
+id: mindbody-access-management
 
 info:
   name: "MZ MBO Access <= 2.0.8 - Cross-Site Request Forgery"

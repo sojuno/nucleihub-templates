@@ -1,4 +1,4 @@
-id: woocommerce-gateway-amazon-payments-advanced-0bbc3d3119a546c55a24650f1a656f4a
+id: woocommerce-gateway-amazon-payments-advanced
 
 info:
   name: "WooCommerce Amazon Pay 2.0.0 - Reflected Cross-Site Scripting"

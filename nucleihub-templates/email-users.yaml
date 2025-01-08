@@ -1,4 +1,4 @@
-id: email-users-4af412daeece9b371992239925046f13
+id: email-users
 
 info:
   name: "Email Users <= 4.7.5 - Reflected Cross Site Scripting"
