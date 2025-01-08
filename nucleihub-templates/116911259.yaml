@@ -1,12 +1,14 @@
 id: backdoor
 info:
-  name: Subseven backdoor
+  name: RBackdoor
   author: nmap,cn-kali-team
   tags: detect,tech,backdoor,service
   severity: info
   metadata:
     info: '**BACKDOOR**'
+    operating_system: Windows
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +19,4 @@ tcp:
   - name: backdoor
     type: regex
     regex:
-    - ^\r\n\[RPL\]002\r\n$
+    - '^=+\n= +RBackdoor ([\d.]+) '
