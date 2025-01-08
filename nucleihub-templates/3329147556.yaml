@@ -5,10 +5,9 @@ info:
   tags: detect,tech,pop3pw,service
   severity: info
   metadata:
-    info: Digital Unix with C2 security
-    operating_system: Digital UNIX
+    hostname: $1
     rarity: 0
-    version: $1
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +18,4 @@ tcp:
   - name: pop3pw
     type: regex
     regex:
-    - ^200 poppassd v([\w.]+) for Digital Unix with C2 security Hello, who are you\?\r\n
+    - '^200 ([-._\w]+) poppassd v?([-._\w]+) '

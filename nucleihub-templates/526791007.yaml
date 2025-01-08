@@ -1,15 +1,17 @@
 id: pop3
 info:
-  name: Citadel pop3d
+  name: XMail pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
     hostname: $1
-    product: ux
+    operating_system: Linux
+    product: xmail
     rarity: 0
-    vendor: citadel
+    vendor: davide_libenzi
     verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +22,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK Citadel POP3 server <\d+@([-\w_.]+)>\r\n
+    - '^\+OK <[\d.]+@([-\w_.]+)> \[XMail ([\d.]+) \(Linux/Ix86\) POP3 Server\] service ready; '
