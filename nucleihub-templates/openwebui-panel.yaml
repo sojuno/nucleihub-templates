@@ -9,9 +9,9 @@ info:
   reference:
     - https://openwebui.com/
   metadata:
+    shodan-query: http.favicon.hash:-286484075
     verified: true
     max-request: 1
-    shodan-query: http.favicon.hash:-286484075
   tags: panel,openwebui,login
 
 http:
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a0048304602210086a953eba87c179f9586f49bc54efe71c76c0b7caa817dedef051d05d3844c1d022100d1eeca29c95a5f2dd2cee71a08d23a3002c2848ace42214d739a45b025200944:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022048aa2d97cb641c772a571a2a22c80a72ab6ecde248ac954dd98c6f0c6d5c132a022028396fa47061b9bf3c01e83d1c68f4ecfe3b48e213c90ef7fd1d60e78dfd3106:922c64590222798bb761d5b6d8e72950

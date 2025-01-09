@@ -1,14 +1,13 @@
 id: ftp
 info:
-  name: HP-UX ftpd
+  name: DrayTek Vigor 2820 ADSL router ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    hostname: $1
-    operating_system: HP-UX
+    device_type: broadband router
+    info: access denied
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 ([-.+\w ]+) FTP server \(Version (\d[-.\w]+) [A-Z][a-z]{2} [A-Z].*20\d\d\) ready\.\r\n
+    - Permission denied\.\(Please check access control list\)\r\nPermission denied\.\(Please check access control list\)\r\n\n\rSystem administrator is connecting from [\d.]+\n\rReject the connection request !!!\n\r\n\rSystem administrator is connecting from [\d.]+\n\rReject the connection request !!!\n\r
