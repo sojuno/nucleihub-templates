@@ -1,4 +1,4 @@
-id: greenmart-3cf67f6d1f39a3f051582d47c53769a5
+id: greenmart
 
 info:
   name: "Greenmart <= 2.5.1 - Reflected Cross-Site Scripting"

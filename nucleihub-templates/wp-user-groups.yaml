@@ -1,4 +1,4 @@
-id: wp-user-groups-421b1b160bf4170c1abee47e6de13055
+id: wp-user-groups
 
 info:
   name: "WP User Groups <= 2.1.0 - Cross-Site Request Forgery"
