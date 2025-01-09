@@ -9,8 +9,8 @@ info:
   reference:
     - https://investors.celebrus.com/
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     shodan-query: http.title:"Celebrus"
   tags: tech,celebrus,detect
 
@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - 'Celebrus\s+([0-9.]+)\s+Collection'
-# digest: 4b0a00483046022100dffa62d8ec2eb20335c3658190ad26a827adc08c4cce3cde4e247df721cd0eb3022100fe79b85360d880f60eb4a3db13ef8a93d8c85d394669968163aae228539ebe56:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100ae788817f436042295a5ff80754c6dbf756b2e5b45bc13e18ef6bf93dc15549e022074da81a64d7ade5d6e42a9344a2deff7e949ce8fd85d9f5dbd3170389364c477:922c64590222798bb761d5b6d8e72950
