@@ -1,14 +1,18 @@
-id: basic-ssl
+id: basic-dns-example
 
 info:
-  name: Basic SSL Request
+  name: Basic DNS Request
   author: pdteam
   severity: info
 
-ssl:
-  - address: "{{Host}}:{{Port}}"
-
+dns:
+  - name: "{{FQDN}}"
+    type: CNAME
+    class: inet
+    recursion: true
+    retries: 3
     matchers:
-      - type: dsl
-        dsl:
-          - "probe_status == true"
+      - type: word
+        words:
+          # The response must contains a CNAME record
+          - "IN\tCNAME"
