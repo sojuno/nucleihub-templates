@@ -1,6 +1,6 @@
 id: pop3-proxy
 info:
-  name: JanaServer pop3 proxy
+  name: Trend Micro IMSS virus scanning POP3 proxy
   author: nmap,cn-kali-team
   tags: detect,tech,pop3-proxy,service
   severity: info
@@ -18,4 +18,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^\+OK Jana-Server POP3 ready <[\w.]+@([-\w_.]+)>\r\n
+    - ^\+OK TrendMicro IMSS POP3 Proxy at ([\w._-]+)\r\n

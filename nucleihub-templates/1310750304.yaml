@@ -1,16 +1,17 @@
 id: ssh
 info:
-  name: OpenSSH
+  name: WS_FTP sshd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
     info: protocol $1
-    product: openssh
+    operating_system: Windows
+    product: ws_ftp
     rarity: 0
-    vendor: openbsd
+    vendor: ipswitch
     verified: true
-    version: $2+CAN-2004-0175
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +22,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-OpenSSH_([\w._-]+)\+CAN-2004-0175\r?\n
+    - '^SSH-([\d.]+)-WS_FTP-SSH_([\w._-]+)(?: FIPS)?\r\n'
