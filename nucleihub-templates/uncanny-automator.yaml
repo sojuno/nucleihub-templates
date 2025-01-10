@@ -1,4 +1,4 @@
-id: uncanny-automator-1df18b3ce0870f9a096bc4c892d90dcd
+id: uncanny-automator
 
 info:
   name: "Uncanny Automator <= 4.14 - Cross-Site Request Forgery via update_automator_connect"
