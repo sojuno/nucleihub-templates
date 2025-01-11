@@ -1,17 +1,13 @@
 id: ftp
 info:
-  name: ProFTPD
+  name: Tornado vxWorks ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    hostname: $1
-    info: German
-    operating_system: Unix
-    product: proftpd
+    operating_system: VxWorks
     rarity: 0
-    vendor: proftpd
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -22,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 ProFTP-Server auf ([-\w_.]+)\r\n
+    - ^220 Tornado-vxWorks \(VxWorks([\d.]+)\) FTP server ready\r\n

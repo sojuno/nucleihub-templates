@@ -1,15 +1,17 @@
 id: nntp
 info:
-  name: InterNetNews (INN)
+  name: Lotus Domino nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    info: HDD full
-    product: inn
+    info: posting denied
+    operating_system: $1
+    product: lotus_domino
     rarity: 0
-    vendor: isc
+    vendor: ibm
     verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +22,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^400 No space left on device writing SMstore file -- throttling\r\n
+    - ^200 Lotus Domino NNTP Server for ([-./\w]+) \(Release (\d[-.\w]+), .*\) - Not OK to post\r\n$

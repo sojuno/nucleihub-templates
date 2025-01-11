@@ -1,16 +1,13 @@
 id: ftp
 info:
-  name: vsftpd
+  name: ShareIt Pro ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    info: Access denied
-    operating_system: Unix
-    product: vsftpd
+    device_type: PDA
     rarity: 0
-    vendor: vsftpd
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - '^500 OOPS: vsftpd: both local and anonymous access disabled!\r\n'
+    - ^220 ShareIt FTP Pro ([\d.]+) \(WINCE\) Ready\.\r\n
