@@ -1,4 +1,4 @@
-id: hide-admin-bar-based-on-user-roles
+id: hide-admin-bar-based-on-user-roles-77afafb9273174375b54e282e1186c33
 
 info:
   name: "Hide Admin Bar Based On User Roles < 3.1.0 - Cross-Site Request Forgery"

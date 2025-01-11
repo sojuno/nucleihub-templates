@@ -1,16 +1,16 @@
 id: imap
 info:
-  name: Dovecot imapd
+  name: Cyrus imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    info: Ubuntu
-    operating_system: Linux
-    product: dovecot
+    hostname: $1
+    product: cyrus_imap_server
     rarity: 0
-    vendor: dovecot
+    vendor: cmu
     verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +21,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK \[[^\[]+\] Dovecot \(Ubuntu\) ready\.\r\n
+    - ^\* OK \[CAPABILITY IMAP4rev1 [^]]*\] ([-.\w]+) Cyrus IMAP (\d[\w.-]+) server ready\r\n

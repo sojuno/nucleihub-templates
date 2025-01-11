@@ -1,13 +1,15 @@
 id: ssh
 info:
-  name: Rad Java SFTPd
+  name: CrushFTP sftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
     info: protocol $1
+    product: crushftp
     rarity: 0
-    version: $2
+    vendor: crushftp
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +20,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-([\w.]+)rad\r?\n
+    - ^SSH-([\d.]+)-CrushFTPSSHD\r\n
