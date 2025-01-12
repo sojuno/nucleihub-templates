@@ -1,11 +1,11 @@
 id: smtp
 info:
-  name: Wanadoo blocks smtp - NOT A REAL smtpd!
+  name: SoftStack Advanced smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    info: Wanadoo blocks smtp - NOT A REAL smtpd!
+    operating_system: Windows
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +17,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^554 Please check that your outgoing mail server settings are correct\. Contact your service provider's technical support for assistance\.\n
+    - ^220 Welcome to the Advanced SMTP Server\r\n

@@ -1,15 +1,15 @@
-id: goodlayers-core-68075b04fd6171f9f9d3e94560d13e9d
+id: goodlayers-core-9abab9c987debda0f3c77646ce16db8e
 
 info:
   name: >
-    Goodlayers Core <= 2.0.9 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Goodlayers Core <= 2.0.7 - Reflected Cross-Site Scripting via 'font-family'
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/261bf532-48aa-406f-ba28-2ca3ae919522?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e1baa3f0-28ec-409f-a9a5-c35545ab439a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/goodlayers-core/"
     google-query: inurl:"/wp-content/plugins/goodlayers-core/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,goodlayers-core,low
+  tags: cve,wordpress,wp-plugin,goodlayers-core,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.9')
+          - compare_versions(version, '<= 2.0.7')

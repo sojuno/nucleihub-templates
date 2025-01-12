@@ -1,25 +1,19 @@
 id: host-header-injection
 
 info:
-  name: Host Header Injection
-  author: ProjectDiscoveryAI
-  severity: high
-  description: |
-    Detects potential host header injection vulnerabilities.
+  name: Host Header Injection (x-forwarded-host)
+  author: melbadry9
+  severity: low
 
-http:
-  - raw:
-      - |
-        GET / HTTP/1.1
-        Host: {{Hostname}}
-        X-Forwarded-Host: evil.com
-
-    matchers-condition: and
+requests:
+  - method: GET
+    # Example of sending some headers to the servers
+    headers:
+      # MD5 hash of melbadry9
+      X-Forwarded-Host: "0021e78f48fe6525798294b7711c6f72.com"
+    path:
+      - "{{BaseURL}}/"
     matchers:
       - type: word
         words:
-          - "evil.com"
-        part: body
-      - type: status
-        status:
-          - 200
+          - "0021e78f48fe6525798294b7711c6f72"

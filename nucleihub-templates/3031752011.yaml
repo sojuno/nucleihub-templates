@@ -1,14 +1,14 @@
 id: irc
 info:
-  name: InspIRCd
+  name: ratbox ircd
   author: nmap,cn-kali-team
   tags: detect,tech,irc,service
   severity: info
   metadata:
     hostname: $1
-    product: inspircd
+    product: ircd-ratbox
     rarity: 0
-    vendor: inspire_ircd
+    vendor: ratbox
     verified: true
 tcp:
 - name: 'null'
@@ -20,4 +20,4 @@ tcp:
   - name: irc
     type: regex
     regex:
-    - ^:([-\w_.]+) NOTICE Auth :Looking up your hostname\.\.\.\r\n
+    - ^NOTICE AUTH :\*\*\* Processing connection to ([-\w_.]+)\r\n
