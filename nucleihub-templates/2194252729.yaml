@@ -1,14 +1,13 @@
 id: pop3
 info:
-  name: Microsoft Exchange 2007-2010 pop3d
+  name: Cyrus pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    operating_system: Windows
-    product: exchange_server
+    product: cyrus_imap_server
     rarity: 0
-    vendor: microsoft
+    vendor: cmu
     verified: true
 tcp:
 - name: 'null'
@@ -20,4 +19,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK The Microsoft Exchange POP3 service is ready\.\r\n
+    - '^-ERR \[SYS/PERM\] Fatal error: tls_init\(\) failed\r\n'
