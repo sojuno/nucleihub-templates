@@ -1,16 +1,17 @@
 id: nntp
 info:
-  name: InterNetNews NNRP server
+  name: Microsoft Exchange Internet News Service
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    hostname: $1
-    product: inn
+    info: $2
+    operating_system: Windows
+    product: exchange_server
     rarity: 0
-    vendor: isc
+    vendor: microsoft
     verified: true
-    version: $2
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +22,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 ([-\w._]+) InterNetNews NNRP server INN (.*) ready \(posting ok\)\r\n
+    - ^20[01] Microsoft Exchange Internet News Service Version (\d\.\d\.[\d.]+) \((.*)\)\r\n

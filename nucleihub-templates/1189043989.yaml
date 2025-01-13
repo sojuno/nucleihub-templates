@@ -1,13 +1,12 @@
 id: pop3
 info:
-  name: eXtremail pop3d
+  name: popper pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $4
+    info: Misconfigured
     rarity: 0
-    version: $1 rel$2 rev$3
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +17,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK eXtremail V(\d[-.\w]+) release (\d+) rev(\d+) POP3 server ready <[\d.]+@([-\w_.]+)>\r\n
+    - ^Unable to open trace file \"/var/spool/popper/
