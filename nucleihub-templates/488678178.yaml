@@ -1,13 +1,11 @@
 id: ftp
 info:
-  name: Internet Rex ftpd
+  name: Net Administration Divisions ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    info: $2
     rarity: 0
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +16,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 Internet Rex (\d[-.\w ]+) \(([-/.+\w]+)\) FTP server awaiting your command\.\r\n
+    - ^220 Net Administration Divisions FTP Server Ready\.\.\.\r\n
