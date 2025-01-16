@@ -1,13 +1,12 @@
 id: telnet
 info:
-  name: Siemens ADSL SL2-141-I HSN2 ADSL telnetd
+  name: Enterasys RoamAbout WAP router telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: broadband router
+    device_type: router
     rarity: 0
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +17,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '^\xff\xfd\x01\xff\xfd!\xff\xfb\x01\xff\xfb\x03Siemens ADSL SL2-141-I HSN2 \r\nSoftware Version: ([\w._-]+)\r\nLogin name: '
+    - (?i)^\xff\xfb\x01\x1b\[m\x1b\[m\x1b\[m\x1b\[m\x1b\[m\x1b\[16;35H\x1b\[1;1H\x1b\[2J\x1b\[16;35H\x1b\[1;1HLogin Screen\x1b\[8;5HCopyright \(c\) \d+-\d+ Enterasys Networks, Inc\.  All rights reserved\x1b.*RoamAbout R2\x1b

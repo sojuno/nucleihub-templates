@@ -1,12 +1,15 @@
 id: smtp
 info:
-  name: IBM AS/400 smtpd
+  name: MailEnable smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
+    product: mailenable
     rarity: 0
+    vendor: mailenable
+    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -18,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([-.+\w]+) running IBM AS/400 SMTP V([\w]+)
+    - '^220 ([\w._-]+)\.\* ESMTP MailEnable Service, Version: ([\w._-]+)-- ready at \d\d/\d\d/\d\d \d\d:\d\d:\d\d\r\n'

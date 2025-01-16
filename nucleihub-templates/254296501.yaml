@@ -1,14 +1,11 @@
 id: pop3
 info:
-  name: SCO pop3d
+  name: zpop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $2
-    operating_system: SCO UNIX
     rarity: 0
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +16,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK SCO POP3 server \(version ([-\w.]+)\) at ([-\w_.]+) starting\.\r\n
+    - ^\+OK POP3 Server ready\r\n$
