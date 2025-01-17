@@ -1,16 +1,15 @@
 id: pop3
 info:
-  name: iPlanet pop3d
+  name: Novell GroupWise pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
-    product: iplanet_messaging_server
+    operating_system: Unix
+    product: groupwise
     rarity: 0
-    vendor: sun
+    vendor: novell
     verified: true
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +20,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK ([-\w_.]+) POP3 service \(iPlanet Messaging Server ([-\w_.\s]+) \(built .*\)\)\r\n
+    - ^\+OK GroupWise POP3 server ready\r\n$

@@ -1,14 +1,16 @@
 id: smtp
 info:
-  name: Postfix smtpd
+  name: Network Associates WebShield
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    product: postfix
+    hostname: $1
+    product: webshield_smtp
     rarity: 0
-    vendor: postfix
+    vendor: mcafee
     verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - '^220 .*\r\n221 2\.7\.0 Error: I can break rules, too\. Goodbye\.\r\n'
+    - ^220(\S+) WebShield SMTP V(\d\S.*?) Network Associates, Inc\. Ready at

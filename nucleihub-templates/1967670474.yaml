@@ -1,13 +1,13 @@
 id: http
 info:
-  name: Cisco Catalyst http config
+  name: Technicolor TG787 VoIP gateway http admin
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: switch
-    operating_system: IOS
+    device_type: VoIP adapter
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +18,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.0 500 Internal Server Error\r\nDate: .*\r\nContent-type: text/html\r\nExpires: .*\r\n\r\n<H1>500 Internal Server Error</H1>\r\n\r\n\r\n'
+    - '^HTTP/1\.0 400 Bad Request\r\nServer: Technicolor WebServer/([\w._-]+)\r\nContent-Type: text/html\r\nContent-Length: 58\r\n\r\nHTTP/1\.0 400 Bad Request: Invalid or incomplete request\.\r\n\r\n\r\n$'
