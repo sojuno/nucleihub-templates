@@ -1,15 +1,14 @@
 id: pop3
 info:
-  name: SmarterMail pop3d
+  name: Dovecot pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
     hostname: $1
-    operating_system: Windows
-    product: smartermail
+    product: dovecot
     rarity: 0
-    vendor: smartertools
+    vendor: dovecot
     verified: true
 tcp:
 - name: 'null'
@@ -21,4 +20,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 server ready <[-0-9a-f]+@([-\w_.]+)>\r\n
+    - ^\+OK [Dd]ovecot ready\. ?<.*@([-\w_.]+)>\r\n

@@ -1,14 +1,13 @@
 id: imap
 info:
-  name: Mercur imapd
+  name: GNU mailutils imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    operating_system: Windows
-    product: mercur
+    product: mailutils
     rarity: 0
-    vendor: atrium
+    vendor: gnu
     verified: true
     version: $1
 tcp:
@@ -21,4 +20,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK MERCUR IMAP4-Server \(v([\w.]+) \w+\) for Windows ready
+    - ^\* OK IMAP4rev1 GNU mailutils ([\w.]+)\r\n

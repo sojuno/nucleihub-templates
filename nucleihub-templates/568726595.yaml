@@ -1,16 +1,18 @@
 id: sip
 info:
-  name: Patton SmartNode $1 VoIP adapter http config
+  name: Asterisk
   author: nmap,cn-kali-team
   tags: detect,tech,sip,service
   severity: info
   metadata:
-    device_type: VoIP adapter
+    device_type: PBX
     fallback:
     - get-request
-    operating_system: SmartWare $3
+    product: asterisk
     rarity: 5
-    version: $2 $4
+    vendor: digium
+    verified: true
+    version: $1
 tcp:
 - name: sipoptions
   inputs:
@@ -22,4 +24,4 @@ tcp:
   - name: sip
     type: regex
     regex:
-    - '(?i)^SIP/2\.0 405 Method Not Allowed\r\n(?:[^\r\n]+\r\n)*?User-Agent: Patton SN(\w+) 5BIS MxSF v([\w._-]+) [0-9A-F]+ R([\w._-]+) (\d\d\d\d-\d\d-\d\d) H323 SIP BRI\r\n\r\n'
+    - '(?i)^SIP/2\.0 404 Not Found\r\n(?:[^\r\n]+\r\n)*?Server: Asterisk PBX ([\w._~+-]+)\r\n(?:[^\r\n]+\r\n)*?Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, INFO\r\n'
