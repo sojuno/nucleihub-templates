@@ -2,15 +2,10 @@ id: detect-all-takeovers
 
 info:
   name: Subdomain Takeover Detection
-  author: "melbadry9 & pxmme1337 & geeknik"
+  author: "melbadry9 & pxmme1337"
   severity: high
 
-  # Update this list with new takeovers matchers
-  # Do not delete other template files for takeover
-  # https://github.com/EdOverflow/can-i-take-over-xyz
-  # You need to claim the subdomain / CNAME of the subdomain to confirm the takeover.
-  # Do not report subdomain takeover issues only based on detection.
-  # Total number of services #72
+  # I have removed the non-vulnerable services.
 
 requests:
   - method: GET
@@ -19,10 +14,6 @@ requests:
     matchers-condition: or
 
     matchers:
-      - type: word
-        name: agilecrm
-        words:
-          - Sorry, this page is no longer available.
 
       - type: word
         name: airee
@@ -39,11 +30,17 @@ requests:
         words:
           - "The specified bucket does not exist"
 
+
       - type: word
         name: bitbucket
         words:
           - The page you have requested does not exist
           - Repository not found
+
+      - type: word
+        name: brightcove
+        words:
+          - '<p class="bc-gallery-error-code">Error Code: 404</p>'
 
       - type: word
         name: campaignmonitor
@@ -52,15 +49,32 @@ requests:
           - or <a href="mailto:help@createsend.com
 
       - type: word
+        name: canny
+        words:
+          - Company Not Found
+          - There is no such company. Did you enter the right URL?
+
+      - type: word
+        name: cargo
+        words:
+          - If you're moving your domain away from Cargo you must make this configuration
+            through your registrar's DNS control panel.
+
+      - type: word
         name: cargocollective
         words:
           - <div class="notfound">
-          - 404 Not Found<br>
+          - 404 Not Found<br>.
 
       - type: word
         name: gemfury
         words:
           - "404: This page could not be found."
+
+      - type: word
+        name: getresponse
+        words:
+          - With GetResponse Landing Pages, lead generation has never been easier
 
       - type: word
         name: ghost
@@ -86,9 +100,23 @@ requests:
           - We could not find what you're looking for.
 
       - type: word
+        name: helprace
+        words:
+          - Alias not configured!
+          - Admin of this Helprace account needs to set up domain alias
+          - "(see Step 2 here: Using your own domain with Helprace)."
+
+      - type: word
         name: helpscout
         words:
           - "No settings were found for this company:"
+
+      - type: word
+        name: heroku
+        words:
+          - There's nothing here, yet.
+          - herokucdn.com/error-pages/no-such-app.html
+          - "<title>No such app</title>"
 
       - type: word
         name: intercom
@@ -102,15 +130,21 @@ requests:
           - is not a registered InCloud YouTrack.
 
       - type: word
-        name: kinsta
+        name: landingi
         words:
-          - No Site For Domain
+          - It looks like you're lost
+          - The page you are looking for is not found
 
       - type: word
         name: launchrock
         words:
           - It looks like you may have taken a wrong turn somewhere. Don't worry...it happens
             to all of us.
+
+      - type: word
+        name: mashery
+        words:
+          - Unrecognized domain <strong>
 
       - type: word
         name: ngrok
@@ -130,9 +164,19 @@ requests:
           - This public report page has not been activated by the user
 
       - type: word
+        name: proposify
+        words:
+          - If you need immediate assistance, please contact <a href="mailto:support@proposify.biz
+
+      - type: word
         name: readme
         words:
           - Project doesnt exist... yet!
+
+      - type: word
+        name: shopify
+        words:
+          - "Sorry, this shop is currently unavailable."
 
       - type: word
         name: smartjob
@@ -140,6 +184,16 @@ requests:
           - Job Board Is Unavailable
           - This job board website is either expired
           - This job board website is either expired or its domain name is invalid.
+
+      - type: word
+        name: smartling
+        words:
+          - Domain is not configured
+
+      - type: word
+        name: smugmug
+        words:
+          - '{"text":"Page Not Found"'
 
       - type: word
         name: strikingly
@@ -153,19 +207,60 @@ requests:
           - project not found
 
       - type: word
+        name: surveygizmo
+        words:
+          - data-html-name
+
+      - type: word
+        name: tave
+        words:
+          - "<h1>Error 404: Page Not Found</h1>"
+
+      - type: word
+        name: teamwork
+        words:
+          - Oops - We didn't find your site.
+
+      - type: word
+        name: thinkific
+        words:
+          - You may have mistyped the address or the page may have moved.
+
+      - type: word
+        name: tictail
+        words:
+          - Building a brand of your own?
+          - 'to target URL: <a href="https://tictail.com'
+          - Start selling on Tictail.
+
+      - type: word
+        name: tilda
+        words:
+          - Domain has been assigned
+
+      - type: word
+        name: tumblr
+        words:
+          - Whatever you were looking for doesn't currently exist at this address.
+          - There's nothing here.
+
+      - type: word
         name: uberflip
         words:
           - "Non-hub domain, The URL you've accessed does not provide a hub."
+
 
       - type: regex
         name: uptimerobot
         regex:
           - "^page not found$"
 
+
       - type: word
-        name: uservoice
+        name: webflow
         words:
-          - This UserVoice subdomain is currently available!
+          - <p class="description">The page you are looking for doesn't exist or has been
+            moved.</p>
 
       - type: word
         name: wordpress
@@ -176,6 +271,17 @@ requests:
         name: worksites
         regex:
           - "(?:Company Not Found|you&rsquo;re looking for doesn&rsquo;t exist)"
+
+      - type: word
+        name: readthedocs
+        words:
+          - unknown to Read the Docs
+
+      - type: word
+        name: tilda
+        words:
+          - <title>Please renew your subscription</title>
+          - Please go to the site settings and put the domain name in the Domain tab.
 
       - type: word
         name: smart-jobboard
