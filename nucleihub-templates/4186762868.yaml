@@ -1,12 +1,12 @@
 id: pop3
 info:
-  name: qpopper
+  name: GNU POP3 Server
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +17,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK ready  <[\d.]+@([-\w_.]+)>\r\n
+    - ^\+OK POP3 Welcome to GNU POP3 Server Version (\d[-.\w]+) <.*>\r\n

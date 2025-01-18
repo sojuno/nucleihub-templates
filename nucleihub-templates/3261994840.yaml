@@ -1,20 +1,24 @@
 id: http
 info:
-  name: Voodoo http chat daemon
+  name: cPanel httpd
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    rarity: 0
+    fallback:
+    - get-request
+    operating_system: Unix
+    rarity: 5
     version: $1
 tcp:
-- name: 'null'
+- name: sipoptions
   inputs:
-  - data: ''
+  - data: 'OPTIONS sip:nm SIP/2.0\r\nVia: SIP/2.0/TCP nm;branch=foo\r\nFrom: <sip:nm@nm>;tag=root\r\nTo: <sip:nm2@nm2>\r\nCall-ID: 50000\r\nCSeq: 42 OPTIONS\r\nMax-Forwards: 70\r\nContent-Length: 0\r\nContact: <sip:nm@nm>\r\nAccept: application/sdp\r\n\r\n'
   host:
   - '{{Hostname}}'
+  port: 406,5060,8081,31337
   extractors:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.0 200 Ok Welcome to VOC\r\nServer: Voodoo chat daemon ver ([\w._ -]+)\r\nContent-type: text/html\r\nExpires: Mon, 08 Apr 1976 19:30:00 GMT\+3\r\nConnection: close\r\nKeep-Alive: max=0\r\nCache-Control: no-store, no-cache, must-revalidate\r\nCache-Control: post-check=0, pre-check=0\r\nPragma: no-cache\r\n\r\n$'
+    - '(?i)^HTTP/1\.1 401 Access Denied\r\n(?:[^\r\n]+\r\n)*?Set-Cookie: logintheme=cpanel; path=/; HttpOnly; port=\d+\r\n(?:[^\r\n]+\r\n)*?Server: cpsrvd/([\w._-]+)\r\n'
