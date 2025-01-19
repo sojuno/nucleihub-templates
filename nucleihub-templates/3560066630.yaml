@@ -1,16 +1,15 @@
 id: ssh
 info:
-  name: Akamai SSH
+  name: IBM Sterling B2B Integrator sftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
     info: protocol $1
-    product: ssh
+    product: sterling_b2b_integrator
     rarity: 0
-    vendor: akamai
+    vendor: ibm
     verified: true
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +20,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-(\d[\d.]*)-(Server-VII)\r?\n
+    - ^SSH-([\d.]+)-SFTP Server\r\n
