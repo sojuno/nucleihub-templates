@@ -1,13 +1,16 @@
 id: smtp
 info:
-  name: Classic Hamster smtpd
+  name: Lotus Domino smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    info: Croatian
+    hostname: $1
+    product: lotus_domino
     rarity: 0
-    version: $1
+    vendor: ibm
+    verified: true
+    version: $2 Beta $3
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 SMTP-Server The Croatian Classic Hamster Ver\. [\d.]+ \(Podverzija ([\d.]+)\)\r\n
+    - '^220 ([-.\w]+) ESMTP Service \(Lotus Domino Build V([\w_]+) Beta (\w+)\) ready at '

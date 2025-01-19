@@ -1,16 +1,13 @@
 id: http
 info:
-  name: Apache Tomcat httpd
+  name: Adaptec Storage Manager Agent httpd
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
     fallback:
     - get-request
-    product: tomcat
     rarity: 5
-    vendor: apache
-    verified: true
 tcp:
 - name: rtsprequest
   inputs:
@@ -22,4 +19,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 505 HTTP Version Not Supported\r\nDate: .*\r\nConnection: close\r\nServer: Apache\r\n\r\n'
+    - ^HTTP/1\.1 400 Bad Request\n\n$

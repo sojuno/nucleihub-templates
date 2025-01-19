@@ -1,14 +1,12 @@
 id: ftp
 info:
-  name: Core FTP Server
+  name: Golden ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    product: core_ftp
+    operating_system: Windows
     rarity: 0
-    vendor: coreftp
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -20,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 Core FTP Server Version ([\w._-]+, build \d+) Registered\r\n
+    - ^220 Golden FTP Server Pro ready v([\w._-]+)\r\n

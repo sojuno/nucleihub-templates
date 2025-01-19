@@ -1,12 +1,15 @@
 id: telnet
 info:
-  name: AVM FRITZ!Box 7170 telnetd
+  name: IBM Netcool/Impact telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: WAP
+    hostname: $1
+    product: tivoli_netcool%2fimpact
     rarity: 0
+    vendor: ibm
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +20,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '^\xff\xfd\x01\xff\xfd\x1f\xff\xfd\x21\xff\xfb\x01\xff\xfb\x03Fritz!Box web password: '
+    - '^Netcool/Impact Command Line Interface for server ([\w._-]+)\nlogin: '

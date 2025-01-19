@@ -1,11 +1,12 @@
 id: daytime
 info:
-  name: American Dynamics EDVR security camera daytime
+  name: Microsoft Windows daytime
   author: nmap,cn-kali-team
   tags: detect,tech,daytime,service
   severity: info
   metadata:
-    device_type: webcam
+    info: New Zealand style
+    operating_system: Windows
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +18,4 @@ tcp:
   - name: daytime
     type: regex
     regex:
-    - ^\d\d\d\d/\d\d/\d\d \d\d:\d\d:\d\d\r\n$
+    - ^[01]\d:\d\d:\d\d [AP]M [0-3]\d/[01]\d/0\d\n$
