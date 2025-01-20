@@ -1,16 +1,12 @@
 id: ftp
 info:
-  name: FileZilla ftpd
+  name: BetaFTPd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    info: IP blocked
-    operating_system: Windows
-    product: filezilla_server
     rarity: 0
-    vendor: filezilla-project
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^550 No connections allowed from your IP\r\n
+    - ^220 BetaFTPD ([-\w_.]+) ready\.\r\n
