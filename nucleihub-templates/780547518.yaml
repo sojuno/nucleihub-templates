@@ -1,13 +1,13 @@
 id: pop3-proxy
 info:
-  name: Symantec PGP Universal Server pop3 proxy
+  name: IronMail pop3-proxy
   author: nmap,cn-kali-team
   tags: detect,tech,pop3-proxy,service
   severity: info
   metadata:
-    product: pgp_universal_server
+    product: ironmail
     rarity: 0
-    vendor: symantec
+    vendor: ciphertrust
     verified: true
 tcp:
 - name: 'null'
@@ -19,4 +19,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^-ERR PGP Universal no pop3 service here\r\n
+    - ^\+OK POP3 Proxy Server Ready\r\n
