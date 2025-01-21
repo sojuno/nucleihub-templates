@@ -1,11 +1,13 @@
 id: ftp
 info:
-  name: oftpd
+  name: Dreambox ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    operating_system: Unix
+    device_type: media device
+    info: PLi image
+    operating_system: Linux
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +19,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 Service ready for new user\.\r\n
+    - ^220 Welcome to the PLi dreambox FTP server\r\n

@@ -1,11 +1,11 @@
 id: smtp
 info:
-  name: Yahoo! smtpd
+  name: Small Home Server smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    hostname: $1
+    operating_system: Windows
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +17,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 YSmtp(\S+) ESMTP service ready
+    - ^220 shttp\.srv Simple Mail Transfer Service Ready\r\n

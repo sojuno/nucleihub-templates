@@ -1,16 +1,16 @@
 id: ssh
 info:
-  name: OneAccess OneSSH
+  name: Bitvise WinSSHD
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    info: protocol $1
-    product: onessh
+    info: FlowSsh $2; protocol $1; non-commercial use
+    operating_system: Windows
+    product: winsshd
     rarity: 0
-    vendor: oneaccess
+    vendor: bitvise
     verified: true
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +21,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-OneSSH_([\w.]+)\n
+    - '^SSH-([\d.]+)-([\w._-]+) FlowSsh: WinSSHD: free only for personal non-commercial use\r\n'

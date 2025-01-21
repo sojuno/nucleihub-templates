@@ -1,11 +1,15 @@
 id: vnc
 info:
-  name: iTALC
+  name: RealVNC Enterprise
   author: nmap,cn-kali-team
   tags: detect,tech,vnc,service
   severity: info
   metadata:
+    info: protocol 4.1
+    product: realvnc
     rarity: 0
+    vendor: realvnc
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -16,4 +20,4 @@ tcp:
   - name: vnc
     type: regex
     regex:
-    - ^ISD 001\.000\n$
+    - ^RFB 004\.001\n

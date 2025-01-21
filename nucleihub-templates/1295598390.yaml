@@ -1,11 +1,10 @@
 id: imap
 info:
-  name: IMAPMax
+  name: Tobit David.fx imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    operating_system: Windows
     rarity: 0
     version: $1
 tcp:
@@ -18,4 +17,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK IMAP4rev1 SmartMax IMAPMax (\d+) Ready\r\n
+    - ^\* OK IMAP4rev1 David\.fx Mail Access Server MA-([\w._]+ \(\w+\))\r\n

@@ -1,18 +1,16 @@
 id: smtp
 info:
-  name: Sendmail
+  name: Netscape Messaging Server
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    info: AIX $2
-    operating_system: AIX
-    product: sendmail
+    product: messaging_server
     rarity: 0
-    vendor: sendmail
+    vendor: netscape
     verified: true
-    version: $3
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -23,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220[\s-](\S+) E?SMTP Sendmail AIX([\d.]+)/(\d[^; ]+)
+    - ^220 ([-.+\w]+) ESMTP service \(Netscape Messaging Server ([-.+ \w]+) \(built

@@ -1,11 +1,14 @@
 id: ftp-proxy
 info:
-  name: jftpgw ftp proxy
+  name: McAfee Web Gateway ftp proxy
   author: nmap,cn-kali-team
   tags: detect,tech,ftp-proxy,service
   severity: info
   metadata:
+    product: web_gateway
     rarity: 0
+    vendor: mcafee
+    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -17,4 +20,4 @@ tcp:
   - name: ftp-proxy
     type: regex
     regex:
-    - ^220 FTP proxy \(v([\d.]+)\) ready\r\n530 Login incorrect\. Expected USER command\r\n
+    - ^220 McAfee Web Gateway ([\d.]+ (?:- )?build:? \d+)\r\n

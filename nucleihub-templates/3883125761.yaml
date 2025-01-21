@@ -1,21 +1,24 @@
 id: smtp
 info:
-  name: Oki 3200N laser printer smtpd
+  name: Lotus Notes smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    device_type: printer
-    info: service disabled
-    rarity: 0
+    info: 'timezone: $1'
+    product: lotus_notes
+    rarity: 8
+    vendor: ibm
+    verified: true
 tcp:
-- name: 'null'
+- name: hello
   inputs:
-  - data: ''
+  - data: EHLO\r\n
   host:
   - '{{Hostname}}'
+  port: 25,587,3025
   extractors:
   - name: smtp
     type: regex
     regex:
-    - ^421 Service not available, closing transmission channel\r\n$
+    - ^220 ESMTP (?:\(NO U[BC]E\))* ?server ready at \w\w\w, \d\d \w\w\w \d\d\d\d [\d:]{8} ([-+]?\d\d\d\d)\r\n501 Command "EHLO" requires an argument\r\n

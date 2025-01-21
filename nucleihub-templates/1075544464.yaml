@@ -1,6 +1,6 @@
 id: vnc
 info:
-  name: RealVNC Enterprise Edition
+  name: RealVNC Enterprise
   author: nmap,cn-kali-team
   tags: detect,tech,vnc,service
   severity: info
@@ -20,4 +20,4 @@ tcp:
   - name: vnc
     type: regex
     regex:
-    - '^RFB 003\.00(\d)\n\0\0\0\0\0\0\0:Unable to open license file: No such file or directory \(2\)'
+    - ^RFB 003\.00(\d)\n\0\0\0\0\0\0\0jServer license key is missing, invalid or has expired\.\nVisit http://www\.realvnc\.com to purchase a license\.

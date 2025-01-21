@@ -1,15 +1,14 @@
 id: smtp
 info:
-  name: Sendmail
+  name: Netscape Messaging Server
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    operating_system: IRIX
-    product: sendmail
+    product: messaging_server
     rarity: 0
-    vendor: sendmail
+    vendor: netscape
     verified: true
     version: $2
 tcp:
@@ -22,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220[\s-]([-\w_.]+) ESMTP Sendmail SGI-(\d[^; ]+)
+    - ^220 ([-.+\w]+) ESMTP service \(Netscape Messaging Server ([-.+ \w]+) \(built
