@@ -1,15 +1,13 @@
 id: domain
 info:
-  name: ISC BIND
+  name: NLnet Labs NSD
   author: nmap,cn-kali-team
   tags: detect,tech,domain,service
   severity: info
   metadata:
-    info: RedHat Linux
-    operating_system: Linux
-    product: bind
+    product: nsd
     rarity: 1
-    vendor: isc
+    vendor: nlnetlabs
     verified: true
     version: $1
 tcp:
@@ -23,4 +21,4 @@ tcp:
   - name: domain
     type: regex
     regex:
-    - (?i)\x07version\x04bind\0\0\x10\0\x03\xc0\x0c\0\x10\0\x03.{7}(\d[-\w.+]*?)-RedHat-
+    - (?i)\x07version\x04bind\0\0\x10\0\x03\xc0\x0c\0\x10\0\x03.{7}NSD ([-\w.]+)

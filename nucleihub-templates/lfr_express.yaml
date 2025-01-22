@@ -1,8 +1,8 @@
-id: Express-LFR-json-2
+id: Express-LFR-json
 
 info:
-  name: LFR in Express via json
-  author: nithissh
+  name: LFR  in Express via json
+  author: mors_3_c
   severity: medium
 
 requests:
