@@ -1,15 +1,12 @@
 id: ftp
 info:
-  name: Hummingbird FTP server
+  name: Star Micronics TSP828L printer ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    product: connectivity
+    device_type: printer
     rarity: 0
-    vendor: hummingbird
-    verified: true
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220  FTP server \(Hummingbird Ltd\. \(HCLFTPD\) Version (7.1.0.0)\) ready\.\r\n$
+    - ^220 Star IFBD-HE05/06 FTP Server\.\r\n

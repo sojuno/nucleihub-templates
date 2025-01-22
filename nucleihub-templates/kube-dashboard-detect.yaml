@@ -2,7 +2,7 @@ id: kube-dashboard
 
 info:
   name: Kubernetes Dashboard Detection
-  author: h0tak88r
+  author: notnotnotveg
   severity: info
 
 requests:

@@ -1,21 +1,28 @@
 id: http
 info:
-  name: Polycom VVX VoIP phone http config
+  name: Virata-EmWeb
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: VoIP phone
-    rarity: 6
+    device_type: printer
+    fallback:
+    - get-request
+    info: HP printer http config
+    product: emweb
+    rarity: 5
+    vendor: virata
+    verified: true
+    version: $SUBST(1,"_",".")
 tcp:
-- name: lpdstring
+- name: rtsprequest
   inputs:
-  - data: \x01default\n
+  - data: OPTIONS / RTSP/1.0\r\n\r\n
   host:
   - '{{Hostname}}'
-  port: 515,2947,3333,32211,19350
+  port: 80,554,3052,3372,5000,7070,8080,10000
   extractors:
   - name: http
     type: regex
     regex:
-    - ^<html><head><title>Error</title></head>\n<body>Your client sent an invalid \x01default request without a\nprotocol version \(assuming HTTP v0\.9\)\.\n<p>The request can not be processed\.</body></html>$
+    - '^HTTP/1\.1 400 Bad Request\r\nServer: Virata-EmWeb/R([\d_]+)\r\nContent-Length: 0\r\n\r\n400 Bad Request\r\n$'

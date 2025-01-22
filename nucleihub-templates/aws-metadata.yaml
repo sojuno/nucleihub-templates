@@ -2,7 +2,7 @@ id: aws-metadata
 
 info:
   name: AWS Metadata
-  author: h0tak88r
+  author: notnotnotveg
   severity: info
 
 requests:
