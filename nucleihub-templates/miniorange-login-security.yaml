@@ -1,4 +1,4 @@
-id: miniorange-login-security
+id: miniorange-login-security-026b97a2d26141e4d1e7b26829ea971c
 
 info:
   name: "Two Factor Authentication (2FA , MFA, OTP SMS and Email) <= 1.0.7 - Cross-Site Scripting"

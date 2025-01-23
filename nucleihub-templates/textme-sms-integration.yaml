@@ -1,4 +1,4 @@
-id: textme-sms-integration
+id: textme-sms-integration-338da199a4579b02b4dbc516e4500c1e
 
 info:
   name: "TextMe SMS <= 1.8.8 - Authenticated Stored Cross-Site Scripting"
