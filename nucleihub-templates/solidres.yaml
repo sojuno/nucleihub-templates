@@ -1,15 +1,15 @@
-id: solidres-a8a7b202b40b4663918471b3bbbaf049
+id: solidres-4a09dbb2ecbeaa2d9f560cdebae6838d
 
 info:
   name: >
-    Solidres <= 0.9.4 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Solidres – Hotel booking plugin <= 0.9.4 - Authenticated (Contributor+) SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b13ee51b-9f23-428f-9cef-4a9b9b06b0c4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/29ea6ec6-3dc8-4bb6-bdec-bc2a24d2478b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,17 +1,13 @@
 id: ssh
 info:
-  name: MRV LX sshd
+  name: SrSshServer
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    device_type: terminal server
-    info: protocol $1
-    product: lx_system_software
+    info: sshlib $2; protocol $1
     rarity: 0
-    vendor: mrv
-    verified: true
-    version: $2
+    version: $3
 tcp:
 - name: 'null'
   inputs:
@@ -22,4 +18,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-LXSSH_([\d.]+)\n
+    - '^SSH-([\d.]+)-([\w._-]+) sshlib: sshlibSrSshServer ([\w._-]+)\r\n'

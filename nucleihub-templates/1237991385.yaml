@@ -1,16 +1,14 @@
 id: pop3
 info:
-  name: SmarterMail pop3d
+  name: Eudora Worldmail pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
+    hostname: $2
     operating_system: Windows
-    product: smartermail
     rarity: 0
-    vendor: smartertools
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +19,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 server ready <[-0-9a-f]+@([-\w_.]+)>\r\n
+    - ^\+OK POP3 server ready \(Worldmail ([\d.]+)\) <[\w.]+@([-\w_.]+)>\r\n

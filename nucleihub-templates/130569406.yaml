@@ -1,11 +1,11 @@
 id: smtp
 info:
-  name: Network Box smtpd
+  name: QK smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    device_type: firewall
+    operating_system: Windows
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +17,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 network-box ESMTP\r\n
+    - ^220 Welcome to the QK SMTP Server\r\n
