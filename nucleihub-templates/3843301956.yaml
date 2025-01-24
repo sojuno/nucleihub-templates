@@ -1,12 +1,15 @@
 id: smtp
 info:
-  name: Mandamail smtpd
+  name: qpsmtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
+    product: qpsmtpd
     rarity: 0
+    vendor: ask_bjorn_hansen
+    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -18,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([-\w_.]+) SMTP Mandamail ([\d.]+)/[\d.]+\r\n
+    - ^220 (\S+) ESMTP qpsmtpd (\d\S+) ready;

@@ -1,13 +1,13 @@
 id: ftp
 info:
-  name: VxWorks ftpd
+  name: IronPort mail appliance ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    operating_system: VxWorks
+    hostname: $1
     rarity: 0
-    version: $1
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +18,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 VxWorks \(VxWorks(\d[^)]+)\) FTP server ready
+    - ^220 ([-.+\w]+) IronPort FTP server \(V([-.\w]+)\) ready\.\r\n
