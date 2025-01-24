@@ -1,14 +1,13 @@
 id: ssh
 info:
-  name: ZyXEL embedded sshd
+  name: APC AOS cryptlib sshd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
-    device_type: broadband router
     info: protocol $1
+    operating_system: AOS
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +18,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-SSH_(\d[\d.]+)\r\n
+    - ^SSH-([\d.]+)-cryptlib\r?\n
