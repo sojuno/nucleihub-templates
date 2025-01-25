@@ -5,7 +5,8 @@ info:
   author: huowuzhao
   severity: high
   metadata:
-    verified: "true"
+    max-request: 1
+    verified: true
     shodan-query: title:"Mautic"
   tags: misconfig,unauth,mautic
 

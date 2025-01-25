@@ -1,15 +1,15 @@
-id: youzify-18c85c110a8ff971e4557719435cc7ec
+id: youzify-b8a4b0a2259537509820f83633a200e7
 
 info:
   name: >
-    Youzify – BuddyPress Community, User Profile, Social Network & Membership Plugin for WordPress <= 1.3.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via youzify_media Shortcode
+    Youzify – BuddyPress Community, User Profile, Social Network & Membership Plugin for WordPress <= 1.3.2 - Missing Authorization to Authenticated (Subscriber+) Limited Options Update (save_addon_key_license)
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/19c463d1-41fa-4386-b755-a14d1e68c5bd?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f234d676-86ac-47ab-b8b3-b0459cbb4538?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.3.0')
+          - compare_versions(version, '<= 1.3.2')

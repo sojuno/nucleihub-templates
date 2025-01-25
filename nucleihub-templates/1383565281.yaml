@@ -1,15 +1,12 @@
 id: ftp
 info:
-  name: APC AOS ftpd
+  name: Aastra A150 VoIP phone ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    device_type: power-device
-    info: on APC $1 network management card
-    operating_system: AOS
+    device_type: VoIP phone
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 ([-.\w]+) Network Management Card AOS v([-.\w]+) FTP server ready.\r\n$
+    - ^220-Welcome to the Ascotel FTP server\r\n220 \r\n
