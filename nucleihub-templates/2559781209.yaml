@@ -1,12 +1,17 @@
 id: smtp
 info:
-  name: eSafe mail gateway
+  name: MailEnable smptd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
+    hostname: $1
+    operating_system: Windows
+    product: mailenable
     rarity: 0
-    version: $1
+    vendor: mailenable
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +22,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 .*?eSafe E?SMTP Service (\d\S+) ready
+    - '^220 ([-.+\w]+) ESMTP Mail Enable SMTP Service, Version: (\d[\w.]+)-- ready at'

@@ -13,7 +13,6 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-22
   metadata:
-    max-request: 1
     verified: true
   tags: surreal,lfi,edb
 

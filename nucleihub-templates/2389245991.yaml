@@ -1,15 +1,13 @@
 id: smtp
 info:
-  name: XMail SMTP server
+  name: QuickMail Pro smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    product: xmail
+    operating_system: Mac OS
     rarity: 0
-    vendor: davide_libenzi
-    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -21,4 +19,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - '^220 <1\d+\.\d+@([-.\w]+)> \[XMail (\d[-.\w]+) ESMTP Server\] service ready; '
+    - ^220 ([-\w_.]+) SMTP Service Ready \(QuickMail Pro Server for MacOS ([\d.]+)\)\r\n
