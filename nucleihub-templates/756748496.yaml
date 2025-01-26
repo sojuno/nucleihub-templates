@@ -1,15 +1,12 @@
 id: pop3
 info:
-  name: UW Imap pop3d
+  name: K9 pop3d from keir.net
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $2
-    product: imap_toolkit
+    operating_system: Windows
     rarity: 0
-    vendor: uw
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -21,4 +18,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK POP3 v?([\d.]+) server ready <[\w.]+@([-\w_.]+)>\r\n
+    - ^\+OK K9 - ([\d.]+) - http://keir\.net ready <[\w.]+>\r\n

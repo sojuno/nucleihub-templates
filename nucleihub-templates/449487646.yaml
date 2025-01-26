@@ -1,13 +1,12 @@
 id: imap
 info:
-  name: IdeaImapServer imapd
+  name: SeattleLab SLMail imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    hostname: $1
+    operating_system: Windows
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +17,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK ([-\w_.]+)\s+IdeaImapServer ([^\s]+) ready\r\n
+    - ^\* OK Welcome to the SLnet IMAP Service\r\n
