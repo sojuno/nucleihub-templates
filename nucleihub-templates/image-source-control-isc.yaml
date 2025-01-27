@@ -1,15 +1,15 @@
-id: image-source-control-isc-912f0a30bbb662746dbcde9469cf1085
+id: image-source-control-isc-1f038aef0dcbd62c1999c43ff0e6ea69
 
 info:
   name: >
-    Image Source Control Lite – Show Image Credits and Captions <= 2.28.0 - Reflected Cross-Site Scripting
+    Image Source Control <= 2.17.0 - Sensitive Information Exposure via Log File
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c4debc89-d5ea-4cf1-8e69-197a75794d0b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e3b3ce65-b226-4b93-ab0c-984f774454f7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/image-source-control-isc/"
     google-query: inurl:"/wp-content/plugins/image-source-control-isc/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,image-source-control-isc,medium
+  tags: cve,wordpress,wp-plugin,image-source-control-isc,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.28.0')
+          - compare_versions(version, '<= 2.17.0')

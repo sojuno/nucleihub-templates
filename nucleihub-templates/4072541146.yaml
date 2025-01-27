@@ -1,16 +1,17 @@
 id: http
 info:
-  name: Catwalk
+  name: Serviio media server http status
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    device_type: printer
     fallback:
     - get-request
-    info: Canon imageRUNNER C5000-series printer http config
+    product: restlet
     rarity: 5
-    version: $1
+    vendor: restlet
+    verified: true
+    version: '1.2'
 tcp:
 - name: sipoptions
   inputs:
@@ -22,4 +23,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 500 Internal Server Error\r\nServer: Catwalk/([\d.]+)\r\n'
+    - '(?i)^HTTP/2\.0 404 Not Found\r\n(?:[^\r\n]+\r\n)*?Server: Restlet-Framework/@major-number@\.@minor-number@@release-type@@release-number@\r\n.*<p>The server has not found anything matching the request URI</p>'
