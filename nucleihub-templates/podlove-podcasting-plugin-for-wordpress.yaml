@@ -1,15 +1,15 @@
-id: podlove-podcasting-plugin-for-wordpress-a5ddee98b9cbe0991d4b17adc73a6435
+id: podlove-podcasting-plugin-for-wordpress-1570c3865cfa7dacd94c993b9a1dcdda
 
 info:
   name: >
-    Podlove Podcast Publisher <= 4.1.13 - Cross-Site Request Forgery to Remote Code Execution
+    Podlove Podcast Publisher <= 4.1.25 - Authenticated (Admin+) Stored Cross-Site Scripting via Feed Name
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/289c9759-f4d3-4b42-9f90-12ea43bbafad?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/39d41772-49f3-4bce-a170-cbe64ba99184?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/podlove-podcasting-plugin-for-wordpress/"
     google-query: inurl:"/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,podlove-podcasting-plugin-for-wordpress,medium
+  tags: cve,wordpress,wp-plugin,podlove-podcasting-plugin-for-wordpress,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.1.13')
+          - compare_versions(version, '<= 4.1.25')

@@ -1,15 +1,17 @@
 id: pop3
 info:
-  name: Dovecot pop3d
+  name: Microsoft Exchange 2003 pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    info: $1
-    product: dovecot
+    hostname: $2
+    operating_system: Windows
+    product: exchange_server
     rarity: 0
-    vendor: dovecot
+    vendor: microsoft
     verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +22,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK (.*) Dovecot ready\.\r\n$
+    - ^\+OK Microsoft Exchange Server 2003 POP3 server version ([\d.]+) \(([-\w_.]+)\) ready\.\r\n
