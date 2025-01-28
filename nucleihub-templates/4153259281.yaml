@@ -1,16 +1,12 @@
 id: ftp
 info:
-  name: Serv-U ftpd
+  name: Synology Disk Station DS-$1 NAS ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    info: SSL Required
-    operating_system: Windows
-    product: serv-u
+    device_type: storage-misc
     rarity: 0
-    vendor: serv-u
-    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^431 Unable to negotiate secure command connection\.\r\n
+    - ^220 DiskStation-([\w._-]+) FTP server ready\.\r\n

@@ -1,19 +1,23 @@
 id: http
 info:
-  name: Java Anonymous Proxy
+  name: Konica Minolta bizhub C452 OpenAPI
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    rarity: 0
+    device_type: printer
+    fallback:
+    - get-request
+    rarity: 5
 tcp:
-- name: 'null'
+- name: rtsprequest
   inputs:
-  - data: ''
+  - data: OPTIONS / RTSP/1.0\r\n\r\n
   host:
   - '{{Hostname}}'
+  port: 80,554,3052,3372,5000,7070,8080,10000
   extractors:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 200 OK\r\nContent-type: text/html\r\nExpires: .*\r\nDate: .*\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n\r\n<HTML><TITLE>JAP</TITLE>\n'
+    - '^HTTP/1\.1 505 HTTP Version not supported\r\nContent-Length: 0\r\nDate: .* GMT\r\nConnection: close\r\n\r\n'

@@ -1,16 +1,14 @@
 id: vnc
 info:
-  name: RealVNC Enterprise
+  name: Ultr@VNC Repeater
   author: nmap,cn-kali-team
   tags: detect,tech,vnc,service
   severity: info
   metadata:
-    info: protocol 5.0
-    product: realvnc
+    product: repeater
     rarity: 0
-    vendor: realvnc
+    vendor: ultravnc
     verified: true
-    version: 5.3 or later
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +19,4 @@ tcp:
   - name: vnc
     type: regex
     regex:
-    - ^RFB 005\.000\n
+    - ^RFB 000\.000\n$

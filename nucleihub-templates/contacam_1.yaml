@@ -8,7 +8,7 @@ info:
     - https://www.exploit-db.com/ghdb/6831
   tags: edb,iot
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"
