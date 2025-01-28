@@ -1,18 +1,16 @@
 id: pop3
 info:
-  name: Microsoft Exchange 2003 pop3d
+  name: NetMail pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $2
-    info: Chinese
-    operating_system: Windows
-    product: exchange_server
+    hostname: $1
+    product: netmail
     rarity: 0
-    vendor: microsoft
+    vendor: novell
     verified: true
-    version: $1
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -23,4 +21,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK Microsoft Exchange Server 2003 POP3 \xb7\xfe\xce\xf1\xc6\xf7\xb0\xe6\xb1\xbe ([\d.]+) \(([-\w_.]+)\)
+    - '^\+OK ([-\w_.]+) NetMail POP3 Agent \$R...sion:   ([\d.]+)  \$\r\n'

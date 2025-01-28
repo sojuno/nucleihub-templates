@@ -1,14 +1,11 @@
 id: smtp
 info:
-  name: CommuniGate Pro mail server
+  name: Trend Micro InterScan
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    product: communigate_pro
     rarity: 0
-    vendor: stalker
-    verified: true
     version: $1
 tcp:
 - name: 'null'
@@ -20,4 +17,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 .* SMTP Server ([\w._-]+) is glad to see you!\r\n
+    - ^220-InterScan Version (\S+) .*Ready\r\n

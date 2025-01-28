@@ -8,8 +8,9 @@ info:
     A slack phishing website was detected
   reference:
     - https://slack.com
+  metadata:
+    max-request: 1
   tags: phishing,slack,osint
-
 http:
   - method: GET
     path:
@@ -31,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"slack.com")'
-# digest: 4a0a00473045022100b59f35da0f5d331b643b03a65dd2ec4cca7863bf6ab9ed8f41023abd7d0e8a8b0220669871d9a6fa589de74ee7551dbf874c84ae375b2fd6d6fcffeb34f8058290d2:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d11c4f0e8c7f18f5fba60744e943600c8036ebaac7bd67987f5b0846a4d81e3f02204657aaf8a8b7b704c70f4dd23edc5fe7d36f17cfb96c7d87b2a060211f47d4c0:922c64590222798bb761d5b6d8e72950

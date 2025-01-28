@@ -8,8 +8,9 @@ info:
     A edge phishing website was detected
   reference:
     - https://www.microsoft.com/en-us/edge/download?form=MA13FJ&ch=1
+  metadata:
+    max-request: 1
   tags: phishing,edge,osint
-
 http:
   - method: GET
     path:
@@ -31,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"microsoft.com")'
-# digest: 4b0a00483046022100dffe59d7378b7c3ec0e3cec10750651ab1bc705b3e4acb8f2c16c470c5bb5f210221008c8f92c07f638cd990dfc9591a653b13fb3606498eb457adebdef42acb6716cb:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e09a2457182b674a52cc6601703a80fd828744f9370c2eed42c90b9fc195a98f022100cc957511f22d4de5c3c7086f96442019d40945f52fa6bfa4259604b0a2b3654a:922c64590222798bb761d5b6d8e72950
