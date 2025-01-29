@@ -1,11 +1,10 @@
 id: nntp
 info:
-  name: ArGoSoft nntpd
+  name: Leafnode NNTPd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    operating_system: Windows
     rarity: 0
     version: $1
 tcp:
@@ -18,4 +17,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 ArGoSoft News Server for WinNT/2000/XP v ([\d.]+) ready\r\n
+    - ^200 Leafnode NNTP Daemon, version (\d[-.\w]+) running at
