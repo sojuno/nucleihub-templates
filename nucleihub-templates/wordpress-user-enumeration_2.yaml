@@ -4,8 +4,9 @@ info:
   name: Wordpress user enumeration
   author: Manas_Harsh
   severity: info
+  tags: wordpress
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/wp-json/wp/v2/users/"

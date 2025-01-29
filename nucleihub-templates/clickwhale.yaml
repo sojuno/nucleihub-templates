@@ -1,15 +1,15 @@
-id: clickwhale-dd48876adc225f652c56c3a39357ff53
+id: clickwhale-73564af97189cd20d89b6728423612e3
 
 info:
   name: >
-    ClickWhale – Link Manager, Link Shortener and Click Tracker for Affiliate Links & Link Pages <= 2.4.1 - Authenticated (Contributor+) SQL Injection
+    ClickWhale – Link Manager, Link Shortener and Click Tracker for Affiliate Links & Link Pages <= 2.4.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f35b6b83-93e7-464e-baaf-4be12e694510?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bf41b5e1-610e-4159-9325-f7a694380050?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

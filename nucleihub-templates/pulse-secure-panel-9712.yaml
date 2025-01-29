@@ -1,8 +1,11 @@
 id: pulse-secure-panel
+
 info:
   name: Pulse Secure VPN Panel
   author: bsysop
   severity: info
+  tags: panel
+
 requests:
   - method: GET
     path:
@@ -13,7 +16,8 @@ requests:
         words:
           - "/dana-na/auth/welcome.cgi"
         part: header
-      - type: word
-        words:
-          - "/dana-na/css/ds.css"
+
+      - type: regex
+        regex:
+          - "(?i)/dana-na/css/ds(_[a-f0-9]{64})?.css"
         part: body

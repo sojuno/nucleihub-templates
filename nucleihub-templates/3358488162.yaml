@@ -1,11 +1,11 @@
 id: daytime
 info:
-  name: AIX daytime
+  name: Microsoft Windows International daytime
   author: nmap,cn-kali-team
   tags: detect,tech,daytime,service
   severity: info
   metadata:
-    operating_system: AIX
+    operating_system: Windows
     rarity: 3
 tcp:
 - name: help
@@ -18,4 +18,4 @@ tcp:
   - name: daytime
     type: regex
     regex:
-    - ^\w\w\w \w\w\w \d\d \d\d:\d\d:\d\d \d\d\d\d\r\n$
+    - ^\d\d:\d\d:\d\d \d\d.\d\d.20\d\d\n$

@@ -1,12 +1,10 @@
 id: tomcat-scripts
-
 info:
   name: Detect Tomcat Exposed Scripts
   author: Co0nan
   severity: info
-  tags: apache,tomcat
-
-http:
+  tags: apache
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/examples/servlets/index.html"
@@ -15,7 +13,6 @@ http:
       - "{{BaseURL}}/..;/examples/servlets/index.html"
       - "{{BaseURL}}/..;/examples/jsp/index.html"
       - "{{BaseURL}}/..;/examples/websocket/index.xhtml"
-
     matchers:
       - type: word
         words:
@@ -23,4 +20,3 @@ http:
           - "JSP Samples"
           - "Servlets Examples"
           - "WebSocket Examples"
-        condition: or
