@@ -1,12 +1,14 @@
 id: smtp
 info:
-  name: Konica Minolta bizhub $1 printer smtpd
+  name: ArGoSoft Mail Server
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    device_type: printer
+    hostname: $1
+    operating_system: Windows
     rarity: 0
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +19,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 Service ready KM([\w._-]+) smtpd\r\n
+    - ^220 ([-\w.]+) ArGoSoft Mail Server, Version [\d.]+ \(([\d.]+)\)\r\n

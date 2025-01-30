@@ -1,13 +1,15 @@
 id: sip
 info:
-  name: Microsoft Office Communications Service 2005
+  name: Epygi Quadro $2 PBX SIP
   author: nmap,cn-kali-team
   tags: detect,tech,sip,service
   severity: info
   metadata:
+    device_type: PBX
     fallback:
     - get-request
     rarity: 5
+    version: $1
 tcp:
 - name: sipoptions
   inputs:
@@ -19,4 +21,4 @@ tcp:
   - name: sip
     type: regex
     regex:
-    - ^SIP/2\.0 400 Transport protocol incorrect\r\n
+    - '(?i)^SIP/2\.0 403 Non-self Request-URI\r\n(?:[^\r\n]+\r\n)*?Server: Epygi Quadro SIP User Agent/v([\w._-]+) \(QUADRO-([^\)]*)\)\r\n'
