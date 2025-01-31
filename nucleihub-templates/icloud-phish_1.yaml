@@ -8,9 +8,8 @@ info:
     A iCloud phishing website was detected
   reference:
     - https://icloud.com
-  metadata:
-    max-request: 1
   tags: phishing,icloud,osint
+
 http:
   - method: GET
     path:
@@ -34,4 +33,4 @@ http:
           - '!contains(host,"icloud.com")'
           - '!contains(host,"apple.com")'
         condition: and
-# digest: 490a0046304402200e00d2062d348f8b11c799a930c6b84a4f8810ffaffd25d847c1a09bcc650a130220554831e190aec72cdba467914cf50640140feeb13c9de8c8a3596daf4541f836:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220093cce4f06a8d3c0ea352f9adcbc7853f3876c9db77d7d85b7c2fceaaa293db0022100db586ee7394be3d2d6131156aeceb412938661c751168eca52277889ee373a8c:922c64590222798bb761d5b6d8e72950
