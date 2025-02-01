@@ -8,7 +8,7 @@ info:
     shodan-query: http.title:"Hp Officejet pro"
   tags: hp,iot,unauth
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"
