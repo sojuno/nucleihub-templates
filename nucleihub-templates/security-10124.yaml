@@ -1,9 +1,11 @@
 id: security-txt
+
 info:
   name: Security.txt File
   author: bad5ect0r
   severity: info
-requests:
+
+http:
   - method: GET
     path:
       - "{{BaseURL}}/.well-known/security.txt"

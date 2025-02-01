@@ -1,13 +1,17 @@
 id: nntp
 info:
-  name: Leafnode nntpd
+  name: INN nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
     hostname: $1
-    info: misconfigured
+    info: posting ok
+    product: inn
     rarity: 0
+    vendor: isc
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +22,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^\nLeafnode must have a fully-qualified and globally unique domain name,\nnot just \"([-\w_.]+)\"\.\n
+    - ^200 ([-\w_.]+) InterNetNews (?:NNRP )?server INN ([\d.]+) .* ready \(posting ok\)\.\r\n

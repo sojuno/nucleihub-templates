@@ -1,12 +1,12 @@
 id: crestron-ctp
 info:
-  name: Crestron automation system text ui
+  name: Crestron $1 automation system text ui
   author: nmap,cn-kali-team
   tags: detect,tech,crestron-ctp,service
   severity: info
   metadata:
     device_type: specialized
-    info: Authentication required
+    hostname: $2
     rarity: 0
 tcp:
 - name: 'null'
@@ -18,4 +18,4 @@ tcp:
   - name: crestron-ctp
     type: regex
     regex:
-    - '\*\*\*\*\r\n\r\nHELP : Provides help menus\.\r\nHELP \[ALL '
+    - '^\r\n([-\w]+) Control Console\r\nConnected to Host: ([-\w_.]+)\r\n'
