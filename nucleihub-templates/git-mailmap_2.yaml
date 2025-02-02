@@ -10,7 +10,7 @@ info:
     shodan-query: html:mailmap
   tags: config,exposure,git,mailmap,files
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/.mailmap"

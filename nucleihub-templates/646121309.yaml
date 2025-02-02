@@ -1,12 +1,15 @@
 id: pop3-proxy
 info:
-  name: Spampal pop3 proxy
+  name: WinProxy pop3 proxy
   author: nmap,cn-kali-team
   tags: detect,tech,pop3-proxy,service
   severity: info
   metadata:
     operating_system: Windows
+    product: winproxy
     rarity: 0
+    vendor: bluecoat
+    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +20,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^\+OK POP3 \(Spampal\) server ready \(USER command must include mailserver name\)\r\n
+    - ^\+OK WinProxy POP3 Proxy Ready\r\n

@@ -1,16 +1,12 @@
 id: pop3
 info:
-  name: XMail pop3d
+  name: Cisco VPN 3000 Concentrator pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
-    product: xmail
+    device_type: security-misc
     rarity: 0
-    vendor: davide_libenzi
-    verified: true
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +17,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - '^\+OK <[\d.]+@([-\w_.]+)> \[XMail ([\d.]+) POP3 Server\] service ready; '
+    - ^\+OK Server Ready\r\n

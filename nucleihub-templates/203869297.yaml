@@ -1,6 +1,6 @@
 id: printer
 info:
-  name: Canon MF4360-4390 lpd
+  name: Kyocera Mita KM-1530 lpd
   author: nmap,cn-kali-team
   tags: detect,tech,printer,service
   severity: info
@@ -18,4 +18,4 @@ tcp:
   - name: printer
     type: regex
     regex:
-    - ^Fictive printer queue short information\n$
+    - '^SB06D2F0: \xe5\x9f\xf0\x18\xe5\x9f\xf0\x18\xe5\x9f\xf0\x18\xe5\x9f\xf0\x18\xe5\x9f\xf0\x18\xe1\xa0 no entries\n$'
