@@ -1,11 +1,10 @@
 id: telnet
 info:
-  name: Epson Network Scanner Server
+  name: NewCS card sharing system telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    info: $1
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +16,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - ^\xff\xfb\x01\n\r-> \x08\x08\x08\x08        \*\*\*  EPSON Network Scanner Server \((.*)\)  \*\*\*\n\r\n\r\x08\x08\x08\x08        \n\r
+    - '^\xff\xfb\x01\xff\xfd\"\r\n#####   ####  ##   ##  ####   #####\r\n##  ## ##  ## ## # ## ##  ## ##\r\n##  ## ###### ####### ##      #####\r\n##  ## ##     ####### ##  ##      ##\r\n##  ##  #####  ## ##   ####  ######\r\n     A Butter Team Creation\r\n\r\nPassword :'

@@ -1,17 +1,13 @@
 id: http
 info:
-  name: Cassini httpd
+  name: Cisco ODN set-top box httpd
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    info: Sonic Foundry Mediasite Service Manager
-    operating_system: Windows
-    product: cassini
+    device_type: media device
+    info: 'MAC: $2; time zone: $1; interface forbidden'
     rarity: 0
-    vendor: microsoft
-    verified: true
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -22,4 +18,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '(?i)^HTTP/1\.1 400 Bad Request\r\nServer: Cassini/([\w._-]+)\r\n.*<style type=\"text/css\">\r\n        \t          body {margin:0; padding:0; color:Black; background-color:#BABED1;}\r\n'
+    - '^HTTP/1\.1 403 OK\r\nDate: [^\r\n]+ ([A-Z]+) \d\d\d\d\r\nServer: ODN Webserver\[([\dA-F:]{17})\]\r\n'

@@ -1,14 +1,15 @@
 id: smtp
 info:
-  name: YSoft SafeQ smtpd
+  name: MDaemon smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
-    device_type: print server
-    product: safeq
+    info: Server too busy error
+    operating_system: Windows
+    product: mdaemon
     rarity: 0
-    vendor: ysoft
+    vendor: altn
     verified: true
 tcp:
 - name: 'null'
@@ -20,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 Welcome to SafeQ Mail Service\.\r\n
+    - ^421 Sorry, SMTP server too busy right now \(193\); try again later\r\n

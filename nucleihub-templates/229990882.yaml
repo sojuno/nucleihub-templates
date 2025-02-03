@@ -1,14 +1,12 @@
 id: imap
 info:
-  name: Eudora Internet Mail Server X imapd
+  name: SeattleLab SLMail imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    hostname: $1
-    operating_system: Mac OS X
+    operating_system: Windows
     rarity: 0
-    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +17,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK ([-\w_.]+) running EIMS X ([\w.]+)\r\n
+    - ^\* OK Welcome to the SLnet IMAP Service\r\n

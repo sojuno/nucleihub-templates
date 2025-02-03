@@ -11,11 +11,9 @@ info:
     cwe-id: CWE-200
   reference:
     - https://loganalyzer.adiscon.com/
-  tags: adiscon,loganalyzer,syslog,panel
-  metadata:
-    max-request: 1
+  tags: adiscon,loganalyzer,syslog,exposure,panel
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}'
