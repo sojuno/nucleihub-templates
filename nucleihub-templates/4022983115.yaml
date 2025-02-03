@@ -1,12 +1,16 @@
 id: ftp
 info:
-  name: ios-ftp-server ftpd
+  name: FreeFloat ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    operating_system: iOS
+    operating_system: Windows
+    product: freefloat_ftp_server
     rarity: 0
+    vendor: freefloat
+    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +21,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 iosFtp server ready\.\r\n
+    - ^220 FreeFloat Ftp Server \(Version ([\w._-]+)\)\.\r\n

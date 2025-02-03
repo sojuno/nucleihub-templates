@@ -1,15 +1,15 @@
 id: ssh
 info:
-  name: WingFTP sftpd
+  name: 3Com switch sshd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
+    device_type: switch
     info: protocol $1
-    product: wing_ftp_server
+    operating_system: Comware
     rarity: 0
-    vendor: wftpserver
-    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +20,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-WeOnlyDo-WingFTP\r\n
+    - ^SSH-([\d.]+)-3Com OS-3Com OS V([\w._-]+)\n

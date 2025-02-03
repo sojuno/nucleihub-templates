@@ -1,14 +1,12 @@
 id: http
 info:
-  name: InterSect Alliance SNARE http config
+  name: Apple launchd_debugd httpd
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    product: system_intrusion_analysis_and_reporting_environment
+    operating_system: Mac OS X
     rarity: 0
-    vendor: intersectalliance
-    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +17,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - ^<HTML><BODY><CENTER>Authentication failed</CENTER></BODY></HTML>\r\n$
+    - '^HTTP/1\.0 200 OK\r\nContent-Type: text/html\r\n\r\n<html>\n<body>\n<ul><li>\n<i>com\.apple\.KernelEventAgent</i>\n'
