@@ -1,14 +1,15 @@
 id: imap
 info:
-  name: Zoho Mail imapd
+  name: Microsoft Exchange Server $1 imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    hostname: $1
-    product: mail
+    hostname: $3
+    operating_system: Windows
+    product: exchange_server
     rarity: 0
-    vendor: zohocorp
+    vendor: microsoft
     verified: true
     version: $2
 tcp:
@@ -21,4 +22,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK ([\w.-]+) IMAP4 Server \(Zoho Mail IMAP4rev1 Server version ([\d.]+)\)\r\n
+    - ^\* OK Microsoft Exchange Server ([\d]+) IMAP4rev1 server version (\d[-.\w]+) \(([-.\w]+)\) ready\.\r\n

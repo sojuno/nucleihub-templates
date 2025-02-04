@@ -1,13 +1,13 @@
 id: nntp
 info:
-  name: JAMES nntpd
+  name: Leafnode nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    hostname: $1
-    info: posting ok
+    hostname: $2
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +18,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 ([-\w_.]+) NNTP Service Ready, posting permitted\r\n
+    - ^200 Leafnode NNTP daemon, version ([\w.]+) at ([-\w_.]+) \r\n
