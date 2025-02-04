@@ -8,8 +8,9 @@ info:
     A keepersecurity phishing website was detected
   reference:
     - https://keepersecurity.com
+  metadata:
+    max-request: 1
   tags: phishing,keepersecurity,osint
-
 http:
   - method: GET
     path:
@@ -31,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"keepersecurity.com")'
-# digest: 4b0a00483046022100b3cd2f8d98ceadc85ff6404d1e2c6f6134ab799cda01ab8c0de2163667580a03022100a6558243174a2dc635706a4698f31546c89118af790d0c01b859f690223aa95b:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022008a3c505feb6fc311ffadeb0b65e58a06616e0fb4805f998fb2a8f04d881e4d60220244704e8c493421d6e31591f7de429a106b514e66179b688d8857748253f7e63:922c64590222798bb761d5b6d8e72950

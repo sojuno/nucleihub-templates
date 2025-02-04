@@ -1,16 +1,18 @@
 id: sip
 info:
-  name: FreeSwitch sipd
+  name: CSipSimple sipd
   author: nmap,cn-kali-team
   tags: detect,tech,sip,service
   severity: info
   metadata:
     fallback:
     - get-request
-    product: freeswitch
+    info: 'device: $SUBST(1,"_"," ")'
+    product: csipsimple
     rarity: 5
-    vendor: freeswitch
+    vendor: csipsimple
     verified: true
+    version: $2
 tcp:
 - name: sipoptions
   inputs:
@@ -22,4 +24,4 @@ tcp:
   - name: sip
     type: regex
     regex:
-    - '(?i)^SIP/2\.0 200 OK\r\n(?:[^\r\n]+\r\n)*?User-Agent: FreeSwitch\r\n'
+    - '(?i)^SIP/2\.0 200 OK\r\n(?:[^\r\n]+\r\n)*?User-Agent: CSipSimple_([^/-]+)[-\d]*/(r\d+)\r\n'

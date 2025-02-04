@@ -8,8 +8,9 @@ info:
     A signal phishing website was detected
   reference:
     - https://signal.org
+  metadata:
+    max-request: 1
   tags: phishing,signal,osint
-
 http:
   - method: GET
     path:
@@ -31,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"signal.org")'
-# digest: 4a0a00473045022100d71f8c01e814d69ab34b9b9beabb0ffa7bdd0e604525e75f5ff5b6878d73c9b702202d85e33bc9bcd8317e8a3146da079342d0d9caa9299f0152b7a8b1443f4d2edc:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d2e0db4fedebaf36e6ffe74d835a02022c97176496df94d0e3d6eb670226e7f202210091b7fb63f746117cd32876aafdbd8ddca0dd5a8d6cc308d328b43091e98e8749:922c64590222798bb761d5b6d8e72950

@@ -1,11 +1,11 @@
 id: ftp
 info:
-  name: Kyocera $1 printer ftpd
+  name: Fastream IQ ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    device_type: printer
+    operating_system: Windows
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 (FS-\d+MFP\+?) FTP server\r\n
+    - ^220 Fastream IQ FTP Server\r\n
