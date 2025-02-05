@@ -8,9 +8,8 @@ info:
     A trading212 phishing website was detected
   reference:
     - https://trading212.com
-  metadata:
-    max-request: 1
   tags: phishing,trading212,osint
+
 http:
   - method: GET
     path:
@@ -32,4 +31,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"trading212.com")'
-# digest: 4a0a0047304502206f22765916507013be23035219ecd3f08a009c5fd21249afc77cad26dd35e496022100a356b23c6f7c2942bcaa71afc5cbe11f352d257b33c30f3be1fb43b413c91d3a:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022005e262a24e2c26a930d05ed1c1c7371f0523d0fc7432ffef6e5b28358be614100220471959ae33e1d652aabe7c2bc92348ceaea35894a2e7923132d8bbd8586a2d20:922c64590222798bb761d5b6d8e72950

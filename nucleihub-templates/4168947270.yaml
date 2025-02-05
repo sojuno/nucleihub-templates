@@ -1,15 +1,18 @@
 id: imap
 info:
-  name: Perdition imapd
+  name: Microsoft Exchange 2003 imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    hostname: $1
-    product: perdition
+    hostname: $2
+    info: Korean
+    operating_system: Windows
+    product: exchange_server
     rarity: 0
-    vendor: horms
+    vendor: microsoft
     verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +23,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK \[CAPABILITY IMAP4 [^]]*\] perdition ready on ([\w._-]+) [a-f\d]+\r\n
+    - ^\* OK Microsoft Exchange Server 2003 IMAP4rev1 \xb7\xfe\xce\xf1\xc6\xf7\xb0\xe6\xb1\xbe ([\d.]+) \(([-\w_.]+)\)

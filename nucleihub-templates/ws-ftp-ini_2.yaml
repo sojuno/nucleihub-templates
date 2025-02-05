@@ -5,7 +5,6 @@ info:
   author: DhiyaneshDK
   severity: low
   metadata:
-    max-request: 1
     verified: true
     google-query: intitle:"Index of" ws_ftp.ini
   tags: exposure,ftp,files

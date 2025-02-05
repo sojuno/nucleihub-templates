@@ -1,12 +1,15 @@
 id: ssh
 info:
-  name: Cisco/3com IPSSHd
+  name: OpenSSH
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
     info: protocol $1
+    product: openssh
     rarity: 0
+    vendor: openbsd
+    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -18,4 +21,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-IPSSH-([\d.]+)\r?\n
+    - ^SSH-([\d.]+)-OpenSSH_([\w._-]+-CERN\d+)\r?\n

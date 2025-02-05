@@ -1,21 +1,19 @@
-id: content-scheme
+id: android-content-scheme
 
 info:
-  name: Android Content Scheme - Detect
-  author: gaurang
-  severity: info
-  description: Android content scheme enabling was detected.
-  classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0
-    cwe-id: CWE-200
-  tags: android,file
+  name: Content Scheme Detection
+  author: YoruYagami
+  severity: medium
+  description: |
+    This template detects the use of the `content` scheme in Android applications. Using the `content` scheme allows for interaction with content providers, which can expose sensitive data if not properly secured. If the application uses this scheme, ensure that the content provider is configured securely and does not unintentionally expose data to other applications.
+  remediation: |
+    Review the configuration of content providers associated with the `content` scheme and implement access controls such as permissions and attribute `android:exported="false"`. Make sure to validate and sanitize any inputs to prevent data leakage or unauthorized access.
 
 file:
   - extensions:
       - xml
+
     matchers:
       - type: word
         words:
           - "android:scheme=\"content\""
-# digest: 490a004630440220024969d745e24011a0317f218f188bb52dd98791fee366406c8b32120306c44502201a5594ea0237b46b7d8008814bdb9f8a62d234feb7b734edaec05bc7cad3ec7f:922c64590222798bb761d5b6d8e72950

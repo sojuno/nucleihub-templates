@@ -1,16 +1,12 @@
 id: smtp
 info:
-  name: Microsoft Exchange smtpd
+  name: Trend Micro IMSS smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     operating_system: Windows
-    product: exchange_server
     rarity: 0
-    vendor: microsoft
-    verified: true
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +17,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - '^220 Microsoft ESMTP MAIL Service, Version: ([\w._-]+)\r\n'
+    - ^220 imss-2 ESMTP ready at .*\r\n

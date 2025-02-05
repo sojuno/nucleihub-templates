@@ -1,6 +1,6 @@
 id: backdoor
 info:
-  name: Theef trojan
+  name: RBackdoor
   author: nmap,cn-kali-team
   tags: detect,tech,backdoor,service
   severity: info
@@ -8,6 +8,7 @@ info:
     info: '**BACKDOOR**'
     operating_system: Windows
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +19,4 @@ tcp:
   - name: backdoor
     type: regex
     regex:
-    - ^\xfa\xcb\xd9\xd9\xdd\xc5\xd8\xce\xd6
+    - '^=+\n= +RBackdoor ([\d.]+) '
