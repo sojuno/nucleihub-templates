@@ -14,12 +14,7 @@ requests:
     path:
       - "{{BaseURL}}"
 
-    matchers-condition: and
     matchers:
-      - type: dsl
-        dsl:
-          - Host != ip
-
       - type: word
         words:
           - There is no portal here ... sending you back to Aha!
