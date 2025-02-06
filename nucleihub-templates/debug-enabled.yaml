@@ -1,19 +1,17 @@
-id: debug-enabled
+id: android-debug-enabled
 
 info:
   name: Android Debug Enabled
-  author: YoruYagami
+  author: gaurang
   severity: low
-  description: |
-    This template detects if the Android application is marked as debuggable. Applications with `android:debuggable="true"` are susceptible to reverse engineering and runtime modifications, increasing the risk of exploitation.
-  remediation: |
-    Remove the `android:debuggable="true"` attribute from the `AndroidManifest.xml` file, or ensure it is set to `false` in production builds to prevent unauthorized debugging access.
+  description: Android debug enabling was detected.
+  tags: android,file
 
 file:
   - extensions:
       - all
-
     matchers:
       - type: regex
         regex:
           - "android:debuggable=\"true\""
+# digest: 4b0a00483046022100cfdce77a5228a040cc4f392823ba6da09f4354c46a36ab8a62f5c9764a12bcb2022100be8c7f78e71e49aaf693016a721125e7e6d7b88e376e7b30a6058459ed50e433:922c64590222798bb761d5b6d8e72950
