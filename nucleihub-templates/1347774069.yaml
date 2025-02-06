@@ -1,14 +1,12 @@
 id: vnc
 info:
-  name: Ultr@VNC Repeater
+  name: VNC
   author: nmap,cn-kali-team
   tags: detect,tech,vnc,service
   severity: info
   metadata:
-    product: repeater
+    info: protocol 3.$1; Locked out
     rarity: 0
-    vendor: ultravnc
-    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +17,4 @@ tcp:
   - name: vnc
     type: regex
     regex:
-    - ^RFB 000\.000\n$
+    - ^RFB 003\.00(\d)\n\0\0\0\0\0\0\0\x1aToo many security failures$

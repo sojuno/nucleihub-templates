@@ -1,6 +1,6 @@
 id: nntp
 info:
-  name: Leafnode NNTPd
+  name: Kerio MailServer nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
@@ -17,4 +17,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 Leafnode NNTP Daemon, version (\d[-.\w]+) running at
+    - ^200 +Kerio MailServer ([\w._-]+) +NNTP server ready\r\n

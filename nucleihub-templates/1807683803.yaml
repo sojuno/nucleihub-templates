@@ -1,14 +1,12 @@
 id: telnet
 info:
-  name: Check Point Firewall-1 telnetd
+  name: Sun Solaris telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    product: firewall-1
+    operating_system: Solaris
     rarity: 0
-    vendor: checkpoint
-    verified: true
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +17,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - ^Check Point FireWall-1 authenticated Telnet server running on
+    - ^\xff\xfd\x18\xff\xfd\x1f\xff\xfd#\xff\xfd'\xff\xfd\$$
