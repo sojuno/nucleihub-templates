@@ -1,16 +1,12 @@
 id: imap
 info:
-  name: Cyrus imapd
+  name: Panda imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    hostname: $1
-    product: cyrus_imap_server
     rarity: 0
-    vendor: cmu
-    verified: true
-    version: $2
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +17,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK (?:\[CAPABILITY IMAP4[^\]]*?\] )?([-.\w]+) Cyrus IMAP4? v([-.\w\+]+) server ready\r\n
+    - ^\* OK \[CAPABILITY IMAP4REV1[^]]*\] \[[\d.]+\] Panda IMAP ([\w._-]+) at .*\r\n

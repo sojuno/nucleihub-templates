@@ -1,11 +1,11 @@
 id: telnet
 info:
-  name: Huawei switch telnetd
+  name: Samsung printer telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: switch
+    device_type: printer
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +17,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '^\r\r\nWarning: Telnet is not a secure protocol, and it is recommended to use Stelnet\.\r\n\r\nLogin authentication\r\n\r\n\r\nUsername:\xff\xfb\x01\xff\xfb\x01\xff\xfb\x01\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f'
+    - ^NPC Telnet permit one connection\.\r\n But One connection\(\) already keep alive\.\r\nGood Bye !! \r\n
