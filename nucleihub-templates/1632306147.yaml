@@ -1,13 +1,12 @@
 id: telnet
 info:
-  name: Cisco Aironet $2 WAP telnetd
+  name: Motorola Vanguard router telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    hostname: $1
+    device_type: router
     rarity: 0
-    version: $3
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +17,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - ^220 ([\w._ -]+) \(Cisco (BR\w+) V([\w._-]+)\) ready\r\n
+    - ^\xff\xfb\x01\xff\xfb\x03\r\nOK\r\n$

@@ -1,16 +1,14 @@
 id: ftp
 info:
-  name: TYPSoft ftpd
+  name: Pure-FTPd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    operating_system: Windows
-    product: typsoft_ftp_server
+    product: pure-ftpd
     rarity: 0
-    vendor: typsoft
+    vendor: pureftpd
     verified: true
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +19,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220-TYPSoft FTP Server ([\d.]+) ready\.\.\.\r\n
+    - ^220.*Welcome to .*Pure-?FTPd[^(]+\r\n

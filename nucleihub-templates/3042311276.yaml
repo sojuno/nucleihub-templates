@@ -1,16 +1,13 @@
 id: imap
 info:
-  name: UW imapd
+  name: Worldmail imapd
   author: nmap,cn-kali-team
   tags: detect,tech,imap,service
   severity: info
   metadata:
-    hostname: $1
-    product: imap_toolkit
+    operating_system: Windows
     rarity: 0
-    vendor: uw
-    verified: true
-    version: $2
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +18,4 @@ tcp:
   - name: imap
     type: regex
     regex:
-    - ^\* OK \[CAPABILITY IMAP4REV1 X-NETSCAPE LOGIN-REFERRALS STARTTLS AUTH=LOGIN\](\S+) IMAP4rev1 ([-.\w]+) at
+    - ^\* OK IMAP4 server ready \(Worldmail ([\d.]+)\)\r\n
