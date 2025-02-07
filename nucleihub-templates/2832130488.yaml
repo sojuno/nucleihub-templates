@@ -1,15 +1,14 @@
 id: pop3
 info:
-  name: Zimbra pop3d
+  name: QuickMail Pro pop3d
   author: nmap,cn-kali-team
   tags: detect,tech,pop3,service
   severity: info
   metadata:
-    hostname: $1
-    product: zimbra_collaboration_suite
+    hostname: $2
+    operating_system: Mac OS
     rarity: 0
-    vendor: zimbra
-    verified: true
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +19,4 @@ tcp:
   - name: pop3
     type: regex
     regex:
-    - ^\+OK ([\w._-]+) (?:POP3 Service )?Zimbra POP3 server ready\r\n
+    - ^\+OK POP3 server ready QuickMail Pro Server for MacOS ([\d.]+) <[\w.]+@([-\w_.]+)>\r\n

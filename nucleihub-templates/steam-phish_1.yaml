@@ -8,9 +8,8 @@ info:
     A steam phishing website was detected
   reference:
     - https://steampowered.com
-  metadata:
-    max-request: 1
   tags: phishing,steam,osint
+
 http:
   - method: GET
     path:
@@ -35,4 +34,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"steampowered.com")'
-# digest: 4b0a00483046022100fb820c171595f2951ff5ff827601e77becb624ffcb35678a0c9022afba2c367b022100d97d2ae9b4204aff7da01f3d6a9aba7481a99c7836e149ad1e73e2bfdeff183f:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c9cf7138616432481ce0e65481f2d94bec809aa74cb2d3135550eb2d537b92bd022100da10fbc4cfc93d9d9d823698e025d48418e6abcddb76b3cee5864ae9e9dafed0:922c64590222798bb761d5b6d8e72950

@@ -8,9 +8,8 @@ info:
     A Bank Of America phishing website was detected
   reference:
     - https://bankofamerica.com
-  metadata:
-    max-request: 1
   tags: phishing,BankOfAmerica,osint
+
 http:
   - method: GET
     path:
@@ -32,4 +31,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"bankofamerica.com")'
-# digest: 490a00463044022079eb832b50f0e5b5239f19c25cdfb85b96762d263b36616a663ddc56d0f12b4d02205a7ab5e6e2b942448dffc331202cd56f8a47961789dfee716e21b169777a5c35:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210090fccfed4005401eb71e53942da111ccf63b18e711b319c3990b0ef01e3e31980220357599168ad1720788536cd407dfd7f23c1a05490861208f8f63797a72ee553a:922c64590222798bb761d5b6d8e72950

@@ -1,15 +1,12 @@
 id: ftp
 info:
-  name: AMX NetLinx A/V control system ftpd
+  name: Minolta PagePro 20 printer ftpd
   author: nmap,cn-kali-team
   tags: detect,tech,ftp,service
   severity: info
   metadata:
-    device_type: media device
-    info: VxWorks $1
-    operating_system: VxWorks
     rarity: 0
-    version: $2
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -20,4 +17,4 @@ tcp:
   - name: ftp
     type: regex
     regex:
-    - ^220 VxWorks FTP server \(VxWorks ?([\d.]+) - Secure NetLinx version \(([\d.]+)\)\) ready\.\r\n
+    - ^220 MLT-57066 Version ([\w.]+) ready\.\r\n
