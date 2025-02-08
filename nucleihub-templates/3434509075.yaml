@@ -1,12 +1,13 @@
 id: telnet
 info:
-  name: mythfrontend MythTV control
+  name: DVTel $1 security camera telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: media device
+    device_type: webcam
     rarity: 0
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +18,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '^MythFrontend Network Control\r\nType ''help'' for usage information\r\n---------------------------------\r\n# '
+    - ^\xff\xfe\x01\r\n\r\n\*{59}\r\n\*\s*DVTel (DVT-\w+) - ([\w._-]+)\s*\*\r\n\*{59}\r\nMain Menu\r\n

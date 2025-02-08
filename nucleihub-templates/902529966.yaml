@@ -1,12 +1,11 @@
 id: http
 info:
-  name: svea_httpd
+  name: Hummingbird Document Manager httpd
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
     rarity: 0
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +16,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^\(null\) 400 Bad Request\r\nServer: svea_httpd/([\w._-]+)\r\n'
+    - ^<HEAD><TITLE>501 Not Implemented</TITLE></HEAD>\n<BODY><H1>501 Not Implemented</H1>\nThe server has not implemented your request type\.<BR>\n</BODY>\r\n$

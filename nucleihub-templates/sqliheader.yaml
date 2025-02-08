@@ -1,8 +1,8 @@
-id: header-sqli-1
+id: header-sqli
 
 info:
   name: Request header based sqli
-  author: nithissh
+  author: panch0r3d
   severity: high
 
 requests:

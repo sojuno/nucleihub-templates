@@ -1,12 +1,18 @@
 id: nntp
 info:
-  name: Newscache nntp cache
+  name: INN nntpd
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
+    hostname: $1
+    info: on Debian; posting ok
+    operating_system: Linux
+    product: inn
     rarity: 0
-    version: $1
+    vendor: isc
+    verified: true
+    version: $2
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +23,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 NewsCache ([-\w_.]+), accepting NNRP commands\r\n
+    - ^200 ([-\w_.]+) InterNetNews NNRP server INN ([\d.]+) .* \(Debian\) ready \(posting ok\)\.\r\n

@@ -1,12 +1,12 @@
 id: ftp-proxy
 info:
-  name: Secure Computing Sidewinder firewall ftp proxy
+  name: Cleo VLProxy ftp proxy
   author: nmap,cn-kali-team
   tags: detect,tech,ftp-proxy,service
   severity: info
   metadata:
-    device_type: firewall
     rarity: 0
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -17,4 +17,4 @@ tcp:
   - name: ftp-proxy
     type: regex
     regex:
-    - ^220-Firewall ftp proxy\.  You must login to the proxy first\.\r\n220 Use   proxy-user:auth-method@destination\.\r\n
+    - ^220 Cleo VLProxy/([\w._-]+) FTP server ready\.\r\n$

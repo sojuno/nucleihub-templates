@@ -14,11 +14,12 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-22
   metadata:
+    max-request: 1
     verified: true
     shodan-query: title:"Liferay"
   tags: liferay,lfi,j2ee
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/en/WEB-INF/web.xml;.js"

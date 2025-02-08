@@ -1,13 +1,12 @@
 id: backdoor
 info:
-  name: w4ck1ng-shell
+  name: Subseven backdoor
   author: nmap,cn-kali-team
   tags: detect,tech,backdoor,service
   severity: info
   metadata:
     info: '**BACKDOOR**'
     rarity: 0
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -18,4 +17,4 @@ tcp:
   - name: backdoor
     type: regex
     regex:
-    - '^:: w4ck1ng-shell \(Private Build v([\w._-]+)\) bind shell backdoor :: \n\n'
+    - ^\r\n\[RPL\]002\r\n$
