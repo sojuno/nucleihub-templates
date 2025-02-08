@@ -8,9 +8,8 @@ info:
     A deliveroo phishing website was detected
   reference:
     - https://deliveroo.co.uk
-  metadata:
-    max-request: 1
   tags: phishing,deliveroo,osint
+
 http:
   - method: GET
     path:
@@ -33,4 +32,4 @@ http:
         dsl:
           - '!contains(host,"deliveroo.com")'
           - '!contains(host,"deliveroo.co.uk")'
-# digest: 490a004630440220088596681cd8bd0e471f28a05fbc5b4c1f6bd459c5857177b441c2795f590c2b022021688e6ea54cf5122604deae5e61dfc0b8192e8ec73e6adffdd53587b6be27a5:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203556fe005c0edc022907d06509771ad4895ba51d85b54a4a3e75e8da5b8a1985022039a88e4852eaa04000fe6c8f372dbf0cabca65b3c4e5521fb576efc5d8795c5f:922c64590222798bb761d5b6d8e72950

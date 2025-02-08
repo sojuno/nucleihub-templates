@@ -6,7 +6,7 @@ info:
   severity: low
   tags: exposure,xampp,files
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/cgi-bin/printenv.pl"

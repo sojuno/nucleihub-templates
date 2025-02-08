@@ -1,4 +1,5 @@
 id: jenkins-weak-password
+
 info:
   name: Jenkins Default Login
   author: Zandros0
@@ -8,8 +9,11 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
+  metadata:
+    max-request: 3
   tags: jenkins,default-login
-requests:
+
+http:
   - raw:
       - |
         GET / HTTP/1.1
@@ -23,6 +27,7 @@ requests:
       - |
         GET / HTTP/1.1
         Host: {{Hostname}}
+
     cookie-reuse: true
     req-condition: true
     matchers:
@@ -32,4 +37,4 @@ requests:
           - 'contains(body_3, "Dashboard [Jenkins]")'
         condition: and
 
-# Enhanced by mp on 2022/03/10
+# digest: 4a0a0047304502207933ce58537f5750ed1bdc8e992c56326e99bfa84efb763062282907479af8cb022100f7fd5bd49fc9da5cd69fad276d55aff8c53b8450585a9314f0372e1b9b9fb140:922c64590222798bb761d5b6d8e72950
