@@ -1,14 +1,14 @@
 id: nntp
 info:
-  name: Colobus nntpd
+  name: Microsoft NNTP Service
   author: nmap,cn-kali-team
   tags: detect,tech,nntp,service
   severity: info
   metadata:
-    hostname: $1
-    info: posting ok
+    info: Portuguese
+    operating_system: Windows
     rarity: 0
-    version: $2
+    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -19,4 +19,4 @@ tcp:
   - name: nntp
     type: regex
     regex:
-    - ^200 ([-\w_.]+) - colobus ([\d.]+) ready - \(posting ok\)\.\r\n
+    - '^200 Servi\xe7o NNTP ([\w._-]+) Version: [\w._-]+ Posting Allowed \r\n'

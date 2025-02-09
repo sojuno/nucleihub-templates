@@ -1,15 +1,15 @@
 id: smtp
 info:
-  name: Oracle Communications Messaging smtpd
+  name: HP Sendmail
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    info: $3
-    product: communications_unified
+    operating_system: HP-UX
+    product: sendmail
     rarity: 0
-    vendor: oracle
+    vendor: hp
     verified: true
     version: $2
 tcp:
@@ -22,4 +22,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([\w._-]+) -- Server ESMTP \(Oracle Communications Messaging Server ([\w._-]+) 64bit (\(built \w+ +\d+ \d+\))\)\r\n
+    - ^220 ([-\w_.]+) HP Sendmail \(([\d/.]+) .*\) ready at .*\r\n

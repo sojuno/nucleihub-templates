@@ -8,9 +8,8 @@ info:
     A brighthr phishing website was detected
   reference:
     - https://brighthr.com
-  metadata:
-    max-request: 1
   tags: phishing,brighthr,osint
+
 http:
   - method: GET
     path:
@@ -32,4 +31,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"brighthr.com")'
-# digest: 4a0a00473045022001b56606c277323986b03ae0fc11b197eb71b9a57cadce0c2c59c05edf1675d9022100c93c6cc2fc42330a6a001bc28058b54eab785c82472bec36597f8eef1bd212a3:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022051e25901f708ed119dfbc83fa61111407c3c66d8d456397be9e6ca7ba4ca3da8022100fe02e945cf3f7f88be91efea3f0f350d244f855b5c058f3c1f258945ca05d0c1:922c64590222798bb761d5b6d8e72950

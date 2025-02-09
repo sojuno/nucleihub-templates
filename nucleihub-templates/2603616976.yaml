@@ -1,14 +1,14 @@
 id: ssh
 info:
-  name: AsyncSSH sshd
+  name: Cerberus FTP Server sshd
   author: nmap,cn-kali-team
   tags: detect,tech,ssh,service
   severity: info
   metadata:
     info: protocol $1
-    product: asyncssh
+    product: ftp_server
     rarity: 0
-    vendor: ron_frederick
+    vendor: cerberusftp
     verified: true
     version: $2
 tcp:
@@ -21,4 +21,4 @@ tcp:
   - name: ssh
     type: regex
     regex:
-    - ^SSH-([\d.]+)-AsyncSSH_(\d[\w.-]+)\r\n
+    - ^SSH-([\d.]+)-CerberusFTPServer_([\w._-]+)\r\n

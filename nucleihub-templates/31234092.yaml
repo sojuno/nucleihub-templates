@@ -1,12 +1,13 @@
 id: rtsp
 info:
-  name: Apple AirTunes rtspd
+  name: Darwin Streaming Server
   author: nmap,cn-kali-team
   tags: detect,tech,rtsp,service
   severity: info
   metadata:
     fallback:
     - get-request
+    operating_system: Linux
     rarity: 5
     version: $1
 tcp:
@@ -20,4 +21,4 @@ tcp:
   - name: rtsp
     type: regex
     regex:
-    - '^RTSP/1\.0 400 Bad Request\r\nServer: AirTunes/([\w._-]+)\r\n\r\n'
+    - '^RTSP/1\.0 \d\d\d .*\r\nServer: DSS/([\d.]+) \(Build/[\d.]+; Platform/Linux'
