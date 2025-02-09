@@ -1,13 +1,15 @@
 id: smtp
 info:
-  name: Process Software smtpd
+  name: Sun Java System Messaging Server smtpd
   author: nmap,cn-kali-team
   tags: detect,tech,smtp,service
   severity: info
   metadata:
     hostname: $1
-    operating_system: OpenVMS
+    product: java_system_messaging_server
     rarity: 0
+    vendor: sun
+    verified: true
     version: $2
 tcp:
 - name: 'null'
@@ -19,4 +21,4 @@ tcp:
   - name: smtp
     type: regex
     regex:
-    - ^220 ([-.\w]+) Process Software ESMTP service V([-.\w]+) ready
+    - ^220 ([-\w_.]+) -- Server ESMTP \(Sun Java System Messaging Server ([\d.]+) \(built .*\)\)\r\n

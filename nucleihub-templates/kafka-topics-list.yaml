@@ -7,10 +7,11 @@ info:
   description: |
     Kafka topics are logical data streams that store and organize messages in Apache Kafka. They provide a way for data to be published, subscribed to, and processed by Kafka consumers.
   metadata:
-    verified: true
     max-request: 1
+    verified: true
     shodan-query: product:"Kafka"
-  tags: network,detect,enum,kafka,apache,tcp
+  tags: network,detect,enum,kafka,apache
+
 tcp:
   - inputs:
       - data: 00000020000300000000000200126b61666b612d707974686f6e2d322e302e3200000000
@@ -22,8 +23,7 @@ tcp:
         read: 1024
 
     host:
-      - "{{Hostname}}"
-    port: 9092
+      - "{{Host}}:9092"
 
     matchers-condition: or
     matchers:
@@ -44,4 +44,3 @@ tcp:
         name: value
         regex:
           - '([a-z.A-Z_0-9-]+)'
-# digest: 490a0046304402201c429d5ba713a93889891f48c384759f787b10b4ff5b8cecf13a6d5faf07ddf502204d7bf620147de6ec9b89302bf83781d2f6a233dddd46a90115889107bc57885b:922c64590222798bb761d5b6d8e72950

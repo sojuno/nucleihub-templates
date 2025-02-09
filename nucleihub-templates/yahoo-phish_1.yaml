@@ -8,8 +8,9 @@ info:
     A yahoo phishing website was detected
   reference:
     - https://yahoo.com
+  metadata:
+    max-request: 1
   tags: phishing,yahoo,osint
-
 http:
   - method: GET
     path:
@@ -31,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"yahoo.com")'
-# digest: 490a0046304402207d5668dc809e9d692198c31cf3a3d13982ba3f566c252c51256c89d6981305ff0220348728d6dc8d239b3583f918ee135d556340840f19c85d8a39b397e9c9766e61:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100b56aa0bed96f3821f0e666c7df422fc83ebae802b8116dc616cf261f47f80d36022100b5102f3d4ae789c0780c362a6e6a3bbd4ad3aaaab426fdd1c00d257b7faa8bb4:922c64590222798bb761d5b6d8e72950

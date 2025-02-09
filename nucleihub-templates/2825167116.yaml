@@ -5,12 +5,12 @@ info:
   tags: detect,tech,pop3-proxy,service
   severity: info
   metadata:
+    info: broken
     operating_system: Windows
     product: anti-virus
     rarity: 0
     vendor: avg
     verified: true
-    version: $1
 tcp:
 - name: 'null'
   inputs:
@@ -21,4 +21,4 @@ tcp:
   - name: pop3-proxy
     type: regex
     regex:
-    - ^\+OK AVG POP3 Proxy Server <[\w.]+@[-\w_.]+> ([\d/.]+) \[[\d/.]+\]\r\n
+    - '^-ERR AVG POP3 Proxy Server: Cannot connect to the mail server!\r\n'
