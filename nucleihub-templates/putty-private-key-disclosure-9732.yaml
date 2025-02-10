@@ -11,7 +11,7 @@ info:
     github-query: filename:putty.ppk
   tags: exposure,files
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/my.ppk"

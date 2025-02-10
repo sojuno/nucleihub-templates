@@ -1,11 +1,10 @@
 id: telnet
 info:
-  name: Jacarta interSeptor environmental monitor telnetd
+  name: TrueTime GPS clock telnetd
   author: nmap,cn-kali-team
   tags: detect,tech,telnet,service
   severity: info
   metadata:
-    device_type: specialized
     rarity: 0
 tcp:
 - name: 'null'
@@ -17,4 +16,4 @@ tcp:
   - name: telnet
     type: regex
     regex:
-    - '\xff\xfe\x01\r\n\r\n\+============================================================================\+\r\n\|             \[ interSeptor Configuration Utility Main Menu \]                \|\r\n\+============================================================================\+\r\n\r\nEnter Password: '
+    - '^\xff\xfb\x01\n\rWelcome to TrueTime Network Interface\n\r\rUser name: '

@@ -1,4 +1,4 @@
-id: remote-upload-343bb732c1b6806bcc08bec4973a4acd
+id: remote-upload
 
 info:
   name: "WP Remote Upload <= 1.2.1 - Cross-Site Request Forgery to Arbitrary File Upload"
