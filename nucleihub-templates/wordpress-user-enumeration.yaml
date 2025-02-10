@@ -1,10 +1,9 @@
-id: wordpress-user-enumeration
+id: wordpress-user-enumeration-1
 
 info:
   name: Wordpress user enumeration
   author: Manas_Harsh
   severity: info
-  tags: wordpress
 
 requests:
   - method: GET

@@ -1,15 +1,15 @@
-id: rezgo-26bcf3f897bab277c32fe85f1493ee87
+id: rezgo-f83216cd12257aff8c8044dc3ae06754
 
 info:
   name: >
-    Rezgo Online Booking <= 4.1.7 - Reflected Cross-Site-Scripting
+    Rezgo Online Booking <= 4.1.5 - Unauthenticated Local File Inclusion
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d8ba1a2f-d4f9-4cfe-9a42-ec2e116aed1b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/14bc8256-227e-409a-b853-9157416b46ea?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/rezgo/"
     google-query: inurl:"/wp-content/plugins/rezgo/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,rezgo,low
+  tags: cve,wordpress,wp-plugin,rezgo,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '4.1.7')
+          - compare_versions(version, '<= 4.15')

@@ -1,15 +1,15 @@
-id: faq-builder-ays-946a1d0bfca4080ecc371fd6428b96d1
+id: faq-builder-ays-d27caf3a2fd34ce8609057c6df9100e7
 
 info:
   name: >
-    FAQ Builder AYS <= 1.7.1 - Reflected Cross-Site Scripting
+    FAQ Builder AYS <= 1.7.3 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c509345b-441f-474d-ad3a-720801859f86?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/39a3dabb-4c4a-4423-861c-c26c7365185c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/faq-builder-ays/"
     google-query: inurl:"/wp-content/plugins/faq-builder-ays/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,faq-builder-ays,medium
+  tags: cve,wordpress,wp-plugin,faq-builder-ays,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7.1')
+          - compare_versions(version, '<= 1.7.3')

