@@ -8,8 +8,9 @@ info:
     An amazon phishing website was detected
   reference:
     - https://amazon.com
+  metadata:
+    max-request: 1
   tags: phishing,amazon,osint
-
 http:
   - method: GET
     path:
@@ -50,4 +51,4 @@ http:
           - '!contains(host,"amazon.ae")'
           - '!contains(host,"amazon.com.tr")'
         condition: and
-# digest: 4b0a00483046022100a2d5f18ba0eb425b4230573db4ef5e5729a99b680ff9551929325afef024d0fe022100cd99df1fb01508c1598bb5ce35bcc0b3b2be960c7b538c74fef79174bebcf7b4:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502203bef7eaa838d711c27ad70e3b03acd4ae276c3d1a3b3aabdd2c543f8d652c73f022100c7be32a785722b7eb095e1dfcd8a96aa98eb864a5dc9ed1b07bc23ab1242a417:922c64590222798bb761d5b6d8e72950
