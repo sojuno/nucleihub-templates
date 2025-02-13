@@ -1,11 +1,9 @@
 id: basic-cors-misconfig
-
 info:
   name: Basic CORS misconfiguration
   author: nadino
   severity: medium
-
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"

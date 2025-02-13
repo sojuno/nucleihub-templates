@@ -1,4 +1,4 @@
-id: wp-parsidate-02752217058d19321ce6136f605f443e
+id: wp-parsidate
 
 info:
   name: "Parsi Date <= 4.0.1 - Reflected Cross-Site Scripting"
