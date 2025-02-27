@@ -1,24 +1,24 @@
-id: elementor
+id: elementor-28951e2c7c7e3863067865ae74f6f34e
 
 info:
-  name: "Elementor <= 3.13.3 Authenticated(Contributor+) Arbitrary Post Type Creation via save_item"
+  name: >
+    Elementor <= 3.13.1 - Missing Authorization to Settings Update
   author: topscoder
-  severity: medium
-  description: "The Elementor plugin for WordPress is vulnerable to the creation of emergent resources due to insufficient input validation in the template 'save_item' function in versions up to, and including, 3.13.3. This allows authenticated attackers, with contributor-level permissions or above, to create templates with an arbitrary post type, potentially allowing the exploitation of other plugins that depend on custom post types."
+  severity: low
+  description: >
+    The Elementor plugin for WordPress is vulnerable to unauthorized modification of data due to missing capability checks on the register_as_beta_tester(), ajax_enable_safe_mode(), ajax_get_category_items(), and ajax_re_migrate_globals() functions called via AJAX actions in versions up to, and including, 3.13.1. This makes it possible for authenticated attackers with minimal permissions such as subscribers to perform many actions such as registering the site for beta testing, enabling safe mode, remigrating globals and retrieving category items.
   reference:
-    - https://plugins.svn.wordpress.org/elementor/tags/3.13.3/readme.txt
-    - https://plugins.svn.wordpress.org/elementor/tags/3.13.3/readme.md
-    - https://elementor.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash
-    - https://plugins.trac.wordpress.org/changeset?old_path=%2Felementor%2Ftags%2F3.13.2&old=2916405&new_path=%2Felementor%2Ftags%2F3.13.3&new=2916405&sfp_email=&sfph_mail=
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b66e2537-f187-4237-b248-f8a361f9cb00?source=api-prod
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N
     cvss-score: 5.4
-    cve-id:
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/elementor/"
     google-query: inurl:"/wp-content/plugins/elementor/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,elementor,medium
+  tags: cve,wordpress,wp-plugin,elementor,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.13.3')
+          - compare_versions(version, '<= 3.13.1')
