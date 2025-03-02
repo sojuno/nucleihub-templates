@@ -1,15 +1,15 @@
-id: insert-headers-and-footers-88eed07c6e0a2925ad63426ba88d1539
+id: insert-headers-and-footers
 
 info:
   name: >
-    WPCode <= 2.0.13 - Unauthenticated Reflected Cross-Site Scripting via Tag Filter Links
+    WPCode <= 2.0.8 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0f2ebd89-d34f-4f08-9654-049355fdfa3f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e52c53c1-4f04-4075-9329-d93fabf5a6ce?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.13')
+          - compare_versions(version, '<= 2.0.8')

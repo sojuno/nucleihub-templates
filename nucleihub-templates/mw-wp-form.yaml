@@ -1,15 +1,15 @@
-id: mw-wp-form-77827108540188b7dcd18fb0adeb07f8
+id: mw-wp-form
 
 info:
   name: >
-    MW WP Form <= 5.0.3 - Improper Limitation of File Name to Unauthenticated Arbitrary File Deletion
+    MW WP Form <= 5.0.6 - Authenticated (Editor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/412d555c-9bbd-42f5-8020-ccfc18755a79?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f2126761-cbff-4d46-a6df-4566d15216d7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.0.3')
+          - compare_versions(version, '<= 5.0.6')

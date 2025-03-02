@@ -1,18 +1,18 @@
-id: supportcandy-cf57aa60edbc109ff86f3d6657d68d80
+id: supportcandy
 
 info:
   name: >
-    SupportCandy <= 3.1.3 - Sensitive Data Exposure
+    SupportCandy <= 2.2.6 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
-    The SupportCandy plugin for WordPress is vulnerable to Sensitive Information Exposure in versions up to, and including, 3.1.3. Users seeking support have the option to upload supporting documents which are placed in /wp-content/uploads/wpsc/. If directory listing is enabled, an attacker can obtain a listing of documents in this directory and access documents directly.
+    
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/07c0b4c5-d76e-4bdc-87d1-3144a1466c77?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/35fb04aa-5899-4797-9ea1-24e7a98ad8d3?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N
-    cvss-score: 6.5
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/supportcandy/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.3')
+          - compare_versions(version, '<= 2.2.6')

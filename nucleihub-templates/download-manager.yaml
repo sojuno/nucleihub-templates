@@ -1,18 +1,18 @@
-id: download-manager-7720e593a27df575ef3bc556d0f06a18
+id: download-manager
 
 info:
   name: >
-    WordPress Download Manager <= 2.9.6 - Cross-Site Request Forgery
+    Download Manager <= 3.2.43 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
-    The WordPress Download Manager plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 2.9.6. This is due to missing or incorrect nonce validation on the wpdm_install_addon function. This makes it possible for unauthenticated attackers to install malicious plugins and/or packages via forged request granted they can trick a site administrator into performing an action such as clicking on a link.
+    The Download Manager plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via redirect parameter in versions up to, and including, 3.2.43 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/79b5883b-a3be-497e-b911-7dc39e7fb418?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9d72604e-23ef-4a69-8839-cf8ff4aef3bc?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L
-    cvss-score: 6.3
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 6.1
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/download-manager/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.9.6')
+          - compare_versions(version, '<= 3.2.43')

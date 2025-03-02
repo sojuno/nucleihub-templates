@@ -1,15 +1,15 @@
-id: ultimate-dashboard-7277279061009a48883dc0e06b350b6d
+id: ultimate-dashboard
 
 info:
   name: >
-    Ultimate Dashboard <= 3.7.7 - Authenticated (Administrator+) Stored Cross-Site Scripting via plugin settings
+    Ultimate Dashboard <= 3.7.10 - Login Page Disclosure on Multi-site
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/79cce1fc-a27f-4842-b1a2-2c53857add4c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/56f3cb34-0452-4e3d-9442-0decc77f5e63?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.7.7')
+          - compare_versions(version, '<= 3.7.10')

@@ -1,15 +1,15 @@
-id: e2pdf-4bc4b8ed199b4ecc105e9687f540b218
+id: e2pdf
 
 info:
   name: >
-    E2Pdf – Export To Pdf Tool for WordPress <= 1.20.27 - Missing Authorization
+    E2Pdf <= 1.20.23 - Authenticated(Administrator+) SQL Injection
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5abc0853-5888-4538-a6f3-78acef88ff63?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3f0ed355-b5c8-4143-b391-7436d67ba0de?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/e2pdf/"
     google-query: inurl:"/wp-content/plugins/e2pdf/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,e2pdf,high
+  tags: cve,wordpress,wp-plugin,e2pdf,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.20.27')
+          - compare_versions(version, '< 1.20.24')

@@ -1,15 +1,15 @@
-id: kali-forms-999daea3d1be6284d4b3613b0e0b671d
+id: kali-forms
 
 info:
   name: >
-    Contact Form builder with drag & drop for WordPress – Kali Forms <= 2.3.41 - Missing Authorization to Arbitrary Plugin Deactivation
+    Contact Form builder with drag & drop - Kali Forms <= 2.3.27 - Missing Authorization via Contact Form
   author: topscoder
   severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7be75b0a-737d-4f0d-b024-e207af4573cd?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bfb473a6-08ba-4b23-877d-4aa661c0053f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.3.41')
+          - compare_versions(version, '<= 2.3.27')

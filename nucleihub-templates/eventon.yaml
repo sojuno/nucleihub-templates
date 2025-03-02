@@ -1,15 +1,15 @@
-id: eventon-99a3e7ccfc4e67937bea1e6305db27fe
+id: eventon
 
 info:
   name: >
-    EventON - WordPress Virtual Event Calendar Plugin Pro <= 4.5.4 & Free <= 2.2.7 - Missing Authorization to Arbitrary Post Meta Update via evo_eventpost_update_meta
+    EventON - WordPress Virtual Event Calendar Plugin Pro <= 4.5.4 & Free <= 2.2.7 - Cross-Site Request Forgery via evo_eventpost_update_meta
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/19f94c4f-145b-4058-aabd-06525fce3cea?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c8e9a333-a6b7-4b5e-93c1-b95566e5d6fb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/eventon/"
     google-query: inurl:"/wp-content/plugins/eventon/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,eventon,high
+  tags: cve,wordpress,wp-plugin,eventon,medium
 
 http:
   - method: GET

@@ -1,15 +1,15 @@
-id: jetwidgets-for-elementor-a2fe4ce9d736fad42c3860a5c4e30ad0
+id: jetwidgets-for-elementor
 
 info:
   name: >
-    JetWidgets For Elementor <= 1.0.17 - Authenticated (Contributor+) Stored Cross-Site Scripting via layout_type and id Parameters
+    JetWidgets For Elementor <= 1.0.13 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4457d15e-2c01-498d-b94a-a6e93adcf70c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/934db08b-7dde-43bf-848b-48fba38ef195?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.17')
+          - compare_versions(version, '<= 1.0.13')

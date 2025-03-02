@@ -1,24 +1,24 @@
-id: user-meta-fa239a1796835e20df9fd8accd1801ae
+id: user-meta
 
 info:
   name: >
-    User Meta – User Profile Builder and User management plugin 1.1.1 - Arbitrary File Upload
+    User Meta <= 2.4.2 - Authenticated (Admin+) Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
-    The User Meta plugin for wordPress is vulnerable to Arbitrary File Uploads in versions up to, and including 1.1.1, due to insufficient file type validation in the user-meta/framework/helper/uploader.php file. This makes it possible for attackers to upload malicious files and achieve remote code execution.
+    
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/08bebfbd-08f4-45d9-9570-46f5c848afca?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/abe8efec-8f00-40bc-bc28-98435d11ebd3?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N
-    cvss-score: 6.5
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/user-meta/"
     google-query: inurl:"/wp-content/plugins/user-meta/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,user-meta,medium
+  tags: cve,wordpress,wp-plugin,user-meta,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '1.1.1')
+          - compare_versions(version, '<= 2.4.2')

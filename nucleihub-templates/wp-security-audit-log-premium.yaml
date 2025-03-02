@@ -1,15 +1,15 @@
-id: wp-security-audit-log-premium-5f6b8b63b69e5a8e50003f2be4cb950b
+id: wp-security-audit-log-premium
 
 info:
   name: >
-    WP Activity Log Premium <= 4.5.0 - Cross-Site Request Forgery via ajax_switch_db
+    WP Activity Log <= 4.5.0 - Cross-Site Request Forgery via ajax_run_cleanup
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4c659f6d-e02b-42ab-ba02-eb9b00602ad4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e2008e0b-32c6-46fb-93b9-2b0004f478e8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

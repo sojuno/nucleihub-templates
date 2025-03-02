@@ -1,18 +1,18 @@
-id: fluid-responsive-slideshow-fce80dc47aa03a6032a68a481f422da4
+id: fluid-responsive-slideshow
 
 info:
   name: >
-    Fluid Responsive Slideshow < 2.2.7 - Cross-Site Request Forgery
+    Fluid Responsive Slideshow < 2.2.7 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
-    The Fluid Responsive Slideshow plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 2.2.6. This is due to missing or incorrect nonce validation on the frst_save() function. This makes it possible for unauthenticated attackers to edit content on all pages and posts via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.
+    
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cc910c27-d83c-4f3d-b491-f3e169d8f25f?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d8009f10-85d0-4798-8b6b-c1e4452139af?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
-    cvss-score: 8.8
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/fluid-responsive-slideshow/"

@@ -1,19 +1,16 @@
-id: google-calendar-events-da4e9d543872583db29bd383b0b2e722
+id: google-calendar-events
 
 info:
-  name: >
-    Simple Calendar <= 3.1.42 - Cross-Site Request Forgery to Transient Cache Clearing
+  name: "Simple Calendar <= 3.1.43 - Cross-Site Request Forgery to Transient Cache Clearing"
   author: topscoder
   severity: medium
-  description: >
-    The Simple Calendar plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 3.1.42. This is due to missing nonce validation on the clear_cache() function used to clear the plugin's transients. This makes it possible for unauthenticated attackers to clear the plugin's transients for a given id, via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.
+  description: "The Simple Calendar plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 3.1.43. This is due to missing nonce validation on the clear_cache() function used to clear the plugin's transients. This makes it possible for unauthenticated attackers to clear the plugin's transients for a given id, via a forged request granted they can trick a site administrator into performing an action such as clicking on a link."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/248b74d3-5228-473d-a79a-743566898606?source=api-prod
+    - https://plugins.trac.wordpress.org/changeset/2910942/google-calendar-events/trunk/includes/admin/ajax.php
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
     cvss-score: 4.3
-    cve-id: 
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/google-calendar-events/"
     google-query: inurl:"/wp-content/plugins/google-calendar-events/"

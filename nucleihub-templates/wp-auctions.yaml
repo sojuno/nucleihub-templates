@@ -1,15 +1,15 @@
-id: wp-auctions-50d3727334b58ef99ed01a956c1cea3a
+id: wp-auctions
 
 info:
   name: >
-    WordPress Auction Plugin <= 3.7 - Authenticated (Editor+) Stored Cross-Site Scripting
+    WordPress Auction Plugin <= 3.7 - Authenticated (Editor+) SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/40f909ca-aadd-4a3d-9e25-24265abdee73?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0cd62935-f865-43ff-b727-f17b6fc5976d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

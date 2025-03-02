@@ -1,15 +1,15 @@
-id: official-facebook-pixel-6cf66ddcf9ef63b567b3a5272946086a
+id: official-facebook-pixel
 
 info:
   name: >
-    Facebook for WordPress <= 3.0.3 - Cross-site Request Forgery to Stored Cross-site Scripting and Settings Deletion via wp_ajax_(save|delete)_fbe_settings
+    Meta pixel for WordPress <= 2.2.2 - PHP Object Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9bc3039c-8e96-42e9-a28d-d3204f3e84f7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/17d4002d-3e87-46a7-9be6-c36e40c31c4a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 3.0.0', '< 3.0.4')
+          - compare_versions(version, '<= 2.2.2')

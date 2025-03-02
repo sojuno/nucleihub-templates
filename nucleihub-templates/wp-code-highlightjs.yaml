@@ -1,19 +1,16 @@
-id: wp-code-highlightjs-7fa7ce6a08964b451879262320745f69
+id: wp-code-highlightjs
 
 info:
-  name: >
-    WP Code Highlight.js <= 0.6.3 - Cross-Site Scripting
+  name: "WP Code Highlight.js <= 0.6.3 - Cross-Site Scripting"
   author: topscoder
   severity: high
-  description: >
-    The WP Code Highlight.js plugin for WordPress is vulnerable to Cross-Site Scripting in versions up to, and including, 0.6.3 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts that execute in a victim's browser.
+  description: "The WP Code Highlight.js plugin for WordPress is vulnerable to Cross-Site Scripting in versions up to, and including, 0.6.3 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts that execute in a victim's browser."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/aacd4a33-499d-4630-a0fb-8a1acfcfb7dd?source=api-prod
+
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L
-    cvss-score: 7.1
-    cve-id: 
+    cvss-metrics:
+    cvss-score:
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/wp-code-highlightjs/"
     google-query: inurl:"/wp-content/plugins/wp-code-highlightjs/"
@@ -56,4 +53,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 0.6.3')
+          - compare_versions(version, '<=  0.6.3')

@@ -1,15 +1,15 @@
-id: getwid-f57a9bb09c6115f6da291aba1defee73
+id: getwid
 
 info:
   name: >
-    Multiple Plugins <= (Various Versions) - Authenticated (Contributor+) Stored DOM-Based Cross-Site Scripting via FancyBox JavaScript Library
+    Getwid – Gutenberg Blocks <= 2.0.10 - Missing Authorization to Google API key update
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d99d4b9a-aa09-434d-91a8-7afaa0e8b5db?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fe391ac9-e3ea-48b3-8ffe-243972ce89f6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/getwid/"
     google-query: inurl:"/wp-content/plugins/getwid/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,getwid,low
+  tags: cve,wordpress,wp-plugin,getwid,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.11')
+          - compare_versions(version, '<= 2.0.10')

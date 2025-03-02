@@ -1,15 +1,15 @@
-id: one-click-demo-import-58399e882eb2218747e68951561e991e
+id: one-click-demo-import
 
 info:
   name: >
-    Catch Themes Demo Import <= 3.0.2 - Authenticated (Admin+) Arbitrary File Upload
+    One Click Demo Import <= 3.2.0 - Authenticated (Admin+) PHP Object Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fe98bd8c-6db3-4094-8ff2-ab21c8778698?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f10a11d8-1ef8-427b-b256-ffe8769d61bb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.1.0')
+          - compare_versions(version, '<= 3.2.0')

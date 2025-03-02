@@ -1,18 +1,18 @@
-id: booking-6e3a9d48d09e1e6a38f8de3412a9227c
+id: booking
 
 info:
   name: >
-    Booking Calendar <= 6.2 - Cross-Site Request Forgery to SQL Injection
+    Booking Calendar <= 9.2.1 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
-    The Booking Calendar plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 6.2. This is due to missing or incorrect nonce validation on the wpdev_get_args_from_request_in_bk_listing function. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database via forged request granted they can trick a site administrator into performing an action such as clicking on a link.
+    
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e865324e-a2a2-40fb-8c6a-a89317b59c8c?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/982be9d7-fe9f-40c6-a474-fcc2d6455839?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
-    cvss-score: 8.8
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/booking/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 6.2.1')
+          - compare_versions(version, '<= 9.2.1')

@@ -1,15 +1,15 @@
-id: th-advance-product-search-9b9752afd27257f73c14b90b62a0bd20
+id: th-advance-product-search
 
 info:
   name: >
-    Multiple Plugins By ThemeHunk (Various Versions) - Missing Authorization via settings_init
+    TH Advance Product Search <= 1.1.4 - Missing Authorization to Plugin Settings Reset
   author: topscoder
   severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/826a3fa2-ee41-4960-becb-0df8813a964a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ceb7d0a7-ea34-4c6f-a144-660debc74a9e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

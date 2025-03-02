@@ -1,15 +1,15 @@
-id: login-with-phone-number-aea0c3c842fc83ee23cca8b6e9587f2e
+id: login-with-phone-number
 
 info:
   name: >
-    Login with phone number <= 1.7.49 - Authenticated (Subscriber+) Authorization Bypass to Privilege Escalation
+    Login with phone number <= 1.7.16 - Unauthorized Account Password Change to Privilege Escalation
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/de7cde2c-142c-4004-9302-be335265d87d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/95247ff5-0277-4270-a1ea-221ea2ecee0c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7.49')
+          - compare_versions(version, '<= 1.7.16')

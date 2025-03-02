@@ -1,18 +1,18 @@
-id: erp-e11ffab2794c6ee91fb07c2744792308
+id: erp
 
 info:
   name: >
-    WP ERP <=1.10.5 - Sensitive Data Exposure
+    WP ERP <= 1.12.3 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
-    The WP ERP Plugin for WordPress is vulnerable to Sensitive Data Exposure in versions up to, and including, 1.10.5 due to missing authorization checks in a number of functions, including 'generate_csv_url', which leaks a nonce used to import CSV files.
+    
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/35cc980b-9c52-4f0b-aeb2-4afa6efacd8f?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a073c2f1-88d3-4410-b9f5-45b04becbfcb?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L
-    cvss-score: 6.3
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/erp/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.10.5')
+          - compare_versions(version, '< 1.12.4')

@@ -1,15 +1,15 @@
-id: woozone-c500e8c229ce62f2bceca92749546bda
+id: woozone
 
 info:
   name: >
-    WooCommerce Amazon Affiliates - Wordpress Plugin <= 14.0.10 - Authenticated (Subscriber+) Privilege Escalation
+    WooCommerce Amazon Affiliates - Wordpress Plugin <= 14.0.10 - Authenticated (Subscriber+) SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d5b110a5-4027-4c98-a348-325c8b9c8405?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d1a14fc2-cebe-4a0e-92b0-af2a9c805401?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

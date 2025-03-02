@@ -1,24 +1,24 @@
-id: wp-filebase-a296909c139662b29b101f6f54dc3332
+id: wp-filebase
 
 info:
   name: >
-    WP-Filebase <= 3.4.23 - Reflected Cross-Site Scripting
+    WP-Filebase Download Manager <= 0.3.0.03 - Remote Code Execution
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
-    The WP-Filebase plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘page’ parameter in versions up to, and including, 3.4.23 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a logged-in administrator into performing an action such as clicking on a link.
+    
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/94e9a982-a46d-4dda-9145-e7f74cf09820?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5933fc11-8f06-4d58-9483-d06997e5d731?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 6.1
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/wp-filebase/"
     google-query: inurl:"/wp-content/plugins/wp-filebase/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-filebase,medium
+  tags: cve,wordpress,wp-plugin,wp-filebase,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.4.23')
+          - compare_versions(version, '<= 0.3.0.03')

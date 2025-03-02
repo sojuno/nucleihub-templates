@@ -1,15 +1,15 @@
-id: mega-elements-addons-for-elementor-676b221f3223275a647875c02bd2ac88
+id: mega-elements-addons-for-elementor
 
 info:
   name: >
-    Mega Elements <= 1.2.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via Button Widget
+    Mega Elements <= 1.2.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3808ca2a-e78e-4118-890b-c22a71f8e855?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a1640612-1516-42d7-9fdc-ed4eaa2f0eeb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.1')
+          - compare_versions(version, '<= 1.2.2')

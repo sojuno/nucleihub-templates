@@ -1,24 +1,21 @@
-id: contact-form-7-dynamic-text-extension-d49ee5cf66af7ed6d2074029ec99c255
+id: contact-form-7-dynamic-text-extension
 
 info:
-  name: >
-    Contact Form 7 Dynamic Text Extension <= 2.0.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+  name: "Contact Form 7 Dynamic Text Extension < 2.0.3 - Reflected Cross-Site Scripting"
   author: topscoder
-  severity: low
-  description: >
-    The Contact Form 7 Dynamic Text Extension plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's shortcodes in versions up to, and including, 2.0.3 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers with contributor level and above permissions to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page
+  severity: high
+  description: "The Contact Form 7 Dynamic Text Extension plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘key’ parameter in versions before 2.0.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fa821005-9593-4a84-b4b4-af746da4d6b9?source=api-prod
+
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N
-    cvss-score: 6.4
-    cve-id: 
+    cvss-metrics:
+    cvss-score:
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/contact-form-7-dynamic-text-extension/"
     google-query: inurl:"/wp-content/plugins/contact-form-7-dynamic-text-extension/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-form-7-dynamic-text-extension,low
+  tags: cve,wordpress,wp-plugin,contact-form-7-dynamic-text-extension,high
 
 http:
   - method: GET

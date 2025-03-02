@@ -1,18 +1,18 @@
-id: advanced-custom-fields-13a04604b23e354797632eaff5ef432e
+id: advanced-custom-fields
 
 info:
   name: >
-    Advanced Custom Fields <= 6.3.8 & Secure Custom Fields <= 6.3.6.2 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Advanced Custom Fields <= 3.5.1 - Remote Code Execution via Remote File Inclusion
   author: topscoder
   severity: low
   description: >
-    The Advanced Custom Fields & Secure Custom Fields plugins for WordPress are vulnerable to Stored Cross-Site Scripting via ACF field labels in all versions up to, and including, 6.3.8 & 6.3.6.2 respectively due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level access, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled. Please follow the reference listed in this vulnerability record for instructions on how to update to the latest version of ACF that patches this issue and ensures accessibility to updates moving forward. Special note: only the minified files in Secure Custom Fields have been patched meaning the source build files are still vulnerable.
+    Advanced Custom Fields up to 3.5.1 is vulnerable to Remote Code Execution. The vulnerability allows for remote file inclusion and remote code execution via the export.php script. This exploit only works when the php option allow_url_include is set to On (Default Off).
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b3552de0-3e0b-4529-a757-a31c69a06122?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3dfba044-42f8-44a2-be62-99af9d9094c3?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:L/I:L/A:N
-    cvss-score: 4.4
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:N
+    cvss-score: 3.8
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/advanced-custom-fields/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 6.3.6.2')
+          - compare_versions(version, '<= 3.5.1')

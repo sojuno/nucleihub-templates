@@ -1,24 +1,24 @@
-id: caldera-forms-3fdeb771c16b8f6044bc21898c9d1567
+id: caldera-forms
 
 info:
   name: >
-    Caldera Forms <= 1.4.1 - Cross-Site Request Forgery to Stored Cross-Site Scripting
+    Caldera Forms <= 1.5.4 - Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
-    The Caldera Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via CSRF through the ‘create_form’ action in versions up to, and including, 1.4.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
+    The Caldera Forms plugin for WordPress is vulnerable to Cross-Site Scripting via the "edit" parameter in versions up to, and including, 1.5.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers to inject arbitrary web scripts that execute in a victim's browser.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fc3d84f3-bd9d-40e6-bc88-90c840a928c0?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2a9bf519-bc55-411b-836a-fb394e317396?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 6.1
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 5.4
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/caldera-forms/"
     google-query: inurl:"/wp-content/plugins/caldera-forms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,caldera-forms,medium
+  tags: cve,wordpress,wp-plugin,caldera-forms,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.1')
+          - compare_versions(version, '<= 1.5.4')

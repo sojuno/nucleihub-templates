@@ -1,15 +1,15 @@
-id: currency-switcher-5d0b0c93b56ed653bed03a2579ba6314
+id: currency-switcher
 
 info:
   name: >
-    WPCS – WordPress Currency Switcher Professional <= 1.1.9 - Missing Authorization to Arbitrary Custom Drop-Down Currency Switcher Deletion
+    WPCS – WordPress Currency Switcher Professional <= 1.1.9 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bc44c95e-9ca0-46d0-8315-72612ef3f855?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/be054481-89b4-47d8-ad06-8622edea367f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/currency-switcher/"
     google-query: inurl:"/wp-content/plugins/currency-switcher/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,currency-switcher,high
+  tags: cve,wordpress,wp-plugin,currency-switcher,low
 
 http:
   - method: GET

@@ -1,15 +1,15 @@
-id: mwp-herd-effect-825844feae3c0993ba26ca24f6beb496
+id: mwp-herd-effect
 
 info:
   name: >
-    Multiple Wow-Company Plugins (Various Versions) -- Reflected Cross-Site Scripting via 'page' parameter
+    Herd Effects <= 5.2.3 - Cross-Site Request Forgery to Effect Deletion
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8a95af34-559c-4644-9941-7bd1551aba33?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9fd15c0b-cd3b-45e7-8379-b0e64e64d6b1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.2.1')
+          - compare_versions(version, '<= 5.2.3')

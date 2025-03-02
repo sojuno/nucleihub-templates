@@ -1,15 +1,15 @@
-id: learning-management-system-2928d4688fb415c9cbca95396899c99f
+id: learning-management-system
 
 info:
   name: >
-    Masteriyo LMS – eLearning and Online Course Builder for WordPress <= 1.13.3 - Authenticated (Student+) Stored Cross-Site Scripting via Ask a Question Functionality
+    Masteriyo - LMS <= 1.11.6 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/575f103e-cfc7-4efd-a592-658a3e919671?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e48142c2-3688-4638-abfc-1e191f362055?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/learning-management-system/"
     google-query: inurl:"/wp-content/plugins/learning-management-system/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,learning-management-system,low
+  tags: cve,wordpress,wp-plugin,learning-management-system,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.13.3')
+          - compare_versions(version, '<= 1.11.6')

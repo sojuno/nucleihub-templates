@@ -1,15 +1,15 @@
-id: woo-social-login-265d0ce1be5a68fefdf97ffcccc112b2
+id: woo-social-login
 
 info:
   name: >
-    WooCommerce - Social Login <= 2.7.3 - Missing Authorization to Unauthenticated Privilege Escalation
+    WooCommerce - Social Login <= 2.7.3 - Unauthenticated Privilege Escalation via One-Time Password
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/77ea4ba8-6c13-494a-92e3-12643003635b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/10d92d5e-1c23-4f6a-bfab-0756876190a5?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/woo-social-login/"
     google-query: inurl:"/wp-content/plugins/woo-social-login/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-social-login,high
+  tags: cve,wordpress,wp-plugin,woo-social-login,low
 
 http:
   - method: GET
