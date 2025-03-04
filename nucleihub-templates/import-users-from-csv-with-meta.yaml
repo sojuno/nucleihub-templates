@@ -1,18 +1,18 @@
-id: import-users-from-csv-with-meta
+id: import-users-from-csv-with-meta-52b5806f4b76102b64dbbe91a43b8118
 
 info:
   name: >
-    Import and export users and customers <= 1.24.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via shortcode
+    Import and export users and customers 1.15 - Sensitive Data Exposure
   author: topscoder
   severity: low
   description: >
-    
+    The Import and export users and customers plugin for WordPress is vulnerable to Sensitive Data Exposure in version 1.15 via the export_users_csv function. This can allow authenticated attackers to export user information even if they do not have account creation privileges. The function was introduced in this version and fixed in subsequent versions.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4731eb39-8c01-4a2b-80f7-15d8c13a19b5?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e46ff294-0be1-47c1-8c21-f6242c6f832a?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N
+    cvss-score: 7.7
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/import-users-from-csv-with-meta/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.24.3')
+          - compare_versions(version, '1.15')

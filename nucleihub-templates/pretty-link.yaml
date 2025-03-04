@@ -1,15 +1,15 @@
-id: pretty-link
+id: pretty-link-dcb10ee909d1320fad00d3dafd0ccc56
 
 info:
   name: >
-    Shortlinks by Pretty Links <= 3.4.0 - Cross-Site Request Forgery via route
+    Pretty Links – Affiliate Links, Link Branding, Link Tracking & Marketing Plugin <= 3.6.3 - Cross-Site Request Forgery to Plugin Settings Update
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5304da48-5d42-47ce-b1b1-dc04b8fa9dff?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/97d78b4b-568e-43e7-bebf-091179c321f6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.4.0')
+          - compare_versions(version, '<= 3.6.3')

@@ -1,15 +1,15 @@
-id: wp-scraper
+id: wp-scraper-487cff981c1cd894ea35eae650f347d5
 
 info:
   name: >
-    WP Scraper <= 5.7 - Authenticated (Subscriber+) Server-Side Request Forgery
+    WP Scraper <= 5.7 - Missing Authorization to Arbitrary Page/Post Creation
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/424b2145-2fe2-48b8-bb4f-08fe23a6100f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1a4bc52d-5771-4e7b-a394-772f2a5edbd7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-scraper/"
     google-query: inurl:"/wp-content/plugins/wp-scraper/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-scraper,low
+  tags: cve,wordpress,wp-plugin,wp-scraper,high
 
 http:
   - method: GET

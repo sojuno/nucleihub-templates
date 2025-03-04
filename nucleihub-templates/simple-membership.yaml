@@ -1,18 +1,18 @@
-id: simple-membership
+id: simple-membership-39250a43b925b1a04d236faa2e828659
 
 info:
   name: >
-    Simple Membership <= 4.4.3 - Authenticated(Contributor+) Stored Cross-Site Scripting via Shortcode
+    Simple Membership <= 4.0.3 - Authenticated (Admin+) SQL Injections
   author: topscoder
   severity: low
   description: >
-    
+    The Simple Membership plugin for WordPress is vulnerable to time-based SQL Injection via the 's' and 'status' parameters in versions up to, and including, 4.0.3 due to insufficient escaping on the user-supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for authenticated Admin+ attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/63779ab7-ba8b-459d-beb3-a32faf8f4394?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1664fef3-6416-4678-9ee7-bed2184d7490?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+    cvss-score: 7.2
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/simple-membership/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.4.3')
+          - compare_versions(version, '<= 4.0.3')

@@ -1,15 +1,15 @@
-id: enable-media-replace
+id: enable-media-replace-816833a5a8a44ad6576616c4a6622c20
 
 info:
   name: >
-    Enable Media Replace <= 4.0.1 - Authenticated (Author+) Arbitrary File Upload
+    Enable Media Replace <= 3.6.3 - Authenticated (Administrator+) Path Traversal
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/38a079c8-181c-4bd8-a45d-e132711029ff?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ea56f0a1-7359-4beb-aae6-e2a3757ec8cd?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.0.1')
+          - compare_versions(version, '<= 3.6.3')

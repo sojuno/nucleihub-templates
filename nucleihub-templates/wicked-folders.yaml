@@ -1,15 +1,15 @@
-id: wicked-folders
+id: wicked-folders-e4e9dde96b41cd674c84e225c651422f
 
 info:
   name: >
-    Wicked Folders <= 2.18.16 - Cross-Site Request Forgery via ajax_unassign_folders
+    Wicked Folders <= 2.18.16 - Cross-Site Request Forgery via ajax_save_folder_order
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e52b27fa-10e8-43d0-be29-774c2f5487ae?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4104f69f-b185-498a-aabf-2126ffb94ab3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,24 +1,24 @@
-id: dt-chocolate
+id: dt-chocolate-75015c6475d721a5893d15fa28d5a9f3
 
 info:
   name: >
-    DT Chocolate <= 1.0 - Open Redirect
+    Chocolate WP – Responsive Photography Theme (All Versions) - Denial of Service and Abuse of Functionality
   author: topscoder
-  severity: medium
+  severity: high
   description: >
-    The DT Chocolate theme for WordPress is vulnerable to Open Redirect in versions up to, and including, 1.0. This is due to a lack of sanitization of user-supplied input via the 'image' parameter. This makes it possible for attackers to redirect users to arbitrary websites.
+    The Chocolate WP – Responsive Photography Theme for WordPress is vulnerable to Denial of Service and Abuse of Functionality in all versions. This is due to inclusion of a vulnerable version of TimThumb. This makes it possible for unauthenticated attackers to send users to other websites if they can successfully trick a user into performing an action such as clicking a link in addition to causing a loss of functionality on the site.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3f937290-fa45-4ce0-84f0-a42c83cd3bdf?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a644ac90-6cc4-495c-b880-4ebbc237bb57?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:L/A:N
-    cvss-score: 4.7
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N
+    cvss-score: 7.5
     cve-id: 
   metadata:
     fofa-query: "wp-content/themes/dt-chocolate/"
     google-query: inurl:"/wp-content/themes/dt-chocolate/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,dt-chocolate,medium
+  tags: cve,wordpress,wp-theme,dt-chocolate,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0')
+          - compare_versions(version, '<= *')

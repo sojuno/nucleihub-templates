@@ -1,15 +1,15 @@
-id: themesflat-addons-for-elementor
+id: themesflat-addons-for-elementor-ad0bd2aac3de326e49ee76466ad358f6
 
 info:
   name: >
-    Themesflat Addons For Elementor <= 2.1.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via Widget Tags
+    Themesflat Addons For Elementor <= 2.1.1 - Authenticated (Contributor+) Stored Cross-Site Scripting in Multiple Widgets
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1516280e-796e-4011-b15f-b754860ad414?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dc686a35-4ce3-4359-a7d3-e6459e2f5dfe?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,15 +1,15 @@
-id: viewmedica
+id: viewmedica-6e6ac6ee72d305bf59f17ab3d56d9477
 
 info:
   name: >
-    ViewMedica 9 <= 1.4.15 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    ViewMedica 9 <= 1.4.15 - Cross-Site Request Forgery to Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b32c1b63-564c-4c38-a149-d5adabda8a8b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/646ba700-28d5-455f-88de-2864ef8f202c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/viewmedica/"
     google-query: inurl:"/wp-content/plugins/viewmedica/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,viewmedica,low
+  tags: cve,wordpress,wp-plugin,viewmedica,medium
 
 http:
   - method: GET

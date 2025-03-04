@@ -1,15 +1,15 @@
-id: shariff
+id: shariff-39b81e9f559c9ee66dd9a7503ed705e6
 
 info:
   name: >
-    Shariff Wrapper <= 4.6.13 - Unauthenticated Local File Inclusion
+    Shariff Wrapper <= 4.6.13 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f49fba00-c576-4a1a-8b0b-9ebed3e3d090?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9baa8bbf-a318-4bc5-8bfd-2bd64536965e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/shariff/"
     google-query: inurl:"/wp-content/plugins/shariff/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,shariff,critical
+  tags: cve,wordpress,wp-plugin,shariff,low
 
 http:
   - method: GET

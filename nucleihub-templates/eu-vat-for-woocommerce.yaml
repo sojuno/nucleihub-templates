@@ -1,15 +1,15 @@
-id: eu-vat-for-woocommerce
+id: eu-vat-for-woocommerce-8ea2a074b6bbe92d81332cbc58e90bd5
 
 info:
   name: >
-    EU/UK VAT Manager for WooCommerce <= 2.12.12 - Missing Authorization
+    EU/UK VAT Manager for WooCommerce <= 2.12.12 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c6db680e-1fd4-420c-98f4-2b6dc5cf6781?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/443c57bf-2f3d-4b8f-9dae-b11142a74341?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/eu-vat-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/eu-vat-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,eu-vat-for-woocommerce,high
+  tags: cve,wordpress,wp-plugin,eu-vat-for-woocommerce,medium
 
 http:
   - method: GET

@@ -1,18 +1,18 @@
-id: event-tickets-with-ticket-scanner
+id: event-tickets-with-ticket-scanner-70a154fff277e013948f577e63b65ff7
 
 info:
   name: >
-    Event Tickets with Ticket Scanner <= 2.4.4 - Missing Authorization to Authenticated (Subscriber+) Stored Cross-Site Scripting
+    Event Tickets with Ticket Scanner <= 1.5.4 - Authenticated (Subscriber+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
-    
+    The Event Tickets with Ticket Scanner plugin for WordPress is vulnerable to Stored Cross-Site Scripting  in versions up to, and including, 1.5.4 via the 'data[codes]' parameter saved through the 'sasoEventtickets_executeAdminSettings' AJAX action, due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with minimal permissions such as a subscriber, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4dcf1133-d437-4f0a-b2cf-c91e0f6b6ca9?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ec40d89-9caa-44dc-8577-00fa6463348c?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 6.4
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/event-tickets-with-ticket-scanner/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.3')
+          - compare_versions(version, '< 1.5.5')

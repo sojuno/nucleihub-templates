@@ -1,15 +1,15 @@
-id: wp-projects-portfolio
+id: wp-projects-portfolio-5e23803948624fe958f38ea11cbac3cc
 
 info:
   name: >
-    WP Projects Portfolio with Client Testimonials <= 3.0 - Reflected Cross-Site Scripting
+    WP Projects Portfolio with Client Testimonials <= 3.0 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ebb347a8-a8d2-4809-bfa5-772ad0de90f6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/346d9473-8738-4a06-9bb3-0a018a4d4974?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

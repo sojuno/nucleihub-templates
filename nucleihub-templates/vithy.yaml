@@ -1,24 +1,24 @@
-id: vithy
+id: vithy-ddb0a1ffa3bcb4f4470badcaf04f6975
 
 info:
   name: >
-    Vithy (Unknown Versions) - Full Path Disclosure
+    Vithy (All Versions) - Arbitrary File Upload
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
-    The Vithy theme for WordPress is vulnerable to Sensitive Data Exposure in all versions via the index.php file. This can allow unauthenticated attackers to extract sensitive data including the full path of the WordPress installation.
+    The Vithy theme for WordPress is vulnerable to arbitrary file uploads due to missing file type validation via the uploadify.php file in all known versions. This makes it possible for attackers to upload arbitrary files on the affected sites server which may make remote code execution possible.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/114ff636-6b51-43a2-b2c8-19e01e94176f?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/20077e55-fe75-49c7-ba3f-ccd683a3f722?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
-    cvss-score: 5.3
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+    cvss-score: 9.8
     cve-id: 
   metadata:
     fofa-query: "wp-content/themes/vithy/"
     google-query: inurl:"/wp-content/themes/vithy/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,vithy,medium
+  tags: cve,wordpress,wp-theme,vithy,critical
 
 http:
   - method: GET

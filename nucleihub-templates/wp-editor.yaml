@@ -1,15 +1,15 @@
-id: wp-editor
+id: wp-editor-c489d3bdfb8499c978184619111131c4
 
 info:
   name: >
-    WP Editor <= 1.2.6.2 - Cross-Site Scripting
+    WP Editor <= 1.2.7 - Sensitive Information Exposure via log file
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e4e16526-89a5-4d49-ab9d-dcc7ad3bc8d0?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/66b1f539-9192-43f5-a77d-9763024e6b74?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-editor/"
     google-query: inurl:"/wp-content/plugins/wp-editor/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-editor,high
+  tags: cve,wordpress,wp-plugin,wp-editor,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.2.6.3')
+          - compare_versions(version, '<= 1.2.7')

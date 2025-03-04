@@ -1,24 +1,24 @@
-id: wpforms-lite
+id: wpforms-lite-2877f1b5901d78af25a990b290924989
 
 info:
   name: >
-    WPForms <= 1.9.1.5 - Authenticated (Administrator+) Stored Cross-Site Scripting
+    Contact Form by WPForms – Drag & Drop Form Builder for WordPress <= 1.4.7.2 - Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
-    
+    The Contact Form by WPForms – Drag & Drop Form Builder for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the tab parameter in versions up to, and including 1.4.7. This makes it possible for lower-privileged attackers to inject arbitrary web scripts in administrative pages that execute whenever a user accesses the page with the stored web scripts.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e1ff2c57-c3b7-4747-9f99-665774dc2054?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5caa9c7c-07b3-4288-803f-f60e5b428953?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 6.4
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/wpforms-lite/"
     google-query: inurl:"/wp-content/plugins/wpforms-lite/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wpforms-lite,low
+  tags: cve,wordpress,wp-plugin,wpforms-lite,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.9.1.5')
+          - compare_versions(version, '< 1.4.8')

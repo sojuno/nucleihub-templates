@@ -1,15 +1,15 @@
-id: starbox
+id: starbox-aac1fa023cf48ed0ab4988e793760dbd
 
 info:
   name: >
-    Starbox <= 3.4.8 - Authenticated (Subscriber+) Stored Cross-Site Scripting via Job Settings
+    Starbox <= 3.4.8 - Authenticated (Subscriber+) Stored Cross-Site Scripting via Profile Display Name and Social Settings
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1f413fc2-8543-4478-987d-d983581027bf?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0eafe473-9177-47c4-aa1e-2350cb827447?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

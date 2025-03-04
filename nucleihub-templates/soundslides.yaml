@@ -1,21 +1,24 @@
-id: soundslides
+id: soundslides-0b81c350f262d86a4932e16a189262a2
 
 info:
-  name: "Soundslides < 2.5.0 - Reflected Cross-Site Scripting"
+  name: >
+    Soundslides < 2.5.0 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: high
-  description: "The Soundslides plugin for WordPress is vulnerable to Reflected Cross-Site Scripting in versions up to, and including, 2.1.0 due to inclusion of a vulnerable version of jPlayer. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link."
+  severity: medium
+  description: >
+    The Soundslides plugin for WordPress is vulnerable to Reflected Cross-Site Scripting in versions up to, and including, 2.1.0 due to inclusion of a vulnerable version of jPlayer. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.
   reference:
-
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c5bf1c8c-97b0-412c-aa26-88fd7bbe7c8c?source=api-prod
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 6.1
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/soundslides/"
     google-query: inurl:"/wp-content/plugins/soundslides/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,soundslides,high
+  tags: cve,wordpress,wp-plugin,soundslides,medium
 
 http:
   - method: GET
@@ -53,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<=  2.1.0')
+          - compare_versions(version, '<= 2.1.0')

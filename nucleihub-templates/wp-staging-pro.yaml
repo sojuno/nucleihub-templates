@@ -1,15 +1,15 @@
-id: wp-staging-pro
+id: wp-staging-pro-49ab0ad76db9ffc53b733aae5d6ac820
 
 info:
   name: >
-    WP Staging (Free <= 3.3.3, Pro <= 5.3.3) - Authenticated (Administrator+) Stored Cross-Site-Scripting
+    WP STAGING PRO - Backup Duplicator & Migration <= 5.6.0 - Cross-Site Request Forgery to Limited Local File Inclusion
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6bcbdf6f-770c-4496-a643-94dbf63e893a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2a99a21c-d4f1-4cdb-b1f1-31b3cf666b80?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-staging-pro/"
     google-query: inurl:"/wp-content/plugins/wp-staging-pro/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-staging-pro,low
+  tags: cve,wordpress,wp-plugin,wp-staging-pro,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.3.3')
+          - compare_versions(version, '<= 5.6.0')

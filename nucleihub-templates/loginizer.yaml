@@ -1,15 +1,15 @@
-id: loginizer
+id: loginizer-0f3c958b2bafbf0c247ff8eff776cf57
 
 info:
   name: >
-    Loginizer <= 1.6.3 - SQL Injection
+    Loginizer <= 1.7.8 - Reflected Cross-Site Scripting via 'limit_session[count]'
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/58f8bba4-1be5-4111-aa41-d076a6f06948?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4e6ef932-975c-423b-b780-b38449eec577?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/loginizer/"
     google-query: inurl:"/wp-content/plugins/loginizer/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,loginizer,critical
+  tags: cve,wordpress,wp-plugin,loginizer,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.6.4')
+          - compare_versions(version, '<= 1.7.8')

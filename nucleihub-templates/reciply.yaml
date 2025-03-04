@@ -1,15 +1,15 @@
-id: reciply
+id: reciply-5a93e7e841669e4d2728008387be3ca7
 
 info:
   name: >
-    Recip.ly Plugin <= 1.1.8 - Reflected Cross-Site Scripting
+    Recip.ly <= 1.1.7 - Unauthenticated Arbitrary File Upload in uploadImage.php
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/aade0d5c-0fca-4477-8dae-6a43cd3c2edc?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/068da172-629d-422a-bcd5-1b73af2a5933?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/reciply/"
     google-query: inurl:"/wp-content/plugins/reciply/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,reciply,medium
+  tags: cve,wordpress,wp-plugin,reciply,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.8')
+          - compare_versions(version, '<= 1.1.7')

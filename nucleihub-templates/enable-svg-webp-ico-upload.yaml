@@ -1,15 +1,15 @@
-id: enable-svg-webp-ico-upload
+id: enable-svg-webp-ico-upload-1eb55a204c22c7588442da636d9339e7
 
 info:
   name: >
-    Enable SVG, WebP & ICO Upload <= 1.0.2 - Authenticated  (Author+) Stored Cross-Site Scripting
+    Enable SVG, WebP & ICO Upload <= 1.0.3 - Authenticated  (Author+) Stored Cross-Site Scripting via SVG
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9f47c6c4-2d74-4f37-8232-d54d5f0c24cf?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6df7bd57-7d2f-4098-b2d0-ffb2e8ed5868?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.2')
+          - compare_versions(version, '<= 1.0.3')

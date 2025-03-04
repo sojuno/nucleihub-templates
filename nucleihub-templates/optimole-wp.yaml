@@ -1,15 +1,15 @@
-id: optimole-wp
+id: optimole-wp-79b573ab9cb7dc3c5f77bfdef35eeede
 
 info:
   name: >
-    Image optimization & Lazy Load <= 3.3.1 - Admin+ Stored Cross-Site Scripting
+    Image Optimization by Optimole – Lazy Load, CDN, Convert WebP & AVIF <= 3.12.10 - Authenticated (Author+) Stored Cross-Site Scripting via SVG Upload
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3e2af005-0bc2-445c-956a-ef6139abfee4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/be88566d-fc84-442d-bb34-834ad9f4465b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/optimole-wp/"
     google-query: inurl:"/wp-content/plugins/optimole-wp/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,optimole-wp,high
+  tags: cve,wordpress,wp-plugin,optimole-wp,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.3.2')
+          - compare_versions(version, '<= 3.12.10')

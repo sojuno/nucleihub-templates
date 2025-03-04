@@ -1,15 +1,15 @@
-id: slider-slideshow
+id: slider-slideshow-abd39dab23410877d8186edac38beab5
 
 info:
   name: >
-    Layer Slider <= 1.1.9.7 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Layer Slider <= 1.1.9.7 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f5ac3714-27f1-4258-a1ab-12b969b31793?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6df68d66-7294-4dff-8ba8-394932a64281?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

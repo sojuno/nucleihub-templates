@@ -1,16 +1,19 @@
-id: events-notification-bar-addon
+id: events-notification-bar-addon-ed564cf6d52fca31d8e377a3e7178e36
 
 info:
-  name: "Cool Plugins (Various Versions) - Arbitrary Plugin Installation and Activation"
+  name: >
+    Cool Plugins (Various Versions) - Arbitrary Plugin Installation and Activation
   author: topscoder
   severity: low
-  description: "Several WordPress plugins developed by Cool Plugins are vulnerable to arbitrary plugin installation and activation that can lead to remote code execution by authenticated attackers."
+  description: >
+    
   reference:
-
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f6f0fb78-ad6b-4a9e-ae1a-5793f3426379?source=api-scan
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/events-notification-bar-addon/"
     google-query: inurl:"/wp-content/plugins/events-notification-bar-addon/"
@@ -53,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<=  1.1')
+          - compare_versions(version, '<= 1.1')

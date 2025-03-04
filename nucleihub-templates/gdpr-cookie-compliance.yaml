@@ -1,15 +1,15 @@
-id: gdpr-cookie-compliance
+id: gdpr-cookie-compliance-5b52e80b7a4a196252d1c0a901c97013
 
 info:
   name: >
-    GDPR Cookie Compliance <= 4.0.2 - Missing Authorization
+    GDPR Cookie Compliance <= 4.12.4 - Cross-Site Request Forgery to License Modification
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9116d719-f536-4b8a-9e73-9a8a922f8a35?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8f847a61-4378-4b04-8eb4-99ef36417b6c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/gdpr-cookie-compliance/"
     google-query: inurl:"/wp-content/plugins/gdpr-cookie-compliance/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gdpr-cookie-compliance,high
+  tags: cve,wordpress,wp-plugin,gdpr-cookie-compliance,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.0.2')
+          - compare_versions(version, '<= 4.12.4')

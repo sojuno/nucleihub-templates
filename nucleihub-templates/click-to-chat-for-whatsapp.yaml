@@ -1,15 +1,15 @@
-id: click-to-chat-for-whatsapp
+id: click-to-chat-for-whatsapp-552735bf88b0f3e66f060c14f1421abb
 
 info:
   name: >
-    Click to Chat – HoliThemes <= 3.35 - Authenticated (Contributor+) Local File Inclusion
+    Click to Chat <= 3.18 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fe25bfef-34f0-4d57-9cba-9dcbf58281c6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/19b7cadd-b1b9-4f1d-ab30-78e0b46ad21a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.35')
+          - compare_versions(version, '<= 3.18')

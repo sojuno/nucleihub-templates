@@ -1,15 +1,15 @@
-id: geo-my-wp
+id: geo-my-wp-548422f8989b37ce1d1ac6c188ba749b
 
 info:
   name: >
-    GEO My WordPress <= 4.4.0.2 - Authenticated (Admin+) Arbitrary File Upload
+    GEO my WordPress <= 4.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8214cdd-3a7d-40ce-9645-7dbd6e8f037f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a96ac71f-3dae-40eb-9268-d56688a5aa64?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 4.0', '<= 4.4.0.2')
+          - compare_versions(version, '<= 4.0')

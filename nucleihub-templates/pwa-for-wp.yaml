@@ -1,22 +1,24 @@
-id: pwa-for-wp
+id: pwa-for-wp-1f212a181913d47fe693610414496d76
 
 info:
-  name: "PWA for WP & AMP < = 1.7.32 - Missing Authorization"
+  name: >
+    PWA for WP & AMP Plugin <= 1.0.8 - Cross-Site Scripting
   author: topscoder
-  severity: medium
-  description: "The PWA for WP & AMP plugin for WordPress is vulnerable to authorization bypass due to a missing capability check on the  pwaforwp_update_features_options function in versions up to, and including, 1.7.32. This makes it possible for authenticated attackers to change the otherwise restricted settings within the plugin."
+  severity: high
+  description: >
+    The PWA for WP & AMP plugin for WordPress is vulnerable to Cross-Site Scripting via several parameters in versions up to, and including, 1.0.8 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts in pages.
   reference:
-    - https://blog.nintechnet.com/wordpress-pwa-for-wp-and-amp-plugin-fixed-vulnerabilities/
-    - https://wpscan.com/vulnerability/b38a51d7-375e-4cca-88ba-ccab796ac134
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/934545ff-8886-47c7-ad50-0e5ff513a26c?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L
-    cvss-score: 6.3
-    cve-id:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 7.2
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/pwa-for-wp/"
     google-query: inurl:"/wp-content/plugins/pwa-for-wp/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,pwa-for-wp,medium
+  tags: cve,wordpress,wp-plugin,pwa-for-wp,high
 
 http:
   - method: GET
@@ -54,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7.32')
+          - compare_versions(version, '< 1.0.9')

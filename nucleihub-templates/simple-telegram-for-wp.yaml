@@ -1,4 +1,4 @@
-id: simple-telegram-for-wp
+id: simple-telegram-for-wp-53bf078c50b65d2ffa66698367a887e9
 
 info:
   name: >
@@ -6,13 +6,13 @@ info:
   author: topscoder
   severity: low
   description: >
-    
+    The Simple Telegram plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including 0.9.3 due to missing sanitize and escaping on several variables stored via the simpleTelegram_saveSettings() function. This only affects multi-site installations and installations where unfiltered_html has been disabled.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ae939f4-5a90-48ca-ae13-2ccbd6d8d08a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ae939f4-5a90-48ca-ae13-2ccbd6d8d08a?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 5.5
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/simple-telegram-for-wp/"

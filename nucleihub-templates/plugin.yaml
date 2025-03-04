@@ -1,15 +1,15 @@
-id: plugin
+id: plugin-5dcfaa6624128695b8dbff266dad887f
 
 info:
   name: >
-    WP Revisions Manager <= 1.0.2 - Cross-Site Request Forgery
+    eDoc Easy Tables <= 1.29 - Cross-Site Request Forgery to SQL Injection
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/96a5db79-a88d-4c1f-9da4-6dd3120ff85e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd9d7d34-c03d-4791-94b4-9d2f502a7e37?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.2')
+          - compare_versions(version, '<= 1.29')

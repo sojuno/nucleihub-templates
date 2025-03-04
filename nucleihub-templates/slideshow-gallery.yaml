@@ -1,18 +1,18 @@
-id: slideshow-gallery
+id: slideshow-gallery-9c29b03926ce6cb2957d1f2641bb4b2e
 
 info:
   name: >
-    Slideshow Gallery <= 1.5.3.2 - Reflected Cross-Site Scripting
+    Slideshow Gallery <= 1.5.3.1 - Cross-Site Request Forgery to Arbitrary File Upload
   author: topscoder
   severity: medium
   description: >
-    
+    The Slideshow Gallery plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.5.3.1. This is due to missing nonce validation on the save slideshow functionality. This makes it possible for unauthenticated attackers to upload arbitrary files, including php files, and inject malicious web scripts via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/18aa817d-80e0-4c6f-852f-c8a91c9507c4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/01762804-df33-4c4d-b8f6-d94a1e5b5fc9?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
+    cvss-score: 8.8
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/slideshow-gallery/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.5.3.4')
+          - compare_versions(version, '<= 1.5.3.1')

@@ -1,15 +1,15 @@
-id: smart-slider-3
+id: smart-slider-3-979424a6eedb1bbe7360cf692ba209d1
 
 info:
   name: >
-    Smart Slider 3 <= 3.5.1.9 - Authenticated (Contributor+) PHP Object Injection
+    Smart Slider 3 <= 3.5.1.13 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ae81917e-0367-4c64-9254-fd74751ada48?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0191e5b0-b669-439b-8ad4-9f860e6ee637?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.5.1.9')
+          - compare_versions(version, '<= 3.5.1.13')

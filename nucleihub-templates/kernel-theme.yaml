@@ -1,17 +1,19 @@
-id: kernel-theme
+id: kernel-theme-cf7e7fb25a3f51958a679f9995e7d0f9
 
 info:
-  name: "Kernel - Premium WordPress Blog & Magazine Theme | News / Editorial (All Versions) - Arbitrary File Upload"
+  name: >
+    Kernel - Premium WordPress Blog & Magazine Theme | News / Editorial (All Versions) - Arbitrary File Upload
   author: topscoder
   severity: critical
-  description: "The kernel-theme theme for WordPress is vulnerable to arbitrary file uploads due to missing file type validation via the uploadify.php file in all versions. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected sites server which may make remote code execution possible."
+  description: >
+    The kernel-theme theme for WordPress is vulnerable to arbitrary file uploads due to missing file type validation via the uploadify.php file in all versions. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected sites server which may make remote code execution possible.
   reference:
-    - https://packetstormsecurity.com/files/123954/
-    - https://wpscan.com/vulnerability/3dbb3b02-e028-4dd8-b601-ef5cfb60ae55
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/45e0664a-385d-4879-acf6-46e837aaa03f?source=api-prod
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cvss-score: 9.8
-    cve-id:
+    cve-id: 
   metadata:
     fofa-query: "wp-content/themes/kernel-theme/"
     google-query: inurl:"/wp-content/themes/kernel-theme/"
@@ -54,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>0')
+          - compare_versions(version, '<= *')
