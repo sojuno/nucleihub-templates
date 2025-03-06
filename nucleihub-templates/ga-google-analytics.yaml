@@ -1,4 +1,4 @@
-id: ga-google-analytics
+id: ga-google-analytics-82793dc136ce672fcb0c8814a286aaf4
 
 info:
   name: "GA Google Analytics <= 20220517 - Authenticated (Admin+) Stored Cross-Site Scripting"
