@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,fwmrm
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "fwmrm.net"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "fwmrm_csp_xss == true"
-# digest: 4b0a00483046022100c0dbc66e385acf61360a41e5ca77319f41a5dc748d548014e700ffdd7b5f0c37022100be4b540135623377a6d8b6d2589416ecb428ea989457543a2de92ed64ad4bccb:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220485ff856e7fd61a05afe5732b45471601d139de296e2218ce3acfeedf7d07ff602200f61d1ac18f9feb650da6cd59b7243240b1d55a88f8046b23f8f8cd1dd730110:922c64590222798bb761d5b6d8e72950

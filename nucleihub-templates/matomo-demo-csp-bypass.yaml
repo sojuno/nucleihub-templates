@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,matomo-demo
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "matomo.org"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "matomo_demo_csp_xss == true"
-# digest: 490a004630440220521315773aaf8e15f2e85b6a33bb7d63188e4b9abd245457badeafe10d507e6002205f8956b8c19412d13594c0829dae1739ab8cf78959b8684b2ca80cef8b86038a:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100bc237b379d3f5786e90874bf00de82e8d828ad12a75670d0168607d378659d7802201914491382d8eb455a08c30469837d4f632593b38b584406fa2d0f0e8dfdae6c:922c64590222798bb761d5b6d8e72950

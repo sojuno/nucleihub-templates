@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,google-analytics
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google-analytics.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_analytics_csp_xss == true"
-# digest: 4a0a0047304502202c27b6324e0cf54a0a39d286bff1d02a3f8788a8e2fd9c8f4116fd954897246b0221008cc12d953f00bd7dc93095e963f5e2b9e7c28092ed263b411dc7315d06732cd3:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f991da60ad3f67b8c91d9e1fb38c425574faf5b3f654568ec8bfc41efa4628d502205c7dbe9394c3813b45bb074bc0bb452996d3c4f62e7ec59f04002133411a9f3b:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,gstatic-angular
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "gstatic.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "gstatic_angular_csp_xss == true"
-# digest: 490a00463044022059eb0b597c81859cc31b56c138977d6615fc9b539a4092bc80397fab497fd1a7022031bea3861d5b7abcc7e33e676acd0df032ccba575bc7301f8fbd16d9746c7dd4:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100a87bb6fd0b544eb966f6d92dbd2635d2715c40a3e589a9fb2eb282338545e6ff02207cf99f75d52b1eae7c1fdb937121dee76dc1f22253d7bbaaa0c9a9a44ae4e444:922c64590222798bb761d5b6d8e72950

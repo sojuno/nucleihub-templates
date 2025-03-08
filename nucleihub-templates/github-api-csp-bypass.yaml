@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,github-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "github.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "github_api_csp_xss == true"
-# digest: 490a004630440220723c7601582efc25bba1c1241dbe5531d98490f6f7b4bec86a24422f1b5e86f102202585512efdd8b2bb24287330baa9c09b649a41ae8a70f36817cef2ee8cc178ca:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220193a2858b43b1eb6f8a7f54134511d3e968e4aeb40cd843e4a0e409017ce9b68022010a4649c9bebdcf52c636dafa0b8a9d6b9f7d58928b61d4c7b997e9da11a733e:922c64590222798bb761d5b6d8e72950

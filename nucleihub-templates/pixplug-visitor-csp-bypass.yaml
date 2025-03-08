@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,pixplug-visitor
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "pixplug.in"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "pixplug_visitor_csp_xss == true"
-# digest: 4a0a0047304502207b0764016bff89495cd3777215a598e184d7b0fd922e0f39ff3b086b6c4b62b2022100d7ffafa8a7a4707b3f365f01e0277a3c36245ad269f456c231fb5eefe38264e0:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100a76c7c4bfccfba6240b3cc73ac05d28a3a07140d8cb800bc59116901e29a5f5302207403a1826e766fd741c1ecddcc696b6da83370cbf1e6623a796f2463d638fa9c:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,google-maps-ru
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google.ru"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_maps_ru_csp_xss == true"
-# digest: 4b0a00483046022100a83b12609b33b12726721f66582a6147bde1e857e18f495ace41e8da9f61fa82022100d535f0ca77dd69521e4cdaf2be2bcdd15762ec4cb3b8f423580cdbd2b338358e:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203a9fbb2b3ad388b3d91eb7114e68fcfbda7b656ba047da89fb8eb95512b8a9c00220474eedf7a204d4955ad936bb62e4435b34891821551a774f3da4af60356a683c:922c64590222798bb761d5b6d8e72950

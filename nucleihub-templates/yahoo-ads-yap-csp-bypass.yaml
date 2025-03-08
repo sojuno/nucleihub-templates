@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,yahoo-ads-yap
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "yahoo.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "yahoo_ads_yap_csp_xss == true"
-# digest: 4a0a004730450220512ae910dd9b1662ee094ece5239dd8c44820861a0181be62fa26ef171d90f9d022100846cebbbe13c77c347230c6e5b641871ec0fbc5985f39687d62a7a8565485d88:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210089fe9249383ab855094c8b8fdd4dff5e8d98419c656213284332f3ae3acc835e022079aa488773f5dc9d46805883d558ab634af822969fa38e3b91ab387ab9c8b39a:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,baidu-map-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "baidu.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "baidu_map_api_csp_xss == true"
-# digest: 4a0a004730450220372acac7a211ad4836e13200826a43872159540e5bdc5be1d9b4c4be03ec2a94022100cf225a90c4a9e052f2431fecc179f354563ba2098df8735dd73da5dc26cd57b6:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220215ad468d4c5d6e17c0e2bc093b3cbe2c8e8999668f31c7218c8a687544e3b2c02204305f4e66d6d163efd5ba6af21ebd50a6aa18b7dd2b911fedddb8b766a8e780b:922c64590222798bb761d5b6d8e72950

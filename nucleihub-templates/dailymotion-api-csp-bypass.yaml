@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,dailymotion-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "dailymotion.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "dailymotion_api_csp_xss == true"
-# digest: 4a0a0047304502202048d1f71d75fd805045f65934248fba3d09beb2f06579a617136e7a697cd676022100b1c76f1e8d3dee080d781149ad8049532b97fccb06ec3088fc0139637aac0f04:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009ce1cd42525aa5034159807637e5a468c1455395ec23f2df72925d86a34c7bfa022100eb3a2c7c88bff0b97238307e90ed0e1b99eba1094b1895518ba4bc6f89c859d5:922c64590222798bb761d5b6d8e72950

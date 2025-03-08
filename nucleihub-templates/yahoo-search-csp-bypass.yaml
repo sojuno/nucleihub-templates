@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,yahoo-search
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "yahoo.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "yahoo_search_csp_xss == true"
-# digest: 4a0a004730450220615a728e4b65eed0922a7cbb8d5fcab6928e6b92fb5552d986c2a6a55f0c7fe5022100ba8fc82e1ac57384eb90aac606a224a3c7a7845e65c33b3b56f9de9549bdc193:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008214cc38a59997579fdf0dc29a43ea3e08b4fae9d3c3e0ddd28f5b4c2edb0fce02201f024aca7407b17ccc14dd244e62c8e5a67174c56d9d282bb344396373f09efb:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,mi-huodong
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "mi.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "mi_huodong_csp_xss == true"
-# digest: 490a00463044022016cf76cf28314ddd4cf25ff2fe8a3d1094b060c7d60f238ca4e485f02b9cdc7a0220288c01d72bf476a82e5f491c313646733fdfe79c2a2718282461106267d972f2:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201ecebfe883a07933c9a8a0ba651a96a88066beb004ec4a4ddd0a95e22ce8198e022100c887766d5b9a69c6c214cecc3a46e83de15b4da18b63b62bd4ec6d1de15ef9cf:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,pinterest-widgets
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "pinterest.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "pinterest_widgets_csp_xss == true"
-# digest: 4a0a004730450221009e73632800df359d6e849c56d32e7349257bd66c2b6233ba82601ef129c2d6720220707e52553d77b9be2334d77808fafa0fd6e7714f7a3f12ea075f6089afc87dee:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100a6d0c9926a4a836b1affcd844666e91d9288a120d74d58eae0bdd74c4b3ab2e902201224c49318f4d328f7629dd562573e15d7a2773695fd31bf979f13ab1e4755c2:922c64590222798bb761d5b6d8e72950

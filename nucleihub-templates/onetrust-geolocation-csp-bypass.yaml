@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,onetrust-geolocation
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "onetrust.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "onetrust_geolocation_csp_xss == true"
-# digest: 4b0a0048304602210090d269d782d7c1e9d7d34117dd1de44249350f362612a9fde14e793430f4b985022100a904147c52151800b7988e6ee36b69d8afc17812baff5d4ed315240633e78bba:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ec9753fa2616d4b2f913c181f70a65ca148d2c8228551faa76941b6c81423e1f022100f6fe4bc2372860af1c70642e0bd65affa75a056ef9003784f23fed139fd330bd:922c64590222798bb761d5b6d8e72950

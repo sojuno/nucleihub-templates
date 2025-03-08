@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,azure-inno
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "azure.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "azure_inno_csp_xss == true"
-# digest: 490a0046304402202acd34dea43efb9a7985e86e20e748d344415fa71755382200545d67eb0f0a8502200e2330ed694c31c38cfdb6758ee9ad1996d1a5965a348f28db5b78eeafb6a5a9:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022003ae45ed5034516e3b8df9190f77a6597dfdbf01f7666af1f4dff185d0e5bed302203c80502cdd89a75f4302abadc61e31e5906d1027ca3be5dc417bddc04b33c92e:922c64590222798bb761d5b6d8e72950

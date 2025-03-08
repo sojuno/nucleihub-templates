@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,samsung-shop
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "samsung.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "samsung_shop_csp_xss == true"
-# digest: 490a0046304402200d7ec08838cde82d389f7365c3dff09897da574a84e5ab037d9993b070eac31e02206ec9300ff760b2664430bab8cf9cb5d3250769d7b69b9824f3a30812ad61bf4f:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220077106f5d38b359135336d0a17f7264133953260ac23a8d352ad98b2a8482f78022100ffb8498b5952663413cafbca9c938fb392bfba9bd1d8bc29820b020a1b4ed042:922c64590222798bb761d5b6d8e72950

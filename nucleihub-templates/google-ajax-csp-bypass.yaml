@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,google-ajax
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "googleapis.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_ajax_csp_xss == true"
-# digest: 4a0a00473045022100b8430f8cffdb03f4f53c80d60e9bb1d1f673ea33a620a2fa46eb86140b0592c10220297a797ff821d56a7444f79dd27442b114fb306256b0712846838930b52433f5:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a2f581247232acd600b8f4a79640c014dfca31b54c93c856b090a87d7c4030f9022100b9f226f7d4f77558e38c1719b0d326086dfb943560466bbc84db1538b92c704d:922c64590222798bb761d5b6d8e72950

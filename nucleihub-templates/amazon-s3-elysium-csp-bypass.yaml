@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,amazon-s3-elysium
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "amazonaws.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "amazon_s3_elysium_csp_xss == true"
-# digest: 4a0a00473045022100c5a729e6d12b1bd23ac3165d4d0aeb3e03899558d0e61392a1f69d3a70021e1e02203c016531e7a34f65791c58a937e39abefdea665da255f81025d0d81469201265:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502200ab07103fb8515b759f279cfc22e456d8552b3355c0172f12391771cb22d83eb022100a8fcd5cc6ae344370c793fb56bf0abc5f0bbea15b716130ab78457bc5f6f340c:922c64590222798bb761d5b6d8e72950

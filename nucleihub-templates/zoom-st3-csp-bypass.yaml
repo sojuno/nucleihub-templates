@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,zoom-st3
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "zoom.us"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "zoom_st3_csp_xss == true"
-# digest: 4a0a00473045022100fade808443204745ce5d8049fd61d6e7095cfe1069897a8fbb3ff11a7d3450940220566f0a35c5872402a566f1948fe0fdaabb220dbc50b893e2fcac88af19c64357:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402205b56cc6153f165af790b987e016d38823c6f793741f8f39c28f4fc3d92e1fa1f022006968f95f1351ab80ae29a9e590ecd81f8a6dd204e997bca6244df02b130db59:922c64590222798bb761d5b6d8e72950

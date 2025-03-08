@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,crisp-client
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "crisp.chat"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "crisp_client_csp_xss == true"
-# digest: 4a0a0047304502202cc6de3670a51025a2c8cb16958a054cf8adfd871e4afa23aa327e589424dd380221009465c910fbe0ebd4acd21fbbbfb9a6f1c87e7a767dd77906c9d2c86af073a160:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100924450a8df355e2566fd29516fcb9e4f25295e75f34364e15cc3ea774ba6b310022100b007109ad6d618873b779ac775201d589f8c7fa630785d4e360cc450a29e9f89:922c64590222798bb761d5b6d8e72950

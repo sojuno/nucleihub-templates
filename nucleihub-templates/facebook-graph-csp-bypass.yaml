@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,facebook-graph
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "facebook.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "facebook_graph_csp_xss == true"
-# digest: 4a0a00473045022041beb90e9f23d04813b3e45b4a355d385c19f689d8f9b7fae7d8b6582d4feff4022100d92dbc8f25a50fda150f520c35e2380b067e24c6191adfb5c9b74624cb134492:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022060ec9439918dbd31a94e117baaaf0580528302a45c7f23f75e53c590aaf8cada0221009508a127876f234f0d6e582b584cb0c05b8cde57ae41f72fa30fa26070bb4e84:922c64590222798bb761d5b6d8e72950

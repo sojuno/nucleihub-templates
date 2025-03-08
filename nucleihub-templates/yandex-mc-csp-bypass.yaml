@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,yandex-mc
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "yandex.ru"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "yandex_mc_csp_xss == true"
-# digest: 4a0a0047304502202fe57b29bb1d761065c3322abc2747ad4706fa5d1b6f4bb28057ea69f719e041022100f8d6cab90a21d1fdfeda11344fc8382118b04b3f847e2e1d2e633d4844569299:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201eaafc9bc8354cb2134d2c260b50cae7e19cfda7ee3d83c5c62c6e5ebab4416d02210094833307247b9acb1a6ccd605fa610a14b17f1bbee2068fd8f718455eda7fd20:922c64590222798bb761d5b6d8e72950

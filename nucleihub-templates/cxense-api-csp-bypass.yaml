@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,cxense-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "cxense.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "cxense_api_csp_xss == true"
-# digest: 4a0a0047304502204c1a6b7fc117905dca76ca5a0cee755a005ce1fe60900381a8611481f0d0439f022100818f6d5a2ef1b6263919a533178a2212ec666c6db261410517307e44495b959c:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e7b8562ac19160a329ec8a05e17033996e70e5fb894800b73c4d5bf6932bf77202210095437c1631108acc6d5116e15321c4758c358f859d1a71ffeb27a2d000382fcb:922c64590222798bb761d5b6d8e72950

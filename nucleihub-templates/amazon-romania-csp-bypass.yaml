@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,amazon-romania
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "amazon.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "amazon_romania_csp_xss == true"
-# digest: 4a0a004730450221009a1a79c29af27dbf05e6be56ea2fe66d9601c3f39bfe20c3f6b158045b3d8af7022003c320c81b1f373aea4edd8e08e81162cb1e1a852cbee1b7273ef31bde8f3808:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221009a0a838165d858f7df84f7a186851cfacc43bbfc1195d5a43b77df1e14828dee02203ae5bad0462c02cc8ea265595daec59284baad2877c03b84c7a1025d0ae5c3ed:922c64590222798bb761d5b6d8e72950

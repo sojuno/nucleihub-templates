@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,baidu-passport
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "baidu.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "baidu_passport_csp_xss == true"
-# digest: 4a0a0047304502210081dc1120ecacf3cf4fb6e32663d14bdc1be6506f6f8acfde1725751c877fd1e30220654931e944a53cf00daa5fd7e0711853ee4f67227f69126702fe28e42e710ceb:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402204a3c4b4d979814789c207f6fc668dfda83446c6aeb55b3df1439f5cb1cd622a5022070c26ea74aa70dd319b591be0a9816c4264727382b65679932dbfa8c5e5eb5e5:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,quantserve-segapi
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "quantserve.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "quantserve_segapi_csp_xss == true"
-# digest: 490a00463044022022788fcfed35e2850d5b254ba4c9aa4c4c92ace838d8641ef7dddcfb05ef6423022077d093f363b7f194fca6809c3a0cc5d2c97f8987399fc823e4aede098418512d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022072501fa9b07ca9bb5905eb4ae34a1be30f077384b177ce3ae6aeb77adf890808022100e5701250fe23d4b156ee749a99c6d82d687e46e9f853d826f4e0732ae0bfdc59:922c64590222798bb761d5b6d8e72950

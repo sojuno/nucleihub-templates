@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,snyk-go
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "snyk.io"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "snyk_go_csp_xss == true"
-# digest: 4b0a00483046022100de63844d2390bfcc762892cce9189c10862d95d42ead9f0730b9c3cbc89a4ad3022100e05026eaa82f478abc172d0565b5570d54dd73668f2defe2f8b593bcbbada39e:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c94d65965272b47f2e608ab27e30294e6b54d0571a3c033181c2b0ec2c004efb0221009ee7f0b031719536b4978c1ad3df407a2f8a7654620b92ac235fa93d32f1974d:922c64590222798bb761d5b6d8e72950

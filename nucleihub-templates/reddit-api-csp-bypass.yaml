@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,reddit-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "reddit.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "reddit_api_csp_xss == true"
-# digest: 4a0a0047304502204f98174e5e7be82588f8d0ac069bd9527dab67fc8cdcf2efcf0ca43acefdcc4d022100ec35072d871df944fbdd279b9ada048024153d8c89c73a7668409901efab4b97:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c5a9c4d72073d4d220bd5e4f554489c5b232d0b8f07745552b59f06d5f5a0bc102207846cb5a1b7fa0ba0ee077ccbfc93a91cec5da6ff6a159da1c640fc6cdbd3d48:922c64590222798bb761d5b6d8e72950

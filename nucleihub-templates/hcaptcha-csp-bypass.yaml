@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,hcaptcha
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "hcaptcha.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "hcaptcha_csp_xss == true"
-# digest: 4a0a00473045022023faabbb1173713acae73c05dabbb1d9e172542c23fa71d4a4c915e3f69f47490221008275a1205bbb59a57edc4f78145858b5ae826d58cb01197d6a2d872aaab15489:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022043f6306b3f2fff261d6139d23d4b6ab97903edfed934978a23944ec243127cc2022047f97840621663b47c962ec7aef781599ee3d73d77352bd10098e24847468664:922c64590222798bb761d5b6d8e72950

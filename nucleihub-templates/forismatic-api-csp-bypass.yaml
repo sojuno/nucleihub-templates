@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,forismatic-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "forismatic.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "forismatic_api_csp_xss == true"
-# digest: 4a0a0047304502204692d4be45b22e0c2834bbba89b30b6f50ace6e49e39d7601735663d6c8127fb02210088010dd9d21bdf5e54a5b19fbd0baf99626f03d33ccf45b885665dce74f8b548:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220293e9aa67d3a80ed510ccfbb74acb0a6a4f450f5cf9b5fbd638cf8cf7ce50910022100cfb9c3b657d88771cbf2164bab2c469e850cda49c488c7696af057ada5903b17:922c64590222798bb761d5b6d8e72950

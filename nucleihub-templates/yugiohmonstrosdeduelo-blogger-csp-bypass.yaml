@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,yugiohmonstrosdeduelo-blogger
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "blogger.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "yugiohmonstrosdeduelo_blogger_csp_xss == true"
-# digest: 490a004630440220074ddf910175c61363fdb7c60db1cb314ca82ee9b5a39960f04ea8f2cdeb37ce02203f4ee00cbc78fdf5a3e93c370441f15c383260c6c638f7d55bb6798003acbcdb:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402204416ae816f9b781219c702f88c325f7f5c7871583f89a18fa47ab857008d376102201d9c90a804b878980dbdb8f6bb094ffefa198f16fb0c3d9d1fc008c6a17157fc:922c64590222798bb761d5b6d8e72950

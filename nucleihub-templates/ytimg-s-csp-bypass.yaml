@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,ytimg-s
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "ytimg.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ytimg_s_csp_xss == true"
-# digest: 4a0a004730450220689e8a9f8a331c2322d40800e359f00797b84f206835f7562bf937ac686bf3a3022100db40f68fa1b91e6b2e6f9e16ec407caf22cbf187920fd469c2bfc4477ce5b3d2:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206ff069722026054d3f1477d6e7a9406fc3e8a38fc6f1a85c5a5d08222b327934022068e4011d4daf9021be4ae521c8d3fb9788f4527a8e5109eb0736e6c747e1ac6b:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,lpsnmedia-accdn
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "lpsnmedia.net"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "lpsnmedia_accdn_csp_xss == true"
-# digest: 4a0a00473045022010e5b3e0b6c4dde970938597f75b2dad22af5c11fcb1b2408c0c54eb8a30bc51022100f0c8f5c31f9256b12354d409345b42962c93f4b371e9b872fe5e50501010f08d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022032f72dc6c6d0dc35e893bf47dc03b2dc492ed8a83578f5b838198328998ae5a70221008aa7e601c810852ae3e5bcaf3204480cb60383da6279cc35477a86c8cfb84178:922c64590222798bb761d5b6d8e72950

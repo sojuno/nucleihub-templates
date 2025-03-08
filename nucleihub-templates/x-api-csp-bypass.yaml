@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,x-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "x.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "x_api_csp_xss == true"
-# digest: 4b0a004830460221008050a9d5ce0c8f139c7665204a4d26d974a52a1e7276376ebfd264272cf32c4b02210086f8a9868c2ca6f86ac23a3fd9722f38fe4c1151c244cc0c9c65883ed0ed1f2e:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220206df7a8552fbfcb0527f4a35081e7b0379f49dbf3930205e1cabc4c68aae9de02207484c67f531015a86f7f1d95ecf5f21608f120e9d4ff87715190a0d4cfc56dc7:922c64590222798bb761d5b6d8e72950

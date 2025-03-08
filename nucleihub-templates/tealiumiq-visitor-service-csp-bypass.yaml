@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,tealiumiq-visitor-service
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "tealiumiq.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "tealiumiq_visitor_service_csp_xss == true"
-# digest: 4b0a00483046022100eaf1e82d21be3a399339504c461e4a2209688a542432b2094b24e15d89898441022100e7eabffdb8f949fe98f8d1e4e5af81337417b54a634b0f96c2071c76178c6404:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502200518a9a49d31db7022145d6eb2212ce2b0ff6ce5882fbff508593427ca3fb250022100f27098f624869d9c2c9bd0ff672a185c1c491cec22d34e16dbc91ca63fd76bb9:922c64590222798bb761d5b6d8e72950

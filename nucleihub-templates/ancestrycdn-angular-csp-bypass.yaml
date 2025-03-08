@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,ancestrycdn-angular
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "ancestry.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ancestrycdn_angular_csp_xss == true"
-# digest: 490a0046304402206f2195a47c952bd5b74f875fbfe24a25d7a938bbe42570ff168122360f16e2ae02201981b23b85f2c1a9b058fd4ddd21189639584112cf3cf4893f0af789c9cc4945:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b330764bb447373a37522ae4c99d633b0a2a9f7499225d560155c4e26ff4e1e202203dfe8d3e889fca560eb741b275e29437c3d0f257090d44c7179434f73c04507d:922c64590222798bb761d5b6d8e72950

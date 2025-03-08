@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,googleapis-customsearch
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "googleapis.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "googleapis_customsearch_csp_xss == true"
-# digest: 4b0a00483046022100e3741b2e708b77a191d448906d371ac2ccd96aae79f13918567d9aad6865cd98022100e58aeeae8d4fbeafd48e2191be507289ebf53bf724cbb1be0521ea80ead5d2c5:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022051da7eb7cf621ac8fd6a0bcbc8bfdeb1dd19f31e35b12819f8d420cad7d47d11022100ebc39e7d2646b8fa2778f944e123908025699f7da7983cd4efd6d804b236e316:922c64590222798bb761d5b6d8e72950

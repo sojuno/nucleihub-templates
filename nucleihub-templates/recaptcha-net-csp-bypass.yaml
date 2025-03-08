@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,recaptcha-net
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "recaptcha_net_csp_xss == true"
-# digest: 4a0a004730450221009b143f489ab466b2c8edad1dc1bd7920173984c5d36c7d0fd24cffb1c5f6502802203e0d7b34f9b4c8bc245862879d05038d066aba81f5ee8794387f2cd4905c5b6f:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502202d223b6650c6bd9ceb2a8cf60ca95a5b1390789cf502a9d75b407eadd5f91316022100dc83577de900739e97fd2829b20b0f7d383454420d640d0a234b3cf1990e7fc2:922c64590222798bb761d5b6d8e72950

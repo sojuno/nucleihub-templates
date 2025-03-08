@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,youtube-suggestqueries
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "youtube.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "youtube_suggestqueries_csp_xss == true"
-# digest: 4a0a004730450220541d6e46dbf08246baba4347fbe93f9a74d195a9fcd390449464d59d47da95ea022100ed644e73f84ef3fed6f0c48d1d280de862bceeb664e8bf6742ba8508f1271083:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009ebb3a0cb7c5d107468c7f694902aa5d3a4ccc6fd4139bb5eb6783f436fc9a870221008970687a5476c052a1dfb441e322b4784d9ff19e1244fd357c22354bbb8c657a:922c64590222798bb761d5b6d8e72950

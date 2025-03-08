@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,wordpress-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "wordpress.org"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "wordpress_api_csp_xss == true"
-# digest: 4a0a0047304502207e60c1f1e1a231b8552cb60d9e6aa2a1d70fcd645fe524e4afac58cd11d7e5a202210094794ae17ba84532ade8e1b0b2752be915047f56f60c5e244c82033c38a2921c:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f208851439679ea4ec038c0473a01e1992092aa42a864ff29c1f805d4b0e69b802204fa5870905a0848d1590dd3c5f48cbaaf48b7d2a2b1bf1d74f75c10e86b818b2:922c64590222798bb761d5b6d8e72950

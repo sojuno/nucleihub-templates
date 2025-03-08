@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,arkoselabs-client-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "arkoselabs.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "arkoselabs_client_api_csp_xss == true"
-# digest: 4b0a00483046022100b3a1f556a79737860bd0373a4598c96afdee78c65e04fedbc0d04fb0577d318f022100a6657127fea00c68cc98cbf463c592a22956c34960f13f53a77f1a9e0de061e0:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100df03322b8efaa48302dbc1723796109688990b6de0c1df293cea2558c67a756d022076c853232cd19494c5d31e06857e00a386391dcaa319522c151e935df8dedd7e:922c64590222798bb761d5b6d8e72950

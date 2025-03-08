@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,syncfusion-cdn
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "syncfusion.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "syncfusion_cdn_csp_xss == true"
-# digest: 4a0a004730450220770a007898b9919b0796aaaae2050200c04acc042097059096d61d34117a5425022100de319044aef9b4e3e7c8b35f24f600ae4dcc54d7e936ed1b6838c05238083eaf:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204a4c75a0611fa7835b4191aedc953b879dd7cae668e4af249d26a4bbf1aabedc02210096f0fb183b91553187db02439ccd76a8fc5f5db7b382d3aa846f15e599daf389:922c64590222798bb761d5b6d8e72950

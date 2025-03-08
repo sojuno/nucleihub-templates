@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,servicenow-kbcprod
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "servicenow.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "servicenow_kbcprod_csp_xss == true"
-# digest: 490a00463044022017aa3470ee9db61e960840c24a7e2b5bbc2b59eb93f6dbd6bf6e97e9e585b8f402205a223ee19908af507a1e562043ad240e51530de7cb67e715f007705b9fd5de9b:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100dc0d5695694af8fbe149c46fc7f88889a43b79e8c48a00375febca97d10113d9022100d1f61870a6efc9d52afa21b112ace9930083f03e51dd5706be7448a760b0686b:922c64590222798bb761d5b6d8e72950

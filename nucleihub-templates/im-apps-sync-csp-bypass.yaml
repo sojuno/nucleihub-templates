@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,im-apps-sync
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "im-apps.net"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "im_apps_sync_csp_xss == true"
-# digest: 4a0a0047304502201d33eeb027e6316a5f5b484931da558ef12aef0ca98895f5c9860cdd5f1240b3022100c79d7d58cb1a78bc7ef5988303a8a3fe2e6eea7a9f29392a37bf1958678cd8a1:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402205cced51998ffcdf1e054facd03b6e0f2bdb5f6eb817039443aadcd74efbdb7c4022052152f3ccdd5100630c26e2194ea24d8067c862fd891d7e0fab022ffb64a6f79:922c64590222798bb761d5b6d8e72950

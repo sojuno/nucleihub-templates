@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,wikipedia-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "wikipedia.org"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "wikipedia_api_csp_xss == true"
-# digest: 4a0a0047304502210088ee429a49a3844ac9850f2a0f8fd7c238ab6109e93b8b3a99f176ea09dddaa302201de4ba692f1e9f7041fa2c1838cddb650e4c25efb73dad3e758212200873080c:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100dc22ff0c750f9858828ef0737cf5563e8e8bd8c486a356ef5ef0593fa2b7d792022100be2e4a202db02753e7cb7561c2ad1e113b98d03b34a5d52d63c89f4d22c7dfa6:922c64590222798bb761d5b6d8e72950

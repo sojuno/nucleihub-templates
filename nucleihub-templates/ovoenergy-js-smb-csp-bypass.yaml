@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,ovoenergy-js-smb
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "ovoenergy.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ovoenergy_js_smb_csp_xss == true"
-# digest: 4a0a004730450220336a5df5376ebfae3df73141932bce2521e6b1c6dcb11ab278a42c89e73bc6e102210081836e82e86e8be7509c9e0f711a0149814bc95a07778c948840ef5d931dca09:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008a8582654ef135629be063df62af082dae1dbff59b0e782698234ad8c87ce4c8022063cff3a6157bb55d644ee025be1dbd9b9bdae4c9460e7be785c80379d61b2034:922c64590222798bb761d5b6d8e72950

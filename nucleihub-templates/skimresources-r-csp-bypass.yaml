@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,skimresources-r
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "skimresources.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "skimresources_r_csp_xss == true"
-# digest: 4a0a00473045022100fba708cb130bedeb7296fe33d556c44e261006e068c70adc414c578e0f1d8e4702207309485193deb39d5d3aa09c15248a92d035c046ed0521fd9efd733e4484e8fc:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206475f3b73297f8975b03812e8bf7435c1c4f58b1d232c871bea8e0ff6d43f51f022047f8e0f6c78d5e859935558c2b728ec6a172795aacf7f04561118f5413bf9fca:922c64590222798bb761d5b6d8e72950

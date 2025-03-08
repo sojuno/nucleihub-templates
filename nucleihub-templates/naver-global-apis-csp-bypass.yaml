@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,naver-global-apis
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "naver.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "naver_global_apis_csp_xss == true"
-# digest: 490a0046304402203a0819bed2c04d2fb1e2568a786744b51dd2028fdb1b961066c09fe9eb94c16d022013da4ee65ef15ef8b43cd89efc34ee83d9f337401b03d19e8092cfd4db3fd3b9:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100bd3d2733220369189cf8ec715ca3934969ec2ea9facd93502ce0df7af6535197022100efdf06353b92d66fe1f3e608d9d77cb39b3ce2abcef8ba02a6f71f5bb088e494:922c64590222798bb761d5b6d8e72950

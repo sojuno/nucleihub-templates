@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,bild-don
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "bild.de"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "bild_don_csp_xss == true"
-# digest: 4a0a00473045022048613615dbb05eb6d5b66576931d7338155795be9fa85eee04edebb756ec8d90022100fe8a23970803e357d22a774b93266173db62cf5cce8f7ac71307ec695119c159:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100be9b636323ce69ac3320072c65875db1df8018ac4fd2a9a7dbd7e0bde2f8c1a2022100999705dfe5d931e6ded51ab188488257b9ce7689e3778526c9cdea9a82e7e76e:922c64590222798bb761d5b6d8e72950

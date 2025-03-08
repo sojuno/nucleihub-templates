@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,bing
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "bing.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "bing_csp_xss == true"
-# digest: 490a0046304402206ac082baab56c981b53367d9605530be5bf607d52e341dbd2259064f3028c1af0220195003b1bdc87d7d794231dd155c3e0dd4b9cff5e48fb4e985e6e2f1826522bd:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402204926aa02d0bfc6b9d5749ecc0263fa515a361b6c18f08a2ab769193ea1dcc522022005c55b215eb06877f6e9aaa4f6e25665ebc325485571fb0d61ce05cd896255ca:922c64590222798bb761d5b6d8e72950

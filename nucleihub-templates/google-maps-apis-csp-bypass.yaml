@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,google-maps-apis
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "googleapis.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_maps_apis_csp_xss == true"
-# digest: 4a0a0047304502210084c2614695884c25fbe02b8d5963ada2ab33332523c6a0281a8c51425c7f00df02205fdbc11037dd1941c5393535dc29b3f0e75c5e02a33d85f0068c9b21b2193a25:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008faf2b615aba3412944181e9a40b9929861853823f6c1849ff776d0a73475073022000eb83967f2b83ada08a44af7a9a448288ebe28833cc5e1c1e85d410b4454a35:922c64590222798bb761d5b6d8e72950

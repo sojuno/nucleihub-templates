@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,hatenaapis-bookmark
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "hatenaapis.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "hatenaapis_bookmark_csp_xss == true"
-# digest: 4a0a004730450220414e222cd68e206503bafa0714ff913e97e52dbed64a33b0be6a0e51f6c4de78022100a73cb62715fc4b927fb2e3551f3c14540d0b8e5519806b169c6e7e4c4310b8dd:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100f8667dc51042c007745baf73d064144b26ad1ff45112c749c0e6c40ab8a22527022100b0058dbeede6aff39385758431a32b2bd0facd10e476af3912e09e6ba5dd486c:922c64590222798bb761d5b6d8e72950

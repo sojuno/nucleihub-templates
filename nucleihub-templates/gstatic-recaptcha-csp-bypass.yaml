@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,gstatic-recaptcha
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "gstatic.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "gstatic_recaptcha_csp_xss == true"
-# digest: 4b0a004830460221009645afcf5b2586e0dbf9e606d5f15a9ef5fd0bd331a8ab2665232ad65a2e34e9022100fbdbc80c9339e658e25594c7629db1f85a5943853caf05753a399796e01a0cf2:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a1a3a1e15f90c429fa256b42ea1c2ddd85666d74b9536616a5b60c9b803b1432022100e1d7db33e0de54a4f0430499a2aaec1bd6f6d90a174f4da44b0fa5dc286d1a10:922c64590222798bb761d5b6d8e72950

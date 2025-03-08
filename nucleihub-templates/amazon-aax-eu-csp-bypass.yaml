@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,amazon-aax-eu
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "amazon-adsystem.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "amazon_aax_eu_csp_xss == true"
-# digest: 4b0a0048304602210089cc14a0daa48096347319379a4c8944370cc5d2c56082f35ddf015835f99e8e022100b61940dcad2a9492532d4d570429054176ba68cd9a64df02c8db2431e298cf39:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100ed8a15ffd602fe5257d9bbe9a2c6ce31ed3cff2aabc0cf3fe68c6187728673f102202c989bc9b92ccec36b983036aa8a758e5294af3f0d5f25182bc6d02cceeb1a7f:922c64590222798bb761d5b6d8e72950

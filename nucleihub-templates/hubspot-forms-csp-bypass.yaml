@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,hubspot-forms
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "hubspot.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "hubspot_forms_csp_xss == true"
-# digest: 4a0a00473045022100c120d8ef112174bfd796bc9228ed84ad347c62fdcf1e2cf362f3a3c2f7a65d5e02200184871a66442493c29ded85eb9cf34d31d8caae02ba34c3fc5179dd2ccebe25:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201c71515e3773f88d19f4a217002697ba11f4d248eec709c18a11e0565cfda793022100a5ff1ea0ba575da8ce3014ed0a5e290826baaa29bfd665630067c5293d98bfd8:922c64590222798bb761d5b6d8e72950

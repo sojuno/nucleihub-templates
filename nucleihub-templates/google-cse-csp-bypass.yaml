@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,google-cse
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_cse_csp_xss == true"
-# digest: 4b0a00483046022100e21bc1b78d4b3227da39aa5f11e1754b4335eadbeedff1d5a8f4b18c00f77d1f022100e45111e395963c82ab3600dd35517fe759a1c30ac9f512193fce6a29ac2421f0:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009831eb129bb9919d76451bf7a120039f856b8e0244a2e8cf2eb6ba215b349c7e022100ed9fdf3e503a5ca437dc0e40d511f05b0424cb46210215f6dc465ce5e470d210:922c64590222798bb761d5b6d8e72950

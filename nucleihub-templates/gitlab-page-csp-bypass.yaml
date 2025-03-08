@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,gitlab-page
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "gitlab.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "gitlab_page_csp_xss == true"
-# digest: 4a0a00473045022100e030f7f31273d8c3875384ca80c7e78da9fc21ccc3d294d7a116916f1a6f7d770220659bd3fd9f701027290c886b99c4c537dff87fae876e00c65194508538d3162a:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502205c0cf32303f13855f0a91e2358dea30625106afdfdd1cc747bbb454ed72f75d6022100fd3e9ef6445cc23b30dce4d9eecb206213cc17017eccff33bcc5fd6d358ccd00:922c64590222798bb761d5b6d8e72950

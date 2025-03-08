@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,soundcloud
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "soundcloud.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "soundcloud_csp_xss == true"
-# digest: 4b0a00483046022100bc63e51c3a893e301e047cb4767d76547d27bff6698341e5af2c7a4fff31427e0221009dbd762772b2cbd2ca12bc197494cdb8fc2e40c657bd342e709271a8f4570eae:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022057f293033c5abf3e12fe15fdcffc7a60c2a9d6df5764708d102ea6cb71d50695022100f42a42982291bd13c3117e3991100b15eba6bc87641042f387f6ccf612aee9ab:922c64590222798bb761d5b6d8e72950

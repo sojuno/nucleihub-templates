@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,liveperson-lptag
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "liveperson.net"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "liveperson_lptag_csp_xss == true"
-# digest: 490a0046304402206876994aca3541b6335e14dd1c3de932fd4f280a4c5299521f043504f5a59ef202201978a7e32e11dee5e2547ab428c5afa9f09704131eba1ddfaa1024905751c18f:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502206e593ab26eca760bbded90e0ef8e7b2739c8c497fbe9e8fa8c2dc97aff11ef050221009acead5e1a69b740c00cebf09b0b770f88d4f581dfa4777ae851e032e915cf93:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,digitalocean-anchor
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "digitalocean.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "digitalocean_anchor_csp_xss == true"
-# digest: 4a0a00473045022100a53d84cfbe26f34be388ebe16e42459f8b24e831d2791cbc978be48010aca2470220125f4478fca898ab4a54ecf19a6329f35a8956e031a798c3dd50aa1fce6ba000:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d0ad877f1e80d518d2617618dffb96d62f994e61c889a1229ff673fb0e0095ce02206c66edee2fbe587b9e73f910d1e8d8c462b51ed6edfcbed96b414bf13dd65507:922c64590222798bb761d5b6d8e72950

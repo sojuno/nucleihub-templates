@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,blogger-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "blogger.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "blogger_api_csp_xss == true"
-# digest: 490a00463044022020d106749b22799ec93b9a13292b4aa3bc5be2e7ade28cf3dd5a2f10f20712ec022029f11022bf96634826a84341419bc6fc5e006ef06dbecf3b15112fd82886f195:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022069d17eeaf5b960dd8a6c26676d18ed8c5e4ad21eddaf9b9f69a53bdac326c9890220438faf7f988dabe087af1de2836e5b226c019b7082137db4ed75773a3659d5f8:922c64590222798bb761d5b6d8e72950

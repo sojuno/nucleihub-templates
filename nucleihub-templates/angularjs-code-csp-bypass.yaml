@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,angularjs-code
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "angularjs.org"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "angularjs_code_csp_xss == true"
-# digest: 4b0a00483046022100891dd8fd125241cc42673641f6de11bd825b2a917068d328d4437149899f884c022100e135a5dd7821dbb5133dcab7707440fedc1f085e5cfeff2c798b8509dae27e38:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100a0ca48a08361cfb641c590994c1d9281beb35728b6e7f32025041588a5f226360220164bfc1ad6b27e7e6ff63ee0ab0427ef59265aa4fb622cc0924d68b1f8cb8aae:922c64590222798bb761d5b6d8e72950

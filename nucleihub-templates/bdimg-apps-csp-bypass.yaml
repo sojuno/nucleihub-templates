@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,bdimg-apps
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "bdimg.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "bdimg_apps_csp_xss == true"
-# digest: 4a0a00473045022005addc99f5ebd88cde80f596c40542b20f541e7c2948e544068debb6fab12cea022100f724fae9b2333e944b7d9f4e01caead86a5a6670bdea233686fc6f61a9dde171:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203e513f2de1dc7d82c28c706365c14d2d78817290caba4a7e3b991ec325b9c92f02203a7bd8667130cf04f2b4b5c6d0088a66d53cc343502b2fb3dcc9a581529837f1:922c64590222798bb761d5b6d8e72950

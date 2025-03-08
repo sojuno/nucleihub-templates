@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,mailru-connect
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "mail.ru"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "mailru_connect_csp_xss == true"
-# digest: 4a0a004730450220714ba91d27f0407ceee1ddfb51b1bfac1ad0098f682eb552d9d47b6e19285feb022100bbe6d12b859b9ee97ad499292e69dba4b2c567582926cda74d0219d6e321c0a1:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a8a940e84ba823866ffee82ef94dd987924373c6a064839632ba63c62f0db70502210086bfff9f09c1e77124d13c5edc33c077da37037e5b13a82d6d001b43e726e9ba:922c64590222798bb761d5b6d8e72950

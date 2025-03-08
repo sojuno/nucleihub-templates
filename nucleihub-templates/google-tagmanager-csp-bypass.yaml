@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,google-tagmanager
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "googletagmanager.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_tagmanager_csp_xss == true"
-# digest: 4a0a0047304502210091cdb20ae6aa8e55a4981b8b3578148c818a56e27b39a21ff29be8f88d9226d502204ef3e506044e6a482bd630a16061ed4b7f22a19947a96ce0ffdca0e05b033f34:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220312f2e6b1a10757bbc05557b0cd92f26edcc93b49e6f9cabc2ff8056d774b7bd0220771960a39f9cad9bb19a4836f8c59a2d0847d24baa007c0e109a5ed9a4d81502:922c64590222798bb761d5b6d8e72950

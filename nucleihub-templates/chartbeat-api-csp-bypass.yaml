@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,chartbeat-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "chartbeat.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "chartbeat_api_csp_xss == true"
-# digest: 490a0046304402200841d6805792541eb1f7f15dd7d729c0f1d1ffbce327a2a7c4ed9b5210d017e0022049e836548d426f794a31f7303f173a77d10f7d8bc0cf1b39cfd7062a9e710f57:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204621034ad8464e9fea73233ebf9c46d30fd42cf9c1e0296bb1d464d6f7b8c66b022100e7fdf0b1599521b7fcd78325e193c2d6fcb60ddb51cbd189fd059a5f60521b14:922c64590222798bb761d5b6d8e72950

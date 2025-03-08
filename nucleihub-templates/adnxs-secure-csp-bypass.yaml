@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,adnxs-secure
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "adnxs.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "adnxs_secure_csp_xss == true"
-# digest: 4b0a00483046022100deb056b662b8ae8a860c2b0bda0ca99c5bbe6e8c169a36d3c3b0eb8868d218c70221008c519c52c995501504590a817d9ac82321e96fcda60856fde09de2595bc25a4c:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f467f075c36ff4d71599be6151a68c731ba3ee0ff4e801ada1254b28a6cc31ff02204b90da9ad1320275ed6d7c639c729f104a9d4c98d7cabe21264832914d2f5504:922c64590222798bb761d5b6d8e72950

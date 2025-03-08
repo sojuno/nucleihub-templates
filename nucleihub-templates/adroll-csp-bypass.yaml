@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,adroll
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "adroll.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "adroll_csp_xss == true"
-# digest: 4a0a004730450221009a73657d594766ae83d1b3f20cb389053ec67bb5c67f28e518a88fe4df1da9ed02204981eecc0ab5e66e5edf29aceb25ccec6020881b51a2685219b531e3891f0470:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008dc180b841a654770dbd9578348c928a32ee46c4cfe95b000499f29d1db432890220179d96fc9f57d490352aa35fb002cdccecfc79244e495c0740a2602bffcdbfed:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,coinbase-investor
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "coinbase.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "coinbase_investor_csp_xss == true"
-# digest: 4a0a00473045022100d6236ec6b5c13f5e38f841e93250d3a54372a737734f861e2e19ffaf151af6c00220170579c3aa72b6eeea5da36ecb7a03724585b7783035f050e784da6ebac849ac:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100f9cdb643778e56dce4123b53592321475c94ce169c696f3b0d1ee5f9c0c88317022100b7c0cb4be8094fe40f0d57a0872fd8d125606d00b2d7baadb09ba60762382a00:922c64590222798bb761d5b6d8e72950

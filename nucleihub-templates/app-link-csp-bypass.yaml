@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,app-link
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "app.link"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "app_link_csp_xss == true"
-# digest: 4b0a00483046022100bb602d2b1c464c581174305465ee855a51a735765cc9a4bc4190e87031727a69022100ee36504d4f0ca599f184a3efcce01a78d45ca3023eb57b1bb1695e5bfed2f4eb:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100986d89c96ee6a416ec54b43096ab38550c343e5e01891287d6f25e23b431b6dc02203cdd1dd1013bd587c6f90a0c872e78112d089eb93c7ffd294e1a7b8e2c0f3664:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,criteo-dynamic
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "criteo.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "criteo_dynamic_csp_xss == true"
-# digest: 4b0a00483046022100aadb24d1a555545ebced07e8893ee881c7fe16e2d0a3dee488a09d451ea41da7022100efeb868e1ba52869ad859fd49074e7a8c92423d4b3027a83ddf8f5df24e23214:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e8aa33cb019797e9beab3c25c274bb5e3c7294028edf15d15f2180625f36014d022100ce4618131f2fbad186bfd0c512a6abcaa7be6152f3e783a39707272920df087c:922c64590222798bb761d5b6d8e72950

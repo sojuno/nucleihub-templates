@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,doubleclick-securepubads
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "doubleclick.net"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "doubleclick_securepubads_csp_xss == true"
-# digest: 4a0a0047304502207016240b914df3f6744e1e8c56b845cfd8c82425a8aad5590d412c924ffb1e800221009d3d920d7a4fe1e7421cf7328dfc9b4b9b980a6989cfdd7209e29bd706c26dae:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100dc38a27dd4ae2ebf2167a91be3e458bc20905859432ccb3f387fc045f63f819002206b768660d2da55a5f38f5aa9078aa9bee77beef52f1112b96e203856a4f37cc2:922c64590222798bb761d5b6d8e72950

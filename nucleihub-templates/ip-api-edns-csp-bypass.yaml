@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,ip-api-edns
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "ip-api.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ip_api_edns_csp_xss == true"
-# digest: 490a00463044022033218109398b9b4b87d172d629c0c97cd374ba8fdf24edbd56138ef274877431022036ad0dd9a8cc9638cd722655d4e9cf33716b35488ffa5c566b11177512fa055b:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e87895e2da7893967149273572b64dd4272eeacdf1aa0c537c418537bafcca2d022100c98702afc00769903435dd3557832f41e5bd1fa12860c0c749a11d7b3140697b:922c64590222798bb761d5b6d8e72950

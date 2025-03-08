@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,qq
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "qq.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "qq_csp_xss == true"
-# digest: 4b0a00483046022100b1d1ffec4138b9262db0662ef18e39dd6059c6c57185a948c4590c4aa55c2854022100da3e85b8037d36e3e7ba50cce1f7d941f85efb0d179fd2256f4203e5ded29fe2:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210093d91d1e6c4fd61d18325cd43e1b0fb8990b4419dc6d91b18e1fe6ea8df24cbc022100d9ec8a6fdafb6ac845511132dd74b6a3c3dd78d633d1230961f51dd465a8f858:922c64590222798bb761d5b6d8e72950

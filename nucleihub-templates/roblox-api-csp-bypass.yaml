@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,roblox-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "roblox.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "roblox_api_csp_xss == true"
-# digest: 490a00463044022049530f6f9482479bd96fe9ac0e666443ad7f178c34ba0036f1b899d3cbe4678d022031c07f0049e6fea8c20f1e9507cf786a9646deb574fce9943cd05b5fe43abf5c:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203c9ab4f454490c13f0866f633fcace70b9788d9ebc23bbc78cef7892bcc6f33e022066f46930ce38061472b0be74ed556211250987c7ce67b8c19db774f72254126c:922c64590222798bb761d5b6d8e72950

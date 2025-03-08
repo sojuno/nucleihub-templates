@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,ulogin
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "ulogin.ru"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ulogin_csp_xss == true"
-# digest: 4b0a004830460221008d86653d78325568f601f6fc73956e43acdad61b869a024a236a275442b69f12022100d50bfa2b8f4a303034f68915333a87adbf1d3b8df619397f546defc9603f5917:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022068f20a3c2a0b5325deeb6ca37f70df4d416f3b357ba0e6b84c389a2aa4697860022100c34e0ef99c6e1c032817609992e669ab7d4acdb69076ef5f3f9a03d376ee40b7:922c64590222798bb761d5b6d8e72950

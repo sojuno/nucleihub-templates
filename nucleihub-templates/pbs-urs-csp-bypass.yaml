@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,pbs-urs
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "pbs.org"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "pbs_urs_csp_xss == true"
-# digest: 4a0a0047304502206cd52723633362c05386354833e259f17fa1db89ae7886cc58863e64bc65dbd1022100b44eba9062eeb7a51dc63624d77cf4f464c4fb83afd4f2b823064ab51a4cf19f:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e1c45e47886057028ca5db53a9ba1b57e5617c3ee6d2bed85f424a5b58114528022100f47db7881b46ec20c2c082627cab04f66390bd6ba56df001c39d498c323f5d23:922c64590222798bb761d5b6d8e72950

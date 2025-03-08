@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,zhuanjia-sogou
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "sogou.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "zhuanjia_sogou_csp_xss == true"
-# digest: 4a0a00473045022100ad6962b0f3edd915b696562b7292376bcd1389c67812ef9c97047394ff3a82c0022074aba499bb7a1b64bacfae9333719ed7bb9f809d97ea843be2f448ebfa4d39ef:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502203321f2b279073b0b8bd49ee047c0efeceb83578d69a3fe7b3cfa2836229ce28f022100901c19ac9c3f7031c8a9b93e4849e63754c53e00254764ce08e7f0f04c98d780:922c64590222798bb761d5b6d8e72950

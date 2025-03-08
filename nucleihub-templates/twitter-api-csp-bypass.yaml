@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,twitter-api
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "twitter.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "twitter_api_csp_xss == true"
-# digest: 4a0a0047304502201e5cfee92c366654b4ee88f2e25bbb6ccb79f9f4629523f5f2a5bb9f5b8b006b022100a6b2f20ea228f6ee1a313dcd1f6232d5cc9334345c4463d7f5ec140cf6d14746:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d1915639a41f68da0a24a2ad7ef137cc95c399bdac458971805f5db76389c8950220238c2576040ae6999aef54618e58e2008fd786ae3520a60480f359cef6f3f2d5:922c64590222798bb761d5b6d8e72950

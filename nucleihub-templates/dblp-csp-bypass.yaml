@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,dblp
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "dblp.org"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "dblp_csp_xss == true"
-# digest: 4b0a00483046022100e6ecc80418d4f3f93cdcd0da4c3f7ae2a0a1e1b475a8792de6e5a3fe37b7fdc3022100834431f119bef2f1c93ec18c599bd6a5aa9352659f9d97d573b6d4dc4dedee88:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100ee1cb37527b8a29808306bfcc9e32586a99458f33681a48d48320cf31e516aef022017259e90b100c9ef1e05861600d0c91f7fc452efafcc3ac72b1e907f5505e626:922c64590222798bb761d5b6d8e72950

@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,indeed-tr
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "indeed.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "indeed_tr_csp_xss == true"
-# digest: 4b0a00483046022100a2946c57cfa1b8e49d4d254719630f57b56891ebbbfc9fb06cf025c46417ace8022100b56ffcdcb51de3ba62fec9ec5ac473907bda69254e9762f0224f29b0f3bc42e9:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220385953513aa992e2b193c8cafac6aca27cc13026496980101f2738d8241a7bd40220198a1821fd2e217dcc99e2566642a6cb2b72d295202522ff4998ace493bb7a1f:922c64590222798bb761d5b6d8e72950

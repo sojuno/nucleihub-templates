@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,unpkg-hyperscript
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "unpkg.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "unpkg_hyperscript_csp_xss == true"
-# digest: 490a0046304402202bc40a6638a7919d0fccd2c1ef0e88fe039bd0b2f11c6d9578309634e6ba3d3d02204e9e2db1a80fea8b2038c6a0e3552a3e7509b733815821943362dbefa713bd39:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502200b1b656b9db5b62369ed8822aa78efd10175da508468879e53902cc287356a53022100f01d78afb3fc5a5f1f0731adf1c8b09c4d698ad6d83fa0d1a572458627ec5a76:922c64590222798bb761d5b6d8e72950

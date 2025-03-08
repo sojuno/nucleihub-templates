@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,openai-tcr9i
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "openai.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "openai_tcr9i_csp_xss == true"
-# digest: 490a0046304402203647b8109482a7b739362d9afdd53ea8a7cca0169b65d672090d1c0217568f1302206a0c9e6ce946a3eb76c847d85aaf252c613740e61acb5ca4ca20abafbb2ca39e:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204cf4cb5d142d535f7b2203fa6c3a13a5164d958539dc2057e6a72ee863e672bf022100f458d211d5e96bbd2430de5c4b21b22f6477ad74d918f3bc106432b5b30f6a16:922c64590222798bb761d5b6d8e72950

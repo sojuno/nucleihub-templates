@@ -10,6 +10,22 @@ info:
     verified: true
   tags: xss,csp-bypass,tiktok-analytics
 
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "tiktok.com"
+        condition: and
+        internal: true
+
 headless:
   - steps:
       - action: navigate
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "tiktok_analytics_csp_xss == true"
-# digest: 4b0a00483046022100af702595a7821ef11c462fb76ebfad6897a122696864a255c3a4e9d0348eba71022100969b4ea82a3e8d4e658a64ead57c901c6a36a8acc2e215a506476cbde30d0e19:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d2c7afc7ae52d1d103e4f476a1655bb60fad52c19f6cc482bdd7a673b2ad513a022100a9c6d9ad2e22714e2e93aa9d2573a0cc7a2495e0e88fb375d660c273c2e5ea41:922c64590222798bb761d5b6d8e72950
