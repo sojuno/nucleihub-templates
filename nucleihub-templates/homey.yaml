@@ -1,15 +1,15 @@
-id: homey-279758ad9b50766cb788d182f0a25ca0
+id: homey-de636a129db33225d12dec0afed4b2de
 
 info:
   name: >
-    Homey <= 2.4.2 - Unauthenticated Privilege Escalation in homey_save_profile
+    Homey <= 2.4.3 - Limited Authentication Bypass due to Missing Empty Value Check
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3b93c33c-4ab1-48a2-b84d-3cb38ccea829?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05f87510-28c3-4ad1-b2be-2408a199cf68?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/themes/homey/"
     google-query: inurl:"/wp-content/themes/homey/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,homey,low
+  tags: cve,wordpress,wp-theme,homey,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.2')
+          - compare_versions(version, '<= 2.4.3')

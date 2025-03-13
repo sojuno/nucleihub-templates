@@ -1,4 +1,4 @@
-id: thegem-e7ae3c995d3a1d43c93b3ca85ec236f9
+id: thegem-1920d1c280899aa54b3c64faed2acc5e
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fc4d4103-a19a-45a5-9059-23eb7f72c84b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6134c76d-754b-4e54-aa4e-b791d9321b8e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
