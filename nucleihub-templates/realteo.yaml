@@ -1,15 +1,15 @@
-id: realteo-1e463be985879455bd6b29f96c9563d1
+id: realteo-0ff94c0072f709707e314e0078858d5b
 
 info:
   name: >
-    Realteo <= 1.2.3 - Reflected Cross-Site Scripting
+    Realteo - Real Estate Plugin by Purethemes <= 1.2.8 - Authentication Bypass via 'do_register_user'
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7cb81956-856a-49cc-a437-a2094d958b5d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/abe73ecd-1325-4d6d-8545-d27f6116ca43?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/realteo/"
     google-query: inurl:"/wp-content/plugins/realteo/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,realteo,medium
+  tags: cve,wordpress,wp-plugin,realteo,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.3')
+          - compare_versions(version, '<= 1.2.8')
