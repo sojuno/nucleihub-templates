@@ -1,15 +1,15 @@
-id: wpbookit-fd730dab6fed69553fea485c262cf009
+id: wpbookit-3c5fcf7ce6fe3ae9131cbfea542072cf
 
 info:
   name: >
-    WPBookit <= 1.6.9 - Unauthenticated Arbitrary File Upload
+    WPBookit <= 1.0.1 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/19bf7a68-e76d-4740-9f35-b6084094f59b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/50f88c71-e57b-4792-b579-0e33f2d637d0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wpbookit/"
     google-query: inurl:"/wp-content/plugins/wpbookit/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wpbookit,critical
+  tags: cve,wordpress,wp-plugin,wpbookit,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.9')
+          - compare_versions(version, '<= 1.0.1')
