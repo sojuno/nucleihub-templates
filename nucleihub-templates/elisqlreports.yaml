@@ -1,15 +1,15 @@
-id: elisqlreports-42e74f11219f83b87ad99deca2b40f32
+id: elisqlreports-d0fbfa246602ee66dbff8e004946cf18
 
 info:
   name: >
-    EZ SQL Reports Shortcode Widget and DB Backup <= 5.21.35 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    EZ SQL Reports Shortcode Widget and DB Backup 4.11.13 - 5.25.08 - Cross-Site Request Forgery to Remote Code Execution
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7486289b-3cb7-4f8b-abcb-9bfb4b82a95b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/eade6ab0-ff79-4107-83ce-e85b37d97442?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/elisqlreports/"
     google-query: inurl:"/wp-content/plugins/elisqlreports/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,elisqlreports,low
+  tags: cve,wordpress,wp-plugin,elisqlreports,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.21.35')
+          - compare_versions(version, '>= 4.11.13', '<= 5.25.08')
