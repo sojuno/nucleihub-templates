@@ -1,15 +1,15 @@
-id: ultimate-dashboard-7277279061009a48883dc0e06b350b6d
+id: ultimate-dashboard-1a257f6e56e4ace9a423051f9dfa42e2
 
 info:
   name: >
-    Ultimate Dashboard <= 3.7.7 - Authenticated (Administrator+) Stored Cross-Site Scripting via plugin settings
+    Ultimate Dashboard <= 3.8.7 - Missing Authorization to Authenticated (Subscriber+) Plugin Modules Activation/Deactivation
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/79cce1fc-a27f-4842-b1a2-2c53857add4c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ffee6564-2718-4461-b481-cbf0e204a04d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.7.7')
+          - compare_versions(version, '<= 3.8.7')

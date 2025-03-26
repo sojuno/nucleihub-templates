@@ -1,4 +1,4 @@
-id: memberspace-8cb6746be0d207b1addab8e14385bbe3
+id: memberspace-54c5c7268c790213b1111380026e2a56
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2c96bfb8-290b-4818-a468-e8d5cb1850a3?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9f2e0427-c000-4536-8639-b5f0c8f2b19f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
