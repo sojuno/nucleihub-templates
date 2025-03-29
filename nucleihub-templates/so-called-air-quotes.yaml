@@ -1,31 +1,31 @@
-id: checkout-mestres-wp-a3f7857adcec429ee99c64580a4e1a76
+id: so-called-air-quotes-1a5f0bfd01dd25051d95cf2e91103c92
 
 info:
   name: >
-    Checkout Mestres do WP for WooCommerce 8.6.5 - 8.7.5 - Unauthenticated Arbitrary Options Update
+    So-Called Air Quotes <= 0.1 - Unauthenticated Arbitrary Shortcode Execution
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9834fd5b-8445-4c6f-95f9-f0df785c65f8?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/83f2ceee-4422-4ed5-adc7-91bc022ae42d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/checkout-mestres-wp/"
-    google-query: inurl:"/wp-content/plugins/checkout-mestres-wp/"
+    fofa-query: "wp-content/plugins/so-called-air-quotes/"
+    google-query: inurl:"/wp-content/plugins/so-called-air-quotes/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,checkout-mestres-wp,low
+  tags: cve,wordpress,wp-plugin,so-called-air-quotes,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/checkout-mestres-wp/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/so-called-air-quotes/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "checkout-mestres-wp"
+          - "so-called-air-quotes"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 8.6.5', '<= 8.7.5')
+          - compare_versions(version, '<= 0.1')

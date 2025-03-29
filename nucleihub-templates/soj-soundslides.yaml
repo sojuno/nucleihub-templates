@@ -1,31 +1,31 @@
-id: checkout-mestres-wp-a3f7857adcec429ee99c64580a4e1a76
+id: soj-soundslides-ea7f8f11e7ca486e9a5bbb5498e9a574
 
 info:
   name: >
-    Checkout Mestres do WP for WooCommerce 8.6.5 - 8.7.5 - Unauthenticated Arbitrary Options Update
+    SoJ Soundslides <= 1.2.2 - Authenticated (Contributor+) Arbitrary File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9834fd5b-8445-4c6f-95f9-f0df785c65f8?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f648e7f3-d93a-4a46-ae77-81a94880869c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/checkout-mestres-wp/"
-    google-query: inurl:"/wp-content/plugins/checkout-mestres-wp/"
+    fofa-query: "wp-content/plugins/soj-soundslides/"
+    google-query: inurl:"/wp-content/plugins/soj-soundslides/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,checkout-mestres-wp,low
+  tags: cve,wordpress,wp-plugin,soj-soundslides,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/checkout-mestres-wp/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/soj-soundslides/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "checkout-mestres-wp"
+          - "soj-soundslides"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 8.6.5', '<= 8.7.5')
+          - compare_versions(version, '<= 1.2.2')
