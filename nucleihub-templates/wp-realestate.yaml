@@ -1,31 +1,31 @@
-id: gumroad-46a1d8bc6bfc69ba9c27078e8d2f2451
+id: wp-realestate-53ec8d762eb8f8f33aa44d9e9dfe3d5b
 
 info:
   name: >
-    Gumroad <= 3.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    WP RealEstate <= 1.6.26 - Authentication Bypass via 'process_register'
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd2abab4-f93c-454d-928d-128a490da0e2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f6f7bff6-3bc3-4572-97fd-a039d54ac0ff?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/gumroad/"
-    google-query: inurl:"/wp-content/plugins/gumroad/"
+    fofa-query: "wp-content/plugins/wp-realestate/"
+    google-query: inurl:"/wp-content/plugins/wp-realestate/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gumroad,low
+  tags: cve,wordpress,wp-plugin,wp-realestate,critical
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/gumroad/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/wp-realestate/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "gumroad"
+          - "wp-realestate"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.0')
+          - compare_versions(version, '<= 1.6.26')
