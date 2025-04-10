@@ -1,15 +1,15 @@
-id: simple-wp-events-19acc12daeafa5705194f442c687388a
+id: simple-wp-events-36bcfa9b1ae4f52b4dee29c41be55213
 
 info:
   name: >
-    Simple WP Events <= 1.8.17 - Unauthenticated Arbitrary File Deletion
+    Simple WP Events <= 1.8.17 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/abdca93e-f68d-4a96-8bd7-443ee46ccb5a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/68c190af-6b86-4831-a071-77e30caff912?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
