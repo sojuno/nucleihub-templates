@@ -1,15 +1,15 @@
-id: material-dashboard-8ff0b5e7bab6575fad5b159b71ced01e
+id: material-dashboard-2e94b47d84b8369e5dc1cecd8adf1b50
 
 info:
   name: >
-    Material Dashboard <= 1.4.5 - Unauthenticated Privilege Escalation
+    Material Dashboard <= 1.4.5 - Unauthenticated Local File Inclusion
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/544b09a2-dfd4-4dee-8687-fe86cdc65f30?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/215f5ab4-44be-4db0-86d5-e7ff0630e15d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/material-dashboard/"
     google-query: inurl:"/wp-content/plugins/material-dashboard/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,material-dashboard,low
+  tags: cve,wordpress,wp-plugin,material-dashboard,critical
 
 http:
   - method: GET
