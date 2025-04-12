@@ -1,31 +1,31 @@
-id: gumroad-46a1d8bc6bfc69ba9c27078e8d2f2451
+id: developer-toolbar-8eebbd026d7b1eb8dc87c9a17a19b217
 
 info:
   name: >
-    Gumroad <= 3.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Developer Toolbar <= 1.0.3 - Unauthenticated Information Exposure
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd2abab4-f93c-454d-928d-128a490da0e2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e10ba37a-cd7d-4fc9-8b41-806fa3dc7785?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/gumroad/"
-    google-query: inurl:"/wp-content/plugins/gumroad/"
+    fofa-query: "wp-content/plugins/developer-toolbar/"
+    google-query: inurl:"/wp-content/plugins/developer-toolbar/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gumroad,low
+  tags: cve,wordpress,wp-plugin,developer-toolbar,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/gumroad/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/developer-toolbar/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "gumroad"
+          - "developer-toolbar"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.0')
+          - compare_versions(version, '<= 1.0.3')
