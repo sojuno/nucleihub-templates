@@ -1,15 +1,15 @@
-id: fs-poster-8bcb34d968fdd3421060e28c4be034d0
+id: fs-poster-d64fafa3089dad066f52cdc0a4632a60
 
 info:
   name: >
-    FS Poster <= 6.5.8 - Cross-Site Request Forgery
+    FS Poster <= 6.5.8 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8d5d0c82-f5cd-4eaf-9530-0541985cb533?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b90d8b14-8f98-498a-89d2-71f47aceb9c3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

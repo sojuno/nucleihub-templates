@@ -1,15 +1,15 @@
-id: wp-subscription-forms-f1724f1917e6742d9a59287700fb8e86
+id: wp-subscription-forms-7f55bd85c81310b7ee17dfa6816969a6
 
 info:
   name: >
-    WP Subscription Forms <= 1.2.3 - Authenticated (Contributor+) SQL Injection
+    WP Subscription Forms <= 1.2.4 - Authenticated (Contributor+) Local File Inclusion
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/19ac688c-d07c-40fa-8155-e3ae45e17b5b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0e8a4400-1169-4015-ae95-9c3109b728fa?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.3')
+          - compare_versions(version, '<= 1.2.4')
