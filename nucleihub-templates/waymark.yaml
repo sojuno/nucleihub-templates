@@ -1,15 +1,15 @@
-id: waymark-b5da24d069e183d2cc105f0ca7eb5492
+id: waymark-57c19853324b934d5d8b756c86316223
 
 info:
   name: >
-    Waymark <= 1.5.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Waymark <= 1.5.2 - Authenticated (Contributor+) Server-Side Request Forgery
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1abee6b1-618b-491c-8017-d74e43c6aa47?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5c43c6f7-afc5-4b7a-96cc-cebfd875a47b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.0')
+          - compare_versions(version, '<= 1.5.2')

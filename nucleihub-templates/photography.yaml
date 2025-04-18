@@ -1,15 +1,15 @@
-id: photography-f16db0dd5eaec9d879b3f0f78ab19921
+id: photography-254027215bce06fcdf7464e059d87c4c
 
 info:
   name: >
-    Photography <= 7.5.2 - Missing Authorization
+    Photography <= 7.5.2 - Unauthenticated Server-Side Request Forgery
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b1977c26-ae70-43ce-92c4-9d61ffd4e116?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d4443759-af1c-409b-aa5f-3bfd55cb44a9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/themes/photography/"
     google-query: inurl:"/wp-content/themes/photography/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,photography,high
+  tags: cve,wordpress,wp-theme,photography,low
 
 http:
   - method: GET
