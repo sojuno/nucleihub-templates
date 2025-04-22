@@ -1,15 +1,15 @@
-id: fs-poster-d64fafa3089dad066f52cdc0a4632a60
+id: fs-poster-acc2cd6fee9fbb2bdbe5413fd9b3bd95
 
 info:
   name: >
-    FS Poster <= 6.5.8 - Reflected Cross-Site Scripting
+    FS Poster <= 6.5.8 - Authenticated (Subscriber+) SQL Injection
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b90d8b14-8f98-498a-89d2-71f47aceb9c3?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c25412d4-f24c-4e29-9b1f-fa89b0383f64?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/fs-poster/"
     google-query: inurl:"/wp-content/plugins/fs-poster/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,fs-poster,medium
+  tags: cve,wordpress,wp-plugin,fs-poster,low
 
 http:
   - method: GET

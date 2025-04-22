@@ -1,15 +1,15 @@
-id: pirate-forms-69b114fd3ed19d9153d23f4d799abf0c
+id: pirate-forms-dfd166ca948bd5682a587fac80db3b4f
 
 info:
   name: >
-    Contact Form & SMTP Plugin for WordPress by PirateForms <= 2.6.0 - Unauthenticated Arbitrary Shortcode Execution
+    Contact Form & SMTP Plugin for WordPress by PirateForms <= 2.5.2 - Authenticated (Admin+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/98859214-7acf-4d40-9291-b5669b9614b7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6a99dade-815e-43cf-be24-92c01286f476?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.6.0')
+          - compare_versions(version, '<= 2.5.2')

@@ -1,15 +1,15 @@
-id: avatar-9b1382ef17b40f6b1ec9fddb18069b18
+id: avatar-5ba0a2bbdf560c718099e108b1e298eb
 
 info:
   name: >
-    Avatar <= 0.1.4 - Authenticated (Subscriber+) Arbitrary File Deletion
+    Avatar <= 0.1.4 - Authenticated (Subscriber+) Insecure Direct Object Reference
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/01769760-5bfe-4352-bc5b-141f078c0b6d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e23b7a5-8ee6-4818-a52e-4fa66bee02e2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

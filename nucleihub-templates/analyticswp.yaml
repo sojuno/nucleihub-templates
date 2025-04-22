@@ -1,15 +1,15 @@
-id: analyticswp-946c3879d159d4e7154d083bebbf7204
+id: analyticswp-b421518ea28b8d4ecad344e5e19bb59a
 
 info:
   name: >
-    AnalyticsWP <= 2.0.0 - Unauthenticated SQL Injection
+    AnalyticsWP <= 2.1.2 - Unauthenticated Sensitive Information Exposure
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f6507318-92c0-457c-8c87-2d023428a77f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/afefe8fd-0078-4fd8-bdae-03e60fc33e87?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/analyticswp/"
     google-query: inurl:"/wp-content/plugins/analyticswp/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,analyticswp,critical
+  tags: cve,wordpress,wp-plugin,analyticswp,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.0')
+          - compare_versions(version, '<= 2.1.2')
