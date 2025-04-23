@@ -1,15 +1,15 @@
-id: turitop-booking-system-d5dda27193874929d232ceb0f565c288
+id: turitop-booking-system-235f96621ca94957f195fe8065dbb6f1
 
 info:
   name: >
-    TuriTop Booking System <= 1.0.10 - Missing Authorization
+    TuriTop Booking System <= 1.0.10 - Authenticated (Subscriber+) PHP Object Injection
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/21616ffc-44aa-45ca-8304-cb9d4ab5621d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8ac60ae-f67e-4d62-a3a7-fb2e9b334ec9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/turitop-booking-system/"
     google-query: inurl:"/wp-content/plugins/turitop-booking-system/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,turitop-booking-system,high
+  tags: cve,wordpress,wp-plugin,turitop-booking-system,low
 
 http:
   - method: GET
