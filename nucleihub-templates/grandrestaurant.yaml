@@ -1,15 +1,15 @@
-id: grandrestaurant-29f249eecba67e5a2346a5840b48f00e
+id: grandrestaurant-f38a9ff3ae36ee3a58ad78f5b34a4ebe
 
 info:
   name: >
-    Grand Restaurant WordPress <= 7.0 - Cross-Site Request Forgery
+    Grand Restaurant WordPress <= 7.0 - Missing Authorization to Unauthenticated Arbitrary Options Deletion
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dc4234e3-4e0d-401d-8212-9c1817c86578?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9239d691-c431-402e-83ce-01896c9433fc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/themes/grandrestaurant/"
     google-query: inurl:"/wp-content/themes/grandrestaurant/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,grandrestaurant,medium
+  tags: cve,wordpress,wp-theme,grandrestaurant,high
 
 http:
   - method: GET

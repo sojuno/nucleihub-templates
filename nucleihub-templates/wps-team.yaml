@@ -1,15 +1,15 @@
-id: wps-team-3b6e851a1d2b874735cb0ebc08754cb5
+id: wps-team-eed4ec55a517f8aade9a8880fb99aefd
 
 info:
   name: >
-    Team Members <= 3.4.1 - Authenticated (Contributor+) PHP Object Injection
+    Team Members – Best WordPress Team Plugin with Team Slider, Team Showcase & Team Builder <= 3.4.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a449d1eb-badb-41ca-a4b1-ae230a46dcde?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/93b83e65-09d6-4ad5-85f3-d18a9a35f39d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.4.1')
+          - compare_versions(version, '<= 3.4.0')

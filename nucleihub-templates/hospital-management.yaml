@@ -1,15 +1,15 @@
-id: hospital-management-4e847cbf192f85ca395b9d98be73d120
+id: hospital-management-34d234c5830f6e2c55bbafd8d7a14a50
 
 info:
   name: >
-    Mojoomla Hospital Management System for WordPress Theme < 22-05-2018 - SQL Injection
+    Hospital Management System <= 47.0(20-11-2023) - Unauthenticated Arbitrary File Upload
   author: topscoder
   severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8f92355-e664-4aeb-9094-9c8aa49cd3e7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5a5f31ad-75f9-4534-a8a6-e76f9aefbd80?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 08-03-2018')
+          - compare_versions(version, '<= 47.0(20-11-2023)')

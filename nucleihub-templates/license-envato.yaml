@@ -1,15 +1,15 @@
-id: license-envato-20d87ff33de75d6ab79b7c538e902312
+id: license-envato-93c27c6ef75c6d195e42abd75d0ca68e
 
 info:
   name: >
-    License For Envato <= 1.0.0 - Reflected Cross-Site Scripting
+    License For Envato <= 1.0.0 - Unauthenticated Local File Inclusion
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8629d6a3-d35f-4aba-a33c-2800bb677616?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/74e728fd-1498-4b2f-8a0d-9d5aaf58787e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/license-envato/"
     google-query: inurl:"/wp-content/plugins/license-envato/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,license-envato,medium
+  tags: cve,wordpress,wp-plugin,license-envato,critical
 
 http:
   - method: GET
