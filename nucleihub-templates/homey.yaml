@@ -1,15 +1,15 @@
-id: homey-de636a129db33225d12dec0afed4b2de
+id: homey-964c892c7fae7acefa9202ef68d5da68
 
 info:
   name: >
-    Homey <= 2.4.3 - Limited Authentication Bypass due to Missing Empty Value Check
+    Homey - Booking and Rentals WordPress Theme <= 2.4.4 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Reservation & Post Deletion
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05f87510-28c3-4ad1-b2be-2408a199cf68?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c0ef3ae7-b3c0-4f54-a95d-9f8cf9497d8f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/themes/homey/"
     google-query: inurl:"/wp-content/themes/homey/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,homey,critical
+  tags: cve,wordpress,wp-theme,homey,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.3')
+          - compare_versions(version, '<= 2.4.4')

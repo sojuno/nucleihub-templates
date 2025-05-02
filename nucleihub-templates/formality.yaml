@@ -1,15 +1,15 @@
-id: formality-fb145872bf3044abc8ab54f2a8ec07ab
+id: formality-5dad979325817c8ae8ec4fd1874db31a
 
 info:
   name: >
-    Formality <= 1.5.7 - Unauthenticated Local File Inclusion
+    Formality <= 1.5.8 - Authenticated (Contributor+) Stored Cross-Site Scripting via align Parameter
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0ff16836-b333-4f2c-b998-04c95d3be9c2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e25157d3-42ac-4dd6-a736-5623a16e5629?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/formality/"
     google-query: inurl:"/wp-content/plugins/formality/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,formality,critical
+  tags: cve,wordpress,wp-plugin,formality,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.7')
+          - compare_versions(version, '<= 1.5.8')

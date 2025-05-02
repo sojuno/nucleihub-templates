@@ -1,15 +1,15 @@
-id: sureforms-a74610b06d31c184a768279cca246bf0
+id: sureforms-c8789641c2f8b6328a3c2239bd6f3be0
 
 info:
   name: >
-    SureForms – Drag and Drop Form Builder for WordPress <= 1.2.2 - Missing Authorization to Unauthenticated Protected Post Disclosure
+    SureForms – Drag and Drop Form Builder for WordPress <= 1.4.3 - Missing Authorization to Authenticated (Contributor+) Settings Update
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/412d5fa7-08fc-402a-bcac-b2dff87de861?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c16b299e-a300-4d02-9ffe-52166d3791f4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/sureforms/"
     google-query: inurl:"/wp-content/plugins/sureforms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,sureforms,high
+  tags: cve,wordpress,wp-plugin,sureforms,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.2')
+          - compare_versions(version, '<= 1.4.3')
