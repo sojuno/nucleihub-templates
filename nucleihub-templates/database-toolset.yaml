@@ -1,15 +1,15 @@
-id: database-toolset-6a131d54f4cdf3cd0847c3ae4e239c1b
+id: database-toolset-2254f1190e3c100af198e90ee32067a1
 
 info:
   name: >
-    Database Toolset <= 1.8.4 - Unauthenticated Arbitrary File Deletion
+    Database Toolset <= 1.8.4 - Unauthenticated Sensitive Information Exposure via Backup Files
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/73b78d92-5a91-4db7-ab8b-0867e4464516?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fa452a9a-9e26-41a1-8dea-4bafaf735bee?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
