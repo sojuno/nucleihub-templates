@@ -1,31 +1,31 @@
-id: gumroad-46a1d8bc6bfc69ba9c27078e8d2f2451
+id: envolve-plugin-a96a58f29eebbcc2f7c23fff5b453e79
 
 info:
   name: >
-    Gumroad <= 3.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Envolve Plugin <= 1.0 - Unauthenticated Language File Deletion
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd2abab4-f93c-454d-928d-128a490da0e2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05909e9c-4f57-4556-bae9-b0b63a9a43ba?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/gumroad/"
-    google-query: inurl:"/wp-content/plugins/gumroad/"
+    fofa-query: "wp-content/plugins/envolve-plugin/"
+    google-query: inurl:"/wp-content/plugins/envolve-plugin/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gumroad,low
+  tags: cve,wordpress,wp-plugin,envolve-plugin,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/gumroad/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/envolve-plugin/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "gumroad"
+          - "envolve-plugin"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.0')
+          - compare_versions(version, '<= 1.0')
