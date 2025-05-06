@@ -1,15 +1,15 @@
-id: crossword-compiler-puzzles-f80c45b8c61051e11cdde5aa7b3651df
+id: crossword-compiler-puzzles-7ab27e456d8fea1f1c4c93049d058c7c
 
 info:
   name: >
-    Crossword Compiler Puzzles <= 5.2 - Authenticated (Subscriber+) Arbitrary File Upload
+    Crossword Compiler Puzzles <= 5.3 - Authenticated (Subscriber+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/29143d81-9134-4b0e-8540-5f37e5b08707?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/df81b1e4-65f6-4df5-8814-1c007870df9a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.2')
+          - compare_versions(version, '<= 5.3')

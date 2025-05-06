@@ -1,15 +1,15 @@
-id: totalprocessing-card-payments-8be47aa3f56f6866136630c88ef57fa7
+id: totalprocessing-card-payments-17bfd282e796238ab312aeed644511b2
 
 info:
   name: >
-    Nomupay Payment Processing Gateway <= 7.1.5 - Authenticated (Subscriber+) Arbitrary File Download
+    Nomupay Payment Processing Gateway <= 7.1.7 - Authenticated (Shop Manager+) Arbitrary File Download
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3d7b5b50-ea6e-4f9e-bd7b-7682469c63b9?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4e1a40cc-0b20-4713-b713-5766619d38cb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 7.1.5')
+          - compare_versions(version, '<= 7.1.7')
