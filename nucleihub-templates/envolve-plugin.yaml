@@ -1,15 +1,15 @@
-id: envolve-plugin-a96a58f29eebbcc2f7c23fff5b453e79
+id: envolve-plugin-36565980445e8beba9e3f559c3cfb46a
 
 info:
   name: >
-    Envolve Plugin <= 1.0 - Unauthenticated Language File Deletion
+    Envolve Plugin <= 1.0 - Unauthenticated Arbitrary File Upload via language_file and fonts_file
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05909e9c-4f57-4556-bae9-b0b63a9a43ba?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d0ad02d9-546f-4bcb-b567-785e3acfb489?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/envolve-plugin/"
     google-query: inurl:"/wp-content/plugins/envolve-plugin/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,envolve-plugin,low
+  tags: cve,wordpress,wp-plugin,envolve-plugin,critical
 
 http:
   - method: GET
