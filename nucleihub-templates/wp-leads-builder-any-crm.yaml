@@ -1,15 +1,15 @@
-id: wp-leads-builder-any-crm-253833d98cc5f70e96e91fd4cdc4ab51
+id: wp-leads-builder-any-crm-3b0f858d6f8d1e353ffb5edc8206f4a9
 
 info:
   name: >
-    Lead Form Data Collection to CRM <= 3.0.1 - Authenticated (Contributor+) SQL Injection
+    Lead Form Data Collection to CRM <= 3.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/73e51f52-70e9-4620-8c87-2a3982b98681?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/86d2aa56-c543-4cb6-aa9f-715879c18f83?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.1')
+          - compare_versions(version, '<= 3.1')

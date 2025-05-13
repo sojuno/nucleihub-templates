@@ -1,15 +1,15 @@
-id: hm-cool-author-box-widget-7490cea99712a2a48bb2d834f16a2b2b
+id: hm-cool-author-box-widget-c721fa8c808c8338ea5adb81c9db6c3a
 
 info:
   name: >
-    Cool Author Box <= 2.9.9 - Missing Authorization
+    Cool Author Box <= 3.0.0 - Cross-Site Request Forgery
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/30834541-acc6-461b-8d0d-66716a7dd947?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dc6f46b6-6832-4ccc-8272-2c470621f644?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/hm-cool-author-box-widget/"
     google-query: inurl:"/wp-content/plugins/hm-cool-author-box-widget/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,hm-cool-author-box-widget,high
+  tags: cve,wordpress,wp-plugin,hm-cool-author-box-widget,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.9.9')
+          - compare_versions(version, '<= 3.0.0')
