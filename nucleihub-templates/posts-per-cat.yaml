@@ -1,31 +1,31 @@
-id: gumroad-46a1d8bc6bfc69ba9c27078e8d2f2451
+id: posts-per-cat-73fc3cb91bc18a87e1532a2cb417a215
 
 info:
   name: >
-    Gumroad <= 3.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Posts per Cat [Unmaintained] <= 1.4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd2abab4-f93c-454d-928d-128a490da0e2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7eb60874-85c1-40a9-b19d-131c2c2d49ba?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/gumroad/"
-    google-query: inurl:"/wp-content/plugins/gumroad/"
+    fofa-query: "wp-content/plugins/posts-per-cat/"
+    google-query: inurl:"/wp-content/plugins/posts-per-cat/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gumroad,low
+  tags: cve,wordpress,wp-plugin,posts-per-cat,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/gumroad/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/posts-per-cat/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "gumroad"
+          - "posts-per-cat"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.0')
+          - compare_versions(version, '<= 1.4.2')
