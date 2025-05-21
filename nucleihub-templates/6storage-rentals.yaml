@@ -1,15 +1,15 @@
-id: 6storage-rentals-b96af6c0972abd7e8303fcf4c40210d1
+id: 6storage-rentals-38ddbd38a7a249d2ba9bf3ebb797ff82
 
 info:
   name: >
-    6Storage Rentals <= 2.19.1 - Missing Authorization
+    6Storage Rentals <= 2.19.4 - Missing Authorization
   author: topscoder
   severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6340984d-143e-45af-bd30-2df1ce943fc9?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f0767c75-7571-46d9-b16a-2760be5a843b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.19.1')
+          - compare_versions(version, '<= 2.19.4')
