@@ -1,15 +1,15 @@
-id: wpeventplus-2d390636b1b0e64f47993094952e44cd
+id: wpeventplus-e922d1a66c568e19c8272333f4a23442
 
 info:
   name: >
-    WordPress Events Calendar Registration & Tickets <= 2.6.0 - Reflected Cross-Site Scripting
+    WordPress Events Calendar Registration & Tickets <= 2.6.0 - Unauthenticated PHP Object Injection
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6ebdc324-9709-4e09-96ff-d1ea1d8bb63f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b9119e20-8615-4447-9eb8-4a0259319eb4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wpeventplus/"
     google-query: inurl:"/wp-content/plugins/wpeventplus/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wpeventplus,medium
+  tags: cve,wordpress,wp-plugin,wpeventplus,critical
 
 http:
   - method: GET
