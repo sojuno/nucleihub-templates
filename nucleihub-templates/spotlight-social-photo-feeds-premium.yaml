@@ -1,31 +1,31 @@
-id: wp-smtp-0adb982b499ba912d76cd74efed93807
+id: spotlight-social-photo-feeds-premium-098edccdbb97dd6fec28140a5f9841d0
 
 info:
   name: >
-    Solid Mail – SMTP email and logging made by SolidWP <= 2.1.5 - Unauthenticated Stored Cross-Site Scripting via Email
+    Spotlight - Social Media Feeds (Premium) <= 1.7.1 - Unauthenticated Information Exposure
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f99a918d-53c1-46bd-8e55-9ba77a92efe8?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e99bd4ea-e758-42ac-bc14-237dbb642991?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-smtp/"
-    google-query: inurl:"/wp-content/plugins/wp-smtp/"
+    fofa-query: "wp-content/plugins/spotlight-social-photo-feeds-premium/"
+    google-query: inurl:"/wp-content/plugins/spotlight-social-photo-feeds-premium/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-smtp,high
+  tags: cve,wordpress,wp-plugin,spotlight-social-photo-feeds-premium,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-smtp/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/spotlight-social-photo-feeds-premium/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-smtp"
+          - "spotlight-social-photo-feeds-premium"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.5')
+          - compare_versions(version, '<= 1.7.1')
