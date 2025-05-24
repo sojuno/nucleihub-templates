@@ -1,15 +1,15 @@
-id: wc-checkout-getnet-0ce67d2cb44433672574f33c91f0b055
+id: wc-checkout-getnet-c6cd4e2b83ce3ec46630c8eb49f7c8a3
 
 info:
   name: >
-    Plugin Oficial – Getnet para WooCommerce <= 1.7.3 - Reflected Cross-Site Scripting
+    Plugin Oficial – Getnet para WooCommerce <= 1.7.3 - Authenticated (Admin+) Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b6623d07-9716-49e2-a883-7eebabf3ea58?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4f2040a1-1b17-4279-bc19-61dfad0a7a76?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wc-checkout-getnet/"
     google-query: inurl:"/wp-content/plugins/wc-checkout-getnet/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wc-checkout-getnet,medium
+  tags: cve,wordpress,wp-plugin,wc-checkout-getnet,low
 
 http:
   - method: GET

@@ -1,15 +1,15 @@
-id: wp-programmmanager-f57a2608f68413cbcfa792114aa602e4
+id: wp-programmmanager-141c536fa7cf16ad14ed797fac92535b
 
 info:
   name: >
-    WP-PManager <= 1.2 - Reflected Cross-Site Scripting
+    WP-PManager <= 1.2 - Cross-Site Request Forgery to Category Deletion
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7948dc00-6ee7-4458-9636-d6909913d3a3?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b77b0802-2efe-45d1-b338-d6d020f2bb05?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
