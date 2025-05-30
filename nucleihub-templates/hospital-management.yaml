@@ -1,15 +1,15 @@
-id: hospital-management-34d234c5830f6e2c55bbafd8d7a14a50
+id: hospital-management-8a6c3d6774dd447c0f3f919d976578c1
 
 info:
   name: >
-    Hospital Management System <= 47.0(20-11-2023) - Unauthenticated Arbitrary File Upload
+    Hospital Management System <= 47.0(20-11-2023) - Authenticated (Subscriber+) Arbitrary File Upload
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5a5f31ad-75f9-4534-a8a6-e76f9aefbd80?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/82960f7a-db21-4e47-a375-473e0b843250?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/hospital-management/"
     google-query: inurl:"/wp-content/plugins/hospital-management/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,hospital-management,critical
+  tags: cve,wordpress,wp-plugin,hospital-management,low
 
 http:
   - method: GET

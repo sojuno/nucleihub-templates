@@ -1,15 +1,15 @@
-id: excel-like-price-change-for-woocommerce-and-wp-e-commerce-light-859260be2a62480f20d97e41393303ce
+id: excel-like-price-change-for-woocommerce-and-wp-e-commerce-light-18dfd89c30146c469024c51a2c9bea4c
 
 info:
   name: >
-    Spreadsheet Price Changer for WooCommerce and WP E-commerce – Light <= 2.4.37 - Unauthenticated Local File Inclusion
+    Spreadsheet Price Changer for WooCommerce and WP E-commerce – Light <= 2.4.37 - Unauthenticated Remote Code Execution
   author: topscoder
   severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8c852eb8-4b55-48e1-95e8-43e9a2962015?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/23c99d3c-5ee5-4793-92a4-f49bf345c634?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

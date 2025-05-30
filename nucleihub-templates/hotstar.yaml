@@ -1,15 +1,15 @@
-id: hotstar-50ec9ac520d445c0032637ed26075bdd
+id: hotstar-aa7f1ec197fb2d60fde07d8d2fa3a1c3
 
 info:
   name: >
-    HotStar – Multi-Purpose Business Theme <= 1.4 - Missing Authorization
+    HotStar – Multi-Purpose Business Theme <= 1.4 - Unauthenticated PHP Object Injection
   author: topscoder
-  severity: high
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4b71a48c-f041-47be-b2e7-6e8b2951e526?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/236bb9a8-49f7-4b75-a0b1-fa4ff65394f8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/themes/hotstar/"
     google-query: inurl:"/wp-content/themes/hotstar/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,hotstar,high
+  tags: cve,wordpress,wp-theme,hotstar,critical
 
 http:
   - method: GET
