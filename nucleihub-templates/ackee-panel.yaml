@@ -28,4 +28,4 @@ http:
           - 'status_code==200 && contains(tolower(body), "<title>ackee")'
           - "status_code==200 && (\"-1495233116\" == mmh3(base64_py(body)))"
         condition: or
-# digest: 490a00463044022026d52faaa2a2f94642fe66163d0788177a7b2887e64d6f00d913229dac3d8a3602203fbf81b02b03f43952fd9ac0b221560d8235d1c9d196b8ecf20bea59c2744e8a:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100fe95a8ed5f603682f2ecdf67a173a157aa1f9cecc987e5c42ca19bd3afafc68202207d3f77c4f39b428af10cd6bfd7b60c84ca371b47e910d3b9eb11e46b9fc6eeb8:922c64590222798bb761d5b6d8e72950

@@ -1,15 +1,15 @@
-id: psw-login-and-registration-b6ca2da9cfa0e33c95fc6f407670c28a
+id: psw-login-and-registration-8e0406c2ebc1015cd20d0fb8ac356e0b
 
 info:
   name: >
-    PSW Front-end Login & Registration <= 1.12 - Authentication Bypass
+    PSW Front-end Login & Registration <= 1.12 - Insufficiently Random Values to Unauthenticated Account Takeover/Privilege Escalation via customer_registration Function
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d84b94b3-b4ef-400c-8d4c-6b52d839c239?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a2d6e595-0682-4a41-a432-afbcb50144e8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/psw-login-and-registration/"
     google-query: inurl:"/wp-content/plugins/psw-login-and-registration/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,psw-login-and-registration,critical
+  tags: cve,wordpress,wp-plugin,psw-login-and-registration,low
 
 http:
   - method: GET

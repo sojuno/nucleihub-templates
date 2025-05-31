@@ -1,15 +1,15 @@
-id: daisycon-fab2e65466a29d333b4436c431e41c0f
+id: daisycon-37ec0a3c57b3428bdd94a25fbca1e9c9
 
 info:
   name: >
-    Daisycon prijsvergelijkers <= 4.8.4 - Authenticated (Contributor+) SQL Injection
+    Daisycon prijsvergelijkers <= 4.8.4 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b4b33226-59b8-4445-9f7f-ba788e8f6dbe?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/74551e01-063c-4493-8472-9c0903ac17c5?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
