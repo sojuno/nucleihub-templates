@@ -1,4 +1,4 @@
-id: wishlist-d60148b6c32c613949646ef5f40bb851
+id: wishlist-b8dd34a6dee1244ed8f3d4edfc60c1a3
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1b902d46-ff27-486f-836d-f55a8048f08c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0a2c56e5-23c7-47da-9f30-b41cef5297b8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

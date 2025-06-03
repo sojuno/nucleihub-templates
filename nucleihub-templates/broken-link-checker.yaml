@@ -1,15 +1,15 @@
-id: broken-link-checker-009347dbf7339fcf214ccf3d0e3ac7bc
+id: broken-link-checker-3a4dd491e0d53abd186e31cce8a02071
 
 info:
   name: >
-    Broken Link Checker <= 2.2.3 - Authenticated (Administrator+) Stored Cross-Site Scripting via settings
+    Broken Link Checker <= 2.4.4 - Missing Autorization to Authenticated (Subscriber+) Plugin Status Dashboard View
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1a374d8a-3754-4228-95ed-dc0ba1df40da?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/33ac910c-9531-45ea-84cf-1d379233f7d3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.2.3')
+          - compare_versions(version, '<= 2.4.4')
