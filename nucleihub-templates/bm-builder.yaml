@@ -1,15 +1,15 @@
-id: bm-builder-c79f3fc0a761edb36bbb7152d77d683f
+id: bm-builder-2153fbd1578778d18f8eb514e079ccab
 
 info:
   name: >
-    BM Content Builder <= 3.16.2.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update
+    BM Content Builder <= 3.16.2.1 - Missing Authorization to Authenticated (Subscriber+) Stored Cross-Site Scripting via ux_cb_page_options_save
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e4632899-c3bf-48f3-8a69-8fa32bfd902d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fb3e0251-c3b7-4360-87f3-7e4612d4f285?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
