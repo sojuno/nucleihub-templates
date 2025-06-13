@@ -1,15 +1,15 @@
-id: spare-53d3acac652523f0b8558e1c1d3df1c0
+id: spare-bb4accdfaf36fdce6102f634a15efd65
 
 info:
   name: >
-    Spare <= 1.7 - Cross-Site Request Forgery
+    Spare <= 1.7 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/922ced40-defd-42a5-a57e-09e8397c7409?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ce336caf-fc71-4b16-8824-d3e34a1eb69e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,15 +1,15 @@
-id: crawlomatic-multipage-scraper-post-generator-74106d3465bc467d9caf68dcaed84e9c
+id: crawlomatic-multipage-scraper-post-generator-8ca9e9725efa75d3d4b7a7cb845ef9c4
 
 info:
   name: >
-    Crawlomatic Multipage Scraper Post Generator <= 2.6.8.1 - Unauthenticated Arbitrary File Upload
+    Crawlomatic Multisite Scraper Post Generator <= 2.6.8.2 - Unauthenticated Information Exposure via Log Files
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1283e839-8588-4a76-9c1e-61562526166d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7b22eb82-f073-4adf-8dc6-57025b9bcef8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/crawlomatic-multipage-scraper-post-generator/"
     google-query: inurl:"/wp-content/plugins/crawlomatic-multipage-scraper-post-generator/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,crawlomatic-multipage-scraper-post-generator,critical
+  tags: cve,wordpress,wp-plugin,crawlomatic-multipage-scraper-post-generator,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.6.8.1')
+          - compare_versions(version, '<= 2.6.8.2')

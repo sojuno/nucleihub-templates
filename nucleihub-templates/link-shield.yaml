@@ -1,4 +1,4 @@
-id: link-shield-1e867fad1b52b7234d84924bd2c452bd
+id: link-shield-036eab92e993c9900b275bc480986a4d
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/11e21460-ea79-4c19-82a9-388825985673?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e577828-4368-4781-877b-badb4dc50763?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

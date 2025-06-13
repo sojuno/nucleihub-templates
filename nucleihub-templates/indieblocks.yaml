@@ -1,15 +1,15 @@
-id: indieblocks-a021bc30d807f2ece5d1a1857f7ab803
+id: indieblocks-be706cf4d8129973ae1cdb563fa230df
 
 info:
   name: >
-    IndieBlocks <= 0.13.1 - Unauthenticated Server-Side Request Forgery
+    IndieBlocks <= 0.13.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via kind Parameter
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/730d0ff6-9881-4d69-bdaf-924d3d9f522c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/41fdb3ea-1de4-4b90-a387-5932de7a5e7c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 0.13.1')
+          - compare_versions(version, '<= 0.13.2')

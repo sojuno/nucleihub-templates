@@ -1,15 +1,15 @@
-id: search-with-typesense-8a0e95fee6a672829802d5acb3d95000
+id: search-with-typesense-6da7dccf18b4131dacf159f9fc09b87f
 
 info:
   name: >
-    Search with Typesense <= 2.0.8 - Authenticated (Admin+) Path Traversal
+    Search with Typesense <= 2.0.10 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/890dadec-b60c-4f4c-8644-1a0d1eecc74d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/edb72f0c-9651-4319-b5f6-84ca052c6ade?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.8')
+          - compare_versions(version, '<= 2.0.10')

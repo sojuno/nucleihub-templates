@@ -1,15 +1,15 @@
-id: nasa-core-677d63e1fdfe4f30bc6367d90e271e22
+id: nasa-core-91202b572b84d8fbbd67a07f9aef1578
 
 info:
   name: >
-    Nasa Core <= 6.3.2 - Authenticated (Contributor+) Local File Inclusion
+    Nasa Core < 6.4.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9e991342-b0d1-486c-a24d-e4d3f2be9b91?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/40153d8a-b661-40bf-aaf5-90527def9fd7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 6.3.2')
+          - compare_versions(version, '< 6.4.1')

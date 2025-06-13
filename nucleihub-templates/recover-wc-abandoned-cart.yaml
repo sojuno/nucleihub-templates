@@ -1,15 +1,15 @@
-id: recover-wc-abandoned-cart-5e06270dccb5ad4ae9f4fc24d27ad2dd
+id: recover-wc-abandoned-cart-9f311b42530b2f8c909c1eb8f68a7ea2
 
 info:
   name: >
-    Recover abandoned cart for WooCommerce <= 2.2 - Cross-Site Request Forgery
+    Recover abandoned cart for WooCommerce <= 2.5 - Unauthenticated SQL Injection
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e13379a9-fe21-4fb5-a53e-c86eef8cac54?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/25a3ec45-aa45-4ffc-be7e-f47100ac4626?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/recover-wc-abandoned-cart/"
     google-query: inurl:"/wp-content/plugins/recover-wc-abandoned-cart/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,recover-wc-abandoned-cart,medium
+  tags: cve,wordpress,wp-plugin,recover-wc-abandoned-cart,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.2')
+          - compare_versions(version, '<= 2.5')

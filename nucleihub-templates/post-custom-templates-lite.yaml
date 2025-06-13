@@ -1,15 +1,15 @@
-id: post-custom-templates-lite-d04453bc7b8576389e7775b40a61d2d4
+id: post-custom-templates-lite-69089a6cf9e837b19e0907d312b8c07b
 
 info:
   name: >
-    Post Custom Templates Lite <= 1.14 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Post Custom Templates Lite <= 1.14 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1bf139cb-4505-4abb-882f-08d7a66aa76f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/823d7145-2347-4a07-b756-2dfc7878456e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
