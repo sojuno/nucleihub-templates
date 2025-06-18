@@ -29,4 +29,4 @@ http:
           - '<title>Procore Log In</title>'
           - 'Log in to your Procore account using your email and password'
         condition: and
-# digest: 4b0a00483046022100ddc180ba6b51416d41ea46076600fd2d99019ee1e1a0a18d867f85adf1a6eb4c022100f90fc87cc3ab6f479365d42b5bf360ebbc38e3a145b0400bfff454379d857b35:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c8b1bf120ada924a90abc1e878699cb6175acdc9724cd358b1b312e6b23f8d0202201968cf303c5d35ee3d3caae8dfc5d15cbb2c5d94074d76a25a12bbbead287234:922c64590222798bb761d5b6d8e72950
