@@ -1,15 +1,15 @@
-id: elite-video-player-b229471d627d258d9d5daa02fb131e0a
+id: elite-video-player-1cfec1b1bfb9dd307488bb47f12dd04a
 
 info:
   name: >
-    Elite Video Player <= 10.0.5 - Cross-Site Request Forgery
+    Elite Video Player <= 10.0.5 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d132d587-0c90-40b2-97b7-c5f1d3dd3bac?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1c0e1973-0aa1-4787-b503-3b38476acdbb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
