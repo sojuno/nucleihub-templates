@@ -30,4 +30,4 @@ http:
         name: discord-bot-invite
         regex:
           - "https?:\\/\\/discord\\.com\\/oauth2\\/authorize\\?client_id=([0-9]+)[^\\s\"']*"
-# digest: 490a0046304402204ba362e3238641575b1bdbbba08f09642bc116901c1ea6a46f2715d496cf22c002205e3dab83eb4fb69fa7d986055082c0b4658f23f3fb8a0be8bdc2da2478f88cbb:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502202d30a49e0daeed2d55dcc032e0802171ac316f933d1b6af95f9921c87a066eaa022100ecfce97e998d0b2e396b3c076060a67c16e26e76b1c8caa5d43ca7fcfc99a3d5:922c64590222798bb761d5b6d8e72950
