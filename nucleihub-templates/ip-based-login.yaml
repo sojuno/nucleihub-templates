@@ -1,15 +1,15 @@
-id: ip-based-login-8931bfc0cb22580ef9adaf19ceff85ff
+id: ip-based-login-9eaf4315dd02332114b3e0c1b8b96b89
 
 info:
   name: >
-    IP Based Login <= 2.4.0 - Authenticated (Admin+) Stored Cross-Site Scripting
+    IP Based Login <= 2.4.2 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4b334ebe-6988-4caf-aad4-b599dc6be969?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dba4317d-8624-495b-9a1f-2d4a72999129?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.0')
+          - compare_versions(version, '<= 2.4.2')

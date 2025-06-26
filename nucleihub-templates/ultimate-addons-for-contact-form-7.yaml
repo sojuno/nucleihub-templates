@@ -1,15 +1,15 @@
-id: ultimate-addons-for-contact-form-7-23e302f8d61e50bce7b7141f81ed110d
+id: ultimate-addons-for-contact-form-7-9303c6248250ab13b4126b1ddf39ab36
 
 info:
   name: >
-    Ultimate Addons for Contact Form 7 <= 3.5.12 - Authenticated (Administrator+) Arbitrary File Upload via 'save_options'
+    Ultra Addons for Contact Form 7 3.5.11 - 3.5.19 - Unauthenticated Stored Cross-Site Scripting via Database module
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/697f3432-63b7-42d6-b188-812165cd2020?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f49e48cb-7d0b-4bcf-9090-869472b8442a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/ultimate-addons-for-contact-form-7/"
     google-query: inurl:"/wp-content/plugins/ultimate-addons-for-contact-form-7/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ultimate-addons-for-contact-form-7,low
+  tags: cve,wordpress,wp-plugin,ultimate-addons-for-contact-form-7,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.5.12')
+          - compare_versions(version, '>= 3.5.11', '<= 3.5.19')
