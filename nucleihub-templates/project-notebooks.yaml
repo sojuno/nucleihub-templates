@@ -1,31 +1,31 @@
-id: gumroad-46a1d8bc6bfc69ba9c27078e8d2f2451
+id: project-notebooks-80a519aa0c3ac16d9cfbd79de21a4f25
 
 info:
   name: >
-    Gumroad <= 3.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    PT Project Notebooks 1.0.0 - 1.1.3 - Missing Authorization to Unauthenticated Privilege Escalation via wpnb_pto_new_users_add Function
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd2abab4-f93c-454d-928d-128a490da0e2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/552ec9fc-5bff-4bee-be04-39892c89cd59?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/gumroad/"
-    google-query: inurl:"/wp-content/plugins/gumroad/"
+    fofa-query: "wp-content/plugins/project-notebooks/"
+    google-query: inurl:"/wp-content/plugins/project-notebooks/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gumroad,low
+  tags: cve,wordpress,wp-plugin,project-notebooks,high
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/gumroad/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/project-notebooks/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "gumroad"
+          - "project-notebooks"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.0')
+          - compare_versions(version, '>= 1.0.0', '<= 1.1.3')
