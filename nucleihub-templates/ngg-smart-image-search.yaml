@@ -1,15 +1,15 @@
-id: ngg-smart-image-search-6356f2cd569ec17ae16dbb52aed50e9f
+id: ngg-smart-image-search-f2cdfd243d56c314b3254bda501d8df7
 
 info:
   name: >
-    NGG Smart Image Search <= 3.2.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    NGG Smart Image Search <= 3.3.3 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d916e320-e78b-4305-a4da-10c6fb8db41a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fefd0e4d-3286-4d05-a715-d76524f1bc2b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.1')
+          - compare_versions(version, '<= 3.3.3')

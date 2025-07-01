@@ -21,6 +21,7 @@ http:
     path:
       - "{{BaseURL}}"
 
+    stop-at-first-match: true
     host-redirects: true
     max-redirects: 2
 
@@ -29,4 +30,4 @@ http:
         part: server
         words:
           - "wildix"
-# digest: 4a0a0047304502206cccd7678fba5e4e215cfdd3664813ecd55d4a0c2ed1ee61d58400aa1ba1ad42022100aaff4c5cbfe37e972783edb4feec9c09fd41bd075bc381e44e7648d7917bc9dc:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221008b770ce8b1c0204bf8d83f67b7e17978c2409a34402bc532f12ee266c1603b0a022065ae9163e40bb78e578a448507b1e4e63722d7d18d3dda9bf5e6d8636b62ccad:922c64590222798bb761d5b6d8e72950

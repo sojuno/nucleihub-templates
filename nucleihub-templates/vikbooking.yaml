@@ -1,24 +1,21 @@
-id: vikbooking-b4b21c6fb32a670f48ebc770e4ef2644
+id: vikbooking-b9b3e32e46d20656cc6ca2aa0ff122ea
 
 info:
-  name: >
-    VikBooking Hotel Booking Engine & PMS <= 1.7.2 - Cross-Site Request Forgery to Authenticated (Subscriber+) Arbitrary File Upload
+  name: "VikBooking Hotel Booking Engine & PMS <= 1.6.1 - Cross-Site Request Forgery in multiple functions in admin/controller.php"
   author: topscoder
-  severity: low
-  description: >
-    
+  severity: medium
+  description: "The VikBooking Hotel Booking Engine & PMS plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.6.1. This is due to missing or incorrect nonce validation on multiple functions in the admin/controller.php file. This makes it possible for unauthenticated attackers to modify available rooms, payment options, and the default sort order of various fields via a forged request granted they can trick a site administrator into performing an action such as clicking on a link."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6eb6611d-7a4b-4ca8-b9cc-c156437e89b5?source=api-scan
+    - https://plugins.trac.wordpress.org/changeset/2907988/vikbooking/tags/1.6.2/admin/controller.php?old=2900619&old_path=vikbooking%2Ftags%2F1.6.1%2Fadmin%2Fcontroller.php
   classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
+    cvss-score: 4.3
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/vikbooking/"
     google-query: inurl:"/wp-content/plugins/vikbooking/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,vikbooking,low
+  tags: cve,wordpress,wp-plugin,vikbooking,medium
 
 http:
   - method: GET
@@ -56,4 +53,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7.2')
+          - compare_versions(version, '<= 1.6.1')

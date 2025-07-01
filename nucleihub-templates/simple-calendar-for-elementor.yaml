@@ -1,15 +1,15 @@
-id: simple-calendar-for-elementor-3da8ddeef15903825ca55bdb1f05e3d2
+id: simple-calendar-for-elementor-c00eda643974ee6a604ebb881274f5b6
 
 info:
   name: >
-    Simple calendar for Elementor <= 1.6.5 - Cross-Site Request Forgery
+    Simple calendar for Elementor <= 1.6.4 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f779443a-e5b9-45d6-bfd3-d22243d34917?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a669f42d-aed7-41a8-8069-f778c5fa48d4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.5')
+          - compare_versions(version, '<= 1.6.4')
