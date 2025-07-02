@@ -1,15 +1,15 @@
-id: qc-simple-link-directory-8abebcc296dbf7d799232a76497618c9
+id: qc-simple-link-directory-5919235037360fa9dced4e82dc92425d
 
 info:
   name: >
-    Simple Link Directory Pro <= 14.7.3 - Missing Authorization
+    Simple Link Directory <= 14.7.3 - Authenticated (Subscriber+) SQL Injection
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/de920076-55a0-4f9a-9b4a-0e0d0edfc991?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/db5d4a3d-3ef6-4d91-b047-df377792958d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/qc-simple-link-directory/"
     google-query: inurl:"/wp-content/plugins/qc-simple-link-directory/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,qc-simple-link-directory,high
+  tags: cve,wordpress,wp-plugin,qc-simple-link-directory,low
 
 http:
   - method: GET

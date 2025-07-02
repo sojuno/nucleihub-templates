@@ -1,15 +1,15 @@
-id: fw-gallery-8432512f279c74bbe9354f0fd9e8d827
+id: fw-gallery-e9b376fddb62d02c10fdb02913da0251
 
 info:
   name: >
-    FW Gallery <= 8.0.0 - Unauthenticated Arbitrary File Deletion
+    FW Gallery <= 8.0.0 - Unauthenticated Local File Inclusion
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/47cf9b2c-6857-4dbc-b321-1a84c3e5d11f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9ae4bf8c-c9be-4737-81b8-62ebb9717796?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/fw-gallery/"
     google-query: inurl:"/wp-content/plugins/fw-gallery/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,fw-gallery,low
+  tags: cve,wordpress,wp-plugin,fw-gallery,critical
 
 http:
   - method: GET

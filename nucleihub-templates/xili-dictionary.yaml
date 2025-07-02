@@ -1,15 +1,15 @@
-id: xili-dictionary-62b6a1676376648cf0618d66884fc743
+id: xili-dictionary-e6a0e529a3cb7f31e3817d8d7d65b810
 
 info:
   name: >
-    xili-dictionary <= 2.12.5 - Reflected Cross-Site Scripting
+    xili-dictionary <= 2.12.5.2 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ff35d524-d97d-4fba-9f60-f40bb8aa2aa8?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e4d61b69-f3de-4408-98f7-18027a47d168?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.12.5')
+          - compare_versions(version, '<= 2.12.5.2')

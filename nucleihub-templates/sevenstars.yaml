@@ -1,15 +1,15 @@
-id: sevenstars-054ad6e4ecbef43e947dffdc747ff7d2
+id: sevenstars-d74160c513f0fa02909f0c94c54e7c11
 
 info:
   name: >
-    Seven Stars <= 1.4.4 - Cross-Site Request Forgery
+    Seven Stars <= 1.4.4 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d47f7d6f-7535-4117-b0da-b27811f733e6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b23b6df6-e723-4b25-aa5d-6b3be05c6f98?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

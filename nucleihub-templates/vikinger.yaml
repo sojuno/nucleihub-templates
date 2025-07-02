@@ -1,15 +1,15 @@
-id: vikinger-3d871db3b97c59cd4e917d24d8b47d14
+id: vikinger-2e8534941ee307c73de2a030e351b032
 
 info:
   name: >
-    Vikinger <= 1.9.30 - Authenticated (Subscriber+) Privilege Escalation via 'vikinger_user_meta_update_ajax'
+    Vikinger <= 1.9.32 - Authenticated (Subscriber+) Arbitrary File Deletion via vikinger_delete_activity_media_ajax Function
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9e0cba5b-5833-4c02-ac17-830994b0f207?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/22d8f1db-1b7e-4b68-a381-01f51dd34b2b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.9.30')
+          - compare_versions(version, '<= 1.9.32')

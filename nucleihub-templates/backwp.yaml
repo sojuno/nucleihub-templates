@@ -1,15 +1,15 @@
-id: backwp-201f47456409a76ff1b12df865e60525
+id: backwp-21e0e79b061bb7305f6cec3d52a2f4f2
 
 info:
   name: >
-    Backwp <= 2.0.2 - Cross-Site Request Forgery
+    Backwp <= 2.0.2 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e45bcb67-5ea7-48e7-bf65-e26416866530?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/43472813-1d0d-4f25-8ae6-408cda8ce519?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

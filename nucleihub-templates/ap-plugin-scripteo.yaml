@@ -1,15 +1,15 @@
-id: ap-plugin-scripteo-56aa8cb7d1b00c79c150d9aa6eb4de8d
+id: ap-plugin-scripteo-611bb13403ba43de85a6cc26a7b3568b
 
 info:
   name: >
-    Ads Pro Plugin - Multi-Purpose WordPress Advertising Manager <= 4.88 - Unauthenticated SQL Injection
+    Ads Pro Plugin - Multi-Purpose WordPress Advertising Manager <= 4.89 - Cross-Site Request Forgery to PHP Code Injection in bsaCreateAdTemplate
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3bcb60a8-220f-45a4-a9a9-10f64acf470c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/22fa8290-ebab-4fa4-bcba-0053c3b79f76?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/ap-plugin-scripteo/"
     google-query: inurl:"/wp-content/plugins/ap-plugin-scripteo/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ap-plugin-scripteo,critical
+  tags: cve,wordpress,wp-plugin,ap-plugin-scripteo,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.88')
+          - compare_versions(version, '<= 4.89')
