@@ -25,4 +25,4 @@ http:
           - 'status_code == 200'
           - 'contains_all(to_lower(body), "<title>twenty</title>", "open-source crm")'
         condition: and
-# digest: 4a0a00473045022100d46e8af9884f4d2400cf19dad8a4bde10a6518b505cbcfd7b1b89305b1a7d17d02202b18fa708c6e29af5f5a50cda8cb3f9fd3d787dc018ccd029a2db010202673a1:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450221009e22356bac7b2f1bfb9b39d9559b1246fc9dbe205eae1dce813a57842543245b022021ce789fb1651de1c794d77a4d05aa8010963c4f376361053e24a0b4c6ae2cde:922c64590222798bb761d5b6d8e72950
