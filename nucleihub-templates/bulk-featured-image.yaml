@@ -1,15 +1,15 @@
-id: bulk-featured-image-7d5ca7f4b4deb22cd74eea2ecd94960f
+id: bulk-featured-image-23557acc9b8a148037d53c4ca8222865
 
 info:
   name: >
-    Bulk Featured Image <= 1.2.1 - Missing Authorization
+    Bulk Featured Image <= 1.2.2 - Authenticated (Admin+) Arbitrary File Upload
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2160cf45-e1a1-475f-9de9-8ae7345a9b19?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/56e0565d-0720-4d85-b23e-49e807e8cf03?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/bulk-featured-image/"
     google-query: inurl:"/wp-content/plugins/bulk-featured-image/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,bulk-featured-image,high
+  tags: cve,wordpress,wp-plugin,bulk-featured-image,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.1')
+          - compare_versions(version, '<= 1.2.2')

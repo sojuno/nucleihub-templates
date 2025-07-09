@@ -1,15 +1,15 @@
-id: woodmart-a936e812c2c302b25f9c68e5d137ad5d
+id: woodmart-eb41ea2a8bb60cc9bdbe97f5c14d7f5a
 
 info:
   name: >
-    WoodMart <= 7.2.1 - Authenticated (Subscriber+) Stored Cross-Site Scripting
+    WoodMart <= 8.2.3 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f9a60c4e-a524-4a99-858a-14787f37d60c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4b881509-572b-4e2d-9e75-defaa2cc32dc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 7.2.1')
+          - compare_versions(version, '<= 8.2.3')

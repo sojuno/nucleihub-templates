@@ -1,15 +1,15 @@
-id: sala-1d189d06d01b5064c005dba9f41f59b9
+id: sala-892774138624fadef576601c672aa86a
 
 info:
   name: >
-    Sala <= 1.1.3 - Authenticated (Subscriber+) PHP Object Injection
+    Sala - Startup & SaaS WordPress Theme <= 1.1.4 - Unauthenticated Privilege Escalation via Password Reset/Account Takeover
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f214b915-f33a-450f-880b-f08be8284e9c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/aa385a1f-1623-4f0a-bb2f-d4564b8f91bf?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.3')
+          - compare_versions(version, '<= 1.1.4')

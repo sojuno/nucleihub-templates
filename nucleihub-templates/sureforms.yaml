@@ -1,15 +1,15 @@
-id: sureforms-c8789641c2f8b6328a3c2239bd6f3be0
+id: sureforms-98246e449b1b19bd6f04ed7e68c55947
 
 info:
   name: >
-    SureForms – Drag and Drop Form Builder for WordPress <= 1.4.3 - Missing Authorization to Authenticated (Contributor+) Settings Update
+    SureForms – Drag and Drop Form Builder for WordPress <= 1.7.3 - Unauthenticated PHP Object Injection (PHAR) Triggered via Admin Submission Deletion
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c16b299e-a300-4d02-9ffe-52166d3791f4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1de12d1c-5ac4-4f80-b33d-a689a6916ee0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/sureforms/"
     google-query: inurl:"/wp-content/plugins/sureforms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,sureforms,low
+  tags: cve,wordpress,wp-plugin,sureforms,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.3')
+          - compare_versions(version, '>= 1.7', '<= 1.7.3')
