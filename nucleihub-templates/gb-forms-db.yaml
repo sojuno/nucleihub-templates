@@ -1,31 +1,31 @@
-id: wp-register-profile-with-shortcode-e7cee174b377831db08f9dddeccefb3e
+id: gb-forms-db-9eb79cdbb643387103b098996aa09d44
 
 info:
   name: >
-    WP Register Profile With Shortcode <= 3.6.2 - Authenticated (Contributor+) Sensitive Information Exposure
+    GB Forms DB <= 1.0.2 - Unauthenticated Remote Code Execution
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ae7f5e3-7312-4fee-962b-3aecd8432557?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fe8723a7-bbb1-41a0-b222-3cf4eb44cd64?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-register-profile-with-shortcode/"
-    google-query: inurl:"/wp-content/plugins/wp-register-profile-with-shortcode/"
+    fofa-query: "wp-content/plugins/gb-forms-db/"
+    google-query: inurl:"/wp-content/plugins/gb-forms-db/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-register-profile-with-shortcode,low
+  tags: cve,wordpress,wp-plugin,gb-forms-db,critical
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-register-profile-with-shortcode/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/gb-forms-db/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-register-profile-with-shortcode"
+          - "gb-forms-db"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.6.2')
+          - compare_versions(version, '<= 1.0.2')

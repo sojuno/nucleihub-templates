@@ -1,31 +1,31 @@
-id: wp-register-profile-with-shortcode-e7cee174b377831db08f9dddeccefb3e
+id: age-restriction-016b1fef203052140fa1abab47e21cdf
 
 info:
   name: >
-    WP Register Profile With Shortcode <= 3.6.2 - Authenticated (Contributor+) Sensitive Information Exposure
+    Premium Age Verification / Restriction for WordPress <= 3.0.2 - Unauthenticated Arbitrary File Read and Write via remote_tunnel.php
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ae7f5e3-7312-4fee-962b-3aecd8432557?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e0906a45-6d9b-48a0-98ae-df7b591a8848?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-register-profile-with-shortcode/"
-    google-query: inurl:"/wp-content/plugins/wp-register-profile-with-shortcode/"
+    fofa-query: "wp-content/plugins/age-restriction/"
+    google-query: inurl:"/wp-content/plugins/age-restriction/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-register-profile-with-shortcode,low
+  tags: cve,wordpress,wp-plugin,age-restriction,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-register-profile-with-shortcode/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/age-restriction/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-register-profile-with-shortcode"
+          - "age-restriction"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.6.2')
+          - compare_versions(version, '<= 3.0.2')

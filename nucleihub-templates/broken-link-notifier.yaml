@@ -1,31 +1,31 @@
-id: wp-register-profile-with-shortcode-e7cee174b377831db08f9dddeccefb3e
+id: broken-link-notifier-34d7c670ccc80434c36f164b0cec17d5
 
 info:
   name: >
-    WP Register Profile With Shortcode <= 3.6.2 - Authenticated (Contributor+) Sensitive Information Exposure
+    Broken Link Notifier <= 1.3.0 - Unauthenticated Server-Side Request Forgery
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ae7f5e3-7312-4fee-962b-3aecd8432557?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0f76c9f8-c57a-4875-b581-f67c9c60021c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-register-profile-with-shortcode/"
-    google-query: inurl:"/wp-content/plugins/wp-register-profile-with-shortcode/"
+    fofa-query: "wp-content/plugins/broken-link-notifier/"
+    google-query: inurl:"/wp-content/plugins/broken-link-notifier/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-register-profile-with-shortcode,low
+  tags: cve,wordpress,wp-plugin,broken-link-notifier,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-register-profile-with-shortcode/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/broken-link-notifier/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-register-profile-with-shortcode"
+          - "broken-link-notifier"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.6.2')
+          - compare_versions(version, '<= 1.3.0')

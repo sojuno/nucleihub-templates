@@ -1,31 +1,31 @@
-id: wp-register-profile-with-shortcode-e7cee174b377831db08f9dddeccefb3e
+id: woo-smart-compare-c3c7344c51004d2c6291246f25399dc9
 
 info:
   name: >
-    WP Register Profile With Shortcode <= 3.6.2 - Authenticated (Contributor+) Sensitive Information Exposure
+    WPC Smart Compare for WooCommerce <= 6.4.6 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ae7f5e3-7312-4fee-962b-3aecd8432557?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3bd09891-8117-43b1-8744-8f3773971540?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-register-profile-with-shortcode/"
-    google-query: inurl:"/wp-content/plugins/wp-register-profile-with-shortcode/"
+    fofa-query: "wp-content/plugins/woo-smart-compare/"
+    google-query: inurl:"/wp-content/plugins/woo-smart-compare/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-register-profile-with-shortcode,low
+  tags: cve,wordpress,wp-plugin,woo-smart-compare,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-register-profile-with-shortcode/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/woo-smart-compare/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-register-profile-with-shortcode"
+          - "woo-smart-compare"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.6.2')
+          - compare_versions(version, '<= 6.4.6')
