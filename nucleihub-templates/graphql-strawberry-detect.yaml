@@ -9,15 +9,24 @@ info:
 requests:
   - method: POST
     path:
+      - "{{BaseURL}}/graphql"
+      - "{{BaseURL}}/api/graphql"
+      - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
-    body: 'query @deprecated { __typename }'
-
+    body: '{"query":"query @deprecated { __typename }"}'
     headers:
       Content-Type: application/json
     redirects: true
 
+    matchers-condition: and
     matchers:
+      - type: status
+        status:
+          - 200
+          - 400
+
       - type: word
         words:
           - "Directive '@deprecated' may not be used on query."
         part: body
+# digest: 490a00463044022036f1cee478afef73d35eacdefc54876397375d6c60004864d6f4538b12e0f092022046b2329cec96a84488f8e403d0a00e740d03a8ce6ea34dd0a679e22331259b3e:922c64590222798bb761d5b6d8e72950

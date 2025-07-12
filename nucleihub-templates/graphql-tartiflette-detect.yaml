@@ -9,56 +9,24 @@ info:
 requests:
   - method: POST
     path:
+      - "{{BaseURL}}/graphql"
+      - "{{BaseURL}}/api/graphql"
+      - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
-    body: 'query @a { __typename }'
-
+    body: '{"query":"query @a { __typename }"}'
     headers:
       Content-Type: application/json
     redirects: true
 
-  - method: POST
-    path:
-      - "{{BaseURL}}/"
-    body: 'query @skip { __typename }'
-
-    headers:
-      Content-Type: application/json
-    redirects: true
-
-  - method: POST
-    path:
-      - "{{BaseURL}}/"
-    body: 'query { graphwoof }'
-
-    headers:
-      Content-Type: application/json
-    redirects: true
-
-  - method: POST
-    path:
-      - "{{BaseURL}}/"
-    body: 'query { __typename @deprecated }'
-
-    headers:
-      Content-Type: application/json
-    redirects: true
-
-  - method: POST
-    path:
-      - "{{BaseURL}}/"
-    body: 'queryy { __typename }'
-
-    headers:
-      Content-Type: application/json
-    redirects: true
-
+    matchers-condition: and
     matchers:
+      - type: status
+        status:
+          - 200
+          - 400
+
       - type: word
         words:
           - "Unknow Directive < @a >."
-          - "Missing mandatory argument < if > in directive < @skip >."
-          - "Field graphwoof doesn't exist on Query"
-          - "Directive < @deprecated > is not used in a valid location."
-          - "syntax error, unexpected IDENTIFIER"
         part: body
-        condition: or
+# digest: 490a00463044022022ee81f45f3fdabe713974b72019ed836743bfaa818d1cda2fc72db26a032c9d022073b63aadb865309e6af6b659a742c0e149f35586ee9f9ada85598d0351938cfd:922c64590222798bb761d5b6d8e72950

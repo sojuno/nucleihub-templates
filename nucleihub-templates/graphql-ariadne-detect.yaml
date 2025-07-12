@@ -9,22 +9,37 @@ info:
 requests:
   - method: POST
     path:
+      - "{{BaseURL}}/graphql"
+      - "{{BaseURL}}/api/graphql"
+      - "{{BaseURL}}/query"
       - "{{BaseURL}}/"
-    body: 'query { __typename @abc }'
-
+    body: '{"query":"query { __typename @abc }"}'
     headers:
       Content-Type: application/json
     redirects: true
 
     matchers-condition: and
     matchers:
-      - type: word
-        words:
-          - "The query must be a string."
-        part: body
+      - type: status
+        status:
+          - 200
 
       - type: word
         words:
           - "Unknown directive '@abc'."
         part: body
+
+      - type: word
+        words:
+          - 'Content-Type: text/html'
+        part: header
         negative: true
+
+      - type: word
+        words:
+          - '<html'
+          - '<body'
+        part: body
+        condition: or
+        negative: true
+# digest: 490a00463044022064eccf2cfa09e7edb29282edaf6d55201b66732bad102cfc3a14abe6a41e22fa0220652dbd5072fc34d7d0cd6314067d7c736cbbcebf6906568d8960c56a11260664:922c64590222798bb761d5b6d8e72950
