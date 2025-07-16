@@ -1,31 +1,31 @@
-id: ultimate-wp-mail-c3ebeac9920c2083bef9ded3a9a53d09
+id: counter-visitor-for-woocommerce-ef801c179a6dbdeed7268fe484432870
 
 info:
   name: >
-    Ultimate WP Mail 1.0.17 - 1.3.6 - Missing Authorization to Authenticated (Contributor+) Privilege Escalation via get_email_log_details Function
+    Counter live visitors for WooCommerce <= 1.3.6 - Unauthenticated Arbitrary File Deletion in wcvisitor_get_block
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b19794de-b623-4017-bd91-73986383c58b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ae13dc61-c4bf-4b17-8055-98c80a853a2a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/ultimate-wp-mail/"
-    google-query: inurl:"/wp-content/plugins/ultimate-wp-mail/"
+    fofa-query: "wp-content/plugins/counter-visitor-for-woocommerce/"
+    google-query: inurl:"/wp-content/plugins/counter-visitor-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ultimate-wp-mail,low
+  tags: cve,wordpress,wp-plugin,counter-visitor-for-woocommerce,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/ultimate-wp-mail/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/counter-visitor-for-woocommerce/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "ultimate-wp-mail"
+          - "counter-visitor-for-woocommerce"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 1.0.17', '<= 1.3.6')
+          - compare_versions(version, '<= 1.3.6')
