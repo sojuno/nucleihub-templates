@@ -1,4 +1,4 @@
-id: dot-htmlphpxml-etc-pages-70e58dd6cd1577a040b94172e620923b
+id: dot-htmlphpxml-etc-pages-13b9be80faeb2430197419eac7ca1148
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6b7cf194-f7e8-4776-ab14-77d9ad05b966?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7b3e9ff7-c33b-4e47-8dfb-120577b815f2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,15 +1,15 @@
-id: wp-businessdirectory-f8e31d87567f15ae6a8f8dcc8390c647
+id: wp-businessdirectory-ee50a2d62cb9eae66a8c59b83cdceb15
 
 info:
   name: >
-    WP-BusinessDirectory <= 3.1.2 - Unauthenticated Arbitrary File Deletion
+    WP-BusinessDirectory <= 3.1.3 - Unauthenticated SQL Injection
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6c01f098-5fd6-4c4b-9744-c902108ed72a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4c4d5902-2d01-4e8f-8d98-65e7be32f5c0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-businessdirectory/"
     google-query: inurl:"/wp-content/plugins/wp-businessdirectory/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-businessdirectory,low
+  tags: cve,wordpress,wp-plugin,wp-businessdirectory,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.2')
+          - compare_versions(version, '<= 3.1.3')
