@@ -1,15 +1,15 @@
-id: crowdfunding-for-woocommerce-ed65d3fcf2c79dd549cf2f8350fee866
+id: crowdfunding-for-woocommerce-0b351dbff2277603f86e2f0115797fa6
 
 info:
   name: >
-    Crowdfunding for WooCommerce <= 3.1.12 - Reflected Cross-Site Scripting
+    Crowdfunding for WooCommerce <= 3.1.14 - Authenticated (Contributor+) Stored Cross-Site Scripting via width Parameter
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8ccbbdf8-58cf-41ad-b4b5-8ada3b4e822f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a576f39e-42de-4881-a490-000850ea1d2d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/crowdfunding-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/crowdfunding-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,crowdfunding-for-woocommerce,medium
+  tags: cve,wordpress,wp-plugin,crowdfunding-for-woocommerce,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.12')
+          - compare_versions(version, '<= 3.1.14')
