@@ -1,15 +1,15 @@
-id: integration-for-contact-form-7-and-google-sheets-ee0c9dff3dd5aa011f3099b664697746
+id: integration-for-contact-form-7-and-google-sheets-a1879511ef9a1744bacf9b1bf96da047
 
 info:
   name: >
-    Integration for Google Sheets and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.0.9 - Cross-Site Request Forgery
+    Integration for Google Sheets and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.1.1 - Unauthenticated PHP Object Injection via verify_field_val Function
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/01c8d909-ecfd-4443-9bef-e1b541e74c2b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a0146f17-35bd-45cf-b9c6-c4fce688efc2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/integration-for-contact-form-7-and-google-sheets/"
     google-query: inurl:"/wp-content/plugins/integration-for-contact-form-7-and-google-sheets/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,integration-for-contact-form-7-and-google-sheets,medium
+  tags: cve,wordpress,wp-plugin,integration-for-contact-form-7-and-google-sheets,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.9')
+          - compare_versions(version, '<= 1.1.1')
