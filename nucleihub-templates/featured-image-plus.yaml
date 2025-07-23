@@ -1,15 +1,15 @@
-id: featured-image-plus-a3321ae29d55a05149414cbb8a330db8
+id: featured-image-plus-b4124789c9100b9cb1f1967417d517cc
 
 info:
   name: >
-    Featured Image Plus <= 1.6.3 - Missing Authorization to Authenticated (Subscriber+) Featured Image Update
+    Featured Image Plus – Quick & Bulk Edit with Unsplash <= 1.6.4 - Authenticated (Admin+) Server-Side Request Forgery
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/209341fa-6761-4bc4-a921-afa98495a087?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6904f168-e06f-4f17-905b-a943a39dfbdb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.3')
+          - compare_versions(version, '<= 1.6.4')
