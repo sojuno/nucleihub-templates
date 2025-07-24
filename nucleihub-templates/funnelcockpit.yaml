@@ -1,15 +1,15 @@
-id: funnelcockpit-6f8760e9c3d313e19e80a4175215d4d7
+id: funnelcockpit-5d44ba524bacc06eab66adcd136bf5d1
 
 info:
   name: >
-    FunnelCockpit <= 1.4.2 - Authenticated (Administrator+) Stored Cross-Site Scripting
+    FunnelCockpit <= 1.4.2 - Reflected Cross-Site Scripting via `error` Parameter
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1a5b5b9d-9549-4931-8b27-c8a0d5bcf53c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/df2e744f-e1d6-4380-8e24-e98e9df4dd2f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/funnelcockpit/"
     google-query: inurl:"/wp-content/plugins/funnelcockpit/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,funnelcockpit,low
+  tags: cve,wordpress,wp-plugin,funnelcockpit,medium
 
 http:
   - method: GET

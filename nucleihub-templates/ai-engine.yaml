@@ -1,15 +1,15 @@
-id: ai-engine-c6a6622e05cafbce41ce40b2860abe7d
+id: ai-engine-8d4937a35c99ebc2428ccbf7098fb422
 
 info:
   name: >
-    AI Engine: ChatGPT Chatbot, Content Generator, GPT 3 & 4, Ultra-Customizable <= 1.6.82 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Ai Engine <= 2.9.4 - Missing URL Scheme Validation to Authenticated (Subscriber+) Arbitrary File Read via simpleTranscribeAudio and get_audio Functions
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6d8f59b0-da92-43aa-990d-5271aa40d6b4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/513274bc-3016-4adb-be78-b13c5fae9c03?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.6.83')
+          - compare_versions(version, '<= 2.9.4')
