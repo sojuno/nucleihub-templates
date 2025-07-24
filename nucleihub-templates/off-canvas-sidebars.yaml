@@ -1,15 +1,15 @@
-id: off-canvas-sidebars-6ad11d341ff184481eedb5b9451b7483
+id: off-canvas-sidebars-ca3143f3108e2de44ab5f318f2ea8886
 
 info:
   name: >
-    Off-Canvas Sidebars & Menus (Slidebars) <= 0.5.8.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Off-Canvas Sidebars & Menus (Slidebars) <= 0.5.8.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5a92916c-42d4-44a6-a9b7-ff0338042b2a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e2fef3b8-4a69-4c4e-b316-ab6c7e33e68f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 0.5.8.1')
+          - compare_versions(version, '<= 0.5.8.2')

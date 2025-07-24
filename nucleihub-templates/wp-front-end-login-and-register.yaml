@@ -1,4 +1,4 @@
-id: wp-front-end-login-and-register-8c66fe8586483de87e8669a29c871771
+id: wp-front-end-login-and-register-e17e730bcdfdc4b8395d5f2aade2d7b0
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9f3ccf43-dad2-445b-8e65-7d972249dc0b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e54c1a85-13f6-48c0-9db8-860b4b1f3e45?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
