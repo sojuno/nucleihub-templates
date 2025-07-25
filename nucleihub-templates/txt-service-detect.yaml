@@ -9,8 +9,8 @@ info:
   reference:
     - https://www.abenezer.ca/blog/services-companies-use-txt-records
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
   tags: dns,txt
 
 dns:
@@ -218,4 +218,4 @@ dns:
         name: "whimsical"
         words:
           - "whimsical"
-# digest: 490a00463044022043132b95ad11ec72665418855d60e0d979abbe9957b18f9170981f4f4af22a72022054d2942e7554851cd1f043f99d5e119ff9e8943a635a891927b1897d270383b9:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ffbb88979c85064e05e165ecbd6ba95d7f8ee362b7c055cc8ff7ec57415811df022100f3e556295f51302b8272efb21b5d48018e2875ee0f74ee8e80c88664e740d249:922c64590222798bb761d5b6d8e72950
