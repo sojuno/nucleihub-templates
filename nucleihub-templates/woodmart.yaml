@@ -1,15 +1,15 @@
-id: woodmart-eb41ea2a8bb60cc9bdbe97f5c14d7f5a
+id: woodmart-625f9c080b812f622677b286241c827a
 
 info:
   name: >
-    WoodMart <= 8.2.3 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    WoodMart - Multipurpose WooCommerce Theme <= 8.2.6 - Improper Input Validation Leading to Unauthenticated Cart Manipulation
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4b881509-572b-4e2d-9e75-defaa2cc32dc?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b030aa28-5310-4f69-8b86-7e0b0bae741b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 8.2.3')
+          - compare_versions(version, '<= 8.2.6')

@@ -1,15 +1,15 @@
-id: melapress-login-security-30466df2052f7f1505dab27a47c7fd2e
+id: melapress-login-security-b0c7685132b39e90c35a49457c2971ea
 
 info:
   name: >
-    MelaPress Login Security and MelaPress Login Security Premium 2.1.0 - Missing Authorization to Unauthenticated Arbitrary User Deletion
+    MelaPress Login Security 2.1.0 - 2.1.1 - Authentication Bypass to Privilege Escalation via get_valid_user_based_on_token Function
   author: topscoder
-  severity: high
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/559cbc69-85b6-4bad-9bb2-26d64195ba7e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6f65d5c4-6f53-4836-9130-c9f4ed3be893?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/melapress-login-security/"
     google-query: inurl:"/wp-content/plugins/melapress-login-security/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,melapress-login-security,high
+  tags: cve,wordpress,wp-plugin,melapress-login-security,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '2.1.0')
+          - compare_versions(version, '>= 2.1.0', '<= 2.1.1')
