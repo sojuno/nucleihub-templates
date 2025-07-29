@@ -1,15 +1,15 @@
-id: loginwp-pro-b3bc42524ab0752d7a7328f3daec83d5
+id: loginwp-pro-f213680a3730af700e671988b5b8f2ab
 
 info:
   name: >
-    LoginWP - Pro <= 4.0.8.5 - Missing Authorization
+    LoginWP - Pro <= 4.0.8.5 - Missing Authorization to Unauthenticated Settings Update
   author: topscoder
   severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/621ac54b-b73e-41e4-94b1-10f18c77a09d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cfec1129-a017-453e-8a4e-ed31dee2bb30?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

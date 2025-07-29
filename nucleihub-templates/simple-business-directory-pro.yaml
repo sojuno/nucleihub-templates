@@ -1,15 +1,15 @@
-id: simple-business-directory-pro-bf3055d7df95416538f1c1b52f8bddc6
+id: simple-business-directory-pro-73da6ab9cf720f06fd6c376009422cfa
 
 info:
   name: >
-    Simple Business Directory Pro <= 15.4.8 - Unauthenticated Privilege Escalation
+    Simple Business Directory Pro <= 15.5.1 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e7acb4d-7f4c-4b3f-a0df-7de99249034e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2c5891b2-f919-4e86-9aa9-1eb56da14959?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/simple-business-directory-pro/"
     google-query: inurl:"/wp-content/plugins/simple-business-directory-pro/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,simple-business-directory-pro,low
+  tags: cve,wordpress,wp-plugin,simple-business-directory-pro,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 15.4.8')
+          - compare_versions(version, '<= 15.5.1')
