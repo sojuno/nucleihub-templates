@@ -1,31 +1,31 @@
-id: aio-time-clock-lite-e81fac537e49c39d70be3e2a1980e9b4
+id: mmm-unity-loader-5fd41b09a00b043aa71b0f863fdf1bf4
 
 info:
   name: >
-    All in One Time Clock Lite – Tracking Employee Time Has Never Been Easier <= 2.0 - Reflected Cross-Site Scripting
+    Mmm Unity Loader <= 1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via attributes Parameter
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/844b7471-3adf-45fd-9906-f0c817d6565c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2cee1d75-278c-45c6-915d-60aae6a4d3a2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/aio-time-clock-lite/"
-    google-query: inurl:"/wp-content/plugins/aio-time-clock-lite/"
+    fofa-query: "wp-content/plugins/mmm-unity-loader/"
+    google-query: inurl:"/wp-content/plugins/mmm-unity-loader/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,aio-time-clock-lite,medium
+  tags: cve,wordpress,wp-plugin,mmm-unity-loader,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/aio-time-clock-lite/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/mmm-unity-loader/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "aio-time-clock-lite"
+          - "mmm-unity-loader"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0')
+          - compare_versions(version, '<= 1.0')
