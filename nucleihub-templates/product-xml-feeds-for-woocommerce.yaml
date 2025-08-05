@@ -1,15 +1,15 @@
-id: product-xml-feeds-for-woocommerce-edc5d273bbf7b8d4e9c3379e3710c137
+id: product-xml-feeds-for-woocommerce-2ebde0706b938049bce4d242caf8fd10
 
 info:
   name: >
-    Product XML Feed Manager for WooCommerce <= 2.9.2 - Missing Authorization
+    Product XML Feed Manager for WooCommerce <= 2.9.3 - Authenticated (Contributor+) Remote Code Execution
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a054394c-07fa-4961-89f0-1d0fceac736b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/24697253-62b9-45ff-8427-ee437e0d271f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/product-xml-feeds-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/product-xml-feeds-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,product-xml-feeds-for-woocommerce,high
+  tags: cve,wordpress,wp-plugin,product-xml-feeds-for-woocommerce,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.9.2')
+          - compare_versions(version, '<= 2.9.3')

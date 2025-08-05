@@ -1,15 +1,15 @@
-id: custom-api-for-wp-a4d0405c629767702baff11ca8b71969
+id: custom-api-for-wp-826862f267c02fcf583730cb99f9c97d
 
 info:
   name: >
-    Custom API for WP <= 4.2.2 - Unauthenticated SQL Injection
+    Custom API for WP <= 4.2.2 - Authenticated (Subscriber+) Privilege Escalation
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d1b3a6d3-94d6-47f1-a3c8-5eb33b1ad392?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/55278cc8-338e-4583-9334-f91f94f22e13?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/custom-api-for-wp/"
     google-query: inurl:"/wp-content/plugins/custom-api-for-wp/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,custom-api-for-wp,critical
+  tags: cve,wordpress,wp-plugin,custom-api-for-wp,low
 
 http:
   - method: GET

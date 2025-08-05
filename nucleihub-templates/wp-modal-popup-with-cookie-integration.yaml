@@ -1,4 +1,4 @@
-id: wp-modal-popup-with-cookie-integration-f3284fe40623a436ded364cefdb40342
+id: wp-modal-popup-with-cookie-integration-ba4bf7eeea156e04247eb94ebe443421
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8c9e2b92-fde2-49b7-aae9-964e359610a5?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e13a1d8c-efcf-4bb5-8c39-33b06ae65d1a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

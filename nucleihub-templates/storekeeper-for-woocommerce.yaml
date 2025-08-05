@@ -1,4 +1,4 @@
-id: storekeeper-for-woocommerce-52c2176a0fb24d38060e5ce615294f4e
+id: storekeeper-for-woocommerce-08c8a63de61283ca3458c15bc8051b1a
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/233a75c7-9e45-4509-8f7c-584e2f5b38c7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5bde312b-abbb-4e8e-91c6-a42dadbaedb5?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
