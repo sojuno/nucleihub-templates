@@ -1,4 +1,4 @@
-id: lbg_vp_youtube_vimeo_addon_visual_composer-784302a0b98ccfd0d005d4f296add48f
+id: lbg_vp_youtube_vimeo_addon_visual_composer-3b0c0d810d872976898889d71e6280f7
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e157826d-77d5-4b2b-9925-691defa54e08?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ee504315-de76-4f1d-b648-3f2904770988?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

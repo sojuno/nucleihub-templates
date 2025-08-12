@@ -1,15 +1,15 @@
-id: form-block-cb6ce956b09b21a8d88bafe460bdc8e8
+id: form-block-8856a75b03b3eb7be57c09503a7cdc65
 
 info:
   name: >
-    Form Block <= 1.0.1 - Cross-Site Request Forgery
+    Form Block <= 1.5.5 - Unauthenticated Arbitrary File Upload
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cb18d6d8-28e5-4125-9209-a71403f678f0?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5566a55e-81bb-4e14-98e1-1a548541e243?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/form-block/"
     google-query: inurl:"/wp-content/plugins/form-block/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,form-block,medium
+  tags: cve,wordpress,wp-plugin,form-block,critical
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.0.2')
+          - compare_versions(version, '<= 1.5.5')

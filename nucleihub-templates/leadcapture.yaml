@@ -1,15 +1,15 @@
-id: leadcapture-db4cbeaace4e249767d4f0fc8401c13f
+id: leadcapture-14b04ddf093df74190b3e275a4b25d07
 
 info:
   name: >
-    WP Lead Capturing Pages <= 2.3 - Unauthenticated SQL Injection
+    WP Lead Capturing Pages <= 2.3 - Missing Authorization to Arbitrary Content Deletion
   author: topscoder
-  severity: critical
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c481767a-dcc8-4b39-be3b-3bbce313f7ae?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/eda37401-c404-4e06-b7f7-a9511aab61e6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/leadcapture/"
     google-query: inurl:"/wp-content/plugins/leadcapture/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,leadcapture,critical
+  tags: cve,wordpress,wp-plugin,leadcapture,high
 
 http:
   - method: GET
