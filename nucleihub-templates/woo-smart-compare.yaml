@@ -1,15 +1,15 @@
-id: woo-smart-compare-c3c7344c51004d2c6291246f25399dc9
+id: woo-smart-compare-2ab587ef89c42cf23c67921db3704e14
 
 info:
   name: >
-    WPC Smart Compare for WooCommerce <= 6.4.6 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    WPC Smart Compare for WooCommerce <= 6.4.7 - Authenticated (Contributor+) DOM-Based Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3bd09891-8117-43b1-8744-8f3773971540?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c01f7892-5ca2-4bc8-91c2-dfebb685aff8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 6.4.6')
+          - compare_versions(version, '<= 6.4.7')

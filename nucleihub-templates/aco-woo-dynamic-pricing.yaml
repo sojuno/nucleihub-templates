@@ -1,15 +1,15 @@
-id: aco-woo-dynamic-pricing-474a0245c33f8ec95068433c25917c1f
+id: aco-woo-dynamic-pricing-4cfa84f6144ecf7d82a3b17a5bc73c2d
 
 info:
   name: >
-    Dynamic Pricing With Discount Rules for WooCommerce <= 4.5.8 - Authenticated (Shop manager+) SQL Injection
+    Dynamic Pricing With Discount Rules for WooCommerce <= 4.5.9 - Authenticated (Shop Manager+) Arbitrary Code Execution
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c2ba5136-cd30-4b65-af3e-f1161ae6eeee?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3c6b80a2-783d-4689-9cba-65f89058958f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.5.8')
+          - compare_versions(version, '<= 4.5.9')
