@@ -1,31 +1,31 @@
-id: wp-membership-4e84a6fefd09175e380249cb67e0d590
+id: makeaholic-585412ab4bd0775b1b8c6dbd22988687
 
 info:
   name: >
-    WP Membership <= 1.6.3 - Missing Authorization to Authenticated (Subscriber+) Settings Update
+    Makeaholic <= 1.8.4 - Unauthenticated Local File Inclusion
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/df05f31f-85ee-42e3-97b7-c3c11f2ab2b4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7053978d-4780-4532-b504-265b60d1911c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-membership/"
-    google-query: inurl:"/wp-content/plugins/wp-membership/"
+    fofa-query: "wp-content/themes/makeaholic/"
+    google-query: inurl:"/wp-content/themes/makeaholic/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-membership,low
+  tags: cve,wordpress,wp-theme,makeaholic,critical
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-membership/readme.txt"
+      - "{{BaseURL}}/wp-content/themes/makeaholic/style.css"
 
     extractors:
       - type: regex
@@ -34,14 +34,14 @@ http:
         group: 1
         internal: true
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - "(?mi)Version: ([0-9.]+)"
 
       - type: regex
         name: version
         part: body
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - "(?mi)Version: ([0-9.]+)"
 
     matchers-condition: and
     matchers:
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-membership"
+          - "makeaholic"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.3')
+          - compare_versions(version, '<= 1.8.4')

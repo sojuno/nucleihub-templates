@@ -1,31 +1,31 @@
-id: wp-membership-4e84a6fefd09175e380249cb67e0d590
+id: real-estate-manager-pro-45dd476307bbab41f548b5324b952d38
 
 info:
   name: >
-    WP Membership <= 1.6.3 - Missing Authorization to Authenticated (Subscriber+) Settings Update
+    Real Estate Manager Pro <= 12.7.3 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/df05f31f-85ee-42e3-97b7-c3c11f2ab2b4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9c2f884b-3b5e-41ab-a291-3562c4b5a732?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-membership/"
-    google-query: inurl:"/wp-content/plugins/wp-membership/"
+    fofa-query: "wp-content/plugins/real-estate-manager-pro/"
+    google-query: inurl:"/wp-content/plugins/real-estate-manager-pro/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-membership,low
+  tags: cve,wordpress,wp-plugin,real-estate-manager-pro,medium
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-membership/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/real-estate-manager-pro/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-membership"
+          - "real-estate-manager-pro"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.3')
+          - compare_versions(version, '<= 12.7.3')

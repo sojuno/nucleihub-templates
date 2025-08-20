@@ -1,31 +1,31 @@
-id: wp-membership-4e84a6fefd09175e380249cb67e0d590
+id: responsive-posts-carousel-pro-b0ae9b934ba5b99efc40a9a5394cd7c0
 
 info:
   name: >
-    WP Membership <= 1.6.3 - Missing Authorization to Authenticated (Subscriber+) Settings Update
+    Responsive Posts Carousel WordPress Plugin <= 15.0 - Authenticated (Subscriber+) Local File Inclusion
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/df05f31f-85ee-42e3-97b7-c3c11f2ab2b4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fa980215-3e8f-40e5-9855-12e9fd9258aa?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/wp-membership/"
-    google-query: inurl:"/wp-content/plugins/wp-membership/"
+    fofa-query: "wp-content/plugins/responsive-posts-carousel-pro/"
+    google-query: inurl:"/wp-content/plugins/responsive-posts-carousel-pro/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-membership,low
+  tags: cve,wordpress,wp-plugin,responsive-posts-carousel-pro,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/wp-membership/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/responsive-posts-carousel-pro/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "wp-membership"
+          - "responsive-posts-carousel-pro"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.3')
+          - compare_versions(version, '<= 15.0')
