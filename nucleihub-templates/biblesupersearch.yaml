@@ -1,31 +1,31 @@
-id: slingblocks-1f2399b8cadf3f1a6bed1b0cc166f2b3
+id: biblesupersearch-2cbcd5a9e0a0be557c061fe3c08c11dc
 
 info:
   name: >
-    SlingBlocks – Gutenberg Blocks by FunnelKit (Formerly WooFunnels) <= 1.6.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Bible SuperSearch <= 6.0.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via selector_height Parameter
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c88c6ad8-d4bd-4785-a6e7-e5034c58158b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1ada39db-b316-4270-ac9c-3770b473d6a8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/slingblocks/"
-    google-query: inurl:"/wp-content/plugins/slingblocks/"
+    fofa-query: "wp-content/plugins/biblesupersearch/"
+    google-query: inurl:"/wp-content/plugins/biblesupersearch/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,slingblocks,low
+  tags: cve,wordpress,wp-plugin,biblesupersearch,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/slingblocks/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/biblesupersearch/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "slingblocks"
+          - "biblesupersearch"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.0')
+          - compare_versions(version, '<= 6.0.1')

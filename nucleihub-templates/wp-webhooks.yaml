@@ -1,31 +1,31 @@
-id: slingblocks-1f2399b8cadf3f1a6bed1b0cc166f2b3
+id: wp-webhooks-52b36819f00dcae187a59f6b56850291
 
 info:
   name: >
-    SlingBlocks – Gutenberg Blocks by FunnelKit (Formerly WooFunnels) <= 1.6.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    WP Webhooks  <= 3.3.5 - Unauthenticated Arbitrary File Copy
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c88c6ad8-d4bd-4785-a6e7-e5034c58158b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/de9c9e1e-3c3c-463a-a78c-d8bc7228da93?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
     cve-id: 
   metadata:
-    fofa-query: "wp-content/plugins/slingblocks/"
-    google-query: inurl:"/wp-content/plugins/slingblocks/"
+    fofa-query: "wp-content/plugins/wp-webhooks/"
+    google-query: inurl:"/wp-content/plugins/wp-webhooks/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,slingblocks,low
+  tags: cve,wordpress,wp-plugin,wp-webhooks,low
 
 http:
   - method: GET
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/wp-content/plugins/slingblocks/readme.txt"
+      - "{{BaseURL}}/wp-content/plugins/wp-webhooks/readme.txt"
 
     extractors:
       - type: regex
@@ -51,9 +51,9 @@ http:
 
       - type: word
         words:
-          - "slingblocks"
+          - "wp-webhooks"
         part: body
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.0')
+          - compare_versions(version, '<= 3.3.5')
