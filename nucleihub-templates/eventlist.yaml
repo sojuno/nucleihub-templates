@@ -1,15 +1,15 @@
-id: eventlist-4a2ea72af487eca0e71da0b5e8453ba4
+id: eventlist-df914b09ceca0d4d2e6618dbdcdcefd3
 
 info:
   name: >
-    Event List <= 1.9.2 - Unauthenticated Local File Inclusion
+    Event List <= 2.0.4 - Authenticated (Subscriber+) Privilege Escalation
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ca4398d3-1299-4456-9cf8-1674b2fe79d4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5998520b-62fd-4b3d-9b78-6363b72b406d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/eventlist/"
     google-query: inurl:"/wp-content/plugins/eventlist/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,eventlist,critical
+  tags: cve,wordpress,wp-plugin,eventlist,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.9.2')
+          - compare_versions(version, '<= 2.0.4')
