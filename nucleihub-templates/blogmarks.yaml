@@ -1,24 +1,47 @@
-id: blogmarks
+id: blogmarks-e37b518a502b4312121e8d6f9a76ab9a
 
 info:
-  name: Blogmarks User Name Information - Detect
-  author: dwisiswant0
-  severity: info
-  description: Blogmarks user name information check was conducted.
+  name: >
+    BlogMarks <= 1.0.8 - Unauthenticated Local File Inclusion
+  author: topscoder
+  severity: critical
+  description: >
+    
+  reference:
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1b602526-3b79-45ed-bada-598e33b9106c?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0
-    cwe-id: CWE-200
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    max-request: 1
-  tags: osint,osint-misc,blogmarks
-
-self-contained: true
+    fofa-query: "wp-content/themes/blogmarks/"
+    google-query: inurl:"/wp-content/themes/blogmarks/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-theme,blogmarks,critical
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
-      - "http://blogmarks.net/user/{{user}}"
+      - "{{BaseURL}}/wp-content/themes/blogmarks/style.css"
+
+    extractors:
+      - type: regex
+        name: version
+        part: body
+        group: 1
+        internal: true
+        regex:
+          - "(?mi)Version: ([0-9.]+)"
+
+      - type: regex
+        name: version
+        part: body
+        group: 1
+        regex:
+          - "(?mi)Version: ([0-9.]+)"
 
     matchers-condition: and
     matchers:
@@ -27,7 +50,10 @@ http:
           - 200
 
       - type: word
-        part: body
         words:
-          - "class=\"mark\""
-# digest: 490a004630440220250b8ae92c7a21c84e708fc585f2fcc5cfe65051dcf00399db8c4891f1cacfa6022048d65caf5c2bdedcd62e84c776842e5d5b59c5e54a2dd01035a074af3b151183:922c64590222798bb761d5b6d8e72950
+          - "blogmarks"
+        part: body
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 1.0.8')
