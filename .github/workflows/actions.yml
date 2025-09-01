@@ -21,11 +21,11 @@ jobs:
         with:
           go-version: '1.23'
 
-      - name: Install tools (tar, unzip) & nucleihub + nuclei
+      - name: Install tools & nucleihub + nuclei
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y tar unzip
+          sudo apt-get install -y tar unzip curl
 
           # nucleihub (v0.0.3)
           wget -q https://github.com/rix4uni/nucleihub/releases/download/v0.0.3/nucleihub-linux-amd64-0.0.3.tgz
@@ -33,13 +33,12 @@ jobs:
           sudo mv nucleihub /usr/local/bin/nucleihub
           rm -f nucleihub-linux-amd64-0.0.3.tgz
 
-          # Nuclei (bản mới ổn định 3.4.x – khắc phục CVE-2024-43405)
+          # nuclei (mặc định 3.4.x; có thể ghim qua env NUCLEI_VERSION)
           NUCLEI_VERSION="${NUCLEI_VERSION:-3.4.7}"
           wget -q -P /tmp "https://github.com/projectdiscovery/nuclei/releases/download/v${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION}_linux_amd64.zip"
           unzip -q /tmp/nuclei_${NUCLEI_VERSION}_linux_amd64.zip -d /tmp/nuclei
           sudo mv /tmp/nuclei/nuclei /usr/local/bin/nuclei
           rm -rf /tmp/nuclei /tmp/nuclei_${NUCLEI_VERSION}_linux_amd64.zip
-
           nuclei -version
 
       - name: Build combined repo list (nucleihub + Emad README.txt)
@@ -49,23 +48,24 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p lists
-          # lấy các repo "Updated today" của nucleihub
+
+          # Repos "Updated today" từ nucleihub
           curl -fsSL "$NUCLEIHUB_LIST" \
             | nucleihub updatecheck \
             | awk '/^Updated today: /{sub(/^Updated today: /,"");print}' \
             > lists/nucleihub-updated.txt
 
-          # trích toàn bộ link GitHub từ README.txt của Emad
+          # Tất cả link GitHub từ README.txt của Emad
           curl -fsSL "$EMAD_LIST" \
             | grep -Eo 'https://github.com/[A-Za-z0-9._-]+/[A-Za-z0-9._-]+' \
             | sort -u \
             > lists/emad.txt
 
-          # hợp nhất & loại trùng theo URL
+          # Hợp nhất & loại trùng theo URL
           cat lists/nucleihub-updated.txt lists/emad.txt \
             | sort -u > lists/combined.txt
 
-          echo "Repo sources:"
+          echo "Counts:"
           wc -l lists/*.txt || true
 
       - name: Download repositories with nucleihub
@@ -74,7 +74,7 @@ jobs:
           rm -rf nucleihub-downloaded-repos nucleihub-templates
           mkdir -p nucleihub-downloaded-repos nucleihub-templates
 
-          # đọc danh sách repo từ stdin -> download
+          # Tải các repo trong danh sách
           if [ -s lists/combined.txt ]; then
             cat lists/combined.txt \
               | nucleihub download --output-directory nucleihub-downloaded-repos
@@ -82,53 +82,18 @@ jobs:
             echo "No repositories to download today."
           fi
 
-          # gom templates (nucleihub duplicate hợp nhất từ các repo đã tải)
+          # Khử trùng lặp & hợp nhất về thư mục 'nucleihub-templates'
           nucleihub duplicate \
             --input-directory nucleihub-downloaded-repos \
             --output-directory nucleihub-templates \
             --large-content
 
-          # dọn thư mục tải thô
+          # Xoá bản tải thô
           rm -rf nucleihub-downloaded-repos
 
-      - name: De-duplicate by content hash (all YAML/YML)
+      - name: Validate templates with nuclei
         run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import os, hashlib
-
-          ROOT = "nucleihub-templates"
-          exts = (".yaml", ".yml")
-          seen = {}
-          kept = 0
-          removed = 0
-
-          for dirpath, _, files in os.walk(ROOT):
-              for fn in files:
-                  if not fn.lower().endswith(exts): 
-                      continue
-                  p = os.path.join(dirpath, fn)
-                  # Chuẩn hoá: LF newline + bỏ trailing spaces để tránh trùng do CRLF/whitespace
-                  with open(p, "rb") as f:
-                      b = f.read().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
-                  b = b"\n".join(line.rstrip() for line in b.split(b"\n"))
-                  h = hashlib.sha256(b).hexdigest()
-                  if h in seen:
-                      try:
-                          os.remove(p)
-                          removed += 1
-                      except FileNotFoundError:
-                          pass
-                  else:
-                      seen[h] = p
-                      kept += 1
-
-          print(f"Unique templates kept: {kept}, duplicates removed: {removed}")
-          PY
-
-      - name: Validate templates with nuclei (-validate)
-        run: |
-          # Xác thực cú pháp template; in cảnh báo nếu có lỗi
+          # Kiểm tra lỗi cú pháp template; không fail job nếu có cảnh báo
           set -e
           nuclei -validate -t nucleihub-templates || true
 
@@ -138,10 +103,9 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@users.noreply.github.com'
           git add -A
-
           if ! git diff --cached --quiet; then
             IST_DATE=$(TZ='Asia/Kolkata' date +'%a %b %d %H:%M:%S IST %Y')
-            git commit -m "Updated templates & dedup: $IST_DATE"
+            git commit -m "Updated templates (dedup via nucleihub): $IST_DATE"
             git push
           else
             echo "No changes to commit"
