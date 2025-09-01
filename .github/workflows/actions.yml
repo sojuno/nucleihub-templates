@@ -1,4 +1,4 @@
-name: Nuclei-Templates-Collector
+name: Nuclei-Templates-Collecter
 
 on:
   schedule:
@@ -12,101 +12,134 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # dùng cho GitHub API (rate limit cao & lấy default_branch)
+
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+    - name: Check out repository
+      uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '1.23'
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.23.0'
 
-      - name: Install tools & nucleihub + nuclei
-        run: |
-          set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y tar unzip curl
+    - name: Install tools & Nuclei / Nucleihub
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y tar unzip curl jq
+        # nucleihub
+        wget -q https://github.com/rix4uni/nucleihub/releases/download/v0.0.3/nucleihub-linux-amd64-0.0.3.tgz
+        tar -xzf nucleihub-linux-amd64-0.0.3.tgz && rm -f nucleihub-linux-amd64-0.0.3.tgz
+        sudo mv nucleihub /usr/local/bin/nucleihub
+        # nuclei
+        mkdir -p nuclei
+        wget -q -P nuclei https://github.com/projectdiscovery/nuclei/releases/download/v3.3.7/nuclei_3.3.7_linux_amd64.zip
+        unzip -q nuclei/nuclei_3.3.7_linux_amd64.zip -d nuclei
+        sudo mv nuclei/nuclei /usr/local/bin/nuclei
+        rm -rf nuclei
 
-          # nucleihub (v0.0.3)
-          wget -q https://github.com/rix4uni/nucleihub/releases/download/v0.0.3/nucleihub-linux-amd64-0.0.3.tgz
-          tar -xzf nucleihub-linux-amd64-0.0.3.tgz
-          sudo mv nucleihub /usr/local/bin/nucleihub
-          rm -f nucleihub-linux-amd64-0.0.3.tgz
+    - name: Build repo lists (Nucleihub + Emad)
+      run: |
+        set -euo pipefail
+        mkdir -p lists
 
-          # nuclei (mặc định 3.4.x; có thể ghim qua env NUCLEI_VERSION)
-          NUCLEI_VERSION="${NUCLEI_VERSION:-3.4.7}"
-          wget -q -P /tmp "https://github.com/projectdiscovery/nuclei/releases/download/v${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION}_linux_amd64.zip"
-          unzip -q /tmp/nuclei_${NUCLEI_VERSION}_linux_amd64.zip -d /tmp/nuclei
-          sudo mv /tmp/nuclei/nuclei /usr/local/bin/nuclei
-          rm -rf /tmp/nuclei /tmp/nuclei_${NUCLEI_VERSION}_linux_amd64.zip
-          nuclei -version
+        # (A) Lấy list repo từ nucleihub (chỉ những repo "Updated today")
+        curl -s "https://raw.githubusercontent.com/rix4uni/nucleihub/refs/heads/main/reponames.txt" \
+        | nucleihub updatecheck \
+        | grep "^Updated today:" \
+        | sed 's/^Updated today: //' \
+        > lists/nucleihub-updated.txt
 
-      - name: Build combined repo list (nucleihub + Emad README.txt)
-        env:
-          NUCLEIHUB_LIST: https://raw.githubusercontent.com/rix4uni/nucleihub/refs/heads/main/reponames.txt
-          EMAD_LIST: https://raw.githubusercontent.com/emadshanab/Nuclei-Templates-Collection/refs/heads/main/README.txt
-        run: |
-          set -euo pipefail
-          mkdir -p lists
+        # (B) Lấy README.txt của Emad và extract các link repo thuần (bỏ gist/link con)
+        curl -s "https://raw.githubusercontent.com/emadshanab/Nuclei-Templates-Collection/refs/heads/main/README.txt" \
+        | grep -oE 'https://github.com/[^ )]+' \
+        | sed 's/[),]$//' \
+        | awk -F'/' 'NF>=5{next} {print}' \
+        | sed -E 's#\.git$##; s#/$##' \
+        | sort -u \
+        > lists/emad-base.txt
 
-          # Repos "Updated today" từ nucleihub
-          curl -fsSL "$NUCLEIHUB_LIST" \
-            | nucleihub updatecheck \
-            | awk '/^Updated today: /{sub(/^Updated today: /,"");print}' \
-            > lists/nucleihub-updated.txt
+        # (C) Gộp thô (tránh trùng)
+        cat lists/nucleihub-updated.txt lists/emad-base.txt 2>/dev/null | sort -u > lists/combined-raw.txt
 
-          # Tất cả link GitHub từ README.txt của Emad
-          curl -fsSL "$EMAD_LIST" \
-            | grep -Eo 'https://github.com/[A-Za-z0-9._-]+/[A-Za-z0-9._-]+' \
-            | sort -u \
-            > lists/emad.txt
+    - name: Normalize to ZIP archives (detect default branch, fallback main/master)
+      run: |
+        set -euo pipefail
+        : > lists/archives.txt
 
-          # Hợp nhất & loại trùng theo URL
-          cat lists/nucleihub-updated.txt lists/emad.txt \
-            | sort -u > lists/combined.txt
-
-          echo "Counts:"
-          wc -l lists/*.txt || true
-
-      - name: Download repositories with nucleihub
-        run: |
-          set -euo pipefail
-          rm -rf nucleihub-downloaded-repos nucleihub-templates
-          mkdir -p nucleihub-downloaded-repos nucleihub-templates
-
-          # Tải các repo trong danh sách
-          if [ -s lists/combined.txt ]; then
-            cat lists/combined.txt \
-              | nucleihub download --output-directory nucleihub-downloaded-repos
-          else
-            echo "No repositories to download today."
+        normalize() {
+          local url="$1"
+          # nếu đã là .zip thì giữ nguyên
+          if [[ "$url" =~ \.zip$ ]]; then
+            echo "$url"
+            return
           fi
 
-          # Khử trùng lặp & hợp nhất về thư mục 'nucleihub-templates'
-          nucleihub duplicate \
-            --input-directory nucleihub-downloaded-repos \
-            --output-directory nucleihub-templates \
-            --large-content
+          # chỉ xử lý dạng https://github.com/<owner>/<repo>
+          if [[ "$url" =~ ^https://github.com/([^/]+)/([^/]+)$ ]]; then
+            owner="${BASH_REMATCH[1]}"
+            repo="${BASH_REMATCH[2]}"
+            repo="${repo%.git}"
 
-          # Xoá bản tải thô
-          rm -rf nucleihub-downloaded-repos
+            branch="main"
+            # nếu có GH_TOKEN, hỏi GitHub API lấy default_branch để giảm lỗi
+            if [[ -n "${GH_TOKEN:-}" ]]; then
+              api="https://api.github.com/repos/${owner}/${repo}"
+              branch=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" "$api" | jq -r '.default_branch // "main"' || echo main)
+            fi
 
-      - name: Validate templates with nuclei
-        run: |
-          # Kiểm tra lỗi cú pháp template; không fail job nếu có cảnh báo
-          set -e
-          nuclei -validate -t nucleihub-templates || true
-
-      - name: Commit and push changes if there are any
-        run: |
-          set -euo pipefail
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@users.noreply.github.com'
-          git add -A
-          if ! git diff --cached --quiet; then
-            IST_DATE=$(TZ='Asia/Kolkata' date +'%a %b %d %H:%M:%S IST %Y')
-            git commit -m "Updated templates (dedup via nucleihub): $IST_DATE"
-            git push
-          else
-            echo "No changes to commit"
+            # tạo URL codeload và kiểm tra nhanh; nếu fail thì thử main/master
+            for b in "$branch" main master; do
+              zipurl="https://codeload.github.com/${owner}/${repo}/zip/refs/heads/${b}"
+              if curl -sILf -o /dev/null "$zipurl"; then
+                echo "$zipurl"
+                return
+              fi
+            done
           fi
+          # nếu không khớp (gist/link con), bỏ qua
+          return 1
+        }
+
+        while IFS= read -r line; do
+          out="$(normalize "$line" || true)"
+          [[ -n "$out" ]] && echo "$out"
+        done < lists/combined-raw.txt | sort -u > lists/archives.txt
+
+        echo "Prepared $(wc -l < lists/archives.txt) archive URLs."
+
+    - name: Download with nucleihub
+      run: |
+        set -euo pipefail
+        mkdir -p nucleihub-downloaded-repos
+        # Lưu ý: giờ dùng toàn link ZIP hợp lệ -> không còn "Unsupported URL format"
+        cat lists/archives.txt \
+        | nucleihub download --output-directory nucleihub-downloaded-repos
+
+    - name: De-duplicate & collect YAMLs
+      run: |
+        set -euo pipefail
+        nucleihub duplicate \
+          --input-directory nucleihub-downloaded-repos \
+          --output-directory nucleihub-templates \
+          --large-content
+        rm -rf nucleihub-downloaded-repos
+
+    - name: (Optional) Validate templates with nuclei (bật -ni để bỏ interactsh)
+      run: |
+        # validate cú pháp để tránh template lỗi (không bắt buộc)
+        nuclei -validate -t nucleihub-templates -ni || true
+
+    - name: Commit and push changes if any
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@users.noreply.github.com'
+        git add .
+        if ! git diff --cached --exit-code; then
+          IST_DATE=$(TZ='Asia/Kolkata' date +'%a %b %d %H:%M:%S IST %Y')
+          git commit -m "Updated templates: $IST_DATE"
+          git push
+        else
+          echo "No changes to commit"
+        fi
